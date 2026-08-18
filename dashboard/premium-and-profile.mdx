@@ -1,0 +1,39 @@
+---
+title: Premium and bot profile
+description: Manage supported subscriptions, plan-gated functionality, multi-server access, and bot profile customisation.
+icon: crown
+---
+
+# Premium and bot profile
+
+The dashboard contains a protected Premium area with subscription status, checkout, upgrade, cancellation, payment history, invoice retrieval, customer-portal access, and transfer operations. The bot also provides `/premium-activate`, `/premium-info`, `/premium-link`, `/premium-settings`, and `/premium-transfer`.
+
+## Subscription workflows
+
+| Goal | Dashboard or bot route |
+| --- | --- |
+| View current status | Dashboard subscription page or `/premium-info` |
+| Link/activate a Patreon purchase | `/premium-link` or `/premium-activate` |
+| Change supported plan details | Dashboard Premium area and `/premium-settings` |
+| Transfer a Tier 2 subscription | Protected dashboard transfer route or `/premium-transfer` for the owner |
+| Access billing history/invoices | Dashboard payment and invoice routes |
+
+The code includes payment integrations for Patreon, Polar, and PayPal webhooks. Keep billing-provider credentials private; documentation should explain user-facing flows, not webhook secrets or internal endpoints.
+
+## Verified feature gates
+
+| Capability | Availability represented in source |
+| --- | --- |
+| Giveaway duration | Free: up to 60 days; Tier 1: up to 100 days; Tier 2+: up to 300 days. |
+| Winner count | Free: up to 60; Tier 1: up to 100; Tier 2+: up to 200. |
+| Repeat giveaways | Tier 1 requirement is shown by `/gstart`. |
+| Sticky giveaways | Tier 2 requirement is shown by `/gstart` and the dashboard. |
+| Reaction entry | Tier 2 in the dashboard form. |
+| Custom giveaway colours/styles/button labels | Tier 1 in the dashboard form; `/setcolor` and `/setemoji` identify these as Premium. |
+| Custom prefixes | `/setprefix` identifies this as Premium. |
+| Dashboard backup | Marked Premium in the sidebar. |
+| Profile Bot | Marked Premium in the sidebar. |
+
+## Profile Bot
+
+The Profile Bot dashboard page is marked Premium and uses a protected GET/PATCH profile route. The server model stores original and custom bot nickname, avatar, banner, biography, and name-style preferences. Use this section only if the plan and deployed dashboard support it; preserve the original values so customisation can be reverted.

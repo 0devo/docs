@@ -1,0 +1,33 @@
+---
+title: Engagement and leveling
+description: Use Counting, Leveling, temporary voice tools, rankings, and related engagement features.
+icon: trophy
+---
+
+# Engagement and leveling
+
+The supplied source implements multiple engagement systems. Availability differs by surface: **Counting** is active in the dashboard sidebar, while **Leveling System** is marked *Soon* in that same navigation even though the bot command and protected dashboard API are implemented. Temporary Channels is also marked *Soon* in the sidebar, while the bot includes `/tempvoice` configuration.
+
+## Counting
+
+The active Counting page uses protected routes to list/create counting channels and to get, update, or post actions for an individual channel. The bot’s `/counting` command opens a management dashboard. Use this system when members should progress through an ordered sequence in selected channels.
+
+## Leveling
+
+GiveawayX stores a configurable leveling system with text, voice, and optional reaction activity. `/levelsetup` opens an interactive configuration panel, `/rank` shows a user’s level and XP rank, `/top` presents server rankings, and `/setlevel`/`/setxp` provide staff controls.
+
+| Category | Supported settings |
+| --- | --- |
+| **XP sources** | Text messages, voice minutes, and optionally reactions. |
+| **Rates and cooldowns** | Base XP, variance, per-voice-minute XP, reaction XP, and independent cooldowns. |
+| **Exclusions and multipliers** | No-XP roles/channels, no-XP voice channels, role multipliers, and channel multipliers. |
+| **Rewards** | Text, voice, and reaction role rewards; reward stacking/removal and highest-reward-only controls. |
+| **Notifications** | Channel, DM, both, or disabled level-up notices with custom text/image/embed options. |
+| **Schedules and rankings** | Timezone, daily/weekly/monthly reset timing, fixed/rolling leaderboard mode, and rolling-day duration. |
+| **Events** | Temporary XP boost multiplier with end time and reason. |
+
+The dashboard includes GET/PATCH leveling routes and a reset action. Since the sidebar flags the page as upcoming, document it for bot administrators but verify current UI availability in your deployed dashboard before directing non-technical staff to it.
+
+## Temporary voice channels
+
+`/tempvoice` configures temporary voice channels through setup, add, remove, edit, panel, settings, stats, and full-setup flows. Its configuration includes category/panel channels, default names, user limits, bitrate, per-user channel limits, auto-transfer, and controls for rename, limit, bitrate, region, slowmode, lock, hide, status, kick, mute, deafen, ban, transfer, claim, video, and invite actions.

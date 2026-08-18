@@ -1,0 +1,68 @@
+---
+title: Slash command reference
+description: A categorized reference for the GiveawayX slash commands verified in the supplied bot source.
+icon: command
+---
+
+# Slash command reference
+
+This reference groups commands by purpose. Commands that perform server-wide changes normally declare `Manage Guild`, `Administrator`, or a custom permission check. Availability may also depend on configured Giveaway Manager roles, the bot’s Discord permissions, enabled command settings, and premium tier.
+
+## Giveaway commands
+
+| Command | Purpose |
+| --- | --- |
+| `/gstart` | Start a configurable giveaway through a draft/preview workflow. |
+| `/gschedule` | Schedule a giveaway to start later with preview and editing. |
+| `/gtemplate` | Create, edit, list, preview, duplicate, export, and import reusable giveaway templates. |
+| `/gedit` | Edit a live or scheduled giveaway. |
+| `/glist` | List active or ended giveaways. |
+| `/gpause` and `/gresume` | Pause and resume an active event. |
+| `/gend` | End an active giveaway early. |
+| `/greroll` | Select replacement winners, optionally excluding prior winners. |
+| `/gdelete` | Delete a giveaway. |
+| `/gfix` | Attempt a repair of common active-giveaway issues; declared Administrator. |
+| `/gdrop` | Start a first-claim-wins drop giveaway. |
+| `/gvoice` | Start a voice-channel giveaway with dynamic status updates. |
+| `/glast` | Start a last-person-standing giveaway mode. |
+| `/settings` | Open the main giveaway settings overview. |
+| `/setcolor`, `/setemoji`, `/setrole` | Configure giveaway visual defaults and giveaway command-management roles. |
+
+## Setup, information, and utility commands
+
+| Command | Purpose |
+| --- | --- |
+| `/setup` | Open comprehensive setup for logs, prefix, language, timezone, and default giveaway channel. |
+| `/commands` and `/help` | Browse commands by category or inspect a specific command. |
+| `/setlang` and `/setprefix` | Change language or manage prefixes; prefixes are Premium-only. |
+| `/setlog` | Open giveaway-log settings. |
+| `/ping` | View latency, connectivity, cache, and system information. |
+| `/invite` and `/link` | Get bot/server invitation information. |
+| `/server`, `/user`, `/avatar`, `/channelinfo`, `/roleinfo`, `/messageinfo` | Retrieve Discord object information. |
+| `/timestamps` | Generate Discord timestamps from a duration. |
+| `/translate` | Translate text, messages, images through OCR, PDFs, and supplied files. |
+| `/embed` | Build messages in Classic Embed, Components V2, or Say mode. |
+
+## Community, moderation, and fun commands
+
+| Command | Purpose |
+| --- | --- |
+| `/greet` | Manage welcome/goodbye messages, auto-roles, and DM greetings. |
+| `/starboard` | Open Starboard control panel. |
+| `/sticky` | Open sticky-message control panel. |
+| `/counting` | Open Counting management. |
+| `/levelsetup`, `/rank`, `/top`, `/setlevel`, `/setxp` | Configure and manage levels, XP, profiles, and leaderboard data. |
+| `/tempvoice` | Configure temporary voice channels and their member controls. |
+| `/afk` | Set AFK status with optional reason and global state. |
+| `/clear` | Delete matching channel messages, with user/filter/regex/pinned/dry-run controls. |
+| `/lock`, `/unlock`, `/hide`, `/show`, `/slowmode` | Apply channel access and message-rate controls. |
+| `/rep` | Award a reputation point. |
+| `/pick` | Pick a random result from supported sources. |
+| `/meme`, `/rps`, `/xo` | Community entertainment commands. |
+| `/nickname`, `/roleicon`, `/steal` | Manage names/icons or copy up to ten emojis/stickers. |
+
+## Premium and internal commands
+
+`/premium-activate`, `/premium-info`, `/premium-link`, `/premium-settings`, and `/premium-transfer` are user-facing subscription controls. `/premium-add` and `/premium-removal` are marked **Developer Only** in the source and should not be presented as ordinary community-administration commands.
+
+For command parameters and lifecycle details, read the linked feature guides rather than exposing every raw option in a single page.

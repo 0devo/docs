@@ -1,0 +1,39 @@
+---
+title: Troubleshooting
+description: Resolve common GiveawayX configuration, giveaway, and dashboard access problems.
+icon: life-buoy
+---
+
+# Troubleshooting
+
+Use this guide as a structured first response. Collect the server ID, giveaway ID where relevant, exact command/action, Discord channel, time, and any dashboard/browser error before making a change.
+
+## Giveaway does not publish
+
+| Check | Resolution |
+| --- | --- |
+| Target channel exists | Re-select a valid text channel. The bot reports failure when the selected channel no longer exists. |
+| Bot can send messages | Review channel permissions, role overrides, and Components V2/message permissions. |
+| Staff access | Confirm the user is an owner, Administrator, has `Manage Guild`, or holds a configured Giveaway Manager role. |
+| Required values | Provide at least a valid duration and prize. The command validates duration format and minimum duration. |
+| Image upload | Use an image file no larger than 5 MB in the dashboard. |
+
+## Member cannot enter
+
+Review role requirements, role-hold time, bypass roles/rules, blacklist mode, account age, server-join age, message count, included message channels/roles, level threshold, server-tag requirement, and winner cooldown. If reaction entry is selected, check that the server is eligible for Tier 2 and the chosen emoji is valid.
+
+## A dashboard page is unavailable
+
+Confirm the user signed in with the intended Discord account and that account has access to the selected server. Then check whether the feature is marked **Soon** or **Premium** in the sidebar. A source route alone does not prove that a deployed dashboard currently exposes it.
+
+## Logs, DMs, threads, or sticky behavior are missing
+
+Confirm the relevant toggle is enabled, the target channel/thread operation is permitted, custom content is valid, and no plan gate prevents the selected feature. Check the giveaway-log, dashboard-log, and audit-log pages where available.
+
+## Use repair cautiously
+
+`/gfix` is intended for common active-giveaway issues and is declared Administrator. Use it only after recording the event ID and reviewing logs. For a failed or irreparably outdated event, consider ending/recreating it rather than making repeated repair attempts.
+
+## Reporting a bug
+
+Provide a concise reproduction: server context, feature, action, expected result, actual result, approximate timestamp, screenshots, and any giveaway ID. Remove tokens, payment information, database URLs, webhook secrets, and private member data before sharing logs.

@@ -1,0 +1,45 @@
+---
+title: Installation and self-hosting
+description: Configure the supplied GiveawayX bot source for a Discord application and MongoDB deployment.
+icon: terminal
+---
+
+# Installation and self-hosting
+
+The supplied bot project is a Node.js application built on `discord.js`, Mongoose, Express, and Discord sharding support. Its root README documents `src/index.js` as the startup entry point and expects a Discord token plus MongoDB connection URI in environment configuration.
+
+## Prerequisites
+
+| Requirement | Purpose |
+| --- | --- |
+| A Discord application and bot token | Lets the bot connect to Discord. |
+| A MongoDB-compatible database | Stores server settings, giveaways, templates, user data, backups, and related feature state. |
+| Node.js and npm | Installs and runs the bot package. |
+| Discord permissions | The bot needs the channel, message, role, thread, and moderation permissions required by the features you enable. |
+
+## Basic local setup
+
+```bash
+npm install
+```
+
+Create an environment file in the bot project root with the values required by your deployment:
+
+```dotenv
+TOKEN=your_discord_bot_token
+MONGO_URI=your_mongodb_connection_uri
+```
+
+Then start the application:
+
+```bash
+node src/index.js
+```
+
+## Deployment notes
+
+The dashboard is a separate Next.js project. Its API routes operate on the same application data model and are intended to be used with Discord authentication and server-access checks. Keep bot tokens, database credentials, payment-webhook credentials, and OAuth secrets on the server only; they must never be committed into documentation or client-side dashboard code.
+
+For a hosted docs site, keep this documentation bundle in the repository connected to Mintlify. Mintlify uses a docs-as-code model: `docs.json` is at the repository root, and each MDX file maps to a published page. [1]
+
+[1]: https://www.mintlify.com/docs/quickstart "Mintlify Quickstart"

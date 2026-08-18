@@ -1,0 +1,47 @@
+---
+title: Create your first giveaway
+description: Publish a basic giveaway using the Giveaway Studio or the /gstart command.
+icon: party-popper
+---
+
+# Create your first giveaway
+
+Use `/gstart` for a guided Discord workflow, or open **Dashboard → Giveaways → Create giveaway** for the full Giveaway Studio. Both routes support the same core event concept: choose a prize, number of winners, duration, and destination channel, then publish or schedule the draft.
+
+## Minimum required information
+
+| Field | Guidance |
+| --- | --- |
+| **Prize** | A clear prize title, such as `Nitro Basic — 1 month`. |
+| **Duration** | Use a compact duration such as `30m`, `2h`, or `7d` with the slash command; the dashboard provides minutes, hours, and days. |
+| **Winners** | Select the number of winners. The dashboard enforces plan-based limits. |
+| **Channel** | Choose the text channel where participants should enter. |
+
+## Discord workflow
+
+```text
+/gstart prize:<prize> duration:<duration> winners:<number> channel:<channel>
+```
+
+The command opens a draft panel rather than forcing immediate publication. From that panel, staff can preview the event, edit it, start it, schedule it, save it as a template, or customise labels. The preview is intentionally generated from the same settings used for the published message.
+
+## Dashboard workflow
+
+1. Open your server in the dashboard.
+2. Select **Giveaways** and choose **Create giveaway**.
+3. Complete the Basics section, then review requirements, rewards, appearance, access, and scheduling.
+4. Use the preview to verify the displayed prize, labels, participants state, image, and button styling.
+5. Publish immediately or enable **Schedule for later**.
+
+## Before publishing
+
+Check the following conditions before you confirm an event.
+
+| Check | Reason |
+| --- | --- |
+| The bot can send messages in the destination channel | A giveaway cannot be created if the selected channel no longer exists or cannot receive the message. |
+| Event managers have the correct role/permission | `/gstart` checks administrator, `Manage Guild`, owner, or configured Giveaway Manager roles. |
+| Premium restrictions are understood | Repeating, sticky, reaction-based entry, extended limits, and style controls may depend on tier. |
+| Rules are intentional | Requirements, bypass roles, blacklist roles, age checks, message requirements, and bonus entries change who can win. |
+
+Continue with [Giveaway Studio](/giveaways/studio) for every available setting.

@@ -1,55 +1,34 @@
-# Mintlify Starter Kit
+# GiveawayX Mintlify Documentation Bundle
 
-Use the starter kit to get your docs deployed and ready to customize.
+This bundle contains the complete **English** documentation set prepared from the supplied GiveawayBot and GiveawayX Dashboard source code. It contains 21 Mintlify MDX pages, a root `docs.json`, the original GiveawayX logo and circular bot icon, and selected dashboard screenshots.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## Deploy to the linked Mintlify repository
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
-
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
-
-## AI-assisted writing
-
-Set up your AI coding tool to work with Mintlify:
+Copy the contents of this bundle into the root of the repository connected to Mintlify. Commit and push the changes. Mintlify uses a docs-as-code workflow: pages are stored in the repository and deployments are triggered by repository updates. [1]
 
 ```bash
-npx skills add https://mintlify.com/docs
+# From the root of your Mintlify-connected docs repository
+cp -R /path/to/GiveawayX-Mintlify-Docs/. .
+git add docs.json index.mdx get-started giveaways dashboard bot reference assets README.md
+git commit -m "docs: add comprehensive GiveawayX documentation"
+git push
 ```
 
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
+## Bundle structure
 
-See the [AI tools guides](/ai-tools) for tool-specific setup.
+| Path | Purpose |
+| --- | --- |
+| `docs.json` | Mintlify theme, brand, navigation, search/contextual settings, and project metadata. |
+| `index.mdx` | Documentation landing page. |
+| `get-started/` | Initial configuration, self-hosting, and first giveaway guidance. |
+| `giveaways/` | Giveaway Studio, eligibility, rewards, scheduling, templates, and live-event management. |
+| `dashboard/` | Every active dashboard area, plus visibility notes for Premium and Coming Soon sections. |
+| `bot/` | Categorized slash-command, utility, community, and automation reference. |
+| `reference/` | Permissions, feature availability, and troubleshooting. |
+| `assets/` | Original GiveawayX logo/icon plus dashboard screenshots. |
 
-## Development
+## Verification status
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+The bundle passed a static verification: all 21 navigation entries point to existing MDX pages, every page contains frontmatter, and all configured logo/favicon assets exist. Before publishing, use the Mintlify preview or deployment preview to make any product-specific link, policy, or support-channel updates.
 
-```
-npm i -g mint
-```
-
-Run the following command at the root of your documentation, where your `docs.json` is located:
-
-```
-mint dev
-```
-
-View your local preview at `http://localhost:3000`.
-
-## Publishing changes
-
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
-
-## Need help?
-
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+[1]: https://www.mintlify.com/docs/quickstart "Mintlify Quickstart"

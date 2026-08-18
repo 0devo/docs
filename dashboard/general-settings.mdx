@@ -1,0 +1,32 @@
+---
+title: General Settings and embeds
+description: Configure server-wide GiveawayX behavior, defaults, command controls, and standalone Discord messages.
+icon: settings-2
+---
+
+# General Settings and embeds
+
+**General Settings** holds shared server configuration that applies before an individual giveaway overrides it. Use this area to establish a predictable baseline for event design, bot language, timezone, permissions, and Discord behavior.
+
+## Server-wide settings
+
+| Setting group | Examples verified in the source |
+| --- | --- |
+| **Identity and localisation** | Bot language, server timezone, configured prefixes, default giveaway channel, and setup-completion state. |
+| **Giveaway defaults** | Embed colour, participation emoji, default entry type, default reaction emoji, default duration, button label/colour, and participant-count display settings. |
+| **Access control** | Giveaway Manager roles, disabled channels, disabled roles, and disabled commands. |
+| **Notifications** | Winner and host DM defaults, custom DM text, and winner-thread defaults. |
+| **Appearance** | Custom line labels, bullets, templates, bot nickname, avatar, banner, biography, and name-style values where supported. |
+| **Logs** | Enabled log categories, default log channels, event-specific log channels, executor display, and webhook branding where available. |
+
+## Command controls
+
+The dashboard exposes a protected `/api/guilds/[id]/commands` route with GET and PATCH operations. Its purpose is to manage server-side command configuration such as enabled state, aliases, custom responses, and access restrictions. The sidebar identifies **Commands** as a new feature.
+
+> Some separately visible dashboard items, including **Custom Commands**, are marked *Soon*. Do not confuse the active command-configuration page with a future full custom-command builder.
+
+## Embed Messages
+
+The dashboard offers an embed-message area with create, edit, delete, send, and message-delete operations. It is suited for stand-alone announcements and structured Discord content rather than giveaway event messages. The bot’s `/embed` command additionally describes three message modes: classic embed, Components V2, and plain “say” mode, with webhook and component support.
+
+When creating an event, use the Giveaway Studio’s built-in announcement and event-message settings instead. Use **Embed Messages** for reusable non-giveaway announcements, rules, campaign posts, or channel information.

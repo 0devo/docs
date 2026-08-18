@@ -1,72 +1,85 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "theme": "luma",
+  "name": "GiveawayX",
+  "description": "Complete documentation for the GiveawayX Discord bot and its administration dashboard.",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
-  "favicon": "/favicon.svg",
-  "navigation": {
-    "pages": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    "primary": "#2563FF",
+    "light": "#5B8CFF",
+    "dark": "#143FBC"
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/assets/giveawayx-logo.png",
+    "dark": "/assets/giveawayx-logo.png",
+    "href": "/"
+  },
+  "favicon": "/assets/giveawayx-icon-circle.png",
+  "appearance": {
+    "default": "system",
+    "strict": false
+  },
+  "background": {
+    "decoration": "gradient"
+  },
+  "fonts": {
+    "family": "Inter",
+    "weight": 400,
+    "heading": {
+      "family": "Inter",
+      "weight": 700
+    }
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs",
+    "codeblocks": "system"
+  },
+  "metadata": {
+    "timestamp": true
+  },
+  "contextual": {
+    "options": ["assistant", "copy", "view"],
+    "display": "toc"
   },
   "navbar": {
     "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
+      {"label": "GitHub", "href": "https://github.com/0devo/GiveawayBot"}
     ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/0devo/GiveawayBot"
     }
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Getting started",
+        "icon": "rocket",
+        "pages": ["index", "get-started/overview", "get-started/installation", "get-started/first-giveaway"]
+      },
+      {
+        "group": "Giveaways",
+        "icon": "gift",
+        "pages": ["giveaways/studio", "giveaways/eligibility-and-rewards", "giveaways/scheduling-and-templates", "giveaways/managing-live-giveaways"]
+      },
+      {
+        "group": "Dashboard",
+        "icon": "layout-dashboard",
+        "pages": ["dashboard/overview", "dashboard/general-settings", "dashboard/giveaway-manager", "dashboard/community-features", "dashboard/engagement-and-leveling", "dashboard/logs-backups-and-audit", "dashboard/premium-and-profile"]
+      },
+      {
+        "group": "Bot features",
+        "icon": "bot",
+        "pages": ["bot/command-reference", "bot/community-and-utilities", "bot/notifications-and-automation"]
+      },
+      {
+        "group": "Reference",
+        "icon": "book-open",
+        "pages": ["reference/permissions-and-access", "reference/feature-availability", "reference/troubleshooting"]
+      }
+    ]
   }
 }

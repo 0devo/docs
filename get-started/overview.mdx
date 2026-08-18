@@ -1,0 +1,43 @@
+---
+title: Initial configuration
+description: Set up GiveawayX for a server, choose its language and timezone, and delegate giveaway administration.
+icon: settings
+---
+
+# Initial configuration
+
+The fastest setup path is the interactive `/setup` command. The supplied bot describes this panel as covering **logs, prefix, language, timezone, and the default giveaway channel**. The dashboard exposes the same server-level configuration through **General Settings**.
+
+## Recommended setup order
+
+| Step | Configuration | Why it matters |
+| --- | --- | --- |
+| 1 | Select the default giveaway channel | New giveaways can use a predictable home by default. |
+| 2 | Set the server timezone | Scheduled giveaways and time-related settings should match the community’s operating timezone. |
+| 3 | Choose the bot language | GiveawayX ships language files for English, Arabic, Portuguese, Spanish, French, Turkish, German, Italian, Russian, Dutch, Swedish, Danish, Finnish, Polish, Japanese, Chinese, and Kurdish. |
+| 4 | Configure logs | Giveaway starts, endings, edits, rerolls, pauses, resumes, drops, fixes, schedules, and selected settings changes can be logged. |
+| 5 | Delegate access | Add Giveaway Manager roles instead of granting broad Discord permissions to every event manager. |
+
+## Essential commands
+
+```text
+/setup
+/setlang language:<language>
+/setlog
+/setrole action:<manage roles>
+/settings
+```
+
+The exact choices shown by the interactive panels depend on the server’s Discord roles, channels, premium tier, and currently saved settings.
+
+## Access model
+
+Giveaway actions use `Manage Guild` as their declared command permission in the bot source. GiveawayX also supports configured **Giveaway Manager roles**, which allow designated staff to manage giveaways without relying only on administrator-level access. Dashboard requests for a specific server are guarded by a server-access check, so a user must have dashboard access to that Discord server.
+
+Read [Permissions and access](/reference/permissions-and-access) before assigning staff roles or enabling actions that delete content, change channel permissions, or restore backups.
+
+## Server defaults
+
+The server configuration includes defaults for giveaway visuals and behavior, including the giveaway embed colour, participation emoji, participation method, participant-count visibility, winner/host DM preferences, winner-thread defaults, giveaway logs, disabled channels, disabled roles, and disabled commands. Per-giveaway values can override many of these defaults in the Giveaway Studio.
+
+> Use defaults for consistent branding; use a per-giveaway override only when an event needs a distinct campaign style or access rule.

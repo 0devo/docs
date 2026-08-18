@@ -1,0 +1,36 @@
+---
+title: Dashboard overview
+description: Understand the GiveawayX dashboard, its server access model, and every current navigation area.
+icon: layout-dashboard
+---
+
+# Dashboard overview
+
+The GiveawayX dashboard is a Discord-authenticated administration interface. After signing in, choose a server from **My Servers**. Server-specific dashboard APIs use a guild-access guard, so you must have access to that Discord server before viewing or changing its data.
+
+## Current server navigation
+
+| Section | Active dashboard areas | Availability noted in the UI |
+| --- | --- | --- |
+| **General** | Overview, General Settings, Embed Messages, Manage Subscription | Active |
+| **Moderation** | Log Settings, Welcome & Goodbye | Active; Leveling System is marked **Soon** in the sidebar. |
+| **Giveaways** | Giveaways | Active |
+| **Community** | Starboard, Sticky Messages | Active; Suggestions and Server Tag are marked **Soon**. |
+| **Engagement** | Counting, Profile Bot | Counting is active; Profile Bot is marked **Premium**. Temporary Channels, Boosts, and Colors are marked **Soon**. |
+| **Communication** | Custom Commands | Marked **Soon**. |
+| **Others** | Commands, Audit Logs, Dashboard Logs, Backup | Commands and Audit Logs are marked **New**; Backup is marked **Premium**. |
+
+The dashboard source also includes routes and APIs for leveling, notifications, temporary channels, leaderboards, public giveaway pages, profile images, daily rewards, and user preferences. Where a page is not enabled in the current sidebar, treat the implementation as non-primary until it is exposed in the product UI.
+
+## Typical administration flow
+
+1. Select a server from **My Servers**.
+2. Configure server defaults in **General Settings**.
+3. Configure **Log Settings** before enabling automation so staff can trace changes.
+4. Create an event from **Giveaways** or a Discord slash command.
+5. Use community features such as Starboard, Sticky Messages, Counting, or Welcome & Goodbye as needed.
+6. Review **Dashboard Logs** and **Audit Logs** regularly; use Premium Backup for restoration workflows when available.
+
+## API-backed management areas
+
+The supplied dashboard contains protected API routes for settings, giveaways, templates, giveaway message templates, giveaway blacklist entries, giveaway logs, command configuration, counting channels, Starboard, sticky messages, welcome settings, leveling, notifications, profile customisation, backups, premium billing, and dashboard logs. These endpoints are used by dashboard pages; they are not a public integration API contract.
