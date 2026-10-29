@@ -1,37 +1,78 @@
 ---
-title: GiveawayX Documentation
-description: The complete guide to GiveawayX, its Discord bot, and its management dashboard.
-icon: gift
+title: "Welcome to GiveawayX"
+description: "The complete guide to running reliable, fully customizable giveaways on Discord, plus leveling, starboard, sticky messages and more."
+icon: "gift"
 ---
 
-# GiveawayX Documentation
+GiveawayX is a Discord bot built around one idea: **giveaways that just work**. Start one in seconds, tune every rule when you need to, and trust it to finish on time, draw fair winners and let you fix anything that goes wrong.
 
-GiveawayX is a Discord giveaway platform that combines a configurable bot with a server management dashboard. It is designed for communities that need more than a simple prize draw: administrators can control eligibility, scheduling, winner rewards, presentation, logging, engagement tools, and premium server customisation from one system.
+<Columns cols={3}>
+  <Card title="Fast to start" icon="bolt" href="/quickstart">
+    One short form or one command. Your first giveaway takes under a minute.
+  </Card>
+  <Card title="Deeply customizable" icon="sliders" href="/giveaways/entry-requirements">
+    Roles, account age, levels, boosts, captcha, bonus entries and more.
+  </Card>
+  <Card title="Built to be reliable" icon="shield-check" href="/giveaways/managing">
+    Pause, edit, reroll and repair giveaways without starting over.
+  </Card>
+</Columns>
 
-![GiveawayX dashboard giveaway manager](/assets/dashboard-giveaways.webp)
+## Choose your path
 
-> This documentation reflects the supplied GiveawayX bot and dashboard source. It distinguishes enabled features from dashboard items that are explicitly marked **Coming Soon** or **Premium** in the current interface.
+<Tabs>
+  <Tab title="I manage a server" icon="crown">
+    You decide who can host giveaways, where the bot may post and what your server's defaults look like.
 
-| Area | What it covers |
-| --- | --- |
-| **Giveaways** | Draft-based creation, eligibility checks, bonus entries, templates, scheduling, live management, drops, voice giveaways, and rerolls. |
-| **Dashboard** | Server settings, the giveaway studio, embeds, welcome messages, Starboard, sticky messages, logs, audit history, backups, and subscription controls. |
-| **Community tools** | Counting, leveling, temporary voice channels, reputation, AFK, utility commands, and content tools. |
-| **Automation** | Scheduled giveaways, recurring schedules, sticky reposting, notifications, winner DMs, winner threads, logs, backups, and webhooks. |
+    <CardGroup cols={2}>
+      <Card title="Permissions" icon="shield-halved" href="/concepts/permissions">Who can do what, and what the bot needs.</Card>
+      <Card title="Server settings" icon="gear" href="/giveaways/settings">Colors, DMs, winner threads and entry mode.</Card>
+      <Card title="Premium" icon="star" href="/concepts/premium">Higher limits and extra customization.</Card>
+      <Card title="Logging" icon="scroll" href="/features/logging">Keep a record of every giveaway action.</Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="I host giveaways" icon="gift">
+    You create giveaways, pick the rules and handle winners.
 
-## Choose a path
+    <CardGroup cols={2}>
+      <Card title="Creating giveaways" icon="plus" href="/giveaways/creating">Every option of `/gcreate` and `/gstart`.</Card>
+      <Card title="Entry requirements" icon="user-check" href="/giveaways/entry-requirements">Decide who is allowed to enter.</Card>
+      <Card title="Bonus entries" icon="ticket" href="/giveaways/bonus-entries">Reward boosters, supporters and active members.</Card>
+      <Card title="Recipes" icon="book-open" href="/giveaways/recipes">Ready-made setups for common situations.</Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="I'm a member" icon="user">
+    You enter giveaways, level up and use the fun commands.
 
-Start with **Overview** if you are installing or configuring GiveawayX for the first time. If the bot is already in your server, continue with **Create your first giveaway**. Administrators using the web interface should read **Dashboard overview** and then the relevant feature section.
+    <CardGroup cols={2}>
+      <Card title="Leveling" icon="chart-line" href="/features/leveling">Earn XP and climb the leaderboard.</Card>
+      <Card title="AFK status" icon="moon" href="/features/afk">Let people know you are away.</Card>
+      <Card title="Voting" icon="thumbs-up" href="/features/voting">Vote for the bot and get rewards.</Card>
+      <Card title="FAQ" icon="circle-question" href="/help/faq">Quick answers to common questions.</Card>
+    </CardGroup>
+  </Tab>
+</Tabs>
 
-| I want to… | Read this |
-| --- | --- |
-| Configure a server safely | [Initial configuration](/get-started/overview) |
-| Publish a giveaway | [Create your first giveaway](/get-started/first-giveaway) |
-| Build a complex giveaway | [Giveaway Studio](/giveaways/studio) |
-| Set entry rules or winner rewards | [Eligibility and rewards](/giveaways/eligibility-and-rewards) |
-| Use the web dashboard | [Dashboard overview](/dashboard/overview) |
-| Find a slash command | [Command reference](/bot/command-reference) |
+## Everything in the bot
 
-## Product terminology
+<AccordionGroup>
+  <Accordion title="Giveaways" icon="gift" defaultOpen>
+    Standard giveaways, instant **drops**, first or last to type games, scheduled and repeating giveaways, reusable templates and a **Studio** panel with a live preview. Entry can use a button or a reaction.
+  </Accordion>
+  <Accordion title="Rules and fairness" icon="scale-balanced">
+    Required roles, blacklists, account and server age, message counts, levels, boosts, official server tag, captcha, suspicious username detection and screenshot verification for social media tasks.
+  </Accordion>
+  <Accordion title="Winners" icon="trophy">
+    DMs to winners and hosts, private or public winner threads, automatic winner roles, one-button prize claiming with automatic rerolls, and a manual reroll with a clear preview.
+  </Accordion>
+  <Accordion title="Server tools" icon="toolbox">
+    Leveling with text and voice XP, starboard, sticky messages, welcome and goodbye messages, AFK status, a translator for text, images and files, and per-command customization.
+  </Accordion>
+  <Accordion title="Languages" icon="globe">
+    17 languages, set per server. See [Language](/features/language).
+  </Accordion>
+</AccordionGroup>
 
-A **server** is a Discord guild managed by GiveawayX. A **giveaway** is a published prize event, while a **draft** is the editable configuration used before publishing or scheduling it. A **template** is a reusable giveaway configuration. **Premium Tier 1** and **Premium Tier 2** unlock different feature limits and customisation options; check [Feature availability](/reference/feature-availability) before relying on a gated option.
+<Check>
+Need a hand? Join the [support server](https://discord.gg/86jArY28hj) or manage everything from the [dashboard](https://giveawayx.lol).
+</Check>

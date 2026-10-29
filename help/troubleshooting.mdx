@@ -1,0 +1,40 @@
+---
+title: "Troubleshooting"
+description: "Fix the most common problems yourself."
+icon: "life-ring"
+---
+
+<AccordionGroup>
+  <Accordion title="The bot did not post my giveaway" icon="ban">
+    <Steps>
+      <Step title="Check channel permissions">The bot needs **View Channel**, **Send Messages** and **Embed Links** in that channel (plus **Add Reactions** for reaction giveaways).</Step>
+      <Step title="Check your own permissions">You need Manage Server, Administrator or a Giveaway Manager role.</Step>
+      <Step title="Check the values">A duration without a unit (like `30`) is rejected. Use `30m`.</Step>
+    </Steps>
+  </Accordion>
+  <Accordion title="A giveaway is stuck or did not end" icon="wrench">
+    Run `/gfix giveaway_id:<id>`. Use `dry_run:true` first if you only want to see the report.
+  </Accordion>
+  <Accordion title="Winners did not get a role" icon="user-tag">
+    The bot's role must be **above** the role it gives, and it needs **Manage Roles**.
+  </Accordion>
+  <Accordion title="Winners did not get a DM" icon="envelope">
+    Winner DMs must be on in `/settings`, and the member must allow DMs from server members.
+  </Accordion>
+  <Accordion title="Slash commands are missing" icon="slash">
+    Make sure the bot was added with command access, and that your server has not hidden the command. If it still does not appear, ask in the support server.
+  </Accordion>
+  <Accordion title="A member cannot enter" icon="user-slash">
+    They will get a private message saying which requirement they miss: a role, account age, join age, level, boost, captcha and so on. Check [Entry requirements](/giveaways/entry-requirements).
+  </Accordion>
+  <Accordion title="Leveling gives no XP" icon="chart-line">
+    XP tracking needs active Premium. See [Leveling](/features/leveling).
+  </Accordion>
+  <Accordion title="I made a mistake in a giveaway" icon="rotate-left">
+    `/gedit` fixes most things. If it already ended, `/greroll` can replace winners.
+  </Accordion>
+</AccordionGroup>
+
+<Info>
+Include the giveaway link and what you expected to happen when you ask for help in the [support server](https://discord.gg/86jArY28hj). It makes fixes much faster.
+</Info>

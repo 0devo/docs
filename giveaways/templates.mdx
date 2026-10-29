@@ -1,0 +1,57 @@
+---
+title: "Templates"
+description: "Save giveaway settings once and reuse them as often as you like."
+icon: "copy"
+---
+
+A **template** stores a giveaway's settings under a name. Start the same kind of giveaway again with `/gstart template:<name>` or `/gschedule create template:<name>`. Anything you type on the command overrides the template.
+
+## What a template remembers
+
+<Columns cols={2}>
+  <Card title="Basics" icon="gift">Name, prize, description, duration, winners, channel.</Card>
+  <Card title="Media" icon="image">Image and thumbnail.</Card>
+  <Card title="Roles" icon="user-tag">Required, bypass, blacklist and winner roles, with their modes.</Card>
+  <Card title="Requirements" icon="shield-check">Join age, account age, invites, messages, level, official tag.</Card>
+  <Card title="Verification" icon="camera">Screenshot verification settings.</Card>
+  <Card title="Entries" icon="ticket">Bonus entries and entry type (button or reaction).</Card>
+</Columns>
+
+It also remembers options such as repeat, sticky, auto-claim settings and the custom creation message.
+
+## Commands
+
+| Command | What it does |
+| --- | --- |
+| `/gtemplate create` | Make a new template. |
+| `/gtemplate edit basic` | Edit name, prize, duration, winners, channel and description. |
+| `/gtemplate edit requirements` | Edit role, age, invite, message and level requirements. |
+| `/gtemplate edit entries` | Edit bonus and vote entries. |
+| `/gtemplate edit media` | Edit the image and thumbnail. |
+| `/gtemplate list` | See all templates. |
+| `/gtemplate view` | See the full details of one. |
+| `/gtemplate preview` | See a visual mockup of the giveaway. |
+| `/gtemplate duplicate` | Copy a template under a new name. |
+| `/gtemplate delete` | Delete one (asks for confirmation). |
+| `/gtemplate export` | Download a template as a shareable file. |
+| `/gtemplate import` | Load a template from an exported file. |
+
+<Tip>
+Use **export** and **import** to move a template between your servers, or to keep a backup.
+</Tip>
+
+## Using a template
+
+<CodeGroup>
+```text Use as is
+/gstart template:weekly-nitro
+```
+```text Override some values
+/gstart template:weekly-nitro winners:3 duration:2d
+```
+```text Schedule it
+/gschedule create template:weekly-nitro start_time:1d
+```
+</CodeGroup>
+
+The second example keeps everything from the template but changes the winners and duration. If the template has no prize or duration, the bot tells you which one is missing.

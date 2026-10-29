@@ -1,0 +1,170 @@
+---
+title: "General commands"
+description: "Leveling, starboard, sticky messages, translation, AFK and utilities."
+icon: "toolbox"
+---
+
+## /afk
+
+Set your AFK status with an optional reason
+
+**Permission:** Everyone
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `reason` | string | No | Optional message shown when members mention you |  |
+| `global` | boolean | No | Apply AFK status across all shared servers (default: false) |  |
+
+See [AFK status](/features/afk).
+
+## /avatar
+
+Get user's or server's avatar and banner
+
+**Permission:** Everyone
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `user` | user | No | The user to get avatar from |  |
+| `server` | boolean | No | Get server icon and banner instead |  |
+
+Shows a member's avatar and banner, or the server icon and banner with `server:true`.
+
+## /user
+
+Get user information
+
+**Permission:** Everyone
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `user` | user | No | The user to get info from |  |
+
+Shows information about a member.
+
+## /server
+
+Get server information
+
+**Permission:** Everyone
+
+Shows information about the server.
+
+## /rank
+
+Check your level and XP rank in this server
+
+**Permission:** Everyone
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `user` | user | No | User to check rank for |  |
+| `theme` | string | No | Card theme (default: Dark) | Choices: `dark`, `light` |
+
+<Note>
+The rank card is currently in maintenance mode in this build.
+</Note>
+
+## /top
+
+Show the server's XP leaderboard (Text & Voice separated)
+
+**Permission:** Everyone
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `duration` | string | No | Leaderboard timeframe | Choices: `day`, `week`, `month`, `all` |
+| `role` | role | No | Filter leaderboard to members with this role |  |
+| `page` | integer | No | Page number (default: 1) | Range: 1 to no max |
+
+See [Leveling](/features/leveling).
+
+## /setxp
+
+Set a user's XP in the server
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `user` | user | Yes | The user to set XP for |  |
+| `amount` | integer | Yes | Amount of XP to set (minimum: 0) | Range: 0 to no max |
+| `type` | string | No | Type of XP to set (default: total) | Choices: `total`, `text`, `voice` |
+
+## /setlevel
+
+Set a user's level in the server
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `user` | user | Yes | The user to set level for |  |
+| `level` | integer | Yes | Level to set (minimum: 0) | Range: 0 to 999 |
+| `type` | string | No | Type of XP to adjust (default: total) | Choices: `total`, `text`, `voice` |
+| `preserve_xp` | boolean | No | Preserve current XP progress within the new level (default: true) |  |
+
+## /levelsetup
+
+⚙️ Configure the leveling system via interactive panel
+
+**Permission:** Manage Server
+
+Opens the interactive leveling panel. See [Leveling](/features/leveling). Text and voice XP tracking needs Premium.
+
+## /starboard
+
+⭐ Starboard control panel
+
+**Permission:** Manage Server
+
+Opens the starboard control panel. See [Starboard](/features/starboard).
+
+## /sticky
+
+📌 Manage sticky messages — full control panel
+
+**Permission:** Manage Messages
+
+Opens the sticky message manager. See [Sticky messages](/features/sticky).
+
+## /counting
+
+🔢 Counting game control panel
+
+**Permission:** Manage Server
+
+<Note>
+Counting is now managed from the **dashboard**. This command only points you there.
+</Note>
+
+## /translate
+
+Translate text, messages, images (OCR), PDFs and files — including very large ones
+
+**Permission:** Everyone
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `to` | string | Yes | Target language (type to search all languages) | Autocomplete |
+| `text` | string | No | Text to translate |  |
+| `from` | string | No | Source language (auto-detect if not specified) | Autocomplete |
+| `message` | string | No | Message link to translate (text and/or attached images) |  |
+| `attachment` | attachment | No | Attach a file/image/PDF to translate |  |
+| `attachment2` | attachment | No | A second file/image/PDF to translate (optional) |  |
+| `attachment3` | attachment | No | A third file/image/PDF to translate (optional) |  |
+
+See [Translate](/features/translate).
+
+## /setlang
+
+Change the bot's language for this server
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `language` | string | Yes | Select the language for the bot | Choices: `ar`, `zh`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `it`, `ja`, `ku`, `pl`, `pt`, `ru`, `es`, `sv`, `tr` |
+
+See [Language](/features/language).
+

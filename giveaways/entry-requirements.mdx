@@ -1,0 +1,117 @@
+---
+title: "Entry requirements"
+description: "Decide exactly who can enter: roles, ages, activity, level, boosts, captcha and screenshot verification."
+icon: "shield-check"
+---
+
+When a member presses **Enter**, the bot checks every requirement on the giveaway. Combine as many as you like. If someone does not qualify, they get a **private message** explaining which requirement they missed.
+
+## Roles
+
+<AccordionGroup>
+  <Accordion title="Required roles" icon="user-check" defaultOpen>
+    Members must have the roles you list. Choose how strict to be:
+
+    | Mode | Meaning |
+    | --- | --- |
+    | **Any** (default) | Having any one of the roles is enough. |
+    | **All** | Members need every listed role. |
+    | **Minimum** | Members need at least a number of the listed roles that you choose. |
+
+    You can also require that a member has **held the role for a number of minutes**, which stops people from grabbing a role just to enter.
+  </Accordion>
+  <Accordion title="Blacklisted roles" icon="user-slash">
+    Members with these roles cannot enter.
+
+    | Mode | Meaning |
+    | --- | --- |
+    | **Any** (default) | Having any listed role blocks entry. |
+    | **All** | Blocked only if they have every listed role. |
+    | **Minimum** | Blocked if they have at least a chosen number of them. |
+    | **Maximum** | Blocked if they have more than a chosen number. |
+  </Accordion>
+  <Accordion title="Bypass roles" icon="key">
+    Members with a bypass role skip the requirements. Each bypass role can cover:
+
+    - **Everything** (default), or
+    - **Only some requirements**: roles, messages, server join age, account age, official tag or level.
+
+    If a member has several bypass roles, you can combine them all, or use only the **highest** one.
+  </Accordion>
+</AccordionGroup>
+
+## Membership and activity
+
+<Columns cols={2}>
+  <Card title="Account age" icon="calendar-days">
+    Days since the Discord account was created. Blocks brand-new accounts.
+  </Card>
+  <Card title="Server join age" icon="door-open">
+    Days since the member joined **your** server.
+  </Card>
+  <Card title="Message count" icon="message">
+    How many messages the member has sent. Can be limited to certain channels and roles.
+  </Card>
+  <Card title="Minimum level" icon="chart-line">
+    Uses the [leveling system](/features/leveling).
+  </Card>
+</Columns>
+
+<Note>
+The message requirement can be limited to specific **channels** and **roles**. A time-window option exists in the panel, but it is not applied yet.
+</Note>
+
+## Boosts and profile
+
+| Requirement | What it checks |
+| --- | --- |
+| Server booster | The member currently boosts your server. |
+| Boost count | The member has boosted at least a number of times. |
+| Boost duration | The member has been boosting for at least a number of days. |
+| Official server tag | The member displays your server's tag. |
+| Profile completeness | Score 0 to 2: a custom avatar counts for 1, a banner or accent color counts for 1. |
+
+## Stop bots and alts
+
+<CardGroup cols={2}>
+  <Card title="Entry captcha" icon="robot">
+    Members solve a captcha before their entry counts. Difficulty: **easy**, **medium** (default) or **hard**.
+  </Card>
+  <Card title="Suspicious usernames" icon="magnifying-glass">
+    Flags names with no vowels, long strings of digits, or the same pattern repeated by many new accounts. Strength: off (default), low, medium or high.
+  </Card>
+</CardGroup>
+
+## Screenshot verification for social tasks
+
+Running a "follow us" giveaway? Members can be asked to upload a **screenshot** as proof, and an AI checks it for them.
+
+| Choose | Options |
+| --- | --- |
+| Platform | YouTube, Kick, X, Instagram, TikTok, Twitch |
+| Action | Subscribe, follow, like or comment |
+| Name to look for | The channel or account that must appear in the screenshot |
+| Example screenshot | Optional reference image |
+
+Members who pass are remembered, so they are not asked again for that giveaway.
+
+<Tip>
+Not every setup has this enabled. If you do not see it, ask in the [support server](https://discord.gg/86jArY28hj).
+</Tip>
+
+## Putting it together
+
+<Tabs>
+  <Tab title="Open to everyone">
+    No requirements. Anyone who sees the giveaway can enter.
+  </Tab>
+  <Tab title="Members only">
+    `required_roles:@Member` and `joined_age:7`.
+  </Tab>
+  <Tab title="Anti-alt">
+    `account_age:30`, `joined_age:7` and the captcha turned on.
+  </Tab>
+  <Tab title="Active community">
+    `required_level:5` and `required_messages:100`.
+  </Tab>
+</Tabs>

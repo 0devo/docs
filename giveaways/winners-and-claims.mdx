@@ -1,0 +1,78 @@
+---
+title: "Winners, claims and rerolls"
+description: "What happens when a giveaway ends: DMs, threads, roles, auto-claim and rerolling."
+icon: "trophy"
+---
+
+## When a giveaway ends
+
+The bot draws winners from the entries (weighted by [bonus entries](/giveaways/bonus-entries)) and updates the giveaway message. Then, depending on your settings, it can:
+
+<CardGroup cols={2}>
+  <Card title="DM the winners and host" icon="envelope">Private notifications, switchable in `/settings`.</Card>
+  <Card title="Open a winner thread" icon="comments">A place for winners to claim and talk to the host.</Card>
+  <Card title="Give winner roles" icon="user-tag">Automatically, with optional delay and duration.</Card>
+  <Card title="Start auto-claim" icon="hand-pointer">One-button claiming with automatic rerolls.</Card>
+</CardGroup>
+
+## Winner DMs
+
+Winner and host DMs can be switched on or off separately, and there is also a **global DM** switch. With <Badge color="blue">Tier 1</Badge> you can write your own DM messages. A single giveaway can also override the DM message.
+
+## Winner threads
+
+When enabled, the bot creates a thread for the winners after the giveaway.
+
+| Setting | What it does |
+| --- | --- |
+| Auto thread | Turns thread creation on or off. |
+| Visibility | **Public** or **Private** thread. |
+| Auto-close | How long until the thread closes. |
+| Claim tracker | Tracks who has claimed (on by default). |
+| Ping winners | Mentions the winners in the thread. |
+| Claim deadline | How long winners have to claim. |
+| Name, message and color | Customize the thread. <Badge color="blue">Tier 1</Badge> |
+
+A single giveaway can override the thread settings.
+
+## Winner roles
+
+Give winners a role automatically. Each **winner role rule** can set:
+
+| Option | Description |
+| --- | --- |
+| Role | The role to give. |
+| Reward | Nothing extra, bonus **XP**, or bonus **levels**. |
+| Delay | Give it after some minutes, or at a set time. |
+| Duration | Permanent, or removed after some minutes. |
+| Rotate | Remove the role from earlier winners so only the newest hold it. |
+
+Basic winner roles are free. Advanced options need <Badge color="purple">Tier 2</Badge>.
+
+## Auto-claim
+
+Turn on `auto_claim` and winners claim their prize with **one button**. If a winner does not claim in time, the bot automatically **rerolls** their place.
+
+| Setting | Default | Allowed range |
+| --- | --- | --- |
+| Claim window | 24 hours | 60 seconds to 30 days |
+| Maximum rerolls | Unlimited | 0 or more |
+
+## Rerolling with /greroll
+
+`/greroll` redraws winners from an **ended** giveaway. It shows a **preview** of exactly what will change before anything happens.
+
+<ParamField body="giveaway_id" type="text">Pick the giveaway from the list, or paste a message ID or message link.</ParamField>
+<ParamField body="replace" type="user">Replace **only this winner**, for example someone who never claimed. Everyone else keeps their win.</ParamField>
+<ParamField body="count" type="number">Draw this many new winners. This **replaces the whole winner list**.</ParamField>
+<ParamField body="exclude_previous_winners" type="true / false">Never pick someone who already won. On by default.</ParamField>
+
+<Warning>
+You cannot reroll a giveaway that is still running, paused or scheduled, or a drop. If nobody eligible is left, the reroll is refused and the bot explains why.
+</Warning>
+
+The bot remembers how many times a giveaway was rerolled and who did it, which also shows in the giveaway log.
+
+## Winner cooldown
+
+Your server can set a **winner cooldown** in minutes (off by default) so recent winners cannot win again too soon. Each giveaway can follow the server, turn it off, or use its own number of minutes.

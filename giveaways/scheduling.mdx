@@ -1,0 +1,49 @@
+---
+title: "Scheduling giveaways"
+description: "Prepare a giveaway now and have it start automatically later."
+icon: "calendar"
+---
+
+`/gschedule` creates a giveaway that **posts itself** at a time you choose. It opens with a **live preview** and supports full editing.
+
+## Subcommands
+
+| Command | What it does |
+| --- | --- |
+| `/gschedule create` | Create a scheduled giveaway. |
+| `/gschedule list` | Show your scheduled giveaways. |
+| `/gschedule edit` | Edit one (pick from the list). |
+| `/gschedule delete` | Cancel one (pick from the list). |
+
+## Creating one
+
+<Steps>
+  <Step title="Choose when it starts">
+    `start_time` can be a **duration from now**, like `1d` or `2h30m`, or a **unix timestamp** for an exact moment.
+  </Step>
+  <Step title="Choose how long it runs">
+    `duration` is how long the giveaway lasts **after it starts**.
+  </Step>
+  <Step title="Set the rules">
+    It accepts the same options as `/gstart`: prize, winners, channel, template, images, roles, ages, message and level requirements, bonus entries, repeat, sticky and more. Everything is optional because you can finish in the panel.
+  </Step>
+</Steps>
+
+<Note>
+Requires **Manage Server**.
+</Note>
+
+## Reminders and recurrence
+
+<Columns cols={2}>
+  <Card title="Pre-start reminder" icon="bell">
+    Ping a role a number of minutes before the giveaway starts to build hype. With no role chosen, the reminder is channel-only.
+  </Card>
+  <Card title="Recurring" icon="rotate">
+    Repeat **daily**, **weekly** or **monthly**. When one goes live, the next is prepared automatically so the series keeps going.
+  </Card>
+</Columns>
+
+<Tip>
+If a scheduled giveaway cannot start (for example the bot lost access to the channel), it retries a limited number of times instead of looping forever. Check the channel permissions if it does not appear.
+</Tip>

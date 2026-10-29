@@ -1,0 +1,22 @@
+---
+title: "AFK status"
+description: "Let people know you are away, and catch up on what you missed."
+icon: "moon"
+---
+
+Going away? Run `/afk`. When someone mentions you, the bot tells them you are AFK and why.
+
+<ParamField body="reason" type="text">An optional reason, up to 200 characters.</ParamField>
+<ParamField body="global" type="true / false">Make your AFK status work in **every server** you share with the bot. Default: false.</ParamField>
+
+## How it behaves
+
+<Check>Mentions are grouped into a **single tidy message** instead of one reply per mention.</Check>
+<Check>A short cooldown stops the bot from repeating itself if you are mentioned over and over.</Check>
+<Check>Mentioning **yourself** does not trigger your own AFK notice.</Check>
+
+With a **global** AFK, the bot also keeps a record of who mentioned you (server, channel, a link to the message and a short snippet), so you can catch up when you return.
+
+<Tip>
+Use a clear reason like `afk: back in 2 hours` so people know when to expect a reply.
+</Tip>

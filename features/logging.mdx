@@ -1,0 +1,41 @@
+---
+title: "Logging"
+description: "Keep a record of every giveaway action and setting change."
+icon: "scroll"
+---
+
+GiveawayX can post a **log message** whenever something happens, so your team always knows who did what.
+
+## What can be logged
+
+<Tabs>
+  <Tab title="Giveaway actions" icon="gift">
+    Start, end, edit, delete, reroll, pause, resume, drop, last-to-type, fix and schedule.
+  </Tab>
+  <Tab title="Settings changes" icon="gear">
+    Color, emoji, role, DM, winner thread, language and log settings changes, and command picks.
+  </Tab>
+</Tabs>
+
+Each event type can be switched on or off. Logs can go to one or more channels, or to **different channels per event or group**.
+
+## Style your logs
+
+<Badge color="blue">Premium</Badge>
+
+| Option | What it does |
+| --- | --- |
+| Log color | A server-wide accent color. |
+| Colors per event | A different color for each type of event. |
+| Show who did it | Include the member who performed the action. |
+| Branded sender | Send logs with the bot's custom name and avatar for your server. |
+
+<Color variant="compact">
+  <Color.Row title="Default log color">
+    <Color.Item name="Discord dark" value="#2B2D31" />
+  </Color.Row>
+</Color>
+
+<Check>
+Logs are queued and retried, so rate limits do not make you lose entries. A separate history of actions is also kept even after a giveaway is deleted.
+</Check>

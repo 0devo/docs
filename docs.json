@@ -1,85 +1,55 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "luma",
+  "theme": "mint",
   "name": "GiveawayX",
-  "description": "Complete documentation for the GiveawayX Discord bot and its administration dashboard.",
-  "colors": {
-    "primary": "#2563FF",
-    "light": "#5B8CFF",
-    "dark": "#143FBC"
-  },
-  "logo": {
-    "light": "/assets/giveawayx-logo.png",
-    "dark": "/assets/giveawayx-logo.png",
-    "href": "/"
-  },
-  "favicon": "/assets/giveawayx-icon-circle.png",
-  "appearance": {
-    "default": "system",
-    "strict": false
-  },
-  "background": {
-    "decoration": "gradient"
-  },
-  "fonts": {
-    "family": "Inter",
-    "weight": 400,
-    "heading": {
-      "family": "Inter",
-      "weight": 700
-    }
-  },
-  "icons": {
-    "library": "lucide"
-  },
-  "styling": {
-    "eyebrows": "breadcrumbs",
-    "codeblocks": "system"
-  },
-  "metadata": {
-    "timestamp": true
-  },
-  "contextual": {
-    "options": ["assistant", "copy", "view"],
-    "display": "toc"
-  },
-  "navbar": {
-    "links": [
-      {"label": "GitHub", "href": "https://github.com/0devo/GiveawayBot"}
-    ]
-  },
-  "footer": {
-    "socials": {
-      "github": "https://github.com/0devo/GiveawayBot"
-    }
-  },
+  "colors": { "primary": "#0ea5e9", "light": "#38bdf8", "dark": "#0284c7" },
+  "favicon": "/favicon.svg",
+  "appearance": { "default": "dark" },
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "Getting started",
-        "icon": "rocket",
-        "pages": ["index", "get-started/overview", "get-started/installation", "get-started/first-giveaway"]
+        "tab": "Get started",
+        "groups": [
+          { "group": "Welcome", "pages": ["index", "quickstart", "glossary"] },
+          { "group": "Essentials", "pages": ["concepts/permissions", "concepts/durations", "concepts/premium"] }
+        ]
       },
       {
-        "group": "Giveaways",
-        "icon": "gift",
-        "pages": ["giveaways/studio", "giveaways/eligibility-and-rewards", "giveaways/scheduling-and-templates", "giveaways/managing-live-giveaways"]
+        "tab": "Giveaways",
+        "groups": [
+          { "group": "Run giveaways", "pages": ["giveaways/overview", "giveaways/creating", "giveaways/drops", "giveaways/scheduling", "giveaways/templates"] },
+          { "group": "Rules and rewards", "pages": ["giveaways/entry-requirements", "giveaways/bonus-entries", "giveaways/winners-and-claims"] },
+          { "group": "Manage and customize", "pages": ["giveaways/managing", "giveaways/settings", "giveaways/recipes"] }
+        ]
       },
       {
-        "group": "Dashboard",
-        "icon": "layout-dashboard",
-        "pages": ["dashboard/overview", "dashboard/general-settings", "dashboard/giveaway-manager", "dashboard/community-features", "dashboard/engagement-and-leveling", "dashboard/logs-backups-and-audit", "dashboard/premium-and-profile"]
+        "tab": "Server features",
+        "groups": [
+          { "group": "Community", "pages": ["features/leveling", "features/starboard", "features/sticky", "features/welcomer"] },
+          { "group": "Utilities", "pages": ["features/afk", "features/translate", "features/voting", "features/language"] },
+          { "group": "Control", "pages": ["features/logging", "features/command-customization"] }
+        ]
       },
       {
-        "group": "Bot features",
-        "icon": "bot",
-        "pages": ["bot/command-reference", "bot/community-and-utilities", "bot/notifications-and-automation"]
+        "tab": "Commands",
+        "groups": [
+          {
+            "group": "Command reference",
+            "pages": ["commands/overview", "commands/giveaway", "commands/general", "commands/information", "commands/premium", "commands/context-menus", "commands/prefix"]
+          }
+        ]
       },
       {
-        "group": "Reference",
-        "icon": "book-open",
-        "pages": ["reference/permissions-and-access", "reference/feature-availability", "reference/troubleshooting"]
+        "tab": "Help",
+        "groups": [
+          { "group": "Support", "pages": ["help/faq", "help/troubleshooting", "help/changelog"] }
+        ]
       }
     ]
-  }
+  },
+  "navbar": {
+    "links": [{ "label": "Support server", "href": "https://discord.gg/86jArY28hj" }],
+    "primary": { "type": "button", "label": "Dashboard", "href": "https://giveawayx.lol" }
+  },
+  "footer": { "socials": { "discord": "https://discord.gg/86jArY28hj" } }
 }

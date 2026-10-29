@@ -1,0 +1,64 @@
+---
+title: "Sticky messages"
+description: "Keep important messages visible at the bottom of a channel."
+icon: "thumbtack"
+---
+
+A **sticky message** is re-posted as people chat so it stays visible. Perfect for rules, announcements or "read this first" notes. Manage them with `/sticky` (requires **Manage Messages**).
+
+## Building a sticky
+
+Sticky messages are built from blocks, up to **12 blocks** each:
+
+<Columns cols={3}>
+  <Card title="Text" icon="font">Formatted text.</Card>
+  <Card title="Separator" icon="minus">A divider line.</Card>
+  <Card title="Section" icon="table-columns">Text with an accessory.</Card>
+  <Card title="Image" icon="image">A picture or gallery.</Card>
+  <Card title="Button" icon="rectangle-ad">A clickable button.</Card>
+</Columns>
+
+## When it is re-sent
+
+| Setting | Behavior |
+| --- | --- |
+| Every message | After each new message (default) |
+| Every 5 or 10 messages | After that many messages |
+| Every 30 seconds | At most once per 30 seconds |
+| Every minute | At most once per minute |
+
+Anything other than "every message" needs <Badge color="blue">Tier 1</Badge>.
+
+## Timing options
+
+<Tabs>
+  <Tab title="Detection">
+    **Immediate**, or **delayed**, which waits for a pause in the conversation (5 seconds by default) before re-posting so it does not interrupt a fast chat.
+  </Tab>
+  <Tab title="Cleanup">
+    Choose when the old copy is deleted: when the new one starts, when it ends (default), or after a delay (5 seconds by default).
+  </Tab>
+</Tabs>
+
+## Triggers
+
+Depending on your tier, a sticky can also appear on a **keyword**, on a **schedule**, up to a **maximum number of times**, with a **per-user cooldown**, or when someone **reacts** to a message.
+
+## Limits by tier
+
+| | Free | Tier 1 | Tier 2 |
+| --- | --- | --- | --- |
+| Sticky messages | 3 | 10 | 25 |
+| Re-send intervals | Every message | All | All |
+| Placeholders | No | Yes | Yes |
+| Variants | 1 | 3 | 5 |
+| Buttons | 1 | 1 | 3 |
+| Images | No | No | Yes |
+| Schedule and max triggers | No | Yes | Yes |
+| Keyword and reaction triggers | No | No | Yes |
+| User cooldown | No | No | Yes |
+| Pin, priority, templates | No | No | Yes |
+| Webhook identity | No | No | Yes |
+| Export and import | No | No | Yes |
+| Statistics and copy | No | Yes | Yes |
+| Threads | No | Yes | Yes |

@@ -1,0 +1,454 @@
+---
+title: "Giveaway commands"
+description: "Create, run and manage giveaways."
+icon: "gift"
+---
+
+Giveaway management commands require **Manage Server**, **Administrator**, or a **Giveaway Manager role**. See [Permissions](/concepts/permissions).
+
+## /gcreate
+
+Create a giveaway with a quick form
+
+**Permission:** Everyone
+
+<Info>
+Opens a form (modal) with prize, duration, winners, image and a **Publish now / Customize in Studio** choice. See [Creating giveaways](/giveaways/creating#gcreate-the-quick-form).
+</Info>
+
+## /gstart
+
+Starts a giveaway with customizable options
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `duration` | string | No | Duration of the giveaway (e.g. 1d, 2h, 30m) |  |
+| `winners` | integer | No | Number of winners |  |
+| `prize` | string | No | The prize being given away |  |
+| `template` | string | No | Use a saved template |  |
+| `channel` | channel | No | Channel where the giveaway will be hosted |  |
+| `image` | attachment | No | Image for the giveaway |  |
+| `thumbnail` | attachment | No | Thumbnail for the giveaway |  |
+| `required_roles` | string | No | Roles required to participate |  |
+| `requirement_bypass_roles` | string | No | Roles that bypass requirements |  |
+| `blacklist_roles` | string | No | Roles blacklisted from participating |  |
+| `winners_roles` | string | No | Roles given to winners |  |
+| `description` | string | No | Description for the giveaway |  |
+| `host` | user | No | User who is hosting the giveaway |  |
+| `giveaway_create_message` | string | No | Custom message when giveaway is created |  |
+| `joined_age` | integer | No | Minimum days the user must have been in the server |  |
+| `account_age` | integer | No | Minimum age of the user's Discord account (days) |  |
+| `required_messages` | integer | No | Number of messages required |  |
+| `extra_entries` | string | No | Bonus entries for roles (e.g., @role 5) |  |
+| `max_entries` | integer | No | Max extra entries a user can earn from voting | Range: 1 to 10 |
+| `repeat` | integer | No | Number of times to repeat (Premium) | Range: 1 to no max |
+| `sticky` | boolean | No | Auto-resend giveaway (Premium Tier 2+) |  |
+| `required_official_tag` | boolean | No | Whether the user must have the official server tag |  |
+| `required_level` | integer | No | Minimum level required to enter (leveling system) | Range: 1 to no max |
+| `auto_claim` | boolean | No | Auto Claim & Reroll: winners claim with one button; unclaimed prizes auto-reroll |  |
+
+<Info>
+See [Creating giveaways](/giveaways/creating) for how each group of options works. Role list options accept role mentions or IDs. Values not provided fall back to the selected `template`, then to the server defaults.
+</Info>
+
+## /gdrop
+
+Starts a drop giveaway — first to claim wins!
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `prize` | string | Yes | The prize being given away |  |
+| `winners` | integer | No | Number of winners (default: 1) | Range: 1 to 50 |
+| `duration` | string | No | Duration (e.g. 1h, 30m, 1d) |  |
+| `channel` | channel | No | Channel to host the drop in |  |
+| `image` | attachment | No | Main image (images only) |  |
+| `thumbnail` | attachment | No | Small thumbnail (images only) |  |
+| `countdown` | integer | No | Countdown before drop (1–30 s) | Range: 1 to 30 |
+| `blacklist_role` | role | No | Role that cannot participate |  |
+| `required_role` | role | No | Role required to claim this drop |  |
+| `message` | string | No | Additional message before the drop |  |
+
+See [Drops and last-to-type](/giveaways/drops).
+
+## /glast
+
+Starts a 'first or last one to type wins' giveaway
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `channel` | channel | Yes | The text channel for the giveaway |  |
+| `duration` | string | Yes | Duration of the giveaway (1-10 minutes, e.g., 5m, 300s) |  |
+| `prize` | string | Yes | The prize being given away |  |
+| `mode` | string | Yes | Choose who wins: first or last person to type | Choices: `first`, `last` |
+
+See [Drops and last-to-type](/giveaways/drops).
+
+## /gschedule
+
+Schedule a giveaway to start later, with live preview and full editing
+
+**Permission:** Manage Server
+
+### `/gschedule create`
+
+Create a scheduled giveaway
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `start_time` | string | No | When to start (e.g. 1d, 2h30m, or a unix timestamp) |  |
+| `prize` | string | No | The prize |  |
+| `duration` | string | No | Duration once it starts (e.g. 1d, 2h) |  |
+| `winners` | integer | No | Number of winners |  |
+| `channel` | channel | No | Channel |  |
+| `template` | string | No | Use a saved template |  |
+| `image` | attachment | No | Image |  |
+| `thumbnail` | attachment | No | Thumbnail |  |
+| `required_roles` | string | No | Required roles |  |
+| `requirement_bypass_roles` | string | No | Bypass roles |  |
+| `blacklist_roles` | string | No | Blacklist roles |  |
+| `winners_roles` | string | No | Roles given to winners |  |
+| `description` | string | No | Description |  |
+| `host` | user | No | Host user |  |
+| `giveaway_create_message` | string | No | Custom start message |  |
+| `joined_age` | integer | No | Min days in server |  |
+| `account_age` | integer | No | Min account age (days) |  |
+| `required_messages` | integer | No | Min messages required |  |
+| `extra_entries` | string | No | Bonus entries (e.g. @role 5) |  |
+| `max_entries` | integer | No | Max vote bonus entries | Range: 1 to 10 |
+| `repeat` | integer | No | Repeat count once live (Premium) | Range: 1 to no max |
+| `sticky` | boolean | No | Sticky (Premium Tier 2+) |  |
+| `required_official_tag` | boolean | No | Require official tag |  |
+| `required_level` | integer | No | Min level required | Range: 1 to no max |
+
+### `/gschedule list`
+
+List this server's scheduled giveaways
+
+### `/gschedule edit`
+
+Edit a scheduled giveaway
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Select the giveaway to edit | Autocomplete |
+
+### `/gschedule delete`
+
+Delete a scheduled giveaway
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Select the giveaway to delete | Autocomplete |
+
+See [Scheduling giveaways](/giveaways/scheduling).
+
+## /gtemplate
+
+Create and manage reusable giveaway templates
+
+**Permission:** Manage Server
+
+### `/gtemplate create`
+
+Create a new giveaway template
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template name (unique) |  |
+| `prize` | string | No | Default prize |  |
+| `duration` | string | No | Default duration (e.g. 1d, 2h, 30m) |  |
+| `winners` | integer | No | Default winners count | Range: 1 to no max |
+| `channel` | channel | No | Default channel |  |
+| `description` | string | No | Default description |  |
+| `entry_type` | string | No | Entry mode | Choices: `button`, `reaction` |
+| `reaction_emoji` | string | No | Emoji for reaction mode |  |
+| `required_roles` | string | No | Required roles to participate |  |
+| `requirement_bypass_roles` | string | No | Roles that bypass requirements |  |
+| `winners_roles` | string | No | Roles given to winners |  |
+| `blacklist_roles` | string | No | Roles blacklisted from entering |  |
+| `joined_age` | integer | No | Minimum days in server | Range: 1 to no max |
+| `account_age` | integer | No | Minimum Discord account age (days) | Range: 1 to no max |
+| `required_messages` | integer | No | Min messages required | Range: 1 to no max |
+| `required_invites` | integer | No | Min invites required | Range: 1 to no max |
+| `required_level` | integer | No | Min level required | Range: 1 to no max |
+| `required_official_tag` | boolean | No | Require the server's official tag |  |
+| `extra_entries` | string | No | Bonus role entries (e.g. @role 5) |  |
+| `max_entries` | integer | No | Max vote bonus entries | Range: 1 to 10 |
+| `giveaway_create_message` | string | No | Custom message sent on start |  |
+| `image` | attachment | No | Prize image |  |
+| `thumbnail` | attachment | No | Thumbnail image |  |
+| `repeat` | integer | No | Repeat count (Premium) | Range: 1 to no max |
+| `sticky` | boolean | No | Sticky giveaway (Premium Tier 2+) |  |
+
+### `/gtemplate edit basic`
+
+Edit name, prize, duration, winners, channel, description & premium flags
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template to edit |  |
+| `new_name` | string | No | Rename the template |  |
+| `prize` | string | No | New prize |  |
+| `duration` | string | No | New duration |  |
+| `winners` | integer | No | New winners count | Range: 1 to no max |
+| `channel` | channel | No | New channel |  |
+| `description` | string | No | New description |  |
+| `entry_type` | string | No | Entry mode | Choices: `button`, `reaction` |
+| `reaction_emoji` | string | No | Emoji for reaction mode |  |
+| `giveaway_create_message` | string | No | Custom create message |  |
+| `repeat` | integer | No | Repeat count | Range: 1 to no max |
+| `sticky` | boolean | No | Sticky giveaway |  |
+
+### `/gtemplate edit requirements`
+
+Edit role/age/invite/message/level requirements
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template to edit |  |
+| `required_roles` | string | No | Required roles (replaces existing) |  |
+| `requirement_bypass_roles` | string | No | Bypass roles (replaces existing) |  |
+| `winners_roles` | string | No | Winners roles (replaces existing) |  |
+| `blacklist_roles` | string | No | Blacklist roles (replaces existing) |  |
+| `joined_age` | integer | No | Min days in server (0 = disable) | Range: 0 to no max |
+| `account_age` | integer | No | Min account age (0 = disable) | Range: 0 to no max |
+| `required_messages` | integer | No | Required messages (0 = disable) | Range: 0 to no max |
+| `required_invites` | integer | No | Required invites (0 = disable) | Range: 0 to no max |
+| `required_level` | integer | No | Required level (0 = disable) | Range: 0 to no max |
+| `required_official_tag` | boolean | No | Require the server's official tag |  |
+
+### `/gtemplate edit entries`
+
+Edit bonus/vote entries
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template to edit |  |
+| `extra_entries` | string | No | Bonus entries (replaces existing) |  |
+| `max_entries` | integer | No | Max vote entries (0 = unlimited) | Range: 0 to 10 |
+
+### `/gtemplate edit media`
+
+Edit image / thumbnail
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template to edit |  |
+| `image` | attachment | No | New prize image |  |
+| `thumbnail` | attachment | No | New thumbnail image |  |
+| `clear_media` | boolean | No | Remove both image & thumbnail |  |
+
+### `/gtemplate delete`
+
+Delete a template (asks for confirmation)
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template to delete |  |
+
+### `/gtemplate list`
+
+List all templates in this server
+
+### `/gtemplate view`
+
+View full details of a template
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template name |  |
+
+### `/gtemplate preview`
+
+See a live visual mockup of a template's giveaway embed
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template name |  |
+
+### `/gtemplate duplicate`
+
+Clone a template under a new name
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template to duplicate |  |
+| `new_name` | string | Yes | Name for the duplicate |  |
+
+### `/gtemplate export`
+
+Export a template as a shareable .json file
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template to export |  |
+
+### `/gtemplate import`
+
+Import a template from a .json file exported by /gtemplate export
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `file` | attachment | Yes | The .json file to import |  |
+| `name` | string | No | Override the imported name |  |
+
+See [Templates](/giveaways/templates).
+
+## /gedit
+
+Edit an active or scheduled giveaway
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Select the giveaway to edit | Autocomplete |
+| `prize` | string | No | The prize being given away |  |
+| `duration` | string | No | New duration from now (e.g. 1d, 2h, 30m) |  |
+| `winners` | integer | No | Number of winners |  |
+| `image` | attachment | No | Image for the giveaway |  |
+| `thumbnail` | attachment | No | Thumbnail for the giveaway |  |
+| `required_role` | role | No | Role required to participate |  |
+| `requirement_bypass_role` | role | No | Role that bypasses requirements |  |
+| `blacklist_role` | role | No | Role that is blacklisted from participating |  |
+| `winners_role` | role | No | Role given to winners |  |
+| `description` | string | No | Description for the giveaway |  |
+| `host` | user | No | User who is hosting the giveaway |  |
+| `giveaway_create_message` | string | No | Custom message shown when the giveaway is created |  |
+| `joined_age` | integer | No | Minimum days the user must have been in the server |  |
+| `account_age` | integer | No | Minimum age of the user's Discord account (days) |  |
+| `extra_entries` | string | No | Bonus entries for roles (e.g., @role 5 @role2 7) |  |
+| `max_entries` | integer | No | Max extra entries a user can earn from voting (0 = unlimited) | Range: 0 to 10 |
+| `repeat` | integer | No | Number of times to repeat (Premium) | Range: 1 to no max |
+| `sticky` | boolean | No | Auto-resend giveaway (Premium Tier 2+) |  |
+
+See [Managing giveaways](/giveaways/managing#gedit-edit-a-giveaway). Ended giveaways cannot be edited.
+
+## /gend
+
+Ends an active giveaway
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Select the giveaway to end (or paste a message ID / link) | Autocomplete |
+
+Shows a confirmation that expires after 60 seconds. Also available as the **End Giveaway** message action.
+
+## /gpause
+
+Pauses a running giveaway (freezes its countdown)
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Select the giveaway to pause (or paste a message ID / link) | Autocomplete |
+
+Also available as the **Pause Giveaway** message action. See [Managing giveaways](/giveaways/managing#gpause-and-gresume).
+
+## /gresume
+
+Resumes a paused giveaway (restores its remaining time)
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Select the giveaway to resume (or paste a message ID / link) | Autocomplete |
+
+Also available as the **Resume Giveaway** message action.
+
+## /greroll
+
+Rerolls one or more new winners from an ended giveaway
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Select the giveaway to reroll (or paste a message ID / link) | Autocomplete |
+| `replace` | user | No | Replace only this winner (e.g. they never claimed) — everyone else keeps their win |  |
+| `count` | integer | No | How many new winners to draw (replaces the whole winner list) | Range: 1 to no max |
+| `exclude_previous_winners` | boolean | No | Never pick someone who already won (default: yes) |  |
+
+Also available as the **Reroll Giveaway** message action. See [Winners, claims and rerolls](/giveaways/winners-and-claims#rerolling-manually-with-greroll).
+
+## /gdelete
+
+Delete a giveaway
+
+**Permission:** Manage Server · Server only
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Select the giveaway to delete (or paste a message ID / link) | Autocomplete |
+
+Server only. Also available as the **Delete Giveaway** message action.
+
+## /glist
+
+Lists active or ended giveaways in the server
+
+**Permission:** None (View Channel)
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `status` | string | No | Filter giveaways by status (active, ended, or scheduled) | Choices: `active`, `ended`, `scheduled` |
+| `host` | user | No | Filter giveaways by host |  |
+| `channel` | channel | No | Filter giveaways by channel |  |
+
+Lists giveaways in this server, with optional filters.
+
+## /gfix
+
+Diagnose and safely repair a stuck or inconsistent giveaway
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Giveaway message ID (or message link) | Autocomplete |
+| `dry_run` | boolean | No | Only diagnose — change nothing |  |
+
+Also available as the **Fix Giveaway** message action. See the [diagnostic codes](/giveaways/managing#gfix-diagnose-and-repair).
+
+## /settings
+
+🎨 Configure the giveaway bot for this server
+
+**Permission:** Manage Server
+
+Opens the interactive settings panel. See [Server settings](/giveaways/settings).
+
+## /setcolor
+
+Set a custom color for giveaway embeds (Premium Only)
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `color` | string | Yes | The hex color code (e.g., #ff0000, #00ff00, #0000ff) |  |
+
+**Premium only.** Example: `/setcolor color:#ff0000`.
+
+## /setemoji
+
+Set a custom emoji for giveaway participation button (Premium Only)
+
+**Permission:** Manage Server
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `emoji` | string | Yes | The emoji to use for giveaway buttons |  |
+
+**Premium only.** Accepts a Unicode emoji or a custom server emoji.
+

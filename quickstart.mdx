@@ -1,0 +1,65 @@
+---
+title: "Quickstart"
+description: "Invite GiveawayX and run your first giveaway in about a minute."
+icon: "rocket"
+---
+
+<Steps>
+  <Step title="Add the bot to your server" icon="plus">
+    Run `/invite` in any server that already has GiveawayX to get the invite link, or ask in the [support server](https://discord.gg/86jArY28hj). When the bot joins it posts a **Getting Started** message where admins can confirm the server language and prefix.
+  </Step>
+  <Step title="Let the bot see the channel" icon="eye">
+    In the channel for your giveaways, make sure the bot can **View Channel** and **Send Messages**. Reaction giveaways also need **Add Reactions**. The full list is in [Permissions](/concepts/permissions).
+  </Step>
+  <Step title="Start a giveaway" icon="gift">
+    Pick whichever style you like:
+
+    <CodeGroup>
+    ```text Form (easiest)
+    /gcreate
+    ```
+    ```text One command
+    /gstart duration:1d winners:1 prize:Discord Nitro
+    ```
+    ```text Prefix
+    g!gstart --duration=1d --winners=1 --prize=Discord Nitro
+    ```
+    </CodeGroup>
+
+    With `/gcreate` you fill in a short form (prize, duration, winners, optional image) and choose **Publish now** or **Customize in Studio**.
+  </Step>
+  <Step title="Members enter" icon="hand-pointer">
+    Members press the **Enter** button on the giveaway message. If the giveaway uses reaction entry, they react instead.
+  </Step>
+  <Step title="Winners are drawn" icon="trophy">
+    When the timer ends the bot picks winners, updates the message and can DM them and open a winner thread. If someone never claims, use `/greroll`.
+  </Step>
+</Steps>
+
+<Tip>
+Not sure about a command? Run `/help`, or `/help command:gstart` to see details for one command.
+</Tip>
+
+## Your first giveaway checklist
+
+<AccordionGroup>
+  <Accordion title="Before you start" icon="list-check">
+    - The bot can post in the channel.
+    - You have **Manage Server**, **Administrator** or a Giveaway Manager role.
+    - You know the prize, the duration (for example `1d`) and how many winners.
+  </Accordion>
+  <Accordion title="Make it safer" icon="shield-check">
+    Add a required role, a minimum account age or the captcha so alt accounts and bots cannot win. See [Entry requirements](/giveaways/entry-requirements).
+  </Accordion>
+  <Accordion title="Make it more exciting" icon="ticket">
+    Give boosters or supporters extra entries with [Bonus entries](/giveaways/bonus-entries), or add an image from `/gcreate`.
+  </Accordion>
+  <Accordion title="After it ends" icon="flag-checkered">
+    Winners can be DMed, get a role automatically and claim in a thread. Read [Winners and claims](/giveaways/winners-and-claims).
+  </Accordion>
+</AccordionGroup>
+
+<Columns cols={2}>
+  <Card title="All giveaway options" icon="sliders" href="/giveaways/creating" />
+  <Card title="Ready-made recipes" icon="book-open" href="/giveaways/recipes" />
+</Columns>

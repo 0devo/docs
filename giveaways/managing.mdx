@@ -1,0 +1,103 @@
+---
+title: "Managing giveaways"
+description: "Edit, pause, resume, end, delete, list and repair giveaways."
+icon: "sliders"
+---
+
+Every management command accepts the giveaway as a **message ID**, a **message link** or (for most) a pick from a list. You can also **right-click a giveaway message** and choose **Apps** to run the same actions without typing.
+
+<Info>
+Only one change can run on a giveaway at a time, and commands have a short cooldown. That prevents two people from clicking at once and corrupting a giveaway.
+</Info>
+
+## /gedit: edit a giveaway
+
+Change an **active or scheduled** giveaway. `/gedit` uses the same Studio panel as creation, with a live preview.
+
+<AccordionGroup>
+  <Accordion title="What you can change" icon="pen">
+    Prize, duration (counted **from now**), winners, images, required roles, bypass roles, blacklist roles, winner roles, description, host, creation message, join age, account age, bonus entries, `max_entries` (0 means unlimited, up to 10), repeat and sticky.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+Ended giveaways cannot be edited. Use `/greroll` to change winners instead.
+</Note>
+
+## /gpause and /gresume
+
+`/gpause` **freezes** the countdown. Entries are refused, and the giveaway will not end. When you `/gresume`, the paused time is added back so the **remaining time is exactly what it was**.
+
+<Tabs>
+  <Tab title="Pausing">
+    If a giveaway is already past its end time, pausing is refused. End it instead, because resuming would end it instantly.
+  </Tab>
+  <Tab title="Resuming">
+    If a paused giveaway lost its pause time, resuming is refused. Run `/gfix` and it restores it for you.
+  </Tab>
+</Tabs>
+
+## /gend: end now
+
+Ends an active giveaway immediately and draws winners. It shows a **confirmation** (valid for 60 seconds) with a preview. If ending cannot work, for example because the message was deleted, the bot tells you instead of failing silently.
+
+## /gdelete
+
+Deletes the giveaway message and its data, and cleans up everything attached to it. The right-click action does the same thing.
+
+## /glist
+
+| Option | Description |
+| --- | --- |
+| `status` | Show **active**, **ended** or **scheduled** giveaways |
+| `host` | Only giveaways hosted by this person |
+| `channel` | Only giveaways in this channel |
+
+## /gfix: diagnose and repair
+
+If a giveaway looks stuck or wrong, `/gfix` inspects it, checks both the bot's records **and** Discord, and shows a report. Add `dry_run:true` to only look.
+
+<Check>
+Repairs are safe: each one changes only what is wrong, running it twice does no harm, and the result is double-checked afterward.
+</Check>
+
+Each finding has a severity (**critical**, **warning** or **info**) and a repair type:
+
+- **Automatic**: applied for you
+- **Needs confirmation**: you approve it first
+- **Manual**: you need to act
+
+<Tabs>
+  <Tab title="Timing problems" icon="clock">
+    | Finding | What it means | Fix |
+    | --- | --- | --- |
+    | Overdue, not ended | Past its end time but still running | Automatic: end it now |
+    | Invalid end time | The end time is missing or broken | Manual: set a new one with `/gedit` |
+    | Missing pause time | Paused but the pause time was lost | Automatic |
+    | Waiting for server | Auto-paused while the server was unavailable | Automatic: resume |
+    | Paused but inactive | Paused and not active | Confirm |
+    | Abandoned | The bot gave up after repeated failures | Confirm: retry |
+    | Ended early, no winners | Ended before winners were drawn | Confirm: reactivate |
+  </Tab>
+  <Tab title="Entries" icon="users">
+    | Finding | What it means | Fix |
+    | --- | --- | --- |
+    | Invalid participants | Entries that are not valid members | Confirm: remove them |
+    | Duplicate participants | The same person listed twice | Automatic |
+    | Entry count mismatch | The shown count is wrong | Automatic |
+    | Bonus entry types | Bonus rules missing their type | Automatic when it can tell, otherwise report |
+    | Winner count invalid | The number of winners is wrong | Manual: `/gedit` |
+  </Tab>
+  <Tab title="Discord problems" icon="discord">
+    | Finding | What it means | Fix |
+    | --- | --- | --- |
+    | Channel missing or no access | The bot cannot reach the channel | Fix permissions or delete |
+    | Message missing | The giveaway message was deleted | Delete the giveaway |
+    | Bot permissions missing | The bot lacks a needed permission | Fix permissions |
+    | Reaction missing | The entry reaction is gone | Automatic: added back |
+    | Enter button missing | The button is gone from the message | Automatic: message refreshed |
+    | Discord did not answer | Checks against Discord timed out | Try again |
+  </Tab>
+</Tabs>
+
+After repairs, the giveaway message is refreshed **once**, and only if something visible changed and the giveaway is still running. An ended giveaway never gets its buttons back.

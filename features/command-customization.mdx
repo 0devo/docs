@@ -1,0 +1,39 @@
+---
+title: "Command customization"
+description: "Give commands aliases, restrict where they work, and replace them with custom replies."
+icon: "wand-magic-sparkles"
+---
+
+Every server can shape how commands behave without touching code. Configure it on the **dashboard**.
+
+## What you can customize per command
+
+<AccordionGroup>
+  <Accordion title="Aliases" icon="tag" defaultOpen>
+    Add extra names. An alias can even be typed **without a prefix**, as long as it is the **first word** of the message.
+  </Accordion>
+  <Accordion title="Channel rules" icon="hashtag">
+    Allow a command only in chosen channels, or block it in some.
+  </Accordion>
+  <Accordion title="Role rules" icon="user-tag">
+    Allow or block a command for chosen roles.
+  </Accordion>
+  <Accordion title="Custom response" icon="message">
+    Replace the command's normal output with your own text.
+  </Accordion>
+  <Accordion title="Hide or disable" icon="eye-slash">
+    Hide a command from the list or switch it off for your server.
+  </Accordion>
+  <Accordion title="Tidy up" icon="broom">
+    Delete the member's command message after it runs, and delete the bot's reply if the command message is deleted.
+  </Accordion>
+</AccordionGroup>
+
+## Server-wide controls
+
+- Set **several prefixes** (the default is `g!`).
+- Disable specific channels, roles or commands for the whole server.
+
+<Tip>
+Want `!win` to start a giveaway? Add it as an alias of `gstart`. See [Prefix commands](/commands/prefix) for how aliases are matched.
+</Tip>

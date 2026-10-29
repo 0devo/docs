@@ -1,0 +1,74 @@
+---
+title: "Leveling"
+description: "Earn XP from chatting and voice, unlock role rewards and climb the leaderboard."
+icon: "chart-line"
+---
+
+<Warning>
+XP tracking needs an **active Premium subscription** (any tier). If Premium ends, tracking stops but your members' XP and your settings are kept. See [Premium](/concepts/premium).
+</Warning>
+
+## How members earn XP
+
+| Source | Default |
+| --- | --- |
+| Chatting | 15 XP (plus or minus 10), once every 60 seconds |
+| Voice channels | 10 XP per minute |
+| Reactions (optional, off by default) | 5 XP (plus or minus 2), once every 30 seconds |
+
+Text and voice XP are tracked **separately**, so the leaderboard can show Text and Voice side by side. A member's total XP combines both.
+
+You can exclude chosen roles, text channels and voice channels from earning XP. Voice XP can also skip members who are muted or deafened.
+
+## For members
+
+<CardGroup cols={2}>
+  <Card title="/rank" icon="id-card">
+    Shows your rank card. Choose a `dark` or `light` theme.
+  </Card>
+  <Card title="/top" icon="ranking-star">
+    The server leaderboard for `day`, `week`, `month` or `all`, filterable by role.
+  </Card>
+</CardGroup>
+
+<Note>
+The rank card is temporarily in maintenance, so `/rank` may show a maintenance message. `/top` works normally.
+</Note>
+
+## For admins: /levelsetup
+
+`/levelsetup` opens a panel where you control everything.
+
+<AccordionGroup>
+  <Accordion title="XP and cooldowns" icon="gauge">
+    Set XP per message, the random variance, the cooldown, XP per voice minute and XP per reaction. The maximum values depend on your Premium tier.
+  </Accordion>
+  <Accordion title="Multipliers and boost events" icon="bolt">
+    Give roles or channels an XP multiplier, or run a timed **XP boost event** such as double XP weekend.
+  </Accordion>
+  <Accordion title="Level-up messages" icon="bell">
+    Write separate messages for text, voice, reaction and DM level-ups, with optional images. Send them in the channel, by DM, both, or turn them off. You can set a dedicated channel for text and voice level-ups.
+  </Accordion>
+  <Accordion title="Role rewards" icon="award">
+    Give roles at specific levels, for text and voice separately. You can stack rewards, remove the previous reward, or keep only the highest.
+  </Accordion>
+  <Accordion title="Streaks" icon="fire">
+    Reward daily activity with extra XP per streak day (2 percent by default) up to a cap (100 percent by default).
+  </Accordion>
+  <Accordion title="Leaderboard timing" icon="calendar">
+    Choose your time zone and when the daily, weekly and monthly leaderboards reset. Leaderboards can be **fixed** (start of the week or month) or **rolling** (the last N days).
+  </Accordion>
+</AccordionGroup>
+
+## Admin commands
+
+<ParamField body="/setxp" type="command">Set a member's XP. Choose `total`, `text` or `voice`.</ParamField>
+<ParamField body="/setlevel" type="command">Set a member's level (0 to 999). Choose `total`, `text` or `voice`, and whether to keep their XP.</ParamField>
+
+## Levels in giveaways
+
+<Columns cols={3}>
+  <Card title="Require a level" icon="lock" href="/giveaways/entry-requirements" />
+  <Card title="Bonus entries by level" icon="ticket" href="/giveaways/bonus-entries" />
+  <Card title="Reward XP to winners" icon="trophy" href="/giveaways/winners-and-claims" />
+</Columns>

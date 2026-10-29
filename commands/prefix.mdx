@@ -1,0 +1,54 @@
+---
+title: "Prefix commands"
+description: "Run commands by typing a prefix such as g! instead of using the slash menu."
+icon: "exclamation"
+---
+
+Most commands can also be typed with your server's **prefix**. The default prefix is `g!`, and a server can have several.
+
+<CodeGroup>
+```text Slash
+/gend giveaway_id:123456789012345678
+```
+```text Prefix
+g!gend 123456789012345678
+```
+</CodeGroup>
+
+## Writing options
+
+<Steps>
+  <Step title="Use flags for options">
+    Write `--option=value`. For true/false options, just writing `--option` means true.
+
+    ```text
+    g!gstart --duration=1d --winners=2 --prize=Nitro
+    ```
+  </Step>
+  <Step title="Or just type the main value">
+    For some options you can type the first value straight after the command, for example a giveaway ID, a user, an emoji, a color or a language. Giveaway commands accept a **message ID** or a **message link**.
+  </Step>
+  <Step title="Subcommands go first">
+    For commands with subcommands, write the subcommand right after the command name.
+
+    ```text
+    g!gschedule list
+    ```
+  </Step>
+</Steps>
+
+<Tip>
+Reply to a message when you run a command and the bot uses that message as the target.
+</Tip>
+
+## Permissions
+
+Prefix commands follow the **same rules** as slash commands. For giveaway management you need Administrator, Manage Server or a Giveaway Manager role. See [Permissions](/concepts/permissions).
+
+## Aliases without a prefix
+
+If your server added [aliases](/features/command-customization), they can be typed with **no prefix** as the **first word** of a message. They only work for aliases your server created.
+
+<Note>
+If a command is blocked in a channel or for a role by your server, the bot tells you it is unavailable there.
+</Note>

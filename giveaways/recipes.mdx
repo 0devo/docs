@@ -1,0 +1,82 @@
+---
+title: "Recipes"
+description: "Ready-made giveaway setups for common situations. Copy, paste and adjust."
+icon: "book-open"
+---
+
+Each recipe is a starting point. Replace the role names and prizes with your own.
+
+<Tabs>
+  <Tab title="Simple weekly giveaway" icon="calendar-week">
+    A classic giveaway that anyone can enter.
+
+    ```text
+    /gstart duration:7d winners:1 prize:Discord Nitro
+    ```
+
+    <Tip>
+    Save it as a [template](/giveaways/templates) so next week is one short command.
+    </Tip>
+  </Tab>
+  <Tab title="Members only" icon="user-check">
+    Only people with the Member role who have been around a week.
+
+    ```text
+    /gstart duration:3d winners:2 prize:Steam Gift Card required_roles:@Member joined_age:7
+    ```
+  </Tab>
+  <Tab title="Stop alt accounts" icon="shield-check">
+    Block brand-new accounts and require the captcha.
+
+    ```text
+    /gstart duration:2d winners:1 prize:Gift Card account_age:30 joined_age:7
+    ```
+
+    Then turn on the captcha in the Studio panel.
+  </Tab>
+  <Tab title="Reward boosters" icon="rocket">
+    Boosters and supporters get extra chances, everyone can still enter.
+
+    ```text
+    /gstart duration:7d winners:1 prize:VIP Role extra_entries:@Booster 3 @Supporter 5
+    ```
+  </Tab>
+  <Tab title="Social media task" icon="share-nodes">
+    Members prove they followed you with a screenshot.
+
+    1. Run `/gstart` and choose **Customize in Studio**.
+    2. Turn on **screenshot verification**.
+    3. Pick the platform, the action and the account name to look for.
+    4. Publish.
+  </Tab>
+  <Tab title="Surprise drop" icon="bolt">
+    The first three to claim win.
+
+    ```text
+    /gdrop prize:$10 Gift Card winners:3 countdown:10
+    ```
+  </Tab>
+</Tabs>
+
+## Common situations
+
+<AccordionGroup>
+  <Accordion title="I made a typo in the prize" icon="pen">
+    Run `/gedit` and fix it. The giveaway message updates right away, nobody loses their entry.
+  </Accordion>
+  <Accordion title="A winner never replied" icon="user-clock">
+    Use `/greroll` with the `replace` option to replace only that winner, or turn on `auto_claim` next time so it happens automatically.
+  </Accordion>
+  <Accordion title="I need more time" icon="hourglass">
+    Run `/gedit` and set a new `duration`. It is counted from now.
+  </Accordion>
+  <Accordion title="I need to stop it for a moment" icon="pause">
+    `/gpause`, then `/gresume` later. The remaining time is preserved.
+  </Accordion>
+  <Accordion title="Something looks stuck" icon="wrench">
+    Run `/gfix` on the giveaway and follow the report.
+  </Accordion>
+  <Accordion title="Run it every month" icon="rotate">
+    Use `/gschedule create` with a monthly recurrence.
+  </Accordion>
+</AccordionGroup>

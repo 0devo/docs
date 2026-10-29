@@ -1,0 +1,86 @@
+---
+title: "Giveaways overview"
+description: "How giveaways work: types, entry modes, the life of a giveaway and what makes them reliable."
+icon: "gift"
+---
+
+A giveaway is a prize event that members enter and the bot draws winners from. GiveawayX gives you several ways to run one, and a set of tools to keep it on track from start to finish.
+
+## Types of giveaway
+
+<CardGroup cols={2}>
+  <Card title="Standard" icon="gift" href="/giveaways/creating">
+    Members enter during a set time, and winners are drawn when it ends. Use `/gcreate` or `/gstart`.
+  </Card>
+  <Card title="Drop" icon="bolt" href="/giveaways/drops">
+    First to claim wins, instantly. Use `/gdrop`.
+  </Card>
+  <Card title="First or last to type" icon="keyboard" href="/giveaways/drops#glast-first-or-last-to-type-wins">
+    A chat game where the first or last typer wins. Use `/glast`.
+  </Card>
+  <Card title="Scheduled" icon="calendar" href="/giveaways/scheduling">
+    Prepare now, start later. Use `/gschedule`.
+  </Card>
+  <Card title="Repeating" icon="rotate" href="/giveaways/creating">
+    Run the same giveaway again automatically with the `repeat` option. <Badge color="blue">Tier 1</Badge>
+  </Card>
+  <Card title="Sticky" icon="thumbtack" href="/giveaways/creating">
+    The giveaway message is automatically re-sent. <Badge color="purple">Tier 2</Badge>
+  </Card>
+</CardGroup>
+
+## How members enter
+
+<Tabs>
+  <Tab title="Button entry" icon="hand-pointer">
+    The default. Members press **Enter** on the giveaway message. The button can show how many people joined, and a **participants** button can list who entered.
+
+    Available on every tier.
+  </Tab>
+  <Tab title="Reaction entry" icon="face-smile">
+    Members react to the message to enter. The default emoji is 🎉 and you can change it.
+
+    <Badge color="blue">Tier 1</Badge>
+  </Tab>
+</Tabs>
+
+You can set a server-wide default in `/settings`, and override it for a single giveaway.
+
+## The life of a giveaway
+
+| Stage | What it means |
+| --- | --- |
+| **Scheduled** | Created with `/gschedule`. It will be posted at the start time you chose. |
+| **Active** | Running. Members can enter until the end time. |
+| **Paused** | The countdown is frozen with `/gpause`. Nobody can enter until you `/gresume`. |
+| **Ended** | Winners were drawn and the message was updated. |
+| **Needs attention** | The bot repeatedly failed to finish it, for example because the channel or message was deleted. Run `/gfix`. |
+
+## Built to finish on time
+
+<Steps>
+  <Step title="Checked constantly">
+    The bot checks for giveaways that are due **every 15 seconds**, so they finish promptly.
+  </Step>
+  <Step title="Safe through restarts">
+    Giveaways are stored permanently, not in temporary memory. Even if the bot restarts, nothing is lost.
+  </Step>
+  <Step title="Temporary problems are retried">
+    A short Discord outage will not ruin a giveaway. The bot retries, and only gives up on problems that cannot be fixed, such as a deleted channel.
+  </Step>
+  <Step title="Fixable when stuck">
+    `/gfix` diagnoses a stuck giveaway and repairs it safely. See [Managing giveaways](/giveaways/managing).
+  </Step>
+</Steps>
+
+<Info>
+Ended giveaways are cleaned from the bot's records **20 days** after they finish. Your server's giveaway log keeps a separate history of actions.
+</Info>
+
+## The Studio
+
+When you create a giveaway you can open the **Studio**, an interactive panel with a **live preview** where you review and adjust every option before publishing. `/gedit` opens the same panel for a giveaway that is already running.
+
+<Tip>
+New to all of this? Start with [Quickstart](/quickstart), then browse the [Recipes](/giveaways/recipes).
+</Tip>

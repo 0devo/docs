@@ -1,0 +1,92 @@
+---
+title: "Server settings"
+description: "Set your server's giveaway defaults with /settings, /setcolor and /setemoji."
+icon: "gear"
+---
+
+`/settings` opens an interactive panel with a menu of sections. Items marked <Badge color="blue">Tier 1</Badge> or <Badge color="purple">Tier 2</Badge> need that [Premium tier](/concepts/premium).
+
+## The settings menu
+
+<Tree>
+  <Tree.Folder name="/settings" defaultOpen>
+    <Tree.File name="Overview" />
+    <Tree.Folder name="DMs and templates">
+      <Tree.File name="Winner DM, Host DM, Global DM" />
+      <Tree.File name="DM message templates (Tier 1)" />
+    </Tree.Folder>
+    <Tree.Folder name="Winner thread">
+      <Tree.File name="Auto thread, visibility, auto-close" />
+      <Tree.File name="Claim tracker, ping winners, deadline" />
+      <Tree.File name="Name, message, color (Tier 1)" />
+    </Tree.Folder>
+    <Tree.Folder name="Enter button (Tier 1)">
+      <Tree.File name="Color and label" />
+      <Tree.File name="Participants button" />
+    </Tree.Folder>
+    <Tree.File name="Appearance (Tier 1)" />
+    <Tree.File name="Entry mode (Tier 1)" />
+    <Tree.File name="Bot customization (Tier 2)" />
+    <Tree.File name="Premium dashboard" />
+  </Tree.Folder>
+</Tree>
+
+## Sections in detail
+
+<AccordionGroup>
+  <Accordion title="Overview" icon="gauge">
+    A summary of your server's current settings.
+  </Accordion>
+  <Accordion title="DMs and templates" icon="envelope">
+    Turn **Winner DM**, **Host DM** and **Global DM** on or off. Edit and reset the DM messages. <Badge color="blue">Tier 1</Badge>
+  </Accordion>
+  <Accordion title="Winner thread" icon="comments">
+    Choose whether threads are created, whether they are public or private, when they close, whether claims are tracked, whether winners are pinged and how long they have to claim. Customize the thread name, message and color. <Badge color="blue">Tier 1</Badge>
+  </Accordion>
+  <Accordion title="Enter button" icon="hand-pointer">
+    Pick the button color (Primary, Secondary, Success or Danger) and label, show or hide the **participants** button, and limit which roles can view participants. <Badge color="blue">Tier 1</Badge>
+  </Accordion>
+  <Accordion title="Appearance" icon="palette">
+    Set the embed color, custom labels, and your own winner, entry and leave messages, each with a reset button. <Badge color="blue">Tier 1</Badge>
+  </Accordion>
+  <Accordion title="Entry mode" icon="masks-theater">
+    Switch your default between **Button** and **Reaction** entry. <Badge color="blue">Tier 1</Badge>
+  </Accordion>
+  <Accordion title="Bot customization" icon="robot">
+    Give the bot your own nickname (<Badge color="blue">Tier 1</Badge>, this server only), and your own avatar, banner and bio (<Badge color="purple">Tier 2</Badge>, applied everywhere).
+  </Accordion>
+</AccordionGroup>
+
+## Defaults
+
+| Setting | Default |
+| --- | --- |
+| Prefix | `g!` |
+| Button color | Primary |
+| How the host is shown | Mention (or username, or hidden) |
+| Entry type | Button |
+| Default duration | 1 hour |
+| Winner DM and Host DM | On |
+| Winner thread | Off |
+| Winner thread visibility | Public |
+| Entry captcha | Off |
+| Winner cooldown | Off (0 minutes) |
+| Time zone | UTC |
+
+<Color variant="compact">
+  <Color.Row title="Default embed color">
+    <Color.Item name="Giveaway blue" value="#2563FF" />
+  </Color.Row>
+</Color>
+
+## Quick commands
+
+| Command | What it does |
+| --- | --- |
+| `/setcolor` | Set a custom hex color for giveaway embeds, such as `#ff0000`. <Badge color="blue">Premium</Badge> |
+| `/setemoji` | Set a custom emoji for the entry button. <Badge color="blue">Premium</Badge> |
+| `/setlang` | Change the bot's language for the server. See [Language](/features/language). |
+
+## Giveaway Manager roles
+
+Roles listed as **Giveaway Manager roles** can manage giveaways without Manage Server. See [Permissions](/concepts/permissions).

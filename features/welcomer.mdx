@@ -1,0 +1,53 @@
+---
+title: "Welcomer"
+description: "Greet new members and say goodbye, with embeds and generated image cards."
+icon: "hand-wave"
+---
+
+Welcome and goodbye messages are set up on the **dashboard** (the Welcome and Goodbye page). The bot sends them when someone joins or leaves.
+
+## What you can set
+
+Joining and leaving each have their own settings.
+
+| Setting | Description |
+| --- | --- |
+| Channel | Where the message goes. |
+| Format | A plain **text** message or an **embed**. |
+| Message | Your text, with placeholders such as `{user}`, `{server}`, `{username}`, `{memberCount}` and `{avatar}`. |
+| DM the member | Send it privately, with an optional fallback to the channel. |
+| Mention | Ping the member. |
+| Delete after | Remove the message after 0 to 3600 seconds. |
+| Ignore bots | On by default. |
+
+<Tip>
+Placeholders are replaced with real values. `Welcome {user} to {server}!` becomes a personal greeting.
+</Tip>
+
+## Embeds
+
+Customize the color, author, title, description, thumbnail, image, footer, up to 10 fields and a timestamp.
+
+## Image cards
+
+The bot can generate a welcome **image card** with the member's avatar.
+
+<Columns cols={4}>
+  <Card title="Classic" icon="image" />
+  <Card title="Banner" icon="panorama" />
+  <Card title="Minimal" icon="minus" />
+  <Card title="Frame" icon="border-all" />
+</Columns>
+
+You choose the background (a color or an image), overlay opacity, accent color, title and subtitle text, and the avatar's shape (circle, square or hexagon), size and border.
+
+## Auto roles and raid protection
+
+<CardGroup cols={2}>
+  <Card title="Auto roles" icon="user-tag">
+    Give new members one set of roles, and bots another.
+  </Card>
+  <Card title="New-account gate" icon="user-shield">
+    Treat accounts younger than a number of days (0 to 365) as suspicious, and optionally **skip the welcome message** for them.
+  </Card>
+</CardGroup>

@@ -1,0 +1,58 @@
+---
+title: "Bonus entries"
+description: "Give members extra chances to win using roles, levels, XP, tags, streaks and votes."
+icon: "ticket"
+---
+
+Every member starts with **one entry**. Bonus entries add more chances. The more entries a member has, the better their odds, but nobody is ever guaranteed to win.
+
+## Where bonus entries can come from
+
+| Source | A member gets extra entries when... |
+| --- | --- |
+| **Role** | They have a specific role. |
+| **Level** | They reach a certain level. |
+| **XP** | They have a certain amount of XP. |
+| **Server tag** | They display your official server tag. |
+| **Streak** | They have entered giveaways several times in a row. |
+| **Vote** | They voted for the bot. See [Voting](/features/voting). |
+| **Specific member** | You hand a particular person a fixed bonus. |
+
+Role, level, XP and tag bonuses follow the giveaway's **stacking** setting. Vote and specific-member bonuses always stack.
+
+## Add them from a command
+
+```text
+/gstart duration:1d winners:1 prize:Nitro extra_entries:@Booster 3 @Supporter 5
+```
+
+The format is a role mention followed by the number of bonus entries. More advanced bonuses are set in the Studio panel or on the dashboard.
+
+<Note>
+Some advanced bonus options need <Badge color="blue">Tier 1</Badge>.
+</Note>
+
+## Advanced options
+
+<AccordionGroup>
+  <Accordion title="Multipliers" icon="xmark">
+    A bonus can be multiplied (for example ×2, ×3 or ×5) to make it count for more.
+  </Accordion>
+  <Accordion title="Random bonus" icon="dice">
+    Instead of a fixed number, a bonus can roll a random amount between a minimum and a maximum.
+  </Accordion>
+  <Accordion title="Temporary bonus" icon="hourglass">
+    A bonus can be limited to a time window so it only counts during a special period, such as a "boost weekend".
+  </Accordion>
+  <Accordion title="Stacking" icon="layer-group">
+    Stacking is on by default, so bonuses of different types add together. Turn it off to apply priority rules instead.
+  </Accordion>
+</AccordionGroup>
+
+## Vote bonus entries
+
+Members who vote for the bot get **+1 entry** in every active giveaway they joined. Use `max_entries` (1 to 10) to cap how many vote entries one member can earn. Vote entries count only while the vote is still valid (12 hours).
+
+<Tip>
+Bonus entries are a great way to thank boosters and supporters without excluding anyone. Pair them with a normal open giveaway so everybody still has a chance.
+</Tip>

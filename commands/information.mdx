@@ -1,0 +1,34 @@
+---
+title: "Information commands"
+description: "Help, ping and invite."
+icon: "circle-info"
+---
+
+## /help
+
+Displays a categorized list of all bot commands or specific command help
+
+**Permission:** Everyone
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `command` | string | No | Get detailed help for a specific command | Autocomplete |
+
+Without arguments it shows a categorized list of commands. Pass `command` for details on one command.
+
+## /ping
+
+Check bot latency, connectivity, cache, and system info
+
+**Permission:** Everyone
+
+Shows latency, WebSocket status, Discord API status, cache and system information.
+
+## /invite
+
+Add the bot to your own server
+
+**Permission:** Everyone · Cooldown: 5s
+
+Returns the invite link to add the bot to your own server.
+

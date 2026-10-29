@@ -1,0 +1,57 @@
+---
+title: "Starboard"
+description: "Showcase your server's best messages in a dedicated channel."
+icon: "star"
+---
+
+When a message collects enough reactions, the starboard **reposts it** in a channel of your choice. Open the control panel with `/starboard` (requires **Manage Server**).
+
+## Quick setup
+
+<Steps>
+  <Step title="Open the panel">Run `/starboard`.</Step>
+  <Step title="Pick a channel">Choose where starred messages are posted.</Step>
+  <Step title="Choose an emoji and threshold">The default is ⭐ with a threshold of 3 reactions (1 to 100).</Step>
+  <Step title="Turn it on">Switch the starboard on. That is all you need.</Step>
+</Steps>
+
+## Core settings
+
+| Setting | Default |
+| --- | --- |
+| Enabled | Off |
+| Emoji | ⭐ |
+| Threshold | 3 reactions |
+| Allow self-star | Off |
+| Pause | Off |
+| Log channel | None |
+
+<Color variant="compact">
+  <Color.Row title="Default embed color">
+    <Color.Item name="Star gold" value="#FFD700" />
+  </Color.Row>
+</Color>
+
+## Advanced options
+
+<AccordionGroup>
+  <Accordion title="Multiple emojis" icon="icons">
+    Add more emojis, each with its own threshold and, if you like, its own channel.
+  </Accordion>
+  <Accordion title="Star rewards" icon="award">
+    Give authors a role once their messages earn a total number of stars.
+  </Accordion>
+  <Accordion title="Filters" icon="filter">
+    Limit to certain channels, block certain roles, require a minimum account age or server join age, ignore NSFW channels, or require an attachment.
+  </Accordion>
+  <Accordion title="Behavior" icon="sliders">
+    Allow several reactions per person, ignore bots, remove self-star reactions, delete the post when a message is un-starred or deleted, set a repost cooldown, and limit by minimum or maximum message age.
+  </Accordion>
+  <Accordion title="How posts look" icon="palette">
+    Choose an **embed**, a modern layout, or plain text. Show or hide the author, title, description, source, image, footer, timestamp and a **Jump to message** button. Attachments, videos, polls, stickers and voice messages are supported, and NSFW content can be auto-spoilered.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+Starboard posts are kept in sync automatically, even after the bot restarts.
+</Tip>

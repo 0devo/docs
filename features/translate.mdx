@@ -1,0 +1,34 @@
+---
+title: "Translate"
+description: "Translate text, messages, images, PDFs and files, even very long ones."
+icon: "language"
+---
+
+`/translate` turns almost anything into the language you choose.
+
+<ParamField body="to" type="language">The language to translate into. Start typing to search all supported languages.</ParamField>
+<ParamField body="text" type="text">Text to translate.</ParamField>
+<ParamField body="from" type="language">The original language. Leave empty to detect it automatically.</ParamField>
+<ParamField body="message" type="message link">Translate a message and any images attached to it.</ParamField>
+<ParamField body="attachment" type="file">A file, image or PDF. You can add more files in the extra attachment options.</ParamField>
+
+## What it can handle
+
+<Columns cols={2}>
+  <Card title="Long text" icon="file-lines">
+    Long text is split into pieces and translated piece by piece, so it never gets cut off.
+  </Card>
+  <Card title="Images" icon="image">
+    Text inside images is read automatically before it is translated.
+  </Card>
+  <Card title="PDFs and files" icon="file-pdf">
+    Upload PDFs and text files directly.
+  </Card>
+  <Card title="Several files at once" icon="copy">
+    Add up to three attachments in one request.
+  </Card>
+</Columns>
+
+## Translate without typing
+
+Right-click any message, choose **Apps**, then **Translate Message**.

@@ -1,0 +1,50 @@
+---
+title: "Premium commands"
+description: "Activate, link, inspect and manage Premium."
+icon: "star"
+---
+
+## /premium-info
+
+Displays the premium status of the current server.
+
+**Permission:** Manage Server
+
+Shows this server's Premium tier and expiry date.
+
+## /premium-link
+
+Link this server to your Patreon subscription (recommended way to activate premium).
+
+**Permission:** Manage Server
+
+Generates a link code (valid 30 minutes) to connect this server to your Patreon subscription. This is the recommended way to activate Premium.
+
+## /premium-activate
+
+Instantly activate your premium status via Patreon
+
+**Permission:** Manage Server
+
+Instantly activates Premium from your Patreon status. See [Premium](/concepts/premium#activating-premium).
+
+## /premium-settings
+
+⭐ Manage your Premium features: Multi-Server Add-on & Bot Customization
+
+**Permission:** Manage Server
+
+Opens the panel for the **Multi-Server Add-on** and **bot customization**.
+
+## /premium-transfer
+
+Transfers the Premium Tier 2 subscription to another server (Owner Only).
+
+**Permission:** Server owner (checked in command)
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `new_guild_id` | string | Yes | The ID of the server to transfer the premium to. |  |
+
+Moves a **Tier 2** subscription to another server. Owner only.
+

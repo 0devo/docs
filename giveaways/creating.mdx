@@ -1,0 +1,100 @@
+---
+title: "Creating giveaways"
+description: "Start a giveaway with /gcreate or /gstart and learn what every option does."
+icon: "plus"
+---
+
+You can create a giveaway in two ways. Both end up in the same place, so every limit, permission check and default applies to both.
+
+<Columns cols={2}>
+  <Card title="/gcreate: the quick form" icon="rectangle-list">
+    A short form. Best for most giveaways.
+  </Card>
+  <Card title="/gstart: every option" icon="terminal">
+    One command with all options. Best when you know exactly what you want.
+  </Card>
+</Columns>
+
+## /gcreate: the quick form
+
+`/gcreate` opens a form with:
+
+1. **Prize**
+2. **Duration** (see [Durations](/concepts/durations))
+3. **Winners**
+4. **Prize image** (optional upload, up to 8 MB)
+5. **What happens next?** Choose **Publish now** to post straight away with your server defaults, or **Customize in Studio** to fine-tune first.
+
+<Note>
+If something is wrong (for example an invalid duration), you get a private message with an **Edit and Try Again** button. Everything you typed is kept, and the form stays valid for 15 minutes.
+</Note>
+
+## /gstart: every option
+
+All options are optional. If a duration or prize is still missing after your template and defaults are applied, the bot asks for it.
+
+### Basics
+
+<ParamField body="duration" type="text">How long the giveaway runs, like `1d` or `2h`.</ParamField>
+<ParamField body="winners" type="number">How many winners.</ParamField>
+<ParamField body="prize" type="text">What is being given away.</ParamField>
+<ParamField body="template" type="text">Start from a saved [template](/giveaways/templates). Anything you type overrides it.</ParamField>
+<ParamField body="channel" type="channel">Where to post. Text, announcement and thread channels work.</ParamField>
+<ParamField body="host" type="user">Who is shown as the host.</ParamField>
+<ParamField body="description" type="text">Extra text shown on the giveaway.</ParamField>
+<ParamField body="image" type="file">Main image.</ParamField>
+<ParamField body="thumbnail" type="file">Small image shown beside the text.</ParamField>
+<ParamField body="giveaway_create_message" type="text">A custom message sent when the giveaway starts.</ParamField>
+
+### Requirements
+
+<ParamField body="required_roles" type="roles">Roles members need to enter.</ParamField>
+<ParamField body="requirement_bypass_roles" type="roles">Roles that skip the requirements.</ParamField>
+<ParamField body="blacklist_roles" type="roles">Roles that cannot enter.</ParamField>
+<ParamField body="joined_age" type="number">Minimum days in the server.</ParamField>
+<ParamField body="account_age" type="number">Minimum Discord account age in days.</ParamField>
+<ParamField body="required_messages" type="number">Messages a member must have sent.</ParamField>
+<ParamField body="required_level" type="number">Minimum [level](/features/leveling) (at least 1).</ParamField>
+<ParamField body="required_official_tag" type="true / false">Members must display your server's official tag. The server must have one.</ParamField>
+
+How these combine is explained in [Entry requirements](/giveaways/entry-requirements).
+
+### Rewards and extras
+
+<ParamField body="winners_roles" type="roles">Roles given to the winners.</ParamField>
+<ParamField body="extra_entries" type="text">Bonus entries for roles, for example `@Booster 3`. See [Bonus entries](/giveaways/bonus-entries).</ParamField>
+<ParamField body="max_entries" type="number (1 to 10)">The most extra entries a member can earn from voting.</ParamField>
+<ParamField body="auto_claim" type="true / false">Winners claim with one button, and unclaimed prizes are rerolled automatically.</ParamField>
+<ParamField body="repeat" type="number">Repeat the giveaway this many times. <Badge color="blue">Tier 1</Badge></ParamField>
+<ParamField body="sticky" type="true / false">Automatically re-send the giveaway. <Badge color="purple">Tier 2</Badge></ParamField>
+
+<Warning>
+You need Administrator, Manage Server or a Giveaway Manager role. The bot also checks it can see and post in the target channel, and add reactions for reaction giveaways.
+</Warning>
+
+## Examples
+
+<CodeGroup>
+```text Simple
+/gstart duration:1d winners:1 prize:Discord Nitro
+```
+```text Members only
+/gstart duration:3d winners:2 prize:Steam Gift Card required_roles:@Member account_age:30
+```
+```text Boosters get extra
+/gstart duration:7d winners:1 prize:VIP Role extra_entries:@Booster 3
+```
+```text Use a template
+/gstart template:weekly-nitro winners:3
+```
+</CodeGroup>
+
+## Limits
+
+Duration, winner count and repeat count depend on your [Premium tier](/concepts/premium). If you go over, the bot tells you exactly which limit applies.
+
+<CardGroup cols={3}>
+  <Card title="Schedule it" icon="calendar" href="/giveaways/scheduling" />
+  <Card title="Save a template" icon="copy" href="/giveaways/templates" />
+  <Card title="Manage it" icon="sliders" href="/giveaways/managing" />
+</CardGroup>

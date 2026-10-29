@@ -1,0 +1,66 @@
+---
+title: "Permissions"
+description: "Who can manage giveaways, and which permissions the bot needs to work."
+icon: "shield-halved"
+---
+
+There are two sides to permissions: **who can use the bot's commands**, and **what the bot itself is allowed to do** in your server.
+
+## Who can manage giveaways
+
+A member can use the giveaway management commands (`/gstart`, `/gend`, `/greroll`, `/gpause`, `/gresume`, `/gedit`, `/gdelete`, `/glist`, `/gfix`) if they have **any** of these:
+
+<CardGroup cols={3}>
+  <Card title="Administrator" icon="crown">Full access.</Card>
+  <Card title="Manage Server" icon="gear">The standard permission for managing the server.</Card>
+  <Card title="A Giveaway Manager role" icon="user-shield">A role you choose, so trusted hosts do not need Manage Server.</Card>
+</CardGroup>
+
+<Tip>
+Giving hosts a **Giveaway Manager role** is safer than handing out Manage Server. They can run giveaways without being able to change other server settings.
+</Tip>
+
+## Command permissions at a glance
+
+| Commands | Who can use them |
+| --- | --- |
+| `/gstart`, `/gcreate`, `/gdrop`, `/glast`, `/gschedule`, `/gtemplate`, `/gedit`, `/gend`, `/gpause`, `/gresume`, `/greroll`, `/gdelete`, `/gfix` | Manage Server, Administrator or a Giveaway Manager role |
+| `/glist` | Anyone who can see the channel |
+| `/settings`, `/setcolor`, `/setemoji` | Manage Server |
+| `/levelsetup`, `/setxp`, `/setlevel`, `/setlang` | Manage Server |
+| `/starboard`, `/counting` | Manage Server |
+| `/sticky` | Manage Messages |
+| `/premium-info`, `/premium-link`, `/premium-activate`, `/premium-settings` | Manage Server |
+| `/premium-transfer` | The server owner |
+| `/afk`, `/rank`, `/top`, `/translate`, `/help`, `/ping`, `/invite` | Everyone |
+
+Server admins can restrict where each command works. See [Command customization](/features/command-customization).
+
+## What the bot needs
+
+<Tabs>
+  <Tab title="Required" icon="check">
+    | Permission | Why |
+    | --- | --- |
+    | View Channel | See the giveaway channel |
+    | Send Messages | Post and update giveaways |
+    | Embed Links | Show rich giveaway messages |
+  </Tab>
+  <Tab title="For some features" icon="plus">
+    | Permission | Needed for |
+    | --- | --- |
+    | Add Reactions | Giveaways that use **reaction** entry |
+    | Manage Roles | Winner roles and role rewards (the bot's role must sit **above** the roles it gives) |
+    | Create Threads | Winner threads |
+    | Manage Webhooks | Messages sent with a custom name and avatar |
+    | Manage Messages | Sticky messages and cleaning up |
+  </Tab>
+</Tabs>
+
+<Warning>
+If the bot cannot see or post in the channel, the giveaway cannot start and `/gfix` will report a permission problem. Fix the channel permissions first.
+</Warning>
+
+<Danger>
+Never give the bot a role **below** the winner roles you want it to hand out. Discord blocks roles from being assigned to a role that is higher than the bot's own.
+</Danger>

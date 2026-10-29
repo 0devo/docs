@@ -1,0 +1,44 @@
+---
+title: "Drops and last-to-type"
+description: "Fast, fun giveaways: first to claim, or first or last to type."
+icon: "bolt"
+---
+
+## /gdrop: first to claim wins
+
+A **drop** has no draw. The first members to claim the prize win **immediately**. Perfect for surprise rewards.
+
+<ParamField body="prize" type="text" required>What is being given away.</ParamField>
+<ParamField body="winners" type="number (1 to 50)">How many people can claim. Default 1.</ParamField>
+<ParamField body="duration" type="text">How long the drop runs, like `30m`.</ParamField>
+<ParamField body="channel" type="channel">Where to host the drop.</ParamField>
+<ParamField body="image" type="file">Main image (images only).</ParamField>
+<ParamField body="thumbnail" type="file">Small image (images only).</ParamField>
+<ParamField body="countdown" type="number (1 to 30)">Seconds of countdown before the drop appears, so everyone can get ready.</ParamField>
+<ParamField body="blacklist_role" type="role">A role that cannot claim.</ParamField>
+<ParamField body="required_role" type="role">A role needed to claim.</ParamField>
+<ParamField body="message" type="text">An extra message sent before the drop.</ParamField>
+
+<Note>
+Drops cannot be rerolled. The bot also checks its permissions in the channel first and tells you what is missing.
+</Note>
+
+## /glast: first or last to type wins
+
+A quick chat game. Members type in a channel, and the **first** or the **last** person to type wins.
+
+<ParamField body="channel" type="channel" required>The text channel for the game.</ParamField>
+<ParamField body="duration" type="text" required>1 to 10 minutes, like `5m` or `300s`.</ParamField>
+<ParamField body="prize" type="text" required>The prize.</ParamField>
+<ParamField body="mode" type="choice" required>**First to type wins** or **Last to type wins**.</ParamField>
+
+Requires **Manage Server** or **Administrator**.
+
+<Tabs>
+  <Tab title="First to type">
+    A race. Fast fingers win. Use a short duration.
+  </Tab>
+  <Tab title="Last to type">
+    A waiting game. The winner is whoever types last before time runs out, so people keep typing to stay in. It gets chaotic fast.
+  </Tab>
+</Tabs>

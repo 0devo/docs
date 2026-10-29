@@ -1,0 +1,64 @@
+---
+title: "Command overview"
+description: "Every slash command at a glance, with what it does and who can use it."
+icon: "terminal"
+---
+
+GiveawayX works in servers. Type `/` to see the commands, or use the [prefix](/commands/prefix) (default `g!`).
+
+<CardGroup cols={2}>
+  <Card title="Giveaway commands" icon="gift" href="/commands/giveaway">Create, run and manage giveaways.</Card>
+  <Card title="General commands" icon="toolbox" href="/commands/general">Leveling, starboard, sticky messages, translation and more.</Card>
+  <Card title="Information commands" icon="circle-info" href="/commands/information">Help, ping and invite.</Card>
+  <Card title="Premium commands" icon="star" href="/commands/premium">Activate and manage Premium.</Card>
+</CardGroup>
+
+## All commands
+
+| Category | Command | Description | Who can use it |
+| --- | --- | --- | --- |
+| Giveaway | `/gcreate` | Create a giveaway with a quick form | Everyone |
+| Giveaway | `/gdelete` | Delete a giveaway | Manage Server |
+| Giveaway | `/gdrop` | Starts a drop giveaway — first to claim wins! | Manage Server |
+| Giveaway | `/gedit` | Edit an active or scheduled giveaway | Manage Server |
+| Giveaway | `/gend` | Ends an active giveaway | Manage Server |
+| Giveaway | `/gfix` | Diagnose and safely repair a stuck or inconsistent giveaway | Manage Server |
+| Giveaway | `/glast` | Starts a 'first or last one to type wins' giveaway | Manage Server |
+| Giveaway | `/glist` | Lists active or ended giveaways in the server | None (View Channel) |
+| Giveaway | `/gpause` | Pauses a running giveaway (freezes its countdown) | Manage Server |
+| Giveaway | `/greroll` | Rerolls one or more new winners from an ended giveaway | Manage Server |
+| Giveaway | `/gresume` | Resumes a paused giveaway (restores its remaining time) | Manage Server |
+| Giveaway | `/gschedule` | Schedule a giveaway to start later, with live preview and full editing | Manage Server |
+| Giveaway | `/gstart` | Starts a giveaway with customizable options | Manage Server |
+| Giveaway | `/gtemplate` | Create and manage reusable giveaway templates | Manage Server |
+| Giveaway | `/setcolor` | Set a custom color for giveaway embeds (Premium Only) | Manage Server |
+| Giveaway | `/setemoji` | Set a custom emoji for giveaway participation button (Premium Only) | Manage Server |
+| Giveaway | `/settings` | 🎨 Configure the giveaway bot for this server | Manage Server |
+| General | `/afk` | Set your AFK status with an optional reason | Everyone |
+| General | `/avatar` | Get user's or server's avatar and banner | Everyone |
+| General | `/counting` | 🔢 Counting game control panel | Manage Server |
+| General | `/levelsetup` | ⚙️ Configure the leveling system via interactive panel | Manage Server |
+| General | `/rank` | Check your level and XP rank in this server | Everyone |
+| General | `/server` | Get server information | Everyone |
+| General | `/setlang` | Change the bot's language for this server | Manage Server |
+| General | `/setlevel` | Set a user's level in the server | Manage Server |
+| General | `/setxp` | Set a user's XP in the server | Manage Server |
+| General | `/starboard` | ⭐ Starboard control panel | Manage Server |
+| General | `/sticky` | 📌 Manage sticky messages — full control panel | Manage Messages |
+| General | `/top` | Show the server's XP leaderboard (Text & Voice separated) | Everyone |
+| General | `/translate` | Translate text, messages, images (OCR), PDFs and files — including very large ones | Everyone |
+| General | `/user` | Get user information | Everyone |
+| Information | `/help` | Displays a categorized list of all bot commands or specific command help | Everyone |
+| Information | `/invite` | Add the bot to your own server | Everyone |
+| Information | `/ping` | Check bot latency, connectivity, cache, and system info | Everyone |
+| Premium | `/premium-activate` | Instantly activate your premium status via Patreon | Manage Server |
+| Premium | `/premium-info` | Displays the premium status of the current server. | Manage Server |
+| Premium | `/premium-link` | Link this server to your Patreon subscription (recommended way to activate premium). | Manage Server |
+| Premium | `/premium-settings` | ⭐ Manage your Premium features: Multi-Server Add-on & Bot Customization | Manage Server |
+| Premium | `/premium-transfer` | Transfers the Premium Tier 2 subscription to another server (Owner Only). | Server owner (checked in command) |
+
+<Tip>
+Run `/help` in Discord for an interactive, categorized list, or `/help command:<name>` for one command.
+</Tip>
+
+Besides slash commands there are [right-click actions](/commands/context-menus) and [prefix commands](/commands/prefix).
