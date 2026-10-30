@@ -1,0 +1,69 @@
+---
+title: "الأسئلة الشائعة"
+description: "إجابات سريعة عن السحوبات وPremium ونظام المستويات والمزيد."
+icon: "circle-question"
+---
+
+## السحوبات
+
+<AccordionGroup>
+  <Accordion title="من يمكنه بدء سحب؟" icon="user-shield">
+    أي شخص لديه صلاحية المسؤول أو إدارة الخادم أو **رتبة مدير السحوبات**. راجع [الصلاحيات](/ar/concepts/permissions).
+  </Accordion>
+  <Accordion title="هل يمكنني تعديل سحب بعد بدئه؟" icon="pen">
+    نعم. يتيح `/gedit` تعديل الجائزة والمدة والفائزين والمتطلبات والمزيد أثناء السحب. لا يمكن تعديل السحوبات المنتهية.
+  </Accordion>
+  <Accordion title="لم يطالب أحد الفائزين بجائزته. ماذا أفعل؟" icon="user-clock">
+    استخدم `/greroll` مع `replace` لاستبدال ذلك الفائز فقط، أو فعّل `auto_claim` لإعادة السحب تلقائيًا على الجوائز التي لم يطالب بها أصحابها.
+  </Accordion>
+  <Accordion title="هل السحب عادل؟" icon="scale-balanced">
+    يُختار الفائزون عشوائيًا من المشاركات الصالحة. ولا تأتي الفرص الإضافية إلا من المشاركات الإضافية التي يحددها المنظّم مسبقًا.
+  </Accordion>
+  <Accordion title="لم ينتهِ السحب في موعده" icon="wrench">
+    استخدم `/gfix` على السحب. فهو يكتشف المشكلة ويصلحها. راجع [إدارة السحوبات](/ar/giveaways/managing).
+  </Accordion>
+  <Accordion title="هل يمكنني جدولة السحوبات مسبقًا؟" icon="calendar">
+    نعم. استخدم `/gschedule`. راجع [الجدولة](/ar/giveaways/scheduling).
+  </Accordion>
+  <Accordion title="ما أقصى مدة للسحب؟" icon="clock">
+    حتى 60 يومًا في الخطة المجانية، ومدة أطول مع Premium. راجع [المدد](/ar/concepts/durations).
+  </Accordion>
+  <Accordion title="هل يمكن للأعضاء المشاركة بإضافة تفاعل؟" icon="face-smile">
+    نعم، مع المستوى الأول من Premium. بخلاف ذلك، يضغط الأعضاء على زر المشاركة.
+  </Accordion>
+</AccordionGroup>
+
+## Premium
+
+<AccordionGroup>
+  <Accordion title="هل اشتراك Premium لكل مستخدم أم لكل خادم؟" icon="star">
+    لكل **خادم**.
+  </Accordion>
+  <Accordion title="هل توجد فترة تجريبية مجانية؟" icon="gift">
+    نعم، تتوفر تجربة للمستوى الأول لمدة 3 أيام، مرة واحدة لكل خادم.
+  </Accordion>
+  <Accordion title="ماذا يحدث عند انتهاء Premium؟" icon="hourglass-end">
+    تتوقف ميزات Premium، وتعود الحدود إلى حدود الخطة المجانية، وتُحتفظ بإعداداتك المحفوظة وبيانات نقاط الخبرة.
+  </Accordion>
+  <Accordion title="كيف أنقل Premium إلى خادم آخر؟" icon="arrow-right-arrow-left">
+    يمكن لمالك الخادم استخدام `/premium-transfer` لنقل اشتراك من المستوى الثاني.
+  </Accordion>
+</AccordionGroup>
+
+## ميزات أخرى
+
+<AccordionGroup>
+  <Accordion title="لماذا لا يرتفع مستواي؟" icon="chart-line">
+    يتطلب نظام المستويات اشتراك Premium نشطًا على الخادم. تأكد أيضًا من أنك لست في قناة مستثناة ولا تحمل رتبة مستثناة.
+  </Accordion>
+  <Accordion title="كيف أغيّر لغة البوت؟" icon="globe">
+    استخدم `/setlang`. راجع [اللغة](/ar/features/language).
+  </Accordion>
+  <Accordion title="كيف أغيّر البادئة؟" icon="exclamation">
+    تُضبط البادئات لكل خادم من لوحة التحكم. البادئة الافتراضية هي `g!`.
+  </Accordion>
+</AccordionGroup>
+
+<Check>
+هل ما زلت بحاجة إلى مساعدة؟ اسأل في [خادم الدعم](https://discord.gg/86jArY28hj).
+</Check>

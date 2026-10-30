@@ -1,0 +1,82 @@
+---
+title: "إعدادات جاهزة"
+description: "إعدادات سحوبات جاهزة للحالات الشائعة. انسخها والصقها وعدّلها."
+icon: "book-open"
+---
+
+كل إعداد جاهز هو نقطة بداية. استبدل أسماء الرتب والجوائز بما يناسبك.
+
+<Tabs>
+  <Tab title="سحب أسبوعي بسيط" icon="calendar-week">
+    سحب تقليدي يمكن للجميع المشاركة فيه.
+
+    ```text
+    /gstart duration:7d winners:1 prize:Discord Nitro
+    ```
+
+    <Tip>
+    احفظه بوصفه [قالبًا](/ar/giveaways/templates) لتتمكن من استخدامه الأسبوع المقبل بأمر قصير واحد.
+    </Tip>
+  </Tab>
+  <Tab title="للأعضاء فقط" icon="user-check">
+    يقتصر على أصحاب رتبة Member الذين مضى على انضمامهم أسبوع.
+
+    ```text
+    /gstart duration:3d winners:2 prize:Steam Gift Card required_roles:@Member joined_age:7
+    ```
+  </Tab>
+  <Tab title="منع الحسابات البديلة" icon="shield-check">
+    امنع الحسابات المنشأة حديثًا واجعل اختبار التحقق إلزاميًا.
+
+    ```text
+    /gstart duration:2d winners:1 prize:Gift Card account_age:30 joined_age:7
+    ```
+
+    ثم فعّل اختبار التحقق في لوحة Studio.
+  </Tab>
+  <Tab title="مكافأة المعززين" icon="rocket">
+    يحصل المعززون والداعمون على فرص إضافية، مع بقاء المشاركة متاحة للجميع.
+
+    ```text
+    /gstart duration:7d winners:1 prize:VIP Role extra_entries:@Booster 3 @Supporter 5
+    ```
+  </Tab>
+  <Tab title="مهمة على وسائل التواصل الاجتماعي" icon="share-nodes">
+    يثبت الأعضاء أنهم تابعوك بلقطة شاشة.
+
+    1. شغّل `/gstart` واختر **التخصيص في Studio**.
+    2. فعّل **التحقق بلقطة شاشة**.
+    3. اختر المنصة والإجراء واسم الحساب المطلوب البحث عنه.
+    4. انشر.
+  </Tab>
+  <Tab title="جائزة مفاجئة" icon="bolt">
+    يفوز أول ثلاثة يطالبون بالجائزة.
+
+    ```text
+    /gdrop prize:$10 Gift Card winners:3 countdown:10
+    ```
+  </Tab>
+</Tabs>
+
+## حالات شائعة
+
+<AccordionGroup>
+  <Accordion title="ارتكبت خطأً إملائيًا في اسم الجائزة" icon="pen">
+    شغّل `/gedit` وصحّح الخطأ. تتحدث رسالة السحب فورًا، ولا يفقد أحد مشاركته.
+  </Accordion>
+  <Accordion title="لم يرد أحد الفائزين" icon="user-clock">
+    استخدم `/greroll` مع الخيار `replace` لاستبدال ذلك الفائز فقط، أو فعّل `auto_claim` في المرة المقبلة ليحدث ذلك تلقائيًا.
+  </Accordion>
+  <Accordion title="أحتاج إلى مزيد من الوقت" icon="hourglass">
+    شغّل `/gedit` واضبط قيمة جديدة لـ `duration`. تُحتسب المدة من الآن.
+  </Accordion>
+  <Accordion title="أحتاج إلى إيقافه مؤقتًا" icon="pause">
+    استخدم `/gpause`، ثم `/gresume` لاحقًا. يُحفظ الوقت المتبقي.
+  </Accordion>
+  <Accordion title="يبدو أن شيئًا ما عالق" icon="wrench">
+    شغّل `/gfix` على السحب واتبع ما يرد في التقرير.
+  </Accordion>
+  <Accordion title="تشغيله كل شهر" icon="rotate">
+    استخدم `/gschedule create` مع تكرار شهري.
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,44 @@
+---
+title: "الجوائز الفورية وآخر من يكتب"
+description: "مسابقات سريعة وممتعة: يفوز أول من يطالب بالجائزة، أو أول من يكتب أو آخر من يكتب."
+icon: "bolt"
+---
+
+## /gdrop: يفوز أول من يطالب بالجائزة
+
+لا تتضمن **الجوائز الفورية** سحبًا عشوائيًا. يفوز أول الأعضاء الذين يطالبون بالجائزة **فورًا**. مثالية للمكافآت المفاجئة.
+
+<ParamField body="prize" type="text" required>الجائزة التي سيتم تقديمها.</ParamField>
+<ParamField body="winners" type="number (1 to 50)">عدد الأشخاص الذين يمكنهم المطالبة بالجائزة. القيمة الافتراضية 1.</ParamField>
+<ParamField body="duration" type="text">مدة إتاحة الجائزة الفورية، مثل `30m`.</ParamField>
+<ParamField body="channel" type="channel">القناة التي ستُتاح فيها الجائزة الفورية.</ParamField>
+<ParamField body="image" type="file">الصورة الرئيسية (صور فقط).</ParamField>
+<ParamField body="thumbnail" type="file">صورة مصغّرة (صور فقط).</ParamField>
+<ParamField body="countdown" type="number (1 to 30)">مدة العد التنازلي بالثواني قبل ظهور الجائزة الفورية، ليتمكن الجميع من الاستعداد.</ParamField>
+<ParamField body="blacklist_role" type="role">رتبة لا يمكن لحامليها المطالبة بالجائزة.</ParamField>
+<ParamField body="required_role" type="role">رتبة مطلوبة للمطالبة بالجائزة.</ParamField>
+<ParamField body="message" type="text">رسالة إضافية تُرسل قبل إتاحة الجائزة الفورية.</ParamField>
+
+<Note>
+لا يمكن إعادة اختيار الفائزين في الجوائز الفورية. يتحقق البوت أيضًا من صلاحياته في القناة أولًا ويخبرك بالصلاحيات الناقصة.
+</Note>
+
+## /glast: يفوز أول من يكتب أو آخر من يكتب
+
+لعبة دردشة سريعة. يكتب الأعضاء في قناة، ويفوز **أول** شخص يكتب أو **آخر** شخص يكتب.
+
+<ParamField body="channel" type="channel" required>القناة النصية للعبة.</ParamField>
+<ParamField body="duration" type="text" required>من دقيقة واحدة إلى 10 دقائق، مثل `5m` أو `300s`.</ParamField>
+<ParamField body="prize" type="text" required>الجائزة.</ParamField>
+<ParamField body="mode" type="choice" required>**يفوز أول من يكتب** أو **يفوز آخر من يكتب**.</ParamField>
+
+يتطلب صلاحية **إدارة الخادم** أو **المسؤول**.
+
+<Tabs>
+  <Tab title="أول من يكتب">
+    سباق يفوز فيه الأسرع في الكتابة. استخدم مدة قصيرة.
+  </Tab>
+  <Tab title="آخر من يكتب">
+    لعبة انتظار. يفوز آخر من يكتب قبل انتهاء الوقت، لذا يواصل المشاركون الكتابة للبقاء في المنافسة. وسرعان ما تعمّ الفوضى.
+  </Tab>
+</Tabs>

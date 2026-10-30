@@ -1,0 +1,65 @@
+---
+title: "البدء السريع"
+description: "ادعُ GiveawayX وأطلق أول سحب لك في نحو دقيقة."
+icon: "rocket"
+---
+
+<Steps>
+  <Step title="أضف البوت إلى خادمك" icon="plus">
+    شغّل `/invite` في أي خادم يحتوي بالفعل على GiveawayX للحصول على رابط الدعوة، أو اطلبه في [خادم الدعم](https://discord.gg/86jArY28hj). عند انضمام البوت، ينشر رسالة **البدء** التي يمكن للمسؤولين من خلالها تأكيد لغة الخادم والبادئة.
+  </Step>
+  <Step title="اسمح للبوت برؤية القناة" icon="eye">
+    في قناة السحوبات، تأكد من أن البوت يملك إذنَي **عرض القناة** و**إرسال الرسائل**. تتطلب السحوبات عبر التفاعلات أيضًا إذن **إضافة تفاعلات**. تجد القائمة الكاملة في [الأذونات](/ar/concepts/permissions).
+  </Step>
+  <Step title="ابدأ سحبًا" icon="gift">
+    اختر الطريقة التي تفضلها:
+
+    <CodeGroup>
+    ```text Form (easiest)
+    /gcreate
+    ```
+    ```text One command
+    /gstart duration:1d winners:1 prize:Discord Nitro
+    ```
+    ```text Prefix
+    g!gstart --duration=1d --winners=1 --prize=Discord Nitro
+    ```
+    </CodeGroup>
+
+    باستخدام `/gcreate`، تملأ نموذجًا قصيرًا (الجائزة، والمدة، وعدد الفائزين، وصورة اختيارية)، ثم تختار **النشر الآن** أو **التخصيص في الاستوديو**.
+  </Step>
+  <Step title="يشارك الأعضاء" icon="hand-pointer">
+    يضغط الأعضاء على زر **المشاركة** في رسالة السحب. وإذا كان السحب يعتمد على المشاركة بالتفاعل، فيضيفون تفاعلًا بدلًا من ذلك.
+  </Step>
+  <Step title="اختيار الفائزين" icon="trophy">
+    عند انتهاء المؤقت، يختار البوت الفائزين ويحدّث الرسالة، ويمكنه مراسلتهم على الخاص وفتح سلسلة رسائل للفائزين. إذا لم يطالب أحدهم بجائزته، فاستخدم `/greroll`.
+  </Step>
+</Steps>
+
+<Tip>
+لست متأكدًا من كيفية استخدام أمر؟ شغّل `/help`، أو `/help command:gstart` للاطلاع على تفاصيل أمر محدد.
+</Tip>
+
+## قائمة التحقق لأول سحب لك
+
+<AccordionGroup>
+  <Accordion title="قبل أن تبدأ" icon="list-check">
+    - يستطيع البوت النشر في القناة.
+    - لديك إذن **إدارة الخادم** أو **المسؤول** أو رتبة مدير السحوبات.
+    - تعرف الجائزة والمدة (مثل `1d`) وعدد الفائزين.
+  </Accordion>
+  <Accordion title="اجعله أكثر أمانًا" icon="shield-check">
+    أضف رتبة مطلوبة أو حدًا أدنى لعمر الحساب أو اختبار تحقق لمنع الحسابات البديلة والبوتات من الفوز. راجع [متطلبات المشاركة](/ar/giveaways/entry-requirements).
+  </Accordion>
+  <Accordion title="اجعله أكثر حماسًا" icon="ticket">
+    امنح معززي الخادم أو الداعمين فرص مشاركة إضافية باستخدام [المشاركات الإضافية](/ar/giveaways/bonus-entries)، أو أضف صورة من خلال `/gcreate`.
+  </Accordion>
+  <Accordion title="بعد انتهائه" icon="flag-checkered">
+    يمكن إرسال رسائل خاصة إلى الفائزين، ومنحهم رتبة تلقائيًا، وإتاحة المطالبة بجوائزهم في سلسلة رسائل. اقرأ [الفائزون والمطالبة بالجوائز](/ar/giveaways/winners-and-claims).
+  </Accordion>
+</AccordionGroup>
+
+<Columns cols={2}>
+  <Card title="جميع خيارات السحب" icon="sliders" href="/ar/giveaways/creating" />
+  <Card title="وصفات جاهزة" icon="book-open" href="/ar/giveaways/recipes" />
+</Columns>

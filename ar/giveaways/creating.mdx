@@ -1,0 +1,100 @@
+---
+title: "إنشاء السحوبات"
+description: "ابدأ سحبًا باستخدام /gcreate أو /gstart وتعرّف على وظيفة كل خيار."
+icon: "plus"
+---
+
+يمكنك إنشاء سحب بطريقتين. تؤدي كلتاهما إلى النتيجة نفسها، لذا تنطبق عليهما جميع الحدود وعمليات التحقق من الأذونات والإعدادات الافتراضية.
+
+<Columns cols={2}>
+  <Card title="/gcreate: النموذج السريع" icon="rectangle-list">
+    نموذج مختصر. الأنسب لمعظم السحوبات.
+  </Card>
+  <Card title="/gstart: جميع الخيارات" icon="terminal">
+    أمر واحد يتضمن جميع الخيارات. الأنسب عندما تعرف بالضبط ما تريده.
+  </Card>
+</Columns>
+
+## /gcreate: النموذج السريع
+
+يفتح `/gcreate` نموذجًا يتضمن:
+
+1. **الجائزة**
+2. **المدة** (راجع [المدد](/ar/concepts/durations))
+3. **الفائزون**
+4. **صورة الجائزة** (رفع اختياري، بحجم يصل إلى 8 ميغابايت)
+5. **ماذا بعد؟** اختر **النشر الآن** للنشر مباشرةً باستخدام الإعدادات الافتراضية لخادمك، أو **التخصيص في Studio** لضبط التفاصيل أولًا.
+
+<Note>
+إذا كان هناك خطأ (مثل مدة غير صالحة)، فستتلقى رسالة خاصة تتضمن زر **التعديل والمحاولة مجددًا**. يُحتفظ بكل ما أدخلته، ويظل النموذج صالحًا لمدة 15 دقيقة.
+</Note>
+
+## /gstart: جميع الخيارات
+
+جميع الخيارات اختيارية. إذا ظلت المدة أو الجائزة مفقودة بعد تطبيق القالب والإعدادات الافتراضية، فسيطلبها البوت.
+
+### الأساسيات
+
+<ParamField body="duration" type="text">مدة استمرار السحب، مثل `1d` أو `2h`.</ParamField>
+<ParamField body="winners" type="number">عدد الفائزين.</ParamField>
+<ParamField body="prize" type="text">الجائزة المقدَّمة في السحب.</ParamField>
+<ParamField body="template" type="text">ابدأ من [قالب](/ar/giveaways/templates) محفوظ. أي قيمة تدخلها تحل محل القيمة المقابلة في القالب.</ParamField>
+<ParamField body="channel" type="channel">مكان النشر. تُدعم القنوات النصية وقنوات الإعلانات والمواضيع.</ParamField>
+<ParamField body="host" type="user">الشخص الذي يظهر بصفته المضيف.</ParamField>
+<ParamField body="description" type="text">نص إضافي يظهر في السحب.</ParamField>
+<ParamField body="image" type="file">الصورة الرئيسية.</ParamField>
+<ParamField body="thumbnail" type="file">صورة صغيرة تظهر بجانب النص.</ParamField>
+<ParamField body="giveaway_create_message" type="text">رسالة مخصصة تُرسل عند بدء السحب.</ParamField>
+
+### المتطلبات
+
+<ParamField body="required_roles" type="roles">الرتب التي يحتاج إليها الأعضاء للمشاركة.</ParamField>
+<ParamField body="requirement_bypass_roles" type="roles">الرتب التي تتجاوز المتطلبات.</ParamField>
+<ParamField body="blacklist_roles" type="roles">الرتب التي لا يُسمح لها بالمشاركة.</ParamField>
+<ParamField body="joined_age" type="number">الحد الأدنى لعدد أيام العضوية في الخادم.</ParamField>
+<ParamField body="account_age" type="number">الحد الأدنى لعمر حساب Discord بالأيام.</ParamField>
+<ParamField body="required_messages" type="number">عدد الرسائل التي يجب أن يكون العضو قد أرسلها.</ParamField>
+<ParamField body="required_level" type="number">الحد الأدنى [للمستوى](/ar/features/leveling) (1 على الأقل).</ParamField>
+<ParamField body="required_official_tag" type="true / false">يجب أن يُظهر الأعضاء الوسم الرسمي لخادمك. ويجب أن يكون للخادم وسم رسمي.</ParamField>
+
+تجد شرحًا لكيفية الجمع بين هذه المتطلبات في [متطلبات المشاركة](/ar/giveaways/entry-requirements).
+
+### المكافآت والإضافات
+
+<ParamField body="winners_roles" type="roles">الرتب الممنوحة للفائزين.</ParamField>
+<ParamField body="extra_entries" type="text">فرص مشاركة إضافية للرتب، مثل `@Booster 3`. راجع [فرص المشاركة الإضافية](/ar/giveaways/bonus-entries).</ParamField>
+<ParamField body="max_entries" type="number (1 to 10)">الحد الأقصى لفرص المشاركة الإضافية التي يمكن للعضو كسبها من التصويت.</ParamField>
+<ParamField body="auto_claim" type="true / false">يطالب الفائزون بجوائزهم بزر واحد، وتُعاد القرعة تلقائيًا للجوائز التي لم يُطالب بها.</ParamField>
+<ParamField body="repeat" type="number">كرّر السحب بهذا العدد من المرات. <Badge color="blue">الفئة 1</Badge></ParamField>
+<ParamField body="sticky" type="true / false">أعِد إرسال السحب تلقائيًا. <Badge color="purple">الفئة 2</Badge></ParamField>
+
+<Warning>
+تحتاج إلى إذن المسؤول أو إدارة الخادم أو رتبة مدير السحوبات. ويتحقق البوت أيضًا من قدرته على رؤية القناة المستهدفة والنشر فيها، وإضافة التفاعلات للسحوبات القائمة على التفاعل.
+</Warning>
+
+## أمثلة
+
+<CodeGroup>
+```text Simple
+/gstart duration:1d winners:1 prize:Discord Nitro
+```
+```text Members only
+/gstart duration:3d winners:2 prize:Steam Gift Card required_roles:@Member account_age:30
+```
+```text Boosters get extra
+/gstart duration:7d winners:1 prize:VIP Role extra_entries:@Booster 3
+```
+```text Use a template
+/gstart template:weekly-nitro winners:3
+```
+</CodeGroup>
+
+## الحدود
+
+تعتمد المدة وعدد الفائزين وعدد مرات التكرار على [فئة Premium](/ar/concepts/premium) الخاصة بك. إذا تجاوزت أحد الحدود، فسيخبرك البوت بالحد المنطبق تحديدًا.
+
+<CardGroup cols={3}>
+  <Card title="جدولة السحب" icon="calendar" href="/ar/giveaways/scheduling" />
+  <Card title="حفظ قالب" icon="copy" href="/ar/giveaways/templates" />
+  <Card title="إدارة السحب" icon="sliders" href="/ar/giveaways/managing" />
+</CardGroup>

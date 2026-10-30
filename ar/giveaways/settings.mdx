@@ -1,0 +1,92 @@
+---
+title: "إعدادات الخادم"
+description: "اضبط الإعدادات الافتراضية لسحوبات خادمك باستخدام /settings و/setcolor و/setemoji."
+icon: "gear"
+---
+
+يفتح `/settings` لوحة تفاعلية تحتوي على قائمة بالأقسام. تتطلب العناصر المميزة بعلامة <Badge color="blue">المستوى 1</Badge> أو <Badge color="purple">المستوى 2</Badge> الاشتراك في [مستوى Premium المقابل](/ar/concepts/premium).
+
+## قائمة الإعدادات
+
+<Tree>
+  <Tree.Folder name="/settings" defaultOpen>
+    <Tree.File name="Overview" />
+    <Tree.Folder name="DMs and templates">
+      <Tree.File name="Winner DM, Host DM, Global DM" />
+      <Tree.File name="DM message templates (Tier 1)" />
+    </Tree.Folder>
+    <Tree.Folder name="Winner thread">
+      <Tree.File name="Auto thread, visibility, auto-close" />
+      <Tree.File name="Claim tracker, ping winners, deadline" />
+      <Tree.File name="Name, message, color (Tier 1)" />
+    </Tree.Folder>
+    <Tree.Folder name="Enter button (Tier 1)">
+      <Tree.File name="Color and label" />
+      <Tree.File name="Participants button" />
+    </Tree.Folder>
+    <Tree.File name="Appearance (Tier 1)" />
+    <Tree.File name="Entry mode (Tier 1)" />
+    <Tree.File name="Bot customization (Tier 2)" />
+    <Tree.File name="Premium dashboard" />
+  </Tree.Folder>
+</Tree>
+
+## الأقسام بالتفصيل
+
+<AccordionGroup>
+  <Accordion title="Overview" icon="gauge">
+    ملخص للإعدادات الحالية لخادمك.
+  </Accordion>
+  <Accordion title="DMs and templates" icon="envelope">
+    فعّل **الرسائل الخاصة للفائزين** و**الرسائل الخاصة للمضيف** و**الرسائل الخاصة العامة** أو عطّلها. عدّل الرسائل الخاصة وأعد ضبطها. <Badge color="blue">المستوى 1</Badge>
+  </Accordion>
+  <Accordion title="Winner thread" icon="comments">
+    اختر ما إذا كانت سلاسل المحادثات تُنشأ، وما إذا كانت عامة أو خاصة، وموعد إغلاقها، وما إذا كانت المطالبات بالجوائز تُتتبّع، وما إذا كان يُشار إلى الفائزين، والمهلة المتاحة لهم للمطالبة بجوائزهم. خصّص اسم سلسلة المحادثة ورسالتها ولونها. <Badge color="blue">المستوى 1</Badge>
+  </Accordion>
+  <Accordion title="Enter button" icon="hand-pointer">
+    اختر لون الزر (أساسي أو ثانوي أو نجاح أو خطر) ونصه، وأظهر زر **المشاركين** أو أخفه، وحدّد الرتب التي يمكنها عرض المشاركين. <Badge color="blue">المستوى 1</Badge>
+  </Accordion>
+  <Accordion title="Appearance" icon="palette">
+    اضبط لون الرسالة المضمّنة والتسميات المخصصة ورسائلك الخاصة بالفوز والمشاركة والانسحاب، مع زر لإعادة ضبط كل منها. <Badge color="blue">المستوى 1</Badge>
+  </Accordion>
+  <Accordion title="Entry mode" icon="masks-theater">
+    بدّل طريقة المشاركة الافتراضية بين **الزر** و**التفاعل**. <Badge color="blue">المستوى 1</Badge>
+  </Accordion>
+  <Accordion title="Bot customization" icon="robot">
+    امنح البوت لقبًا من اختيارك (<Badge color="blue">المستوى 1</Badge>، في هذا الخادم فقط)، وصورة رمزية ولافتة ونبذة تعريفية من اختيارك (<Badge color="purple">المستوى 2</Badge>، تُطبّق في كل مكان).
+  </Accordion>
+</AccordionGroup>
+
+## الإعدادات الافتراضية
+
+| الإعداد | القيمة الافتراضية |
+| --- | --- |
+| البادئة | `g!` |
+| لون الزر | أساسي |
+| طريقة عرض المضيف | إشارة (أو اسم المستخدم، أو مخفي) |
+| نوع المشاركة | زر |
+| المدة الافتراضية | ساعة واحدة |
+| الرسائل الخاصة للفائزين والرسائل الخاصة للمضيف | مفعّلة |
+| سلسلة محادثة الفائزين | معطّلة |
+| ظهور سلسلة محادثة الفائزين | عامة |
+| اختبار التحقق عند المشاركة | معطّل |
+| فترة الانتظار بين مرات الفوز | معطّلة (0 دقيقة) |
+| المنطقة الزمنية | UTC |
+
+<Color variant="compact">
+  <Color.Row title="Default embed color">
+    <Color.Item name="Giveaway blue" value="#2563FF" />
+  </Color.Row>
+</Color>
+
+## أوامر سريعة
+
+| الأمر | وظيفته |
+| --- | --- |
+| `/setcolor` | تعيين لون مخصص بالنظام الست عشري للرسائل المضمّنة للسحوبات، مثل `#ff0000`. <Badge color="blue">Premium</Badge> |
+| `/setemoji` | تعيين رمز تعبيري مخصص لزر المشاركة. <Badge color="blue">Premium</Badge> |
+| `/setlang` | تغيير لغة البوت في الخادم. راجع [اللغة](/ar/features/language). |
+
+## رتب مدير السحوبات
+
+يمكن للرتب المدرجة ضمن **رتب مدير السحوبات** إدارة السحوبات دون إذن إدارة الخادم. راجع [الأذونات](/ar/concepts/permissions).

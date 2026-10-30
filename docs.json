@@ -2,54 +2,306 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "GiveawayX",
-  "colors": { "primary": "#0ea5e9", "light": "#38bdf8", "dark": "#0284c7" },
+  "colors": {
+    "primary": "#0ea5e9",
+    "light": "#38bdf8",
+    "dark": "#0284c7"
+  },
   "favicon": "/favicon.svg",
-  "appearance": { "default": "dark" },
+  "appearance": {
+    "default": "dark"
+  },
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Get started",
-        "groups": [
-          { "group": "Welcome", "pages": ["index", "quickstart", "glossary"] },
-          { "group": "Essentials", "pages": ["concepts/permissions", "concepts/durations", "concepts/premium"] }
-        ]
-      },
-      {
-        "tab": "Giveaways",
-        "groups": [
-          { "group": "Run giveaways", "pages": ["giveaways/overview", "giveaways/creating", "giveaways/drops", "giveaways/scheduling", "giveaways/templates"] },
-          { "group": "Rules and rewards", "pages": ["giveaways/entry-requirements", "giveaways/bonus-entries", "giveaways/winners-and-claims"] },
-          { "group": "Manage and customize", "pages": ["giveaways/managing", "giveaways/settings", "giveaways/recipes"] }
-        ]
-      },
-      {
-        "tab": "Server features",
-        "groups": [
-          { "group": "Community", "pages": ["features/leveling", "features/starboard", "features/sticky", "features/welcomer"] },
-          { "group": "Utilities", "pages": ["features/afk", "features/translate", "features/voting", "features/language"] },
-          { "group": "Control", "pages": ["features/logging", "features/command-customization"] }
-        ]
-      },
-      {
-        "tab": "Commands",
-        "groups": [
+        "language": "en",
+        "tabs": [
           {
-            "group": "Command reference",
-            "pages": ["commands/overview", "commands/giveaway", "commands/general", "commands/information", "commands/premium", "commands/context-menus", "commands/prefix"]
+            "tab": "Get started",
+            "groups": [
+              {
+                "group": "Welcome",
+                "pages": [
+                  "index",
+                  "quickstart",
+                  "glossary"
+                ]
+              },
+              {
+                "group": "Essentials",
+                "pages": [
+                  "concepts/permissions",
+                  "concepts/durations",
+                  "concepts/premium"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Giveaways",
+            "groups": [
+              {
+                "group": "Run giveaways",
+                "pages": [
+                  "giveaways/overview",
+                  "giveaways/creating",
+                  "giveaways/drops",
+                  "giveaways/scheduling",
+                  "giveaways/templates"
+                ]
+              },
+              {
+                "group": "Rules and rewards",
+                "pages": [
+                  "giveaways/entry-requirements",
+                  "giveaways/bonus-entries",
+                  "giveaways/winners-and-claims"
+                ]
+              },
+              {
+                "group": "Manage and customize",
+                "pages": [
+                  "giveaways/managing",
+                  "giveaways/settings",
+                  "giveaways/recipes"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Server features",
+            "groups": [
+              {
+                "group": "Community",
+                "pages": [
+                  "features/leveling",
+                  "features/starboard",
+                  "features/sticky",
+                  "features/welcomer"
+                ]
+              },
+              {
+                "group": "Utilities",
+                "pages": [
+                  "features/afk",
+                  "features/translate",
+                  "features/voting",
+                  "features/language"
+                ]
+              },
+              {
+                "group": "Control",
+                "pages": [
+                  "features/logging",
+                  "features/command-customization"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Commands",
+            "groups": [
+              {
+                "group": "Command reference",
+                "pages": [
+                  "commands/overview",
+                  "commands/giveaway",
+                  "commands/general",
+                  "commands/information",
+                  "commands/premium",
+                  "commands/context-menus",
+                  "commands/prefix"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Help",
+            "groups": [
+              {
+                "group": "Support",
+                "pages": [
+                  "help/faq",
+                  "help/troubleshooting",
+                  "help/changelog"
+                ]
+              }
+            ]
           }
-        ]
+        ],
+        "default": true,
+        "navbar": {
+          "links": [
+            {
+              "label": "Support server",
+              "href": "https://discord.gg/86jArY28hj"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Dashboard",
+            "href": "https://giveawayx.lol"
+          }
+        },
+        "footer": {
+          "socials": {
+            "discord": "https://discord.gg/86jArY28hj"
+          }
+        }
       },
       {
-        "tab": "Help",
-        "groups": [
-          { "group": "Support", "pages": ["help/faq", "help/troubleshooting", "help/changelog"] }
-        ]
+        "language": "ar",
+        "tabs": [
+          {
+            "tab": "ابدأ من هنا",
+            "groups": [
+              {
+                "group": "مرحبًا",
+                "pages": [
+                  "ar/index",
+                  "ar/quickstart",
+                  "ar/glossary"
+                ]
+              },
+              {
+                "group": "أساسيات",
+                "pages": [
+                  "ar/concepts/permissions",
+                  "ar/concepts/durations",
+                  "ar/concepts/premium"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "السحوبات",
+            "groups": [
+              {
+                "group": "إنشاء السحوبات وإدارتها",
+                "pages": [
+                  "ar/giveaways/overview",
+                  "ar/giveaways/creating",
+                  "ar/giveaways/drops",
+                  "ar/giveaways/scheduling",
+                  "ar/giveaways/templates"
+                ]
+              },
+              {
+                "group": "الشروط والجوائز",
+                "pages": [
+                  "ar/giveaways/entry-requirements",
+                  "ar/giveaways/bonus-entries",
+                  "ar/giveaways/winners-and-claims"
+                ]
+              },
+              {
+                "group": "الإدارة والتخصيص",
+                "pages": [
+                  "ar/giveaways/managing",
+                  "ar/giveaways/settings",
+                  "ar/giveaways/recipes"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "ميزات الخادم",
+            "groups": [
+              {
+                "group": "المجتمع",
+                "pages": [
+                  "ar/features/leveling",
+                  "ar/features/starboard",
+                  "ar/features/sticky",
+                  "ar/features/welcomer"
+                ]
+              },
+              {
+                "group": "الأدوات",
+                "pages": [
+                  "ar/features/afk",
+                  "ar/features/translate",
+                  "ar/features/voting",
+                  "ar/features/language"
+                ]
+              },
+              {
+                "group": "التحكم",
+                "pages": [
+                  "ar/features/logging",
+                  "ar/features/command-customization"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "الأوامر",
+            "groups": [
+              {
+                "group": "مرجع الأوامر",
+                "pages": [
+                  "ar/commands/overview",
+                  "ar/commands/giveaway",
+                  "ar/commands/general",
+                  "ar/commands/information",
+                  "ar/commands/premium",
+                  "ar/commands/context-menus",
+                  "ar/commands/prefix"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "المساعدة",
+            "groups": [
+              {
+                "group": "الدعم",
+                "pages": [
+                  "ar/help/faq",
+                  "ar/help/troubleshooting",
+                  "ar/help/changelog"
+                ]
+              }
+            ]
+          }
+        ],
+        "navbar": {
+          "links": [
+            {
+              "label": "خادم الدعم",
+              "href": "https://discord.gg/86jArY28hj"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "لوحة التحكم",
+            "href": "https://giveawayx.lol"
+          }
+        },
+        "footer": {
+          "socials": {
+            "discord": "https://discord.gg/86jArY28hj"
+          }
+        }
       }
     ]
   },
   "navbar": {
-    "links": [{ "label": "Support server", "href": "https://discord.gg/86jArY28hj" }],
-    "primary": { "type": "button", "label": "Dashboard", "href": "https://giveawayx.lol" }
+    "links": [
+      {
+        "label": "Support server",
+        "href": "https://discord.gg/86jArY28hj"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://giveawayx.lol"
+    }
   },
-  "footer": { "socials": { "discord": "https://discord.gg/86jArY28hj" } }
+  "footer": {
+    "socials": {
+      "discord": "https://discord.gg/86jArY28hj"
+    }
+  }
 }

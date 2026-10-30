@@ -1,0 +1,34 @@
+---
+title: "الترجمة"
+description: "ترجم النصوص والرسائل والصور وملفات PDF والملفات الأخرى، حتى الطويلة جدًا منها."
+icon: "language"
+---
+
+يترجم `/translate` أي محتوى تقريبًا إلى اللغة التي تختارها.
+
+<ParamField body="to" type="language">اللغة المراد الترجمة إليها. ابدأ بالكتابة للبحث في جميع اللغات المدعومة.</ParamField>
+<ParamField body="text" type="text">النص المراد ترجمته.</ParamField>
+<ParamField body="from" type="language">اللغة الأصلية. اترك هذا الحقل فارغًا لاكتشافها تلقائيًا.</ParamField>
+<ParamField body="message" type="message link">ترجم رسالة وأي صور مرفقة بها.</ParamField>
+<ParamField body="attachment" type="file">ملف أو صورة أو ملف PDF. يمكنك إضافة المزيد من الملفات في خيارات المرفقات الإضافية.</ParamField>
+
+## المحتوى الذي يمكن ترجمته
+
+<Columns cols={2}>
+  <Card title="نصوص طويلة" icon="file-lines">
+    يُقسَّم النص الطويل إلى أجزاء وتُترجم الأجزاء تباعًا، فلا يُقتطع منه شيء.
+  </Card>
+  <Card title="صور" icon="image">
+    يُقرأ النص الموجود داخل الصور تلقائيًا قبل ترجمته.
+  </Card>
+  <Card title="ملفات PDF وملفات أخرى" icon="file-pdf">
+    ارفع ملفات PDF والملفات النصية مباشرةً.
+  </Card>
+  <Card title="عدة ملفات دفعة واحدة" icon="copy">
+    أضف ما يصل إلى ثلاثة مرفقات في طلب واحد.
+  </Card>
+</Columns>
+
+## الترجمة دون كتابة
+
+انقر بزر الفأرة الأيمن على أي رسالة، واختر **التطبيقات**، ثم **ترجمة الرسالة**.
