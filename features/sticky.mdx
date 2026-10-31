@@ -1,64 +1,135 @@
 ---
-title: "Sticky messages"
-description: "Keep important messages visible at the bottom of a channel."
+title: "Sticky Messages"
+description: "Create sticky messages and manage their settings from the Sticky dashboard."
 icon: "thumbtack"
 ---
 
-A **sticky message** is re-posted as people chat so it stays visible. Perfect for rules, announcements or "read this first" notes. Manage them with `/sticky` (requires **Manage Messages**).
+A sticky message is content that is reposted in a channel when its conditions are met, keeping important information easy to find. The `/sticky` command requires **Manage Messages**, but it no longer opens the management dashboard: it displays a link to the website dashboard at `giveawayx.lol/server/<server-id>/sticky`, and the source describes the command as deprecated and scheduled for removal. It also warns of a compatibility issue with legacy settings data and recommends setting up messages again in the website dashboard. Do not treat the old command settings as a confirmed description of the website dashboard’s current features.
 
-## Building a sticky
+> **Documentation scope:** The provided files describe the legacy Discord dashboard implementation, the sending engine, and the data schema; they do not include the implementation of the `/sticky` web page itself. These sources therefore cannot establish the web page’s section names, order, field labels, or button text. Below, confirmed source behavior is distinguished from the legacy interface rather than attributed to the website dashboard without evidence.
 
-Sticky messages are built from blocks, up to **12 blocks** each:
+## Access and permissions
 
-<Columns cols={3}>
-  <Card title="Text" icon="font">Formatted text.</Card>
-  <Card title="Separator" icon="minus">A divider line.</Card>
-  <Card title="Section" icon="table-columns">Text with an accessory.</Card>
-  <Card title="Image" icon="image">A picture or gallery.</Card>
-  <Card title="Button" icon="rectangle-ad">A clickable button.</Card>
-</Columns>
+- The `/sticky` command is intended for use in a server. Its default required Discord permission is **Manage Messages** (`Manage Messages`).
+- Under the current command implementation, settings are not managed from the command itself; use the **Open Dashboard** button in the command’s message to go to the server page.
+- The engine sends the message to the channel when the bot has **View Channel** and **Send Messages** permissions. Some behaviors may require additional Discord permissions; the provided files do not specify a single comprehensive list.
+- The command message itself warns of a compatibility issue with legacy settings and recommends creating a new Sticky in the website dashboard. Do not assume that editing an old setting in the previous interface automatically fixes its data structure.
 
-## When it is re-sent
+## Sticky capabilities confirmed by the source files
 
-| Setting | Behavior |
+This section describes system capabilities and fields; it is not a confirmed list of current website-page controls. Some of these capabilities come from the legacy Discord dashboard implementation, while the current `/sticky` command indicates that management has moved to the web.
+
+### Content and formatting
+
+The legacy block editor supports five block types, with a maximum of **12 blocks** per message:
+
+| Block | Purpose |
 | --- | --- |
-| Every message | After each new message (default) |
-| Every 5 or 10 messages | After that many messages |
-| Every 30 seconds | At most once per 30 seconds |
-| Every minute | At most once per minute |
+| Content | Message text. |
+| Separator | A small or large divider line or spacer. |
+| Section | Text, optionally accompanied by a thumbnail. |
+| Image | A single image or a gallery. |
+| Button | A link button. |
 
-Anything other than "every message" needs <Badge color="blue">Tier 1</Badge>.
+Legacy content fields include message text, title, and footer, as well as color, image, and thumbnail. The limits in the legacy forms are: creation text up to 1900 characters, title up to 200, and footer up to 500. The legacy text editor accepts up to 4000 characters according to the schema, but this is not a confirmed limit for a website-dashboard form.
 
-## Timing options
+The system may store content in the legacy flat-field format or as editor blocks, and the layout engine converts it to Discord components when sending. The existence of this conversion schema does not prove that the web interface exposes the same legacy block editor.
 
-<Tabs>
-  <Tab title="Detection">
-    **Immediate**, or **delayed**, which waits for a pause in the conversation (5 seconds by default) before re-posting so it does not interrupt a fast chat.
-  </Tab>
-  <Tab title="Cleanup">
-    Choose when the old copy is deleted: when the new one starts, when it ends (default), or after a delay (5 seconds by default).
-  </Tab>
-</Tabs>
+### Repost timing and delivery
 
-## Triggers
+| Interval option | Behavior |
+| --- | --- |
+| Every message | The default; resends in response to eligible messages. |
+| Every 5 messages / every 10 messages | Waits for the specified number of messages. |
+| Every 30 seconds / every minute | Limits reposting according to the time interval. |
 
-Depending on your tier, a sticky can also appear on a **keyword**, on a **schedule**, up to a **maximum number of times**, with a **per-user cooldown**, or when someone **reacts** to a message.
+Intervals other than “every message” require **Tier 1**, according to the limits table in the code. The engine also applies an internal short cooldown of 3 seconds to prevent closely spaced repeated sends; this is not a user-configurable option.
 
-## Limits by tier
+Delivery fields include immediate or delayed detection. Delayed mode waits for the conversation to be quiet for the conversation-window duration (5 seconds by default; allowed range 0–3600 seconds). The fields also determine when the previous message is deleted: before the new send, after it completes, or after a delay (5 seconds by default; range 0–3600). The delete-after-send option is intended to keep the old message in place until the new one has been sent successfully.
 
-| | Free | Tier 1 | Tier 2 |
-| --- | --- | --- | --- |
+### Triggers and access
+
+The system files define the following settings, with availability varying by plan:
+
+- **Schedule:** Days of the week and start and end times in UTC. The default in the legacy Discord dashboard is 09:00–21:00; a disabled schedule means the Sticky runs all the time.
+- **Maximum run count:** When the limit is reached, the status is shown as “limit reached.” The run counter can be reset in the legacy interface.
+- **Keyword:** Text matching; the default matching mode in legacy creation data is `contains`.
+- **Required role:** The message is triggered only if the message author has a specified role.
+- **Role to mention:** Mentions a role when the Sticky is sent.
+- **Per-user cooldown** and **reaction trigger:** System-supported fields available according to the plan table below.
+- **Delete trigger message:** Available starting at Tier 1; when enabled, deletes the user’s message that triggered the repost.
+- **Count messages from other bots:** A legacy settings field; by default, bot messages are ignored.
+
+### Appearance and advanced options
+
+System settings include a hexadecimal accent color, title and footer, image and thumbnail, placeholders, a Spoiler container that hides message content until clicked, and separator style. The system also supports alternate content variants, link buttons, pinning a Sticky message, priority, a custom Webhook identity, templates, statistics, Sticky copying, and settings export and import. Availability is plan-restricted; see the table below.
+
+The legacy Discord dashboard source shows settings distributed across screens: a home page, management list, content editor, appearance, timing, triggers, roles, scheduling, channel selection, templates, and a variables guide. It displayed the message and its status, with actions for preview, resend, pause/resume, disable/enable, and delete, and opened dialogs for entering text, colors, links, and times. However, the inputs do not include the web-page code needed to confirm that these sections, buttons, or forms remain in the current website dashboard. Treat them only as a reference to the legacy implementation.
+
+## Placeholders
+
+The sending engine documents the following placeholders when the placeholder option is enabled (Tier 1 and above):
+
+| Placeholder | Substituted value |
+| --- | --- |
+| `{user}`, `{user.mention}`, `{user.tag}`, `{user.id}`, `{user.displayname}` | The username, mention, tag, ID, or display name. |
+| `{server}`, `{server.name}`, `{server.id}`, `{server.icon}`, `{membercount}`, `{server.membercount}` | The server name, ID, icon, or member count. |
+| `{channel}`, `{channel.mention}`, `{channel.id}`, `{channel.topic}` | The channel name, mention, ID, or topic. |
+| `{date}`, `{time}` | The runtime environment’s local date and time, in English format. |
+| `{timestamp}`, `{now}`, `{timestamp.short}`, `{timestamp.relative}`, `{timestamp.date}`, `{timestamp.time}` | Discord timestamps in different display styles. |
+| `{random}`, `{random.1-10}`, `{random.1-100}` | A random number in the indicated range (or 0–99 for `{random}`). |
+
+The legacy Discord dashboard’s variables guide lists a smaller set, while the sending engine defines the additional placeholders in the table. The source says placeholders work when enabled but does not establish a case-sensitivity rule, so do not rely on the legacy claim that placeholders are case-sensitive.
+
+## Plan limits confirmed in the source
+
+These values come from the `LIMITS` table in the Sticky implementation. “Variants” means the total number of variants, including the base content, according to the source comment that calls them `variants`.
+
+| Feature | Free (Tier 0) | Tier 1 | Tier 2 |
+| --- | ---: | ---: | ---: |
 | Sticky messages | 3 | 10 | 25 |
-| Re-send intervals | Every message | All | All |
+| Repost intervals | Every message only | All options | All options |
 | Placeholders | No | Yes | Yes |
-| Variants | 1 | 3 | 5 |
+| Total variants | 1 | 3 | 5 |
 | Buttons | 1 | 1 | 3 |
-| Images | No | No | Yes |
-| Schedule and max triggers | No | Yes | Yes |
-| Keyword and reaction triggers | No | No | Yes |
-| User cooldown | No | No | Yes |
-| Pin, priority, templates | No | No | Yes |
+| Images and thumbnails | No | No | Yes |
+| Scheduling and maximum run count | No | Yes | Yes |
+| Required role | Yes | Yes | Yes |
+| Role mention | No | Yes | Yes |
+| Automated reactions | 0 | 3 | 5 |
+| Keyword trigger | No | No | Yes |
+| Per-user cooldown | No | No | Yes |
+| Reaction trigger | No | No | Yes |
+| Delete trigger message | No | Yes | Yes |
+| Sticky pinning, priority, and templates | No | No | Yes |
+| Statistics and Sticky copying | No | Yes | Yes |
 | Webhook identity | No | No | Yes |
 | Export and import | No | No | Yes |
-| Statistics and copy | No | Yes | Yes |
-| Threads | No | Yes | Yes |
+| Channel/thread support | No | Yes | Yes |
+
+The legacy Discord dashboard implementation’s channel-type list allows text and announcement channels, public and private threads, announcement threads, and forums; the plan table disables the `threads` feature on Free and enables it on the paid tiers. The source does not specify limits on the number of items in an image gallery or more precise values for some fields; do not add limits that are not documented.
+
+## Creating, editing, deleting, copying, and enabling
+
+### What is confirmed about the current creation flow
+
+The current `/sticky` command directs users to the server dashboard on the website, and the source recommends setting up the message there again if an old Sticky exists because of the data compatibility issue. The provided files do not show the website’s creation form or save steps, so undocumented web button and field names are not included here.
+
+### Reference to the legacy Discord interface only
+
+In the previous implementation, creation began by selecting a channel; if that channel already had a Sticky, its settings opened instead of creating another. The creation form accepted content (required), an optional title, and an optional hexadecimal color, then saved and sent the message and opened that channel’s dashboard. The maximum applied to the number of Stickies in the server, with one Sticky per channel.
+
+In the legacy dashboard, **Edit** opened the text editor, and the appearance panel offered options for color, title, footer, image, thumbnail, placeholders, Spoiler, and separator. **Preview** showed how the message would look without sending it, while **Re-send** sent it immediately. Saving some text and appearance changes resent the message to the channel.
+
+The **Disable/Enable** actions changed `enabled`, while **Pause/Resume** changed `isPaused`; these are separate states. The status also shows “out of schedule” or “limit reached” when applicable. **Delete** deletes the published Sticky message if possible, then removes the setting from the list. **Copy** prompts for a destination channel and copies the setting there, rejecting the same channel or a destination that already has a Sticky; it resets the copy’s counters and creation date. Copying requires Tier 1.
+
+**Manage All** displayed the list, status, and metadata, with buttons to open the first five Stickies directly. **Statistics** showed a summary of impressions, statuses, properties, and the most active Stickies, starting at Tier 1. The six built-in templates (announcement, rules, welcome, information, event, support) required Tier 2. Export and import also required Tier 2. Everything above describes the legacy code and does not confirm the behavior of current website-dashboard controls.
+
+## Important notes before reorganizing or correcting this page
+
+1. **Distinguish the two interfaces:** The current text presents `/sticky` as the management tool, but the current source says it only displays a link to the website dashboard and that the Discord dashboard is legacy. Instructions should begin with the website-dashboard flow and should not present legacy-interface sections as current steps.
+2. **Verify website-dashboard content:** The `/sticky` page code, its forms, and its permissions were not provided. Consult them before documenting website section, button, or field names, or the website’s creation, editing, deletion, or activation flows.
+3. **Clarify legacy Sticky data:** The command message explicitly warns of a compatibility issue and recommends setting up a new Sticky in the website dashboard. Surface this warning before migration or editing steps; do not promise that old data will be converted automatically.
+4. **Correct plan comparisons:** The source confirms automated reaction counts of 0/3/5; Tier 1 enables trigger-message deletion and threads; and Tier 2 enables the reaction trigger, Webhook, and export/import. Do not describe all these features as generally available on paid tiers without specifying the tier.
+5. **Describe delayed timing accurately:** It waits for a configurable conversation quiet period; the source does not establish that it is always five seconds. Five seconds is only the default.
+6. **Note implementation differences:** The legacy Discord dashboard stores flat fields and blocks, while the sending engine can convert this data to components when renderable components are absent. This is an internal compatibility layer, not evidence of user-visible migration steps.

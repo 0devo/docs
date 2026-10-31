@@ -1,69 +1,118 @@
 ---
-title: "Leveling"
-description: "Earn XP from chatting and voice, unlock role rewards and climb the leaderboard."
+title: "Leveling System"
+description: "Earn XP from chat, voice, and reactions, and configure rewards and leaderboards from the settings panel."
 icon: "chart-line"
 ---
 
 <Warning>
-XP tracking needs an **active Premium subscription** (any tier). If Premium ends, tracking stops but your members' XP and your settings are kept. See [Premium](/concepts/premium).
+Earning XP requires an **active Premium subscription** on the server. Without an active subscription, text and voice tracking do not work, but subscription expiration does not delete XP data or leveling settings. Tracking eligibility is checked periodically, so tracking may take a short time to stop after a subscription expires due to caching. See [Premium](/concepts/premium).
 </Warning>
 
-## How members earn XP
+## Initial setup
 
-| Source | Default |
+1. Run `/levelsetup` in the server. You must be the bot owner or have **Manage Server** or **Administrator** permission. This command is available in servers only.
+2. In the main panel, click **Enable** to turn on the system; having a subscription alone does not enable it. Use **Channel** to choose a public notification channel (or **Same Channel** to return to the message's channel). You can set separate channels for text and voice level-up notifications.
+3. Open **XP Config** to set message XP, its random variance, the cooldown, and XP per voice minute. Then review tracking, exclusions, and notification settings.
+4. Add role rewards, multipliers, and exclusions as needed. Save them from the panel; panel changes are saved to the server settings.
+5. Review **Top Settings** for periods, time zone, and the reset schedule. **Premium Status** shows the tier and status and lets you refresh the display.
+
+The interactive panel session expires after 20 minutes of inactivity. Run the command again if it expires.
+
+## Earning XP and limitations
+
+| Activity | Default value | How XP is awarded |
+| --- | --- | --- |
+| Eligible message | 15 XP + a random value from 0 to 10 | At most once per default cooldown period of 60 seconds per member |
+| Voice activity | 10 XP per minute | Points are calculated from actual activity duration and rounded to the nearest whole number |
+| Eligible reaction | 5 XP + a random value from 0 to 2 | Optional, off by default; default cooldown is 30 seconds |
+
+Text and voice levels are calculated from XP earned through each activity, and their totals are displayed separately in `/top` and `/rank`. A user's combined XP determines their overall level. The XP required for level `n` is `5n² + 50n + 100`, and requirements from earlier levels accumulate. Automatic progression is capped at level 100 in the implementation; `/setlevel` allows a manual level setting up to 999.
+
+Text and voice tracking can be disabled in Advanced Settings, and reactions can be disabled in **Reaction & Channels**. Roles, channels, and categories can be excluded from XP. You can also prevent voice XP from being awarded to members who are muted or deafened, at the moderator's discretion. Channel multipliers apply to both text and voice XP. Daily text and voice activity streaks progress separately.
+
+### Premium limits enforced by the implementation
+
+The following values are leveling-setting limits in the Premium implementation, not prices. Text and voice tracking, boost events, custom backgrounds, and custom level-up messages start at Tier 1; the Free tier does not include these tracking features. The XP settings interface limits values by tier:
+
+| Tier | Role rewards | Role multipliers | Max message XP | Max variance | Max cooldown | Max voice XP per minute | Max boost |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Free | 10 | 5 | 50 | 20 | 300 seconds | 0 | Not available |
+| Tier 1 | 25 | 15 | 200 | 100 | 600 seconds | 50 | Up to 5× for 72 hours |
+| Tier 2 | Unlimited | Unlimited | 500 | 200 | 3600 seconds | 200 | Up to 20× for 720 hours |
+| Tier 3 | Unlimited | Unlimited | 1000 | 500 | 7200 seconds | 500 | Up to 50× for 1440 hours |
+
+The minimum message XP base is 1, variance is 0, and cooldown is 5 seconds. In the settings model, voice XP per minute ranges from 1 to 100. The interface displays the tier's voice limit during validation. Free-tier values may appear in the panel, but the active-subscription requirement prevents XP from being earned without Premium.
+
+## The `/levelsetup` panel
+
+The main panel displays the status, Premium tier, current values, roles, multipliers, exclusions, and leaderboard schedule. Its buttons and options are:
+
+| Button | What it lets you do |
 | --- | --- |
-| Chatting | 15 XP (plus or minus 10), once every 60 seconds |
-| Voice channels | 10 XP per minute |
-| Reactions (optional, off by default) | 5 XP (plus or minus 2), once every 30 seconds |
+| **Enable / Disable** | Turn the leveling system on or off. |
+| **Channel** | Choose a public channel, set a dedicated text or voice notification channel, or return to the public channel. |
+| **XP Config** | Configure message XP, variance, cooldown in seconds, and voice XP per minute. |
+| **LvlUp Msg** | Configure text, voice, and DM messages: custom text and an image, whether to include an embed, and whether to send in the channel, by DM, or both. |
+| **Color** | Set the embed color in HEX format, such as `#5865F2`. |
+| **Role Rewards** | Add, edit, or delete a role reward; specify a text level and/or voice level; choose an “all” or “any” check mode; set a custom message and send it by DM; or clear all rewards. |
+| **Multipliers** | Add, edit, delete, or clear role-based XP multipliers. The highest-priority multiplier applies when more than one matches. |
+| **No-XP Setup** | Block XP for roles, channels, or categories, and manage the exclusion lists. |
+| **XP Boost Event** | Create a public event with a multiplier, duration, and reason, or end an event. Creating one is unavailable before Tier 1. |
+| **Top Settings** | Choose a fixed or rolling leaderboard, the number of days in the rolling window, weekly and monthly reset days, and the time zone. |
+| **Profile Card** | Configure rank card settings, including a custom background URL when the feature is available. |
+| **Advanced Settings** | Enable text/voice tracking; ignore muted or deafened members; configure whether rewards are removed or retained; clear repeat rewards; award only the highest reward; exclude server administrators from rewards; and schedule resets. |
+| **Streaks** | Enable activity streaks and configure the daily percentage bonus, its cap, and how to handle a missed day. The displayed defaults are 2% per day, capped at 100%. |
+| **Reaction & Channels** | Enable reactions; configure XP, variance, cooldown, and level-up messages; set reaction role rewards, channel multipliers, and level-up notifications. |
+| **Reset Data** | Reset one member, reset all server data after entering `CONFIRM`, or clear all rewards after confirmation. Use server reset with care. |
+| **Premium Status** | View the status, tier, and expiration; use **Refresh** to update the display. |
 
-Text and voice XP are tracked **separately**, so the leaderboard can show Text and Voice side by side. A member's total XP combines both.
+In the schedule settings, set the daily reset time in 24-hour `HH:mm` format, an IANA time zone such as `Asia/Riyadh` or a UTC/GMT offset, a weekday from 0 to 6 (Sunday = 0), and a day of the month from 1 to 28. The panel also lets you set rolling periods for `/top`; the default number of days is 7.
 
-You can exclude chosen roles, text channels and voice channels from earning XP. Voice XP can also skip members who are muted or deafened.
+A role reward can require a text level, a voice level, or both. “Any” awards it when either specified condition is met; “All” (the default) requires every specified condition. You can choose to award all eligible rewards or only the highest one, remove previous roles, and prevent server administrators from receiving rewards. **Clear Rewards on Reset** determines whether roles are removed when XP is reset.
 
-## For members
+## Member commands
 
-<CardGroup cols={2}>
-  <Card title="/rank" icon="id-card">
-    Shows your rank card. Choose a `dark` or `light` theme.
-  </Card>
-  <Card title="/top" icon="ranking-star">
-    The server leaderboard for `day`, `week`, `month` or `all`, filterable by role.
-  </Card>
-</CardGroup>
+### `/rank`
 
-<Note>
-The rank card is temporarily in maintenance, so `/rank` may show a maintenance message. `/top` works normally.
-</Note>
+Options:
 
-## For admins: /levelsetup
+| Option | Type | Required? | Behavior |
+| --- | --- | --- | --- |
+| `user` | User | No | The member whose data to show; defaults to the command user. No rank is shown for bots or users without data. |
+| `theme` | Text: `dark` or `light` | No | Rank card appearance; defaults to `dark`. |
 
-`/levelsetup` opens a panel where you control everything.
+Displays text rank, XP, and progress toward the next level, as well as voice level/XP, messages, and voice time. The current implementation is in **maintenance mode** and returns a “temporarily disabled” message before processing options, so the card is currently unavailable.
 
-<AccordionGroup>
-  <Accordion title="XP and cooldowns" icon="gauge">
-    Set XP per message, the random variance, the cooldown, XP per voice minute and XP per reaction. The maximum values depend on your Premium tier.
-  </Accordion>
-  <Accordion title="Multipliers and boost events" icon="bolt">
-    Give roles or channels an XP multiplier, or run a timed **XP boost event** such as double XP weekend.
-  </Accordion>
-  <Accordion title="Level-up messages" icon="bell">
-    Write separate messages for text, voice, reaction and DM level-ups, with optional images. Send them in the channel, by DM, both, or turn them off. You can set a dedicated channel for text and voice level-ups.
-  </Accordion>
-  <Accordion title="Role rewards" icon="award">
-    Give roles at specific levels, for text and voice separately. You can stack rewards, remove the previous reward, or keep only the highest.
-  </Accordion>
-  <Accordion title="Streaks" icon="fire">
-    Reward daily activity with extra XP per streak day (2 percent by default) up to a cap (100 percent by default).
-  </Accordion>
-  <Accordion title="Leaderboard timing" icon="calendar">
-    Choose your time zone and when the daily, weekly and monthly leaderboards reset. Leaderboards can be **fixed** (start of the week or month) or **rolling** (the last N days).
-  </Accordion>
-</AccordionGroup>
+### `/top`
+
+Options:
+
+| Option | Type | Required? | Behavior |
+| --- | --- | --- | --- |
+| `duration` | `day`, `week`, `month`, or `all` | No | The period to rank; defaults to `all`. |
+| `role` | Role | No | Restrict results to members with this role. |
+| `page` | Integer, 1 or greater | No | Page number; defaults to 1. |
+
+Displays two separate lists—chat activity and voice activity—with five members per page and Previous/Next buttons. The command user's rank is also shown if they are not among the entries on the page. The leveling system must be enabled. The command implementation itself does not enforce a separate Premium restriction; XP collection stops when there is no active subscription.
 
 ## Admin commands
 
-<ParamField body="/setxp" type="command">Set a member's XP. Choose `total`, `text` or `voice`.</ParamField>
-<ParamField body="/setlevel" type="command">Set a member's level (0 to 999). Choose `total`, `text` or `voice`, and whether to keep their XP.</ParamField>
+Both commands require **Manage Server** or **Administrator** permission (or bot-owner identity), and neither accepts bots as targets.
+
+### `/setlevel`
+
+- `user` (required): The target user.
+- `level` (required): An integer from 0 to 999.
+- `type` (optional): `total` (default), `text`, or `voice`.
+- `preserve_xp` (optional, defaults to `true`): When enabled, preserves the XP progress within the old level and adds it to the cumulative threshold for the new level; otherwise, the user starts at the new level's threshold.
+
+### `/setxp`
+
+- `user` (required): The target user.
+- `amount` (required): An integer of at least 0; the implementation does not set an upper bound for this option.
+- `type` (optional): `total` (default), `text`, or `voice`.
+
+Changing `total` sets total XP, while changing `text` or `voice` updates that activity's balance and applies the change in XP to the total. The command calculates the level from the resulting total XP. Choosing `total` does not redistribute the text and voice balances.
 
 ## Levels in giveaways
 

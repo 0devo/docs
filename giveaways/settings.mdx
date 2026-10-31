@@ -1,33 +1,29 @@
 ---
 title: "Server settings"
-description: "Set your server's giveaway defaults with /settings, /setcolor and /setemoji."
+description: "An explanation of the /settings panel for server giveaways: messages, winner threads, buttons, appearance, and entry mode."
 icon: "gear"
 ---
 
-`/settings` opens an interactive panel with a menu of sections. Items marked <Badge color="blue">Tier 1</Badge> or <Badge color="purple">Tier 2</Badge> need that [Premium tier](/concepts/premium).
+The `/settings` command opens a private interactive panel that only the user who opened it can see. Choose a section from the navigation menu at the top of the panel. Changes are saved when you select an option or submit a form, and the panel updates automatically; the source does not show a general Save button.
 
-## The settings menu
+## Accessing the panel
+
+The command requires one of the following: the Discord **Administrator** or **Manage Server** permission, or a role listed in the `giveawayManagerRoles` setting (Giveaway Manager roles). Bot owners are also exempt. Permissions are checked again when interacting with the panel's buttons, menus, and forms, so having opened it earlier is not enough if you are no longer authorized. Without permission, the panel displays an error and does not allow settings to be changed.
+
+## Navigation menu sections
+
+The `Jump to a settings section…` menu takes you to the sections below. An asterisk in an option's name is a marker in the bot UI for a Premium feature; it does not, by itself, prove that every setting in that section is paid. The details below distinguish what the source actually checks.
 
 <Tree>
   <Tree.Folder name="/settings" defaultOpen>
     <Tree.File name="Overview" />
-    <Tree.Folder name="DMs and templates">
-      <Tree.File name="Winner DM, Host DM, Global DM" />
-      <Tree.File name="DM message templates (Tier 1)" />
-    </Tree.Folder>
-    <Tree.Folder name="Winner thread">
-      <Tree.File name="Auto thread, visibility, auto-close" />
-      <Tree.File name="Claim tracker, ping winners, deadline" />
-      <Tree.File name="Name, message, color (Tier 1)" />
-    </Tree.Folder>
-    <Tree.Folder name="Enter button (Tier 1)">
-      <Tree.File name="Color and label" />
-      <Tree.File name="Participants button" />
-    </Tree.Folder>
-    <Tree.File name="Appearance (Tier 1)" />
-    <Tree.File name="Entry mode (Tier 1)" />
-    <Tree.File name="Bot customization (Tier 2)" />
-    <Tree.File name="Premium dashboard" />
+    <Tree.File name="DMs & Templates ⭐" />
+    <Tree.File name="Winner Thread ⭐ customization" />
+    <Tree.File name="Enter Button ⭐ for some options" />
+    <Tree.File name="Appearance ⭐" />
+    <Tree.File name="Entry Mode ⭐ for Reaction" />
+    <Tree.File name="Bot Custom ⭐" />
+    <Tree.File name="Premium Dashboard — Premium status" />
   </Tree.Folder>
 </Tree>
 
@@ -35,58 +31,57 @@ icon: "gear"
 
 <AccordionGroup>
   <Accordion title="Overview" icon="gauge">
-    A summary of your server's current settings.
+    Shows Premium or free-plan status; the winner, host, and global direct-message toggles; winner-thread creation, type, and auto-close duration; entry-button color and label; entry mode; and a summary of bot customization. This is a status display, not a form for editing values. The default embed color in the schema is `#2563FF`.
   </Accordion>
-  <Accordion title="DMs and templates" icon="envelope">
-    Turn **Winner DM**, **Host DM** and **Global DM** on or off. Edit and reset the DM messages. <Badge color="blue">Tier 1</Badge>
+  <Accordion title="DMs & Templates" icon="envelope">
+    Three toggles save `sendDmToWinner` to send the winner a direct message when a giveaway ends, `sendDmToHost` to notify the host, and `dmWinnersGlobally`, which forces direct messages for all giveaways, overriding the `/create` DM option according to the panel text. The two **Edit Messages** buttons open template fields for the winner and host; each accepts up to 1500 characters. Leaving a field blank saves `null` and restores the default. The reset buttons restore each template individually to its default.
+
+    The template variables shown are `{prize}`, `{server}`, `{winners_count}`, `{winners_list}`, and `{timestamp}`. Editing and resetting templates are protected by a Premium check in the handler; no Premium check is shown for the three message toggles.
   </Accordion>
-  <Accordion title="Winner thread" icon="comments">
-    Choose whether threads are created, whether they are public or private, when they close, whether claims are tracked, whether winners are pinged and how long they have to claim. Customize the thread name, message and color. <Badge color="blue">Tier 1</Badge>
+  <Accordion title="Winner Thread" icon="comments">
+    **Auto Thread** toggles creation of a winner thread after the giveaway (`createWinnerThread`). **Visibility** switches between public and private (`threadType`). **Auto-close Duration** opens a field for minutes: an integer from 0 to 10080, where 0 means no automatic closing according to the UI. **Claim Tracker** toggles prize-claim tracking, and **Ping Winners** toggles whether winners are mentioned. **Claim Deadline** accepts an integer number of hours from 0 to 720; zero means no deadline.
+
+    **Edit Thread** edits the thread name (up to 100 characters), the first message (up to 1500 characters), and the accent color as a six-digit hexadecimal value, with an optional `#`; invalid colors are rejected. Empty fields clear the customization. The Reset Name / Message / Color buttons clear each value individually. The three customizations and their resets are protected by a Premium check; no Premium check is shown for the creation, type, tracking, notification, deadline, or duration toggles.
+
+    The name/message variables shown are `{prize}`, `{prize_short}`, `{host}`, `{channel}`, `{date}`, and `{winners_list}`. This source does not specify the actual archive-duration limits or Discord's requirements for creating a thread.
   </Accordion>
-  <Accordion title="Enter button" icon="hand-pointer">
-    Pick the button color (Primary, Secondary, Success or Danger) and label, show or hide the **participants** button, and limit which roles can view participants. <Badge color="blue">Tier 1</Badge>
+  <Accordion title="Enter Button" icon="hand-pointer">
+    The color buttons save `giveawayButtonColor` by choosing **Primary**, **Secondary**, **Success**, or **Danger**. **Set Button Label** opens a label field of up to 80 characters; leaving it blank restores the default behavior, which displays the participant count. The paid label option is protected by a Premium check, as is resetting it to the default.
+
+    The show/hide participants toggle switches `hideParticipantsButton`. The role menu accepts one role or none; selecting a role saves `participantsViewRoleId` to restrict who can view participants, while clearing the selection allows everyone to view them according to the menu description. No Premium check is shown for these options. **Customize Participants Button** saves a label of up to 80 characters, an emoji of up to 100 characters, and a text color of up to 20 characters. The color must match Primary / Secondary / Success / Danger, case-insensitively; a non-matching value becomes Secondary. This customization and resetting its fields require Premium.
   </Accordion>
   <Accordion title="Appearance" icon="palette">
-    Set the embed color, custom labels, and your own winner, entry and leave messages, each with a reset button. <Badge color="blue">Tier 1</Badge>
+    **Set Color** sets the accent-bar color on giveaway messages for the entire server; it accepts six hexadecimal digits with an optional `#` and saves the color in uppercase. Invalid colors are rejected. **Reset Color** clears the customization. Both require Premium.
+
+    **Customize Labels** provides a multiline field in `key: value` format and a template box. Accepted keys are `ends`, `host`, `winners`, `participants`, and `bullet`; malformed lines and other keys are not applied. The labels field allows up to 1000 characters and the template up to 1500 characters. Empty values clear the customization for that key. **Reset Labels** clears all five labels and the template. The template variables shown are `{prize}`, `{host}`, `{end_time}`, `{winners_count}`, `{info_rows}`, `{extra}`, `{bullet}`, `{lbl_ends}`, `{lbl_host}`, `{lbl_winners}`, `{description}`, and `{enter_button}`.
+
+    **Edit Messages** edits the winner announcement, entry confirmation, and leave confirmation messages. Each has a 1500-character limit, and leaving it blank restores the default. The Reset Winner / Entry / Leave buttons reset each one individually. The variables shown are `{prize}`, `{winners_list}`, `{winners_count}`, `{host}`, `{server}`, and `{date}`. Color, labels, template, messages, and their resets are all protected by a Premium check.
   </Accordion>
-  <Accordion title="Entry mode" icon="masks-theater">
-    Switch your default between **Button** and **Reaction** entry. <Badge color="blue">Tier 1</Badge>
+  <Accordion title="Entry Mode" icon="masks-theater">
+    **Button Mode** makes buttons the default entry method for new giveaways, while **Reaction Mode** makes reactions the default. The default mode is Button; according to the panel text, changing the mode does not affect existing giveaways. Reaction mode requires Premium. When it is selected, **Set Emoji** can set a Unicode emoji or custom Discord emoji (the field accepts up to 50 characters and cannot be empty), and **Reset Emoji** clears the custom emoji and returns to the default. Setting the emoji is also protected by a Premium check. The source does not explain how the validity of a custom emoji ID is checked.
   </Accordion>
-  <Accordion title="Bot customization" icon="robot">
-    Give the bot your own nickname (<Badge color="blue">Tier 1</Badge>, this server only), and your own avatar, banner and bio (<Badge color="purple">Tier 2</Badge>, applied everywhere).
+  <Accordion title="Bot Custom" icon="robot">
+    **Set Nickname** saves a nickname of up to 32 characters and applies it only in this server; an empty field removes the nickname, and Reset Nickname restores it. A nickname requires Premium, and applying it also requires that the bot be allowed to change its nickname; otherwise, an error message appears.
+
+    **Set Avatar** and **Set Banner** save an image URL and apply it to the bot account, not just this server. Each field accepts up to 500 characters; leaving it blank attempts to remove the custom image. The source downloads the URL over HTTP(S), accepts an HTTP 200 response, and imposes an 8 MiB limit, a 10-second timeout, and a maximum of five redirects; a download or account-update failure displays an error. **Set Bio** saves a bio of up to 190 characters and applies it to the bot account; leaving it blank clears it. The panel has no separate reset buttons for these fields. The source UI describes the avatar, banner, and bio as Ultra Premium (Tier 2), but the handlers for these fields, like the nickname handler, actually check only `isPremium`; this source alone cannot establish a specific tier requirement.
+  </Accordion>
+  <Accordion title="Premium Dashboard — Premium status" icon="star">
+    Shows the status, the tier name calculated from `premiumTier`, and the expiration date if available. **Refresh Status** rechecks Premium status and updates the display. **Upgrade Now** links to the support server; it is not an in-panel purchase flow. The section displays a feature list and support information; it does not change giveaway settings. The tier names displayed in this section may not match the star classifications used in some parts of the UI; the implementation source here is insufficient to document prices, subscription terms, or how to upgrade.
   </Accordion>
 </AccordionGroup>
 
-## Defaults
+## Limits of what the source establishes
 
-| Setting | Default |
+The storage schemas show some defaults, including: winner and host messages enabled; winner-thread creation disabled; thread type public; claim tracking enabled; winner pings disabled; deadline and auto-close duration set to zero; entry button color Primary; participants button visible; entry mode Button; and color `#2563FF`. These values come from server-model fields and do not document every runtime behavior. The available source also does not establish the content of every default template used elsewhere in the application, the effect of the global direct-message option in every giveaway flow, or how deadlines and claim tracking are implemented, so we do not assume those details here.
+
+## Related commands
+
+| Command | What the current source establishes |
 | --- | --- |
-| Prefix | `g!` |
-| Button color | Primary |
-| How the host is shown | Mention (or username, or hidden) |
-| Entry type | Button |
-| Default duration | 1 hour |
-| Winner DM and Host DM | On |
-| Winner thread | Off |
-| Winner thread visibility | Public |
-| Entry captcha | Off |
-| Winner cooldown | Off (0 minutes) |
-| Time zone | UTC |
+| `/setcolor` | Not included in the provided `/settings` panel source; see the [giveaway commands reference](/commands/giveaway#setcolor). |
+| `/setemoji` | Not included in the provided `/settings` panel source; see the [giveaway commands reference](/commands/giveaway#setemoji). |
+| `/setlang` | Not included in the provided `/settings` panel source; see [Language](/features/language). |
 
-<Color variant="compact">
-  <Color.Row title="Default embed color">
-    <Color.Item name="Giveaway blue" value="#2563FF" />
-  </Color.Row>
-</Color>
+The panel source cited here does not establish the behavior of these commands; the links above are suggested local links to documentation routes, and their inclusion does not document their implementation here.
 
-## Quick commands
-
-| Command | What it does |
-| --- | --- |
-| `/setcolor` | Set a custom hex color for giveaway embeds, such as `#ff0000`. <Badge color="blue">Premium</Badge> |
-| `/setemoji` | Set a custom emoji for the entry button. <Badge color="blue">Premium</Badge> |
-| `/setlang` | Change the bot's language for the server. See [Language](/features/language). |
-
-## Giveaway Manager roles
-
-Roles listed as **Giveaway Manager roles** can manage giveaways without Manage Server. See [Permissions](/concepts/permissions).
+For usage permissions, see [Permissions](/concepts/permissions). For general Premium information, see [Premium](/concepts/premium).

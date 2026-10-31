@@ -1,10 +1,10 @@
 ---
 title: "Command overview"
-description: "Every slash command at a glance, with what it does and who can use it."
+description: "Every slash command at a glance, what it does, and who can use it."
 icon: "terminal"
 ---
 
-GiveawayX works in servers. Type `/` to see the commands, or use the [prefix](/commands/prefix) (default `g!`).
+GiveawayX works in servers. Type `/` to see the commands, or use the [prefix](/commands/prefix) (default `g!`). This index covers all slash commands and links to dedicated pages for each category. [Prefix commands](/commands/prefix) and [right-click context menu commands](/commands/context-menus) are documented on their own pages and are not listed here as general commands.
 
 <CardGroup cols={2}>
   <Card title="Giveaway commands" icon="gift" href="/commands/giveaway">Create, run and manage giveaways.</Card>
@@ -15,29 +15,31 @@ GiveawayX works in servers. Type `/` to see the commands, or use the [prefix](/c
 
 ## All commands
 
+**Permissions note:** This column shows the permission registered for each command. Some commands with a nominal permission such as “Administrator” also check during execution that the user is the bot owner/developer; the nominal permission alone does not grant permission to use them.
+
 | Category | Command | Description | Who can use it |
 | --- | --- | --- | --- |
 | Giveaway | `/gcreate` | Create a giveaway with a quick form | Everyone |
 | Giveaway | `/gdelete` | Delete a giveaway | Manage Server |
-| Giveaway | `/gdrop` | Starts a drop giveaway — first to claim wins! | Manage Server |
+| Giveaway | `/gdrop` | Start an instant giveaway—first to claim the prize wins! | Manage Server |
 | Giveaway | `/gedit` | Edit an active or scheduled giveaway | Manage Server |
-| Giveaway | `/gend` | Ends an active giveaway | Manage Server |
+| Giveaway | `/gend` | End an active giveaway | Manage Server |
 | Giveaway | `/gfix` | Diagnose and safely repair a stuck or inconsistent giveaway | Manage Server |
-| Giveaway | `/glast` | Starts a 'first or last one to type wins' giveaway | Manage Server |
-| Giveaway | `/glist` | Lists active or ended giveaways in the server | None (View Channel) |
-| Giveaway | `/gpause` | Pauses a running giveaway (freezes its countdown) | Manage Server |
-| Giveaway | `/greroll` | Rerolls one or more new winners from an ended giveaway | Manage Server |
-| Giveaway | `/gresume` | Resumes a paused giveaway (restores its remaining time) | Manage Server |
-| Giveaway | `/gschedule` | Schedule a giveaway to start later, with live preview and full editing | Manage Server |
-| Giveaway | `/gstart` | Starts a giveaway with customizable options | Manage Server |
+| Giveaway | `/glast` | Start a giveaway where the first or last person to type wins | Manage Server |
+| Giveaway | `/glist` | View active or ended giveaways in the server | None (View Channel) |
+| Giveaway | `/gpause` | Pause a running giveaway (freezes the countdown) | Manage Server |
+| Giveaway | `/greroll` | Pick one or more new winners from an ended giveaway | Manage Server |
+| Giveaway | `/gresume` | Resume a paused giveaway (restores the remaining time) | Manage Server |
+| Giveaway | `/gschedule` | Schedule a giveaway to start later, with a live preview and full editing | Manage Server |
+| Giveaway | `/gstart` | Start a giveaway with customizable options | Manage Server |
 | Giveaway | `/gtemplate` | Create and manage reusable giveaway templates | Manage Server |
-| Giveaway | `/setcolor` | Set a custom color for giveaway embeds (Premium Only) | Manage Server |
-| Giveaway | `/setemoji` | Set a custom emoji for giveaway participation button (Premium Only) | Manage Server |
+| Giveaway | `/setcolor` | Set a custom color for giveaway embeds (Premium only) | Manage Server |
+| Giveaway | `/setemoji` | Set a custom emoji for the giveaway entry button (Premium only) | Manage Server |
 | Giveaway | `/settings` | 🎨 Configure the giveaway bot for this server | Manage Server |
 | General | `/afk` | Set your AFK status with an optional reason | Everyone |
-| General | `/avatar` | Get user's or server's avatar and banner | Everyone |
+| General | `/avatar` | Get a user's or server's avatar and banner | Everyone |
 | General | `/counting` | 🔢 Counting game control panel | Manage Server |
-| General | `/levelsetup` | ⚙️ Configure the leveling system via interactive panel | Manage Server |
+| General | `/levelsetup` | ⚙️ Set up the leveling system using an interactive panel | Manage Server |
 | General | `/rank` | Check your level and XP rank in this server | Everyone |
 | General | `/server` | Get server information | Everyone |
 | General | `/setlang` | Change the bot's language for this server | Manage Server |
@@ -45,20 +47,22 @@ GiveawayX works in servers. Type `/` to see the commands, or use the [prefix](/c
 | General | `/setxp` | Set a user's XP in the server | Manage Server |
 | General | `/starboard` | ⭐ Starboard control panel | Manage Server |
 | General | `/sticky` | 📌 Manage sticky messages — full control panel | Manage Messages |
-| General | `/top` | Show the server's XP leaderboard (Text & Voice separated) | Everyone |
-| General | `/translate` | Translate text, messages, images (OCR), PDFs and files — including very large ones | Everyone |
+| General | `/top` | Show the server's XP leaderboard (text and voice are separate) | Everyone |
+| General | `/translate` | Translate text, messages, images (OCR), PDFs and files—including very large ones | Everyone |
 | General | `/user` | Get user information | Everyone |
-| Information | `/help` | Displays a categorized list of all bot commands or specific command help | Everyone |
+| Information | `/help` | Show a categorized list of all bot commands or help for a specific command | Everyone |
 | Information | `/invite` | Add the bot to your own server | Everyone |
-| Information | `/ping` | Check bot latency, connectivity, cache, and system info | Everyone |
-| Premium | `/premium-activate` | Instantly activate your premium status via Patreon | Manage Server |
-| Premium | `/premium-info` | Displays the premium status of the current server. | Manage Server |
-| Premium | `/premium-link` | Link this server to your Patreon subscription (recommended way to activate premium). | Manage Server |
-| Premium | `/premium-settings` | ⭐ Manage your Premium features: Multi-Server Add-on & Bot Customization | Manage Server |
-| Premium | `/premium-transfer` | Transfers the Premium Tier 2 subscription to another server (Owner Only). | Server owner (checked in command) |
+| Information | `/ping` | Check bot latency, connectivity, cache, and system information | Everyone |
+| Premium | `/premium-activate` | Legacy activation via Patreon; purchase is now through the website | Manage Server |
+| Premium | `/premium-add` | Add a Premium subscription to a server (developers only) | Registered permission: Administrator; internally requires the user to be the bot owner/developer |
+| Premium | `/premium-info` | Show the Premium status of the current server. | Manage Server |
+| Premium | `/premium-link` | Legacy linking to a Patreon subscription; not the current purchase method. | Manage Server |
+| Premium | `/premium-settings` | ⭐ Manage the Premium settings available in the bot | Manage Server |
+| Premium | `/premium-transfer` | Transfer a Tier 2 Premium subscription to another server (owner only). | Server owner (checked in command) |
+| Premium | `/premium-removal` | Remove a Premium subscription from a server (developers only) | Registered permission: Administrator; internally requires the user to be the bot owner/developer |
 
 <Tip>
-Run `/help` in Discord for an interactive, categorized list, or `/help command:<name>` for one command.
+Run `/help` in Discord for an interactive, categorized list, or `/help command:<name>` for help with one command.
 </Tip>
 
-Besides slash commands there are [right-click actions](/commands/context-menus) and [prefix commands](/commands/prefix).
+In addition to slash commands, [right-click actions](/commands/context-menus) and [prefix commands](/commands/prefix) are available.

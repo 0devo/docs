@@ -1,0 +1,68 @@
+---
+title: "Web Dashboard"
+description: "A practical guide to navigating the GiveawayX dashboard and configuring server features"
+---
+
+The GiveawayX dashboard brings the bot’s settings and server-feature management tools together in one place. This guide explains the pages shown in the current navigation menu and distinguishes them from links marked **Soon** and disabled.
+
+## Opening a Server Dashboard
+
+Sign in to GiveawayX, then open a server workspace from the server selector at the top of the sidebar. The list shows servers the account can manage or has been granted dashboard access to, and indicates whether the bot is installed; you may need to install the bot on a server to use its features. After selecting a server, use the menu sections or search field to find its settings. Supported items can be pinned for quick access.
+
+Access requires a signed-in user session; server APIs check authentication. The source allows access for accounts that own the server or have the Manage Server permission in Discord, and also supports delegated access for dashboard roles. Therefore, the requirement cannot be reduced to “Manage Server only” for every user. Editing permissions may differ from viewing permissions depending on the role granted. See [Permissions explained](/concepts/permissions) if needed.
+
+## Available Menu Sections
+
+The names below match the headings shown in the current navigation. Internal interface labels may appear in English.
+
+### General
+
+- **Overview** — A summary of the server and the status of GiveawayX features on the overview page. Use it as a starting point before moving to a specific setting.
+- **General Settings** — Core bot settings, including command prefixes, bot language, server time zone, and enabling Slash commands. Dashboard access controls are also shown depending on the account’s permissions.
+- **Embed Messages** — A library of saved messages: create a message or Embed, search by name, channel, or format, then edit, copy, or delete it. The list shows the channel and format, and whether the message is published in Discord or is a draft.
+- **Manage Subscriptions** — The page for managing the server’s Premium subscription. For plan and feature details, see [Premium command documentation](/commands/premium) and the [Premium concept](/concepts/premium); this page does not make assumptions about payment or privacy details.
+
+### Moderation
+
+- **Log Settings** — Choose which GiveawayX events to log (such as a giveaway starting or ending and settings changes), select a default channel or a channel for each event, and configure colors and options for displaying the actor and excluding channels/roles. For the broader concept, see [Logs](/features/logging).
+- **Welcome & Goodbye** — Configure welcome and departure messages, including the channels and associated messages/content. See the [Welcomer feature](/features/welcomer) for related guidance.
+
+### Giveaways
+
+- **Giveaways** — Create and manage giveaways from the server workspace. The creation interface includes the prize, channel, duration, winners, role requirements, exclusions, blacklist, winner roles and notifications, and message style. See [Giveaway settings](/giveaways/settings), [Creating a giveaway](/giveaways/creating), and [Managing giveaways](/giveaways/managing).
+
+### Community
+
+- **Starboard** — Configure the starboard: choose the channel and the emoji/engagement threshold, along with options for publishing messages that collect members’ reactions. See the [Starboard guide](/features/starboard).
+- **Sticky Messages** — Create a sticky message for a channel, then find it in the list and edit, copy, enable/disable, or delete it. The interface shows how many items are in use out of the available limit. See [Sticky Messages](/features/sticky).
+
+### Engagement
+
+- **Counting** — Configure the counting game in a channel, including its rules/behavior and limits or penalties, as well as the participation options provided by the interface. See the [Counting guide](/features/counting) for details.
+- **Boosts** — Configure thank-you messages and actions for server boosters. The interface lets you customize boost notification settings and message types, including messages sent within the server or by direct message, depending on the component’s options.
+
+### Communication
+
+- **Commands** — The command settings hub: search and categorize commands, then configure their availability, channels, and roles; hide or disable a command; and set aliases, a cooldown, a custom response, and message-deletion options. See [Command customization](/features/command-customization).
+
+### Other
+
+- **Audit Logs** — This link appears in the current navigation as a section separate from Dashboard Logs. I did not find an `app/server/[id]/auditlogs/page.jsx` page in the routes inspected, so I do not describe screen details or filters that are not supported by the available source.
+- **Dashboard Logs** — A log of GiveawayX dashboard activity, separate from Discord’s audit log. It shows settings-change events and feature-related activity, with the actor, timestamp, and recorded changes depending on the event type.
+
+## Disabled or In-Progress Items
+
+The following items appear in the menu with a **Soon** badge and are disabled, even if a page file or implementation route exists in the application. The existence of a route does not mean that the feature is currently available for navigation from the dashboard:
+
+- **Leveling System** — Disabled in navigation. See [Leveling system information](/features/leveling) as feature documentation, not as proof that it is available here.
+- **Suggestions** — Disabled (Soon).
+- **Server Tag** — Disabled (Soon).
+- **Temporary Channels** — Disabled (Soon).
+- **Colors** — Disabled (Soon).
+- **Profile Bot** — Disabled (shows Premium and Soon).
+- **Custom Commands** — Disabled (Soon).
+- **Backup** — Disabled (Soon).
+
+## Notes
+
+Page names, links, and disabled-item status are derived from the sidebar definition. Feature descriptions are based on dashboard pages and components that could be inspected; the interface may change, and some capabilities may require particular permissions or plans. **Audit Logs** in particular is visible in the menu, but its page route was not among the route files available for inspection, so screen details remain a source gap.

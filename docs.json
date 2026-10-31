@@ -75,6 +75,7 @@
                 "group": "Community",
                 "pages": [
                   "features/leveling",
+                  "features/counting",
                   "features/starboard",
                   "features/sticky",
                   "features/welcomer"
@@ -94,6 +95,12 @@
                 "pages": [
                   "features/logging",
                   "features/command-customization"
+                ]
+              },
+              {
+                "group": "Dashboard",
+                "pages": [
+                  "features/dashboard"
                 ]
               }
             ]
@@ -211,6 +218,7 @@
                 "group": "المجتمع",
                 "pages": [
                   "ar/features/leveling",
+                  "ar/features/counting",
                   "ar/features/starboard",
                   "ar/features/sticky",
                   "ar/features/welcomer"
@@ -230,6 +238,12 @@
                 "pages": [
                   "ar/features/logging",
                   "ar/features/command-customization"
+                ]
+              },
+              {
+                "group": "لوحة الويب",
+                "pages": [
+                  "ar/features/dashboard"
                 ]
               }
             ]

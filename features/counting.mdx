@@ -1,0 +1,73 @@
+---
+title: "Counting Game"
+description: "Set up the counting game, review its rules, and reference the /counting command as supported by the current implementation."
+icon: "hashtag"
+---
+
+## Current status
+
+Counting game settings have moved from the Discord dashboard to the web dashboard. The `/counting` command does not create a game or display an interactive management panel in Discord; its current function is to show an ephemeral notice with a link to the server dashboard:
+
+[Open Counting Settings in the Dashboard](https://giveawayx.lol/server/{guildId}/counting)
+
+Replace `{guildId}` with the server ID. The notice recommends setting up the game again through the web dashboard because of a compatibility issue between legacy settings data and the current data structure. According to the command text, the command is scheduled to be removed within a month; this date stated in the source does not confirm that removal has occurred.
+
+<Note>
+The supplied command source does not include the web dashboard UI implementation. Therefore, the names of its sections, controls, select menus, and buttons cannot be documented. The old Discord management panel has also been removed; the only interactive element sent by the command is the **Open Dashboard** link button.
+</Note>
+
+## Set up the game
+
+1. Run `/counting` in the server. The command does not work outside a server.
+2. Open the dashboard using the **Open Dashboard** button in the ephemeral response, or use the server link above.
+3. Follow the flow to create a new setup in the web dashboard, as the command notice recommends when a legacy setup exists. Details of the UI steps and control labels are not available in the reference files for this documentation.
+4. After a game associated with a channel is enabled, the engine monitors messages in the game channel and applies the settings stored for it.
+
+## `/counting` reference
+
+| Property | Details |
+| --- | --- |
+| Default permission | **Manage Server** (`ManageGuild`). |
+| Context | Servers only; if the context is not associated with a server, execution ends without a response. |
+| Response | An ephemeral notice with an **Open Dashboard** link button. |
+| Legacy Discord panel | Removed; the command does not reconnect to it or display its previous menus and buttons. |
+| Link destination | `https://giveawayx.lol/server/{guildId}/counting`. |
+
+The current command has no slash-command options or select menus for managing counting. The button does not start the game; it opens the server's setup page on the web.
+
+## Counting rules
+
+- The engine accepts text messages in the game channel from non-bot members only, when the game is enabled and not paused.
+- The sequence starts at `startNumber` and advances by `countBy` for each valid message. The minimum stored value for `startNumber` is 0, and the minimum for `countBy` is 1. The default start and step are both 1.
+- When there is no previous valid count, the expected value is zero in the specific legacy-compatibility case handled by the engine; after that, the expected value is the current number plus the step.
+- The engine accepts a non-negative integer written by itself. If `allowExtraText` is enabled, it also accepts a message that begins with the number followed by a space or the end of the message, and ignores anything after the number.
+- If `allowMathExpressions` is enabled, a message can be a mathematical expression containing numbers and the `+`, `-`, `*`, and `/` operators, parentheses, and a decimal point. The result is accepted only if it is a non-negative safe integer. Invalid expressions and division by zero do not produce an accepted number.
+- By default, the same member cannot count twice in a row (`allowSameUser: false`). A `cooldownSeconds` wait period can be applied to the member who counted most recently.
+- Participation can be restricted by allowed roles (`specialRoles`) and blocked roles (`blockedRoles`). When a special-role list is present, a member must have at least one of those roles and must not have any blocked role.
+- `onMistake` controls what happens when the wrong number is entered: `reset` resets the sequence to before the starting number, clears user/sequence state, and increments the reset counter; `pause` pauses the game; `none` leaves the sequence unchanged. The default is `reset`.
+- Non-counting messages (`deleteNonCountMessages`) or wrong-number messages (`deleteWrongMessages`) can be configured for deletion; both are disabled by default. Non-counting messages are not automatically deleted by this setting.
+- The engine reacts to correct or incorrect counts using `correctEmoji` and `wrongEmoji`; the defaults are ✅ and ❌. It can also record the highest number, counts of correct answers and resets, the streak counter, and member statistics.
+
+## Settings known to the game model
+
+The model describes the storage fields the engine handles, not the design of web dashboard controls or how each field is changed. General settings include the game channel, enabled/paused state, `startNumber`, `countBy`, and `goal`. Behavior settings include `onMistake`, emojis, whether extra text, mathematical expressions, or repeat turns are allowed, message deletion, and the wait period.
+
+Role fields include `blockedRoles` and `specialRoles`. Milestones support an automatic interval (`milestoneInterval`), a list of specific numbers (`milestones`), a general reward role or roles assigned by number, an announcement channel, and a milestone message in plain-text or Embed format. The model also stores messages for mistake, sequence-reset, record, and repeated-count events, as well as the number log and statistics. A field's presence in the model does not mean every feature is available at every subscription tier.
+
+## Milestones and messages
+
+The engine can detect milestones at multiples of `milestoneInterval` or at numbers listed in `milestones`. It then attempts to grant the roles assigned to the milestone if the member's roles can be managed, and sends the milestone message to the specified channel or, if no other channel is specified, to the counting channel. A milestone message supports `plain` or `embed` mode, embed fields, and variable text.
+
+Event messages support text or Embed settings according to the engine's structure, with variables such as `{user}`, `{count}`, `{expected}`, `{record}`, `{goal}`, `{streak}`, and `{reason}`. Message text is limited to 2000 characters, an embed to 10 components, and embed fields to 25; the engine also enforces length limits on embed titles, descriptions, and fields.
+
+## Feature limits by tier
+
+The counting engine applies limits based on the active subscription tier and caches the result of the tier check for a short time. On the free tier (`tier 0`), it enforces the following behavior regardless of saved values: reset the sequence on a mistake; disable mathematical expressions, the wait period, blocked/special roles, role rewards, and custom event messages; and use the default symbols instead of custom emoji when the emoji is a custom Discord emoji.
+
+On Tier 0 and Tier 1, the engine disables allowing the same member to count twice in a row, autosave, milestone role lists, a custom channel, and a custom milestone message; the default milestone message is used. On Tier 1, event messages are converted to plain text. These are limits the engine applies to the active configuration; by themselves, they do not establish any plan pricing or marketed benefits.
+
+## Reset behavior
+
+Resetting the sequence on a mistake (`onMistake: reset`) does not completely clear the data: it sets `currentNumber` to `startNumber - countBy`, clears `lastUser`, `streakUser`, and `streakCount`, and increments `totalResets`. This action does not clear the record (`highestNumber`) or the correct-answer log. `pause` pauses the game on a mistake, while `none` leaves the sequence as is without resetting or pausing it.
+
+None of the supplied files mentions a button or command to clear a counting game or fully reset it manually; therefore, this page does not document an administrative reset operation that is not shown in the sources.

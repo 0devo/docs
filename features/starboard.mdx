@@ -1,57 +1,117 @@
 ---
 title: "Starboard"
-description: "Showcase your server's best messages in a dedicated channel."
+description: "Show messages that reach a reaction threshold in a dedicated channel, and configure the rules and appearance of their posts."
 icon: "star"
 ---
 
-When a message collects enough reactions, the starboard **reposts it** in a channel of your choice. Open the control panel with `/starboard` (requires **Manage Server**).
+**Starboard** reposts messages that reach a specified threshold of star-emoji reactions in a channel you choose. Its settings are stored per server, and it is disabled by default.
 
-## Quick setup
+## Where to configure it
 
-<Steps>
-  <Step title="Open the panel">Run `/starboard`.</Step>
-  <Step title="Pick a channel">Choose where starred messages are posted.</Step>
-  <Step title="Choose an emoji and threshold">The default is ⭐ with a threshold of 3 reactions (1 to 100).</Step>
-  <Step title="Turn it on">Switch the starboard on. That is all you need.</Step>
-</Steps>
+Run `/starboard` with **Manage Server** permission. The command currently displays a notice that Starboard configuration has moved to the web dashboard, with an **Open Dashboard** button that opens the Starboard page for your server. The notice recommends setting Starboard up again in the web dashboard because of a compatibility issue with older settings data, and says that the old Discord command is planned for removal. Do not follow outdated instructions that assume the command opens an interactive setup panel inside Discord.
+
+## Step-by-step setup
+
+1. Open the Starboard page using the **Open Dashboard** button shown after running `/starboard`.
+2. Set the Starboard channel where featured messages will be posted. If no channel is set, or the bot cannot access it, messages will not be posted.
+3. Choose the primary reaction emoji and the minimum threshold. The default is ⭐ and three reactions; the allowed range is 1 to 100.
+4. Set the embed color if you want; the default is `#FFD700`. The color field accepts a Hex value such as `#FFD700`.
+5. Review the filters, restrictions, behavior, and post formatting, then enable Starboard. The board remains paused if the pause option is enabled, even after Starboard is turned on.
+
+> The available files do not detail the current web dashboard interface or its control labels. The section and button names below refer to sections in the legacy Discord panel found in the code. They describe the settings supported by the implementation, not verified click-by-click steps in the web interface.
 
 ## Core settings
 
-| Setting | Default |
-| --- | --- |
-| Enabled | Off |
-| Emoji | ⭐ |
-| Threshold | 3 reactions |
-| Allow self-star | Off |
-| Pause | Off |
-| Log channel | None |
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Enabled | Off | Starts reaction tracking and posting. |
+| Starboard channel | Not set | Destination for posts; each additional emoji can have its own optional channel. |
+| Primary reaction emoji | ⭐ | The emoji counted for the post. |
+| Minimum threshold | 3 | Number of reactions needed to post; from 1 to 100. |
+| Allow authors to star their own messages | No | Controls whether the author's own star is accepted. When this is disallowed, you can also configure removal of their reaction or a text notice. |
+| Pause | No | Temporarily stops Starboard processing without changing the enabled setting. |
+| Log channel | None | Optional destination for post and removal notifications, when available and the bot can send messages there. |
+| Embed color | `#FFD700` | Color of the embed/post where applicable. |
 
-<Color variant="compact">
-  <Color.Row title="Default embed color">
-    <Color.Item name="Star gold" value="#FFD700" />
-  </Color.Row>
-</Color>
+The implementation's defined free emoji list is: ⭐, 🌟, ✨, 💫, 🔥, 💖, 👍, ❤️, 💎, and 🏆. Emoji validity is also checked; custom emojis require **Premium Tier 1**.
 
-## Advanced options
+## Settings sections and options
 
-<AccordionGroup>
-  <Accordion title="Multiple emojis" icon="icons">
-    Add more emojis, each with its own threshold and, if you like, its own channel.
-  </Accordion>
-  <Accordion title="Star rewards" icon="award">
-    Give authors a role once their messages earn a total number of stars.
-  </Accordion>
-  <Accordion title="Filters" icon="filter">
-    Limit to certain channels, block certain roles, require a minimum account age or server join age, ignore NSFW channels, or require an attachment.
-  </Accordion>
-  <Accordion title="Behavior" icon="sliders">
-    Allow several reactions per person, ignore bots, remove self-star reactions, delete the post when a message is un-starred or deleted, set a repost cooldown, and limit by minimum or maximum message age.
-  </Accordion>
-  <Accordion title="How posts look" icon="palette">
-    Choose an **embed**, a modern layout, or plain text. Show or hide the author, title, description, source, image, footer, timestamp and a **Jump to message** button. Attachments, videos, polls, stickers and voice messages are supported, and NSFW content can be auto-spoilered.
-  </Accordion>
-</AccordionGroup>
+### General
+
+In the legacy Discord panel, the General section displays status, channel, log channel, emoji, threshold, posted stars, rewards, and emoji triggers. Its controls include selecting the primary channel and log channel; editing the emoji, threshold, and color; enabling/disabling the board; pausing/resuming; allowing self-stars; and clearing the log channel or additional-emoji settings.
+
+### Filters
+
+Reactions are counted subject to these filters:
+
+- **Allowed channels:** If the list is not empty, messages are accepted only from the listed channels.
+- **Excluded channels:** Messages from listed channels are excluded.
+- **Blocked author roles:** A message is excluded if its author has a blocked role.
+- **Allowed reactor roles:** If roles are specified, the reactor must have one of them.
+- **Minimum account age** and **server membership duration:** Limit the age of the message author's account and how long they have been a server member.
+- **Ignore NSFW channels** and **require attachment:** The first excludes messages in NSFW channels; the second requires the message to include an attachment.
+
+### Restrictions
+
+You can enable separate role and channel restrictions, each with **Allow** or **Deny** mode. In Allow mode, the role/channel must be included in the list; in Deny mode, listed items are excluded. The advanced channel restriction works in addition to the filter allowlist and exclusions.
+
+### Behavior
+
+| Option | Default | Behavior confirmed in the implementation |
+| --- | --- | --- |
+| Ignore bot messages | On | Bot messages are not processed; you can choose to remove reactions from them. |
+| Ignore authors' stars when counting | On | The author's star is not included in the valid count. |
+| Remove self-star reaction | Off | When self-starring is disallowed, removes the author's reaction if this option is enabled. |
+| Allow multiple reactions per person | Off | This field is stored in settings; the available reaction handler does not show this option being applied, so do not rely on it as an active rule. |
+| Remove post when below threshold | On | When a reaction is removed and the count falls below the threshold, deletes the Starboard post and its record. |
+| Remove post if the original message is deleted | On | Cleans up the post and record when source deletion is detected during startup recovery. |
+| Repost cooldown | 60 seconds | The message/emoji is not reposted if it has had a recent post within the cooldown; the maximum stored value is 3600 seconds. |
+| Minimum message age | 0 (no limit) | Limit in seconds; maximum value is 86400. |
+| Maximum message age | 0 (no limit) | Limit in seconds; maximum value is 604800. |
+| First emoji only | Off | When enabled, additional emoji triggers are not used. |
+| Automatically react to the board post | On | The bot adds the reaction emoji to the post it created. |
+
+### Multiple emojis
+
+You can configure up to **5 additional triggers**, each with an emoji, a threshold from 1 to 100, and an optional destination channel; leaving the channel blank uses the primary channel. Saving an existing emoji edits its trigger instead of adding a duplicate. This feature requires **Premium Tier 1**. You can also clear the trigger list. When **First emoji only** is enabled, these triggers are ignored.
+
+### Star rewards
+
+You can define numeric thresholds and award a role to the message author when their post exceeds a reward threshold. The stored threshold range is 1 to 1,000,000, and a role must be selected. The role is awarded when the threshold is crossed upward; the implementation does not remove it when the star count later decreases. No Premium requirement for this section was found in the specified files; its operation also depends on the `starRewards` field being present in the data schema.
+
+### Post builder and content
+
+Three stored formats are available: **Components V2** (rich layout), **Embed** (traditional embed, the default), and **Plain text**. Post-building options include showing the author bar, title, description, message source, image, thumbnail, footer, and timestamp; a button to jump to the message; a thumbnail image URL; and up to two additional buttons with a URL, label, and emoji. Video and file links and showing all attachments are also available.
+
+Content settings let you control whether polls, stickers, voice messages, forwarded messages, and rich embeds are displayed. With Components V2, the implementation supports displaying an image gallery, video and file links, polls, stickers, voice messages, and forwarded content. **Auto-spoiler NSFW** is enabled by default in advanced settings; when images are in an NSFW channel, it displays image links inside a spoiler instead of an image gallery.
+
+### Text customization
+
+You can customize the title line; author name/format; description prefix and suffix; no-content message; source name/value; jump-button label; footer; embed title; self-star notice; and messages for reaching or not reaching the threshold. Text templates recognize variables such as `{emoji}`, `{stars}`, `{count}`, `{threshold}`, `{author}`, `{channel}`, `{content}`, `{link}`, `{id}`, `{date}`, `{server}`, and `{mention}`. Text can be reset to its defaults.
+
+### Preview and data
+
+The legacy Discord panel includes a preview of the latest Starboard post, a statistics panel, and a leaderboard showing up to 10 messages with the most stars and five authors ranked by stars received, as well as settings export/import and reset. Reset deletes featured-message records and restores settings, filters, restrictions, the builder, text, and rewards to their initial values; the available files do not confirm that these elements appear in the web dashboard.
+
+## When is a post created, updated, or deleted?
+
+- **Posting:** When a reaction matching the primary emoji or one of the additional triggers is added and its valid count reaches that emoji's threshold. The bot user's reaction is excluded, and author, role, channel, age, attachment, and NSFW rules are applied before posting. A message already in the destination channel for that emoji is not posted. A processing lock prevents duplicate posts caused by concurrent reactions.
+- **Updating a post:** When reactions change on a posted message, the count is recalculated, the Starboard post is edited, and the record is updated. If the post no longer exists, the implementation attempts to recreate it. If the format changes between Components V2 and the traditional format, the old message is deleted and a new post is created.
+- **Deleting when stars are removed:** If a reaction is removed and the count drops below that emoji's threshold, the post and record are deleted when `allowDeleteOnUnstar` is enabled. If disabled, this deletion path does not run and the post remains eligible for updates.
+- **Source deletion:** At startup, the implementation checks records; if the channel or original message no longer exists, it cleans up the post and record when `removeOnDelete` is enabled. It also recreates a missing Starboard post if the original message still exists.
+
+## Permissions and limits
+
+The `/starboard` command requires **Manage Server** permission by default. Posting also depends on the bot's ability to access the destination channel and send, edit, or delete messages, as well as its permissions to add reactions or grant reward roles when those features are used. The implementation ignores bot reactions and excludes the author's star by default. Explicit limits: the primary threshold and emoji triggers range from 1 to 100; up to 5 additional emoji triggers; repost cooldown up to 3600 seconds; and maximum message age up to 604800 seconds.
+
+## Confirmed Premium features
+
+- **Custom emoji:** Requires Premium Tier 1.
+- **Multiple emoji triggers:** Requires Premium Tier 1, with a maximum of 5 additional triggers.
+
+No Premium lock for the other options mentioned was found in the specified implementation files; do not assume another feature is paid unless the web dashboard explicitly indicates so.
 
 <Tip>
-Starboard posts are kept in sync automatically, even after the bot restarts.
+The implementation stores post records and original message IDs. At startup, it attempts to repair missing posts or clean up records whose original messages no longer exist, according to the remove-post-on-source-deletion option.
 </Tip>

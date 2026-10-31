@@ -1,141 +1,91 @@
 ---
 title: "Premium"
-description: "Premium tiers, what each one unlocks, the free trial and how to activate Premium."
+description: "Silver and Diamond plans, pricing and features, and how to purchase and manage your GiveawayX Premium subscription."
 icon: "star"
 ---
 
-Premium is applied **per server**. A server's tier raises its limits and unlocks extra customization. Servers without Premium use the **Free** tier, which already includes everything you need to run great giveaways.
+**GiveawayX Premium** is purchased from the [plans page](https://giveawayx.lol/plans), with **Silver** and **Diamond** plans and monthly or annual billing. The subscription applies to the server or servers you select during purchase, up to a maximum of **50 servers** per order. Payments are processed through **Polar**, and Premium is activated automatically after payment is confirmed; you do not need an activation code or to link it manually.
 
-<Columns cols={4}>
-  <Card title="Free" icon="circle">Core giveaways and tools.</Card>
-  <Card title="Tier 1 · Basic" icon="1">Customization and reaction entry.</Card>
-  <Card title="Tier 2 · Pro" icon="2">Full branding and advanced tools.</Card>
-  <Card title="Tier 3 · Enterprise" icon="3">The highest limits.</Card>
-</Columns>
+## Plans and pricing
 
-## Limits
+The base prices shown on the plans page, **per server**:
 
-| | Free | Tier 1 | Tier 2 | Tier 3 |
-| --- | --- | --- | --- | --- |
-| Longest giveaway | 60 days | 365 days | 730 days | 1095 days |
-| Most winners | 60 | 200 | 400 | 1000 |
-| Most repeats | 5 | 20 | 40 | 100 |
+| Plan | Monthly | Yearly |
+| --- | ---: | ---: |
+| Silver | $4.99 | $20.00 |
+| Diamond | $7.99 | $50.00 |
 
-<Note>
-The `repeat` option itself needs at least Tier 1.
-</Note>
+The total changes according to the number of servers selected: plan price × number of servers. The prices above are before tax; Polar calculates the tax and shows the final amount before checkout is complete. Discount coupons may be available and are validated on the purchase page. Check the [plans page](https://giveawayx.lol/plans) and the Polar checkout summary for the current final price.
 
-## What each tier unlocks
+## What do the plans include?
 
-<Tabs>
-  <Tab title="Free">
-    <Badge color="gray">Included</Badge>
+| Feature | Silver | Diamond |
+| --- | --- | --- |
+| Maximum giveaway duration | 365 days | Unlimited according to the plan summary |
+| Giveaway templates | 15 | 50 |
+| Repeats | Up to 20 | Up to 40 |
+| Bonus entries | Up to 300 | Up to 500 according to the comparison table |
+| Customization | Embed messages, colors and emojis, and reaction entry | Everything in Silver, plus advanced customization and controls |
+| Voice XP tracking | Up to 50 XP per minute | Up to 200 XP per minute |
+| XP boost events | Up to 72 hours with a ×5 multiplier | Up to 720 hours with a ×20 multiplier |
+| Custom bot avatar, banner and bio | Not included | Included as a plan feature; the optional branding add-on below is also available |
+| Advanced analytics, data exports and priority support | Not included | Included |
+| Transfer subscription to another server | Not available | Available for eligible subscriptions |
 
-    - Create giveaways with `/gstart` and `/gcreate`
-    - Button entry
-    - Basic winner and host notifications
-    - Drops, scheduling and templates
-  </Tab>
-  <Tab title="Tier 1 · Basic">
-    <Badge color="blue">Tier 1</Badge>
+**Warning about the winner limit:** The plans page currently shows two conflicting figures for Diamond: the plan summary says up to **400** winners, while the comparison table says **250**. Therefore, the published information does not establish Diamond's limit conclusively; check the plans page or ask support before relying on this limit. The comparison table lists a limit of **200** winners for Silver and **60** for Free.
 
-    - Everything in Free
-    - Custom embed color, labels, messages and button text
-    - **Reaction** entry
-    - Winner thread name, message and color
-    - Custom winner and host DM messages
-    - Custom bot nickname for your server
-    - Repeating giveaways
-    - Bypass roles and advanced bonus-entry options
-  </Tab>
-  <Tab title="Tier 2 · Pro">
-    <Badge color="purple">Tier 2</Badge>
+The Free plan remains available without a subscription and includes the essentials. Plan features and additional limit details are listed in the [live comparison on the plans page](https://giveawayx.lol/plans); do not rely on outdated pricing tables or the former Patreon tiers.
 
-    - Everything in Tier 1
-    - Bot avatar, banner and bio customization
-    - Longer giveaways and higher winner and reroll limits
-    - **Auto Ping** reminders for active giveaways
-    - **Sticky giveaways**
-    - Advanced winner role features
-    - Multi-Server Add-on
-    - Priority support
-  </Tab>
-  <Tab title="Tier 3 · Enterprise">
-    <Badge color="orange">Tier 3</Badge>
+### Custom bot identity
 
-    Everything in Tier 2 with the **highest limits** for duration, winners and repeats, and the biggest leveling allowances.
-  </Tab>
-</Tabs>
+The **Custom bot identity** add-on can be selected with **Diamond** only, for **$2.50** according to the checkout screen. It lets you customize the bot's avatar, banner and bio **for that server**. The option is not available with Silver and appears as a separate line item in the order summary. The plans page itself contains conflicting wording: Diamond's highlighted benefits list bot profile customization as part of the plan, but the checkout screen presents custom identity as a paid add-on. Therefore, review the final Polar summary before paying, and do not assume the add-on is included or required except as shown in your order.
 
-`/setcolor` and `/setemoji` are **Premium only**.
-
-## Premium in other features
-
-<AccordionGroup>
-  <Accordion title="Leveling" icon="chart-line">
-    XP tracking for text and voice needs an active Premium subscription. If Premium ends, tracking stops but your members' XP and your settings are kept.
-
-    | | Free | Tier 1 | Tier 2 | Tier 3 |
-    | --- | --- | --- | --- | --- |
-    | Level rewards | 10 | 25 | Unlimited | Unlimited |
-    | XP multipliers | 5 | 15 | Unlimited | Unlimited |
-    | Longest XP boost (hours) | 0 | 72 | 720 | 1440 |
-    | Biggest boost multiplier | 0 | 5 | 20 | 50 |
-    | Max XP per message | 50 | 200 | 500 | 1000 |
-    | Max XP variance | 20 | 100 | 200 | 500 |
-    | Longest cooldown (seconds) | 300 | 600 | 3600 | 7200 |
-    | Max voice XP per minute | 0 | 50 | 200 | 500 |
-  </Accordion>
-  <Accordion title="Sticky messages" icon="thumbtack">
-    | | Free | Tier 1 | Tier 2 |
-    | --- | --- | --- | --- |
-    | Sticky messages | 3 | 10 | 25 |
-    | Placeholders | No | Yes | Yes |
-    | Variants | 1 | 3 | 5 |
-    | Buttons | 1 | 1 | 3 |
-    | Keyword trigger, images, pin, templates, webhook mode | No | No | Yes |
-  </Accordion>
-</AccordionGroup>
-
-## Free trial
-
-Eligible servers can start a **one-time 3-day Tier 1 trial** using the **Start trial** button that appears on Premium prompts. Each server can use the trial once.
-
-## Activate Premium
+## Purchase a new subscription
 
 <Steps>
-  <Step title="Subscribe">
-    Choose the **Basic**, **Pro** or **Enterprise** tier on Patreon.
+  <Step title="Open the plans page and sign in">
+    Go to [giveawayx.lol/plans](https://giveawayx.lol/plans) and sign in with your Discord account if prompted.
   </Step>
-  <Step title="Link your server">
-    Run `/premium-link` in the server you want to upgrade. You get a link code that works for **30 minutes**.
+  <Step title="Choose a plan and billing period">
+    Choose Silver or Diamond, then select monthly or yearly billing.
   </Step>
-  <Step title="Or activate instantly">
-    `/premium-activate` activates Premium straight from your Patreon status.
+  <Step title="Choose the number of servers and select them">
+    Choose a number from 1 to 50, then select the same number of servers that you manage and where GiveawayX is installed. You cannot select a server that already has an active Premium subscription.
   </Step>
-  <Step title="Check it">
-    `/premium-info` shows your server's tier and expiry date.
+  <Step title="Review your order and complete payment through Polar">
+    Review the plan price, number of servers, any identity add-on or coupon, and tax. Complete payment on Polar's secure page; the available payment methods are shown there and may vary by country.
+  </Step>
+  <Step title="Wait for payment confirmation and activation">
+    After Polar confirms payment, Premium is activated automatically for the selected servers, and you are returned to the subscription management page. Do not use a manual activation command instead of waiting for payment confirmation.
   </Step>
 </Steps>
 
-<Info>
-Each successful payment adds **30 days**. You get reminders **14, 7 and 1 day** before it ends. Subscribers also receive a Premium role in the support server.
-</Info>
+## Manage or cancel your subscription
 
-To move a **Tier 2** subscription to another server, the server owner runs `/premium-transfer`.
+In the dashboard, open the Premium page for the relevant server at `https://giveawayx.lol/server/{guildId}/premium`. This page lets you manage the server's subscription, but purchases, renewals, billing and ownership actions are managed from the payer's personal subscription dashboard: `https://giveawayx.lol/dashboard/subscription`. **Manage Subscription** opens the Polar customer portal when a Polar subscription and the appropriate billing account are available. Plan changes, upgrades and downgrades are made there, and the final billing details are shown before you confirm a change.
 
-## Multi-Server Add-on
+To cancel automatic renewal, open **Manage Subscription** and cancel the renewal. Premium remains active until the end of the paid period, after which the paid features expire. Cancellation does not mean access stops immediately or that a refund is automatic. You can refer to the refund policy or contact support to request a refund review.
 
-Tier 1 and Tier 2 subscribers can cover extra servers for less than buying a tier for each one. Manage it with `/premium-settings`. Available sizes are **2, 4, 6, 9 and 10** servers.
+Billing management is available to the account that paid for the subscription. The Polar portal does not apply to older subscriptions that were not purchased through Polar, or to manually granted Premium. If the management option does not appear, contact support rather than assuming an older subscription can be canceled through the Polar portal.
 
-| Servers | Tier 1 monthly | Tier 1 yearly | Tier 2 monthly | Tier 2 yearly |
-| --- | --- | --- | --- | --- |
-| 2 | $5.99 | $59.99 | $9.99 | $99.99 |
-| 4 | $10.99 | $109.99 | $18.99 | $189.99 |
-| 6 | $15.49 | $154.99 | $26.99 | $269.99 |
-| 9 | $21.99 | $219.99 | $36.99 | $369.99 |
-| 10 | $23.99 | $239.99 | $39.99 | $399.99 |
+## Payment status and older subscriptions
 
-<Note>
-Prices can change. The Patreon page always shows the current price.
-</Note>
+- **Payment is processing or has not been confirmed:** Premium is not granted until successful payment is verified. If it has not activated after you complete payment, wait a short while and then check the Dashboard; do not immediately pay again. If the problem persists, contact support with your order details.
+- **Checkout or payment failed to open:** This does not mean a subscription was created or activated. Try again later, and check the order status with Polar before retrying to avoid duplicate payment.
+- **Renewal failed:** Premium may expire when the paid period ends. Check your payment method and billing in the Polar portal, or contact support if you cannot access it.
+- **Previous purchase through an older system or a manual grant:** Legacy access continues until its original expiration date, according to the subscription record. Its renewal or management process may differ from that for new Polar subscriptions; use the plans page for current purchases or upgrades, and do not assume Patreon is still the current payment route.
+- **Refund or subscription revocation:** A confirmed refund or subscription revocation may remove Premium. Review the refund policy when requesting one.
+
+## Transfer a subscription
+
+The transfer feature is available for **Diamond** only. You must own the subscription, manage the destination server, and have GiveawayX installed there. The destination server must not have an active Premium subscription. You can start a transfer from the dashboard if the option appears; the `/premium-transfer` command may also be available in the bot for supported subscriptions. Follow the verification shown in the interface, and contact support if the transfer option is not available for your account or does not apply to your subscription.
+
+## Bot commands
+
+Bot commands let you check the status or some Premium settings, but they are not a substitute for the current Polar checkout or dashboard:
+
+- `/premium-info` shows the server's Premium status and expiration date.
+- `/premium-settings` provides the Premium settings available in the bot; it may show linked-server settings or bot customization depending on the plan and available settings.
+- `/premium-transfer` transfers Diamond when the transfer requirements are met.
+
+Older command messages or links may refer to Patreon or manual purchases; do not treat them as evidence that Patreon is the current payment route. Use the [plans page](https://giveawayx.lol/plans) to purchase and the Dashboard to manage a Polar subscription.

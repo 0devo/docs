@@ -10,10 +10,10 @@ Giveaway management commands require **Manage Server**, **Administrator**, or a 
 
 Create a giveaway with a quick form
 
-**Permission:** Everyone
+**Permission:** Manage Server, Administrator, or Giveaway Manager role
 
 <Info>
-Opens a form (modal) with prize, duration, winners, image and a **Publish now / Customize in Studio** choice. See [Creating giveaways](/giveaways/creating#gcreate-the-quick-form).
+Opens a modal with a prize (required, up to 256 characters), duration (required), winner count (required, default: 1), and an optional prize image (PNG, JPG, GIF, or WEBP, up to 8 MB). You must choose what happens after submission: **Publish now**, using the server's appearance and default rules, or **Customize in Studio**, which opens the `/gstart` panel prefilled with these values. Inputs are validated before continuing. If there is an error, an ephemeral response appears with an **Edit and Retry** button that reopens the modal with your answers preserved. The accepted duration is 10 seconds to 90 days; winner-count and duration limits depend on the Premium plan. The command checks the current channel and the bot's permissions before opening the modal. The modal expires after 15 minutes. See [Creating giveaways](/giveaways/creating#gcreate-the-quick-form).
 </Info>
 
 ## /gstart
@@ -72,7 +72,7 @@ Starts a drop giveaway — first to claim wins!
 | `required_role` | role | No | Role required to claim this drop |  |
 | `message` | string | No | Additional message before the drop |  |
 
-See [Drops and last-to-type](/giveaways/drops).
+If `duration` is not specified, it defaults to one hour; if `channel` is not specified, the current channel is used. The winner limit is 10 on the free plan and 50 for Premium servers. The optional `countdown` is 1 to 30 seconds and displays a countdown in the channel before the drop is posted. Images may be JPEG/JPG, PNG, GIF, WEBP, BMP, or TIFF. `required_role` allows only members with the specified role to claim; members with `blacklist_role` are blocked, and `message` is shown before the drop. When the duration ends, claim buttons are disabled; claimants are announced as winners. If nobody enters, the giveaway ends with a no-participants status. See [Drops and last-to-type](/giveaways/drops).
 
 ## /glast
 
@@ -405,7 +405,7 @@ Lists active or ended giveaways in the server
 | `host` | user | No | Filter giveaways by host |  |
 | `channel` | channel | No | Filter giveaways by channel |  |
 
-Lists giveaways in this server, with optional filters.
+Results are shown ephemerally in pages of four entries, with links to giveaway messages and buttons to delete, pause or resume, or repost, depending on status. Session buttons expire after five minutes. The `ended` filter includes inactive entries; `scheduled` shows scheduled giveaways. The command requires View Channel permission.
 
 ## /gfix
 
@@ -418,7 +418,7 @@ Diagnose and safely repair a stuck or inconsistent giveaway
 | `giveaway_id` | string | Yes | Giveaway message ID (or message link) | Autocomplete |
 | `dry_run` | boolean | No | Only diagnose — change nothing |  |
 
-Also available as the **Fix Giveaway** message action. See the [diagnostic codes](/giveaways/managing#gfix-diagnose-and-repair).
+The command performs safe automatic repairs and then checks again. Actions that change a giveaway’s lifecycle require confirmation using buttons in the report, and the status is checked again on confirmation. With `dry_run:true`, it only diagnoses: no changes are made and no confirmation buttons appear. Accepts a message ID or link, and is also available as the **Fix Giveaway** message action. See [Diagnostic codes](/giveaways/managing#gfix-diagnose-and-repair).
 
 ## /settings
 
@@ -426,7 +426,20 @@ Also available as the **Fix Giveaway** message action. See the [diagnostic codes
 
 **Permission:** Manage Server
 
-Opens the interactive settings panel. See [Server settings](/giveaways/settings).
+Opens an ephemeral interactive panel with a dropdown for navigating the sections below. Changes are saved and the panel refreshes after each edit. Requires Manage Server, Administrator, or the Giveaway Manager role.
+
+| Section | What it lets you do |
+| --- | --- |
+| Overview | View Premium status and a summary of DMs, winner streaks, appearance, and entry method. |
+| DMs & templates | Toggle winner, host, and global messages; edit or reset message templates. A global message forces DMs for all giveaways and overrides the send option at creation. Template variables: `{prize}`, `{server}`, `{winners_count}`, `{winners_list}`, `{timestamp}`. |
+| Winner streak | Enable automatic streak creation; choose public/private visibility, auto-close duration, claim tracker, claim timeout, and winner notifications; edit or reset the name, message, and color. |
+| Entry button | Change the button color among Primary, Secondary, Success, and Danger; set/reset a custom Premium label (otherwise the participant count is shown), hide/show the participants button, restrict participant visibility by role, and customize or reset the participants button. |
+| Appearance | Set/reset embed color, end/host/winner/participant labels, bullet, and embed template; customize or reset win-announcement, entry-confirmation, and leave messages. The template supports `{prize}`, `{host}`, `{end_time}`, `{winners_count}`, `{info_rows}`, `{extra}`, `{bullet}`, `{lbl_ends}`, `{lbl_host}`, `{lbl_winners}`, `{description}`, and `{enter_button}`; announcement messages support `{prize}`, `{winners_list}`, `{winners_count}`, `{host}`, `{server}`, and `{date}`. |
+| Entry method | Switch between button and emoji reaction; reaction mode requires Premium. Applies only to new giveaways and does not change existing ones. |
+| Bot customization | Set a server-specific nickname. Avatar, banner, and bio changes apply to the bot account and affect all servers. Nickname requires Premium; avatar, banner, and bio require Ultra Premium. |
+| Premium panel | View subscription status, tier, expiration date, and plan features. |
+
+Color, reaction mode, button labels, and streak/appearance customization are marked with their Premium requirements in the panel. See [Server settings](/giveaways/settings).
 
 ## /setcolor
 
@@ -438,7 +451,7 @@ Set a custom color for giveaway embeds (Premium Only)
 | --- | --- | --- | --- | --- |
 | `color` | string | Yes | The hex color code (e.g., #ff0000, #00ff00, #0000ff) |  |
 
-**Premium only.** Example: `/setcolor color:#ff0000`.
+**Premium Tier 1 or higher.** Accepts a 3- or 6-digit hexadecimal color, with or without `#`; 3-digit values are expanded to 6 digits. Black (`#000000`) is rejected with a warning because it has poor visibility. The color applies only to new embed messages. Example: `/setcolor color:#ff0000`.
 
 ## /setemoji
 
@@ -450,5 +463,5 @@ Set a custom emoji for giveaway participation button (Premium Only)
 | --- | --- | --- | --- | --- |
 | `emoji` | string | Yes | The emoji to use for giveaway buttons |  |
 
-**Premium only.** Accepts a Unicode emoji or a custom server emoji.
+**Premium Tier 1 or higher.** Accepts a single Unicode emoji (including combined emoji sequences) or a custom emoji in `<:name:id>` or `<a:name:id>` format, up to 100 characters. Applies to entry buttons on new giveaways. Example: `/setemoji emoji:🎉`.
 

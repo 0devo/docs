@@ -1,43 +1,43 @@
 ---
 title: "Right-click actions"
-description: "Run commands by right-clicking a member or a message."
+description: "Use app commands on server members and messages."
 icon: "computer-mouse"
 ---
 
-Right-click (or long-press on mobile) a member or message, then choose **Apps**.
+In a server, right-click (or long-press on mobile) a member or message, then choose **Apps**. The actions below are registered in the server context only.
 
 ## On members
 
-| Action | What it does |
+| Action name in Discord | What it does |
 | --- | --- |
-| Avatar | Show their avatar. |
-| User Info | Show information about them. |
-| Rank | Show their rank card. |
-| Give Rep | Give them a reputation point. |
-| Change Nickname | Change their nickname. |
-| Challenge to RPS | Challenge them to Rock Paper Scissors. |
-| Challenge to XO | Challenge them to Tic-Tac-Toe. |
+| **Avatar** | Show the avatar. |
+| **User Info** | Show user information. |
+| **Rank** | Show the rank. |
+| **Give Rep** | Give a reputation point. |
+| **Change Nickname** | Change the nickname. |
+| **Challenge to RPS** | Challenge them to Rock Paper Scissors. |
+| **Challenge to XO** | Challenge them to Tic-Tac-Toe. |
 
 ## On messages
 
-| Action | What it does |
+| Action name in Discord | What it does |
 | --- | --- |
-| Message Info | Show information about the message. |
-| Translate Message | Translate it. See [Translate](/features/translate). |
-| Steal Emoji | Copy an emoji from the message to your server. |
+| **Message Info** | Show message information. |
+| **Translate Message** | Translate the message. See [Translate](/features/translate). |
+| **Steal Emoji** | Copy an emoji from the message to the server. |
 
 ## On giveaway messages
 
-<Info>
-These need the same permission as the matching command. See [Permissions](/concepts/permissions).
-</Info>
+Giveaway actions appear as message commands in the server context. The message you clicked identifies the target giveaway; commands check that the giveaway exists and is in a state that allows the operation before applying any change. These actions require giveaway-management permission: being the app owner, having **Administrator** or **Manage Server** permission, or having a designated giveaway-manager role in the server settings. Permission is checked again before confirmation actions are executed.
 
-| Action | Same as |
-| --- | --- |
-| Reroll Giveaway | `/greroll` |
-| Edit Giveaway | `/gedit` |
-| Delete Giveaway | `/gdelete` |
-| Pause Giveaway | `/gpause` |
-| Resume Giveaway | `/gresume` |
-| End Giveaway | `/gend` |
-| Fix Giveaway | `/gfix` |
+| Action name in Discord | Matching command | Behavior and limitations |
+| --- | --- | --- |
+| **Reroll Giveaway** | `/greroll` | Shows a preview and asks for confirmation before rerolling; announces the new winners publicly. The number of winners and replacement cannot be customized through the message menu; previous winners are excluded by default. |
+| **Edit Giveaway** | `/gedit` | Opens an edit panel for the active or scheduled giveaway that matches the message. |
+| **Delete Giveaway** | `/gdelete` | Shows the effect of deletion and asks for confirmation; deletion cannot be undone. |
+| **Pause Giveaway** | `/gpause` | Pauses the giveaway and freezes the countdown. |
+| **Resume Giveaway** | `/gresume` | Resumes the paused giveaway and restores the remaining time. |
+| **End Giveaway** | `/gend` | Shows a preview and asks for confirmation before ending the giveaway; announcing the winners is public and cannot be undone. |
+| **Fix Giveaway** | `/gfix` | Diagnoses the giveaway and automatically applies safe fixes; fixes that change the giveaway lifecycle require separate confirmation. |
+
+Responses to giveaway message actions are private. An action may not work if the message is not for a known giveaway in the server, the giveaway's state does not allow the operation, or the required access permissions are unavailable. For actions that require confirmation, the confirmation expires after 60 seconds; the action will not be performed unless you confirm within that time.

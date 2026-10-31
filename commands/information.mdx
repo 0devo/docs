@@ -1,34 +1,45 @@
 ---
-title: "Information commands"
-description: "Help, ping and invite."
+title: "Information Commands"
+description: "Help, connectivity checks, and bot links."
 icon: "circle-info"
 ---
 
-## /help
+## `/help`
 
-Displays a categorized list of all bot commands or specific command help
+Displays the help center or usage information for a specific command. No special permission is required.
 
-**Permission:** Everyone
+**Usage:** `/help [command]`
 
-| Option | Type | Required | Description | Notes |
-| --- | --- | --- | --- | --- |
-| `command` | string | No | Get detailed help for a specific command | Autocomplete |
+| Option | Type | Required | Description |
+| --- | --- | --- | --- |
+| `command` | string | No | The name of the command you want details about; supports autocomplete. |
 
-Without arguments it shows a categorized list of commands. Pass `command` for details on one command.
+- Without `command`, displays a help panel with a link to the commands page, the dashboard, the support server, and the bot invite link.
+- With `command`, displays the command's description, usage, options, and examples, if it is listed in the help data.
+- For slash commands, the help panel appears in the usual response. When using the prefix command, the panel is sent in a direct message and a ✅ confirmation reaction is added to the command message. If direct messages cannot be sent, the bot replies in the channel that it was unable to send the message.
+- Autocomplete lists matching commands, with a maximum of 25 suggestions. This does not guarantee that every suggestion has a detailed entry in the help data.
 
-## /ping
+**Example:** `/help command:ping`
 
-Check bot latency, connectivity, cache, and system info
+## `/ping`
 
-**Permission:** Everyone
+Checks the bot's responsiveness and connections, and displays runtime and system information. It requires no options or special permissions, and the implementation does not set a cooldown.
 
-Shows latency, WebSocket status, Discord API status, cache and system information.
+**Usage:** `/ping`
 
-## /invite
+A measurement indicator appears first, then the bot replaces it with a panel containing:
 
-Add the bot to your own server
+- WebSocket latency, the round-trip time for the command response, and the latency of a REST request to the Discord API; each is rated Excellent, Good, Average, or Poor. If REST latency cannot be measured, the value is `N/A`.
+- Discord's status, obtained from the public status API; if it cannot be fetched, the status is `Unknown`.
+- WebSocket connection status, bot uptime and connection time, shard ID and shard count, cluster ID, and REST API version.
+- Memory usage (Heap and RSS) and Node.js version, along with the bot, shard, and cluster identities and the time.
 
-**Permission:** Everyone · Cooldown: 5s
+If command execution fails, the bot attempts to display an error message containing the error details. The response does not show cache statistics, although they are collected during execution.
 
-Returns the invite link to add the bot to your own server.
+## `/invite`
 
+Displays a public panel with three buttons: **Invite Bot** to open the bot's add-to-server link, **Support Server** for the support server, and **Vote on Top.gg** to vote. The panel includes the bot's image and name, along with the display time. It requires no options or special permissions, and has a 5-second cooldown.
+
+**Usage:** `/invite`
+
+If an error occurs during processing, the bot attempts to send an error panel visible only to the user who invoked the command.
