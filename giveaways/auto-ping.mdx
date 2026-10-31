@@ -1,0 +1,57 @@
+---
+title: "Auto Ping"
+description: "Remind members about a running giveaway by repeating the role or @here ping at an interval you choose."
+icon: "bell"
+---
+
+<Badge color="purple">Tier 2</Badge>
+
+**Auto Ping** re-sends the same **role or `@here` ping** your giveaway used, again and again while it is running. It keeps a long giveaway visible without a host having to post reminders by hand.
+
+## How it works
+
+<Steps>
+  <Step title="The giveaway starts normally">
+    It is posted with the ping roles or `@here` you chose.
+  </Step>
+  <Step title="The bot repeats the ping">
+    Every time the interval passes, the bot posts a new reminder in the giveaway's channel.
+  </Step>
+  <Step title="The old reminder is removed">
+    Before each new reminder is sent, the previous one is deleted, so the channel never fills up with ping messages.
+  </Step>
+  <Step title="It stops">
+    Pings stop when the giveaway ends, or earlier if you set a maximum number of pings.
+  </Step>
+</Steps>
+
+## Settings
+
+| Setting | What it does | Allowed values |
+| --- | --- | --- |
+| **Enabled** | Turns Auto Ping on for this giveaway. | On or off (off by default) |
+| **Interval** | How long to wait between reminders. | 0 to 10,080 minutes (up to 7 days) |
+| **Maximum pings** | How many reminders to send in total. | 0 to 100. **0 means no limit** until the giveaway ends. |
+| **Message** | The text sent with each reminder. | Up to 500 characters |
+
+<Tip>
+For a 7-day giveaway, an interval of **12 hours** (720 minutes) works well: about two reminders a day without feeling spammy. Set **Maximum pings** if you want a hard cap.
+</Tip>
+
+## Good to know
+
+<AccordionGroup>
+  <Accordion title="Which roles get pinged?" icon="at">
+    The same roles or `@here` configured on the giveaway. Auto Ping does not add new ones.
+  </Accordion>
+  <Accordion title="Does it work for every giveaway?" icon="gift">
+    It applies to giveaways that have it enabled. It is a Premium **Tier 2** feature, so a server without Tier 2 will not be able to turn it on. See [Premium](/concepts/premium).
+  </Accordion>
+  <Accordion title="Will members get notified too often?" icon="bell-slash">
+    Only as often as your interval allows. Pick a long interval, or set a maximum, to keep it polite.
+  </Accordion>
+</AccordionGroup>
+
+<Card title="Create a giveaway" icon="plus" href="/giveaways/creating">
+  See every option available when you start a giveaway.
+</Card>

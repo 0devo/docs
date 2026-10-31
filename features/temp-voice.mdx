@@ -1,0 +1,82 @@
+---
+title: "Temporary voice channels"
+description: "Let members create their own private-feeling voice channels by joining a hub channel."
+icon: "microphone"
+---
+
+<Info>
+Temporary voice channels are **rolling out**. The dashboard page for them is currently marked **Soon**, so setup options may not be available to your server yet. This page explains how the feature behaves.
+</Info>
+
+With temporary voice channels, members don't need a moderator to get a voice room. They join a special **hub channel**, and the bot instantly creates a new voice channel just for them and moves them into it.
+
+## How it works
+
+<Steps>
+  <Step title="A member joins the hub">
+    The hub is a normal voice channel that an admin marked as a hub.
+  </Step>
+  <Step title="A new channel is created">
+    The bot creates a voice channel named after the member, in the hub's category, and moves them in automatically.
+  </Step>
+  <Step title="The member owns it">
+    The owner can manage the channel: rename it, set a user limit, mute or deafen others, and more. See the controls below.
+  </Step>
+  <Step title="It cleans itself up">
+    When everyone has left, the channel is **deleted automatically**.
+  </Step>
+</Steps>
+
+## Naming
+
+The channel name comes from a pattern. These placeholders are replaced for each member:
+
+| Placeholder | Becomes |
+| --- | --- |
+| `[displayName]` | The member's server display name |
+| `[userName]` | The member's username |
+| `[userId]` | The member's ID |
+
+The default pattern shows the owner's name followed by "Channel". Names are limited to 100 characters.
+
+## Rules and defaults
+
+| Rule | Behavior |
+| --- | --- |
+| Channels per member | 1 by default; a hub can allow up to 5. |
+| Already at your limit? | Joining the hub again moves you back to your existing channel instead of creating another. |
+| User limit | Default **unlimited** (0). |
+| Audio quality (bitrate) | Default 64 kbps, never above what your server's boost level allows: **96 kbps** (no boosts), **128 kbps** (level 1), **256 kbps** (level 2) or **384 kbps** (level 3). |
+| Video quality | Auto, or Full. |
+| Owner leaves | If **auto transfer** is on and others remain, ownership passes to someone still in the channel. Otherwise the owner simply leaves it. |
+
+<Note>
+While a member owns a channel from a hub, the hub is locked for them, so they can't spam new channels. It unlocks when their channel is deleted or they hand it over.
+</Note>
+
+## What the owner can control
+
+Each control can be switched on or off by the admin for a hub.
+
+<Columns cols={2}>
+  <Card title="Channel" icon="sliders">
+    Rename, user limit, bitrate, region, slowmode, voice status, video quality, NSFW (off by default).
+  </Card>
+  <Card title="Privacy" icon="lock">
+    Lock the channel, hide it, invite someone (creates an invite and DMs them).
+  </Card>
+  <Card title="People" icon="users">
+    Kick, ban, mute and deafen members in the channel.
+  </Card>
+  <Card title="Ownership" icon="crown">
+    Transfer the channel to another member, or **claim** it when the owner is gone.
+  </Card>
+</Columns>
+
+## What the bot needs
+
+The bot must be able to **Manage Channels**, **Move Members**, **Mute Members**, **Deafen Members**, **View Channel** and **Connect** in the hub's category.
+
+<Warning>
+If the bot can't create the channel or move the member, nothing is left behind: a half-created channel is deleted straight away.
+</Warning>

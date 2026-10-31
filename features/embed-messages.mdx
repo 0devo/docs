@@ -1,0 +1,40 @@
+---
+title: "Embed messages"
+description: "Build and publish custom messages with embeds, buttons and menus from the dashboard."
+icon: "message"
+---
+
+The dashboard has a message builder where you design a message, publish it to a channel, and keep it in a library to edit later. Messages can include **embeds**, **buttons** and **select menus** that respond when members use them.
+
+## What you can build
+
+<Columns cols={2}>
+  <Card title="Embeds" icon="rectangle-list">
+    Up to **10 embeds** per message, each with up to **10 fields**, plus title, description, images, footer and color.
+  </Card>
+  <Card title="Buttons" icon="hand-pointer">
+    Clickable buttons that can show a private reply or run a response you wrote.
+  </Card>
+  <Card title="Select menus" icon="list">
+    Drop-down menus with up to **25 options**, each with its own label, description and emoji.
+  </Card>
+  <Card title="Modern layouts" icon="table-columns">
+    Messages can also use the newer sections-and-containers layout.
+  </Card>
+</Columns>
+
+## Your message library
+
+Saved messages appear in a list you can search by name, channel or format. For each one you can **edit**, **copy** or **delete** it, and you can see whether it is **published** in Discord or still a **draft**.
+
+## Buttons and menus keep working
+
+The bot stores the original message and the response for every button and menu. When a member presses one, the bot looks it up and replies, so interactive messages **keep working even after the bot restarts**.
+
+<Tip>
+Use a select menu for reaction-role style choices or FAQ menus, and a button for a single clear action like "Read the rules".
+</Tip>
+
+<Note>
+Design and editing happen on the [dashboard](/features/dashboard) under **Embed Messages**.
+</Note>

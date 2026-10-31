@@ -10,6 +10,31 @@ Enable AFK status in the current server, or in shared servers where your account
 
 **Permission:** Everyone (server only)
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/afk` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `reason`, `global`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/afk
+```
+```text Fuller example
+/afk reason:Back at 8 PM global:true
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `reason` | string | No | Reason shown when members mention you | Maximum 200 characters; links, mentions, and invites are rejected; defaults to `AFK` |
@@ -23,6 +48,31 @@ Show a user's avatar and banner, if available, or the server icon and banner whe
 
 **Permission:** Everyone
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/avatar` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `user`, `server`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/avatar
+```
+```text Fuller example
+/avatar user:@Member server:true
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `user` | user | No | User whose images to show | Defaults to the command user |
@@ -34,6 +84,31 @@ Show a user information card with their name and ID, display names, account badg
 
 **Permission:** Everyone
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/user` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `user`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/user
+```
+```text Fuller example
+/user user:@Member
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `user` | user | No | User whose information to show | Defaults to the command user |
@@ -44,6 +119,28 @@ Show a server information card, including its owner and creation date; members, 
 
 **Permission:** Everyone
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/server` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/server
+```
+</CodeGroup>
+
+
 The card includes **View Roles** and **View Emojis** buttons. Each opens a user-specific list with **Previous / Next** navigation when there are multiple pages. Each page shows up to 20 items, and navigation buttons are omitted when there is only one page. Roles are ordered by descending position; the list shows each role's name, position, and ID. The emoji list shows each emoji's name and ID and whether it is animated. List results are private to the user who opened them, and interactions must take place in the same server where the button was created.
 
 ## /rank
@@ -51,6 +148,31 @@ The card includes **View Roles** and **View Emojis** buttons. Each opens a user-
 Show a user's level and progress in text and voice XP, text rank, message count, and voice time. A **Rank** context-menu command is also available by right-clicking a user. **The command is temporarily disabled in the current implementation** while the leveling system is being updated, so the options below do not currently produce a card. If re-enabled, the graphical card requires the `canvas` library; when it is unavailable, the implementation displays a text summary instead of an image. Bots do not have level data.
 
 **Permission:** Everyone
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/rank` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `user`, `theme`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/rank
+```
+```text Fuller example
+/rank user:@Member theme:dark
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -62,6 +184,31 @@ Show a user's level and progress in text and voice XP, text rank, message count,
 Show separate chat and voice activity leaderboards for the server, ranked by XP for the selected period. Five members are shown per page, with Previous and Next buttons and a page number (disabled). The command shows the invoking user's current rank in the list when the data/filtering requirements are met.
 
 **Permission:** Everyone
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/top` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `duration`, `role`, `page`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/top
+```
+```text Fuller example
+/top duration:day role:@Member page:1
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -77,6 +224,31 @@ Set a member's XP in the server. Bot accounts are not supported. When text or vo
 
 **Permission:** Manage Server (`ManageGuild`), Administrator, or bot owner
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/setxp` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `user`, `amount`. Optional: `type`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/setxp user:@Member amount:1000
+```
+```text Fuller example
+/setxp user:@Member amount:1000 type:total
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `user` | user | Yes | User whose XP to change | Bots are not accepted |
@@ -88,6 +260,31 @@ Set a member's XP in the server. Bot accounts are not supported. When text or vo
 Set a member's level in the server. The implementation converts the requested level to total XP using the leveling formula. The `preserve_xp` option attempts to preserve the remaining progress within the previous level when moving to the new level. Bot levels cannot be set.
 
 **Permission:** Manage Server (`ManageGuild`), Administrator, or bot owner
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/setlevel` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `user`, `level`. Optional: `type`, `preserve_xp`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/setlevel user:@Member level:10
+```
+```text Fuller example
+/setlevel user:@Member level:10 type:total preserve_xp:true
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -101,6 +298,28 @@ Set a member's level in the server. The implementation converts the requested le
 Open the interactive leveling setup panel. The panel shows the current status, subscription tier and limits, notification channel, XP values, activity tracking, rewards, multipliers, XP-exclusion lists, boost events, leaderboard reset settings, level-up messages, and appearance. Changes are saved when applied. A panel session is tied to a user and server and expires after 20 minutes; run the command again to start a new session. Interactions are ephemeral.
 
 **Permission:** Manage Server (`ManageGuild`), Administrator, or bot owner; server only.
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/levelsetup` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot opens an interactive panel with buttons and menus; make your changes there.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/levelsetup
+```
+</CodeGroup>
+
 
 ### Panel sections and buttons
 
@@ -127,6 +346,28 @@ The panel does not grant Premium features unavailable on the plan; related featu
 
 The counting-game management command has been **redirected to the web dashboard**. It does not open a settings panel in Discord: it sends an ephemeral notice and an **Open Dashboard** link button to the counting page in the server dashboard. The notice mentions a data-compatibility issue in older settings and recommends setting up the game again through the dashboard; the implementation also states that the command will be removed within a month. This is a server-only command and requires Manage Server (`ManageGuild`).
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/counting` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot opens an interactive panel with buttons and menus; make your changes there.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/counting
+```
+</CodeGroup>
+
+
 ### Counting game behavior in the implementation
 
 The message handler ignores bot messages and processes the game only when it is active, not paused, and in a text channel. Members must pass any configured allowed/blocked role restrictions. It accepts non-negative integers; settings may allow text after the number or a mathematical expression, but mathematical expressions are unavailable on the free plan. Under the effective restrictions up through Tier 2, the same user cannot count twice in a row, and a cooldown may be imposed depending on the plan. On an error, the message may be deleted, the sequence may reset to the beginning, or the game may stop, according to the available game settings; some options are limited by Premium. These are game and engine settings, not interactive controls currently provided by the Discord command.
@@ -134,6 +375,28 @@ The message handler ignores bot messages and processes the game only when it is 
 ## /starboard
 
 The current command does not open an in-Discord control panel; it sends an ephemeral notice and an **Open Dashboard** button linking to the Starboard page in the web dashboard. The notice points out a data-compatibility issue with older settings, recommends creating the starboard again through the dashboard, and says the command will be removed within a month. The command is exposed to users with Manage Server (`ManageGuild`). The legacy management interface below remains defined in the code and its interaction handlers, but it is not what currently opens when the command is run.
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/starboard` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot opens an interactive panel with buttons and menus; make your changes there.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/starboard
+```
+</CodeGroup>
+
 
 ### Starboard interface sections defined in the code
 
@@ -153,6 +416,28 @@ The legacy panel's permission check also runs in its handlers: bot owner, Admini
 
 The current command does not open a manager in Discord; it sends an ephemeral notice and an **Open Dashboard** button linking to the Sticky page in the web dashboard. The implementation notes a data-compatibility issue with older settings, recommends creating the sticky message again through the dashboard, and says it will be removed within a month. It requires **Manage Messages** (`ManageMessages`). The legacy management interface below remains defined in the code, but it is not what currently opens when the command is run.
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/sticky` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot opens an interactive panel with buttons and menus; make your changes there.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/sticky
+```
+</CodeGroup>
+
+
 ### Sticky interface sections defined in the code
 
 The legacy control panel shows the number of sticky messages against the plan limit and their active/paused/disabled statuses. It displays up to six sticky messages, each with an **Open** button; the rest of the list is available through **Manage All**. Its main buttons are **New Sticky**, **Manage All**, **Statistics**, **Templates**, **Variables**, and **Import** only when the plan allows it. Selecting a new channel opens a form with required content (up to 1900 characters), an optional title (up to 200), and an optional color.
@@ -169,6 +454,31 @@ Command access is restricted to `ManageMessages`. These are limits and interface
 Translate text, a linked message, or attachments. When more than one input type is provided, processing order is attachments first, then the message, then text. Languages can be searched through autocomplete by name or language code; the source-language list accepts `auto` for automatic detection. The implementation supports common text/code files, PDFs, and images via OCR.
 
 **Permission:** Everyone
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/translate` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `to`. Optional: `text`, `from`, `message`, `attachment`, `attachment2`, `attachment3`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/translate to:Arabic
+```
+```text Fuller example
+/translate to:Arabic text:Good morning everyone from:English message:https://discord.com/channels/…/… attachment:(attach a file)
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -187,6 +497,28 @@ Supported text formats include extensions such as `.txt`, `.md`, `.json`, code f
 Change the bot language used for this server. The change is saved and the cache is updated; the success confirmation is displayed in the new language.
 
 **Permission:** Manage Server (`ManageGuild`), Administrator, or bot owner
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/setlang` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `language`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/setlang language:ar
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |

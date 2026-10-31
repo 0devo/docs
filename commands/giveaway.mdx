@@ -12,6 +12,28 @@ Create a giveaway with a quick form
 
 **Permission:** Manage Server, Administrator, or Giveaway Manager role
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gcreate` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    A form opens: fill in the prize, duration and winners, optionally upload an image, then choose **Publish now** or **Customize in Studio**.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gcreate
+```
+</CodeGroup>
+
+
 <Info>
 Opens a modal with a prize (required, up to 256 characters), duration (required), winner count (required, default: 1), and an optional prize image (PNG, JPG, GIF, or WEBP, up to 8 MB). You must choose what happens after submission: **Publish now**, using the server's appearance and default rules, or **Customize in Studio**, which opens the `/gstart` panel prefilled with these values. Inputs are validated before continuing. If there is an error, an ephemeral response appears with an **Edit and Retry** button that reopens the modal with your answers preserved. The accepted duration is 10 seconds to 90 days; winner-count and duration limits depend on the Premium plan. The command checks the current channel and the bot's permissions before opening the modal. The modal expires after 15 minutes. See [Creating giveaways](/giveaways/creating#gcreate-the-quick-form).
 </Info>
@@ -21,6 +43,34 @@ Opens a modal with a prize (required, up to 256 characters), duration (required)
 Starts a giveaway with customizable options
 
 **Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gstart` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `duration`, `winners`, `prize`, `template`, `channel`, `image`, `thumbnail`, `required_roles`….
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gstart
+```
+```text Fuller example
+/gstart duration:1d winners:1 prize:Discord Nitro template:weekly-nitro
+```
+```text Prefix
+g!gstart --duration=1d --winners=1 --prize=Discord Nitro
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -59,6 +109,31 @@ Starts a drop giveaway — first to claim wins!
 
 **Permission:** Manage Server
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gdrop` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `prize`. Optional: `winners`, `duration`, `channel`, `image`, `thumbnail`, `countdown`, `blacklist_role`, `required_role`….
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gdrop prize:Discord Nitro
+```
+```text Fuller example
+/gdrop prize:Discord Nitro winners:1 duration:1d channel:#giveaways image:(attach a file)
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `prize` | string | Yes | The prize being given away |  |
@@ -80,6 +155,28 @@ Starts a 'first or last one to type wins' giveaway
 
 **Permission:** Manage Server
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/glast` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `channel`, `duration`, `prize`, `mode`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/glast channel:#giveaways duration:1d prize:Discord Nitro mode:first
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `channel` | channel | Yes | The text channel for the giveaway |  |
@@ -98,6 +195,31 @@ Schedule a giveaway to start later, with live preview and full editing
 ### `/gschedule create`
 
 Create a scheduled giveaway
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gschedule create` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `start_time`, `prize`, `duration`, `winners`, `channel`, `template`, `image`, `thumbnail`….
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gschedule create
+```
+```text Fuller example
+/gschedule create start_time:1d prize:Discord Nitro duration:1d winners:1
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -130,9 +252,53 @@ Create a scheduled giveaway
 
 List this server's scheduled giveaways
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gschedule list` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gschedule list
+```
+</CodeGroup>
+
+
 ### `/gschedule edit`
 
 Edit a scheduled giveaway
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gschedule edit` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gschedule edit giveaway_id:123456789012345678
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -141,6 +307,28 @@ Edit a scheduled giveaway
 ### `/gschedule delete`
 
 Delete a scheduled giveaway
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gschedule delete` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gschedule delete giveaway_id:123456789012345678
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -157,6 +345,31 @@ Create and manage reusable giveaway templates
 ### `/gtemplate create`
 
 Create a new giveaway template
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate create` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`. Optional: `prize`, `duration`, `winners`, `channel`, `description`, `entry_type`, `reaction_emoji`, `required_roles`….
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate create name:weekly-nitro
+```
+```text Fuller example
+/gtemplate create name:weekly-nitro prize:Discord Nitro duration:1d winners:1 channel:#giveaways
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -190,6 +403,31 @@ Create a new giveaway template
 
 Edit name, prize, duration, winners, channel, description & premium flags
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate edit basic` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`. Optional: `new_name`, `prize`, `duration`, `winners`, `channel`, `description`, `entry_type`, `reaction_emoji`….
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate edit basic name:weekly-nitro
+```
+```text Fuller example
+/gtemplate edit basic name:weekly-nitro new_name:weekly-nitro-2 prize:Discord Nitro duration:1d winners:1
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `name` | string | Yes | Template to edit |  |
@@ -209,6 +447,31 @@ Edit name, prize, duration, winners, channel, description & premium flags
 
 Edit role/age/invite/message/level requirements
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate edit requirements` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`. Optional: `required_roles`, `requirement_bypass_roles`, `winners_roles`, `blacklist_roles`, `joined_age`, `account_age`, `required_messages`, `required_invites`….
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate edit requirements name:weekly-nitro
+```
+```text Fuller example
+/gtemplate edit requirements name:weekly-nitro required_roles:@Member requirement_bypass_roles:@Staff winners_roles:@Winner blacklist_roles:@Muted
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `name` | string | Yes | Template to edit |  |
@@ -227,6 +490,31 @@ Edit role/age/invite/message/level requirements
 
 Edit bonus/vote entries
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate edit entries` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`. Optional: `extra_entries`, `max_entries`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate edit entries name:weekly-nitro
+```
+```text Fuller example
+/gtemplate edit entries name:weekly-nitro extra_entries:@Booster 3 max_entries:3
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `name` | string | Yes | Template to edit |  |
@@ -236,6 +524,31 @@ Edit bonus/vote entries
 ### `/gtemplate edit media`
 
 Edit image / thumbnail
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate edit media` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`. Optional: `image`, `thumbnail`, `clear_media`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate edit media name:weekly-nitro
+```
+```text Fuller example
+/gtemplate edit media name:weekly-nitro image:(attach a file) thumbnail:(attach a file) clear_media:true
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -248,6 +561,28 @@ Edit image / thumbnail
 
 Delete a template (asks for confirmation)
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate delete` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate delete name:weekly-nitro
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `name` | string | Yes | Template to delete |  |
@@ -256,9 +591,53 @@ Delete a template (asks for confirmation)
 
 List all templates in this server
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate list` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate list
+```
+</CodeGroup>
+
+
 ### `/gtemplate view`
 
 View full details of a template
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate view` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate view name:weekly-nitro
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -268,6 +647,28 @@ View full details of a template
 
 See a live visual mockup of a template's giveaway embed
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate preview` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate preview name:weekly-nitro
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `name` | string | Yes | Template name |  |
@@ -275,6 +676,28 @@ See a live visual mockup of a template's giveaway embed
 ### `/gtemplate duplicate`
 
 Clone a template under a new name
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate duplicate` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`, `new_name`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate duplicate name:weekly-nitro new_name:weekly-nitro-2
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -285,6 +708,28 @@ Clone a template under a new name
 
 Export a template as a shareable .json file
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate export` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate export name:weekly-nitro
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `name` | string | Yes | Template to export |  |
@@ -292,6 +737,31 @@ Export a template as a shareable .json file
 ### `/gtemplate import`
 
 Import a template from a .json file exported by /gtemplate export
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate import` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `file`. Optional: `name`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate import file:(attach a file)
+```
+```text Fuller example
+/gtemplate import file:(attach a file) name:weekly-nitro
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -305,6 +775,34 @@ See [Templates](/giveaways/templates).
 Edit an active or scheduled giveaway
 
 **Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gedit` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Optional: `prize`, `duration`, `winners`, `image`, `thumbnail`, `required_role`, `requirement_bypass_role`, `blacklist_role`…. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gedit giveaway_id:123456789012345678
+```
+```text Fuller example
+/gedit giveaway_id:123456789012345678 prize:Discord Nitro duration:1d winners:1 image:(attach a file)
+```
+```text Prefix
+g!gedit 123456789012345678
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -336,6 +834,31 @@ Ends an active giveaway
 
 **Permission:** Manage Server
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gend` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gend giveaway_id:123456789012345678
+```
+```text Prefix
+g!gend 123456789012345678
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `giveaway_id` | string | Yes | Select the giveaway to end (or paste a message ID / link) | Autocomplete |
@@ -347,6 +870,31 @@ Shows a confirmation that expires after 60 seconds. Also available as the **End 
 Pauses a running giveaway (freezes its countdown)
 
 **Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gpause` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gpause giveaway_id:123456789012345678
+```
+```text Prefix
+g!gpause 123456789012345678
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -360,6 +908,31 @@ Resumes a paused giveaway (restores its remaining time)
 
 **Permission:** Manage Server
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gresume` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gresume giveaway_id:123456789012345678
+```
+```text Prefix
+g!gresume 123456789012345678
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `giveaway_id` | string | Yes | Select the giveaway to resume (or paste a message ID / link) | Autocomplete |
@@ -371,6 +944,34 @@ Also available as the **Resume Giveaway** message action.
 Rerolls one or more new winners from an ended giveaway
 
 **Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/greroll` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Optional: `replace`, `count`, `exclude_previous_winners`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/greroll giveaway_id:123456789012345678
+```
+```text Fuller example
+/greroll giveaway_id:123456789012345678 replace:@Winner count:2 exclude_previous_winners:true
+```
+```text Prefix
+g!greroll 123456789012345678
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -387,6 +988,31 @@ Delete a giveaway
 
 **Permission:** Manage Server · Server only
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gdelete` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gdelete giveaway_id:123456789012345678
+```
+```text Prefix
+g!gdelete 123456789012345678
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `giveaway_id` | string | Yes | Select the giveaway to delete (or paste a message ID / link) | Autocomplete |
@@ -398,6 +1024,34 @@ Server only. Also available as the **Delete Giveaway** message action.
 Lists active or ended giveaways in the server
 
 **Permission:** None (View Channel)
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/glist` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `status`, `host`, `channel`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/glist
+```
+```text Fuller example
+/glist status:active host:@Host channel:#giveaways
+```
+```text Prefix
+g!glist --status=active --host=@Host --channel=#giveaways
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
@@ -413,6 +1067,34 @@ Diagnose and safely repair a stuck or inconsistent giveaway
 
 **Permission:** Manage Server
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gfix` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Optional: `dry_run`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gfix giveaway_id:123456789012345678
+```
+```text Fuller example
+/gfix giveaway_id:123456789012345678 dry_run:true
+```
+```text Prefix
+g!gfix 123456789012345678
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `giveaway_id` | string | Yes | Giveaway message ID (or message link) | Autocomplete |
@@ -425,6 +1107,28 @@ The command performs safe automatic repairs and then checks again. Actions that 
 🎨 Configure the giveaway bot for this server
 
 **Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/settings` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot opens an interactive panel with buttons and menus; make your changes there.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/settings
+```
+</CodeGroup>
+
 
 Opens an ephemeral interactive panel with a dropdown for navigating the sections below. Changes are saved and the panel refreshes after each edit. Requires Manage Server, Administrator, or the Giveaway Manager role.
 
@@ -447,6 +1151,28 @@ Set a custom color for giveaway embeds (Premium Only)
 
 **Permission:** Manage Server
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/setcolor` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `color`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/setcolor color:#ff0000
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |
 | `color` | string | Yes | The hex color code (e.g., #ff0000, #00ff00, #0000ff) |  |
@@ -458,6 +1184,28 @@ Set a custom color for giveaway embeds (Premium Only)
 Set a custom emoji for giveaway participation button (Premium Only)
 
 **Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/setemoji` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `emoji`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/setemoji emoji:🎁
+```
+</CodeGroup>
+
 
 | Option | Type | Required | Description | Notes |
 | --- | --- | --- | --- | --- |

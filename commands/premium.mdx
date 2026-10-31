@@ -16,11 +16,55 @@ If you have a manual or legacy subscription, the FAQ says your current access co
 
 **Defined permission:** Manage Server (`ManageGuild`).
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/premium-info` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/premium-info
+```
+</CodeGroup>
+
+
 Displays an ephemeral panel with the Premium status of the current server. It includes the plan and status, owner, activation and expiration dates, included features, and usage of linked server slots, if applicable. The panel provides a refresh option, a management button that points to `/premium-settings`, and a support/renewal link. If the server has no recorded subscription, it displays the features and support link.
 
 ### `/premium-settings`
 
 Opens a user-specific Premium settings panel for the current server. You must have **Administrator** or **Manage Server** permission, or one of the server’s registered giveaway manager roles; the bot owner is also allowed. An active Premium subscription is required; otherwise, the panel displays a message saying Premium is required.
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/premium-settings` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot opens an interactive panel with buttons and menus; make your changes there.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/premium-settings
+```
+</CodeGroup>
+
 
 The panel includes sections for navigating between:
 
@@ -33,6 +77,28 @@ The panel includes sections for navigating between:
 
 **Option:**
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/premium-transfer` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `new_guild_id`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/premium-transfer new_guild_id:123456789012345678
+```
+</CodeGroup>
+
+
 | Option | Type | Required | Description |
 | --- | --- | --- | --- |
 | `new_guild_id` | string | Yes | ID of the server to transfer the subscription to. The bot must be a member of it, and it must not already have a recorded Premium subscription. |
@@ -43,9 +109,53 @@ Transfers a **Tier 2 (Diamond)** subscription from the current server to another
 
 Creates a short code to link the current server to Patreon data; the code is valid for 30 minutes. It displays legacy instructions for matching the Discord account connected to Patreon or placing the code in the membership note. The command requires **Manage Server** according to its definition. This is a Patreon-specific legacy path, not a current purchase method, and the source does not establish that it links or activates a website purchase.
 
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/premium-link` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/premium-link
+```
+</CodeGroup>
+
+
 ### `/premium-activate` — Legacy Patreon activation
 
 Requires **Manage Server**, then looks for a Patreon membership linked to the Discord account of the user who ran the command, checks that its status is `active_patron` and that its tier matches one of the bot’s tiers, and then attempts to activate the plan for the current server for one month. This implementation is Patreon-specific and does not mention website purchases; do not use it as if it activates or confirms payment for an order from `giveawayx.lol/plans`.
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/premium-activate` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/premium-activate
+```
+</CodeGroup>
+
 
 ## Admin and Developer Commands
 

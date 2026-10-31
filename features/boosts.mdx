@@ -1,0 +1,38 @@
+---
+title: "Server boosts"
+description: "How GiveawayX tracks boosts, and how to use them in giveaways and thank-you messages."
+icon: "rocket"
+---
+
+GiveawayX keeps count of how many times each member has **boosted your server**, so you can reward boosters in giveaways and thank them on the dashboard.
+
+## How boosts are counted
+
+Whenever someone boosts the server, Discord posts a boost message in the server. The bot reads these messages and adds them to that member's total:
+
+- One boost adds **1**.
+- If a member applies several boosts at once, all of them are added.
+- The date of their **latest boost** is remembered.
+
+<Warning>
+The bot can only count boosts it **sees**. Boosts made before GiveawayX joined the server, or while it could not read the boost messages, are not counted automatically.
+</Warning>
+
+## Use boosts in giveaways
+
+<CardGroup cols={2}>
+  <Card title="Require boosters" icon="lock" href="/giveaways/entry-requirements">
+    Only boosting members can enter, or members who boosted a minimum number of times.
+  </Card>
+  <Card title="Reward boosters" icon="ticket" href="/giveaways/bonus-entries">
+    Give boosters extra entries with a role bonus such as `@Booster 3`.
+  </Card>
+</CardGroup>
+
+<Tip>
+Pair a booster-only giveaway with a **bonus entry** giveaway for everyone else. Boosters feel valued, and the rest of the community still has a chance.
+</Tip>
+
+## Thank-you messages
+
+On the dashboard, the **Boosts** page lets you set up thank-you messages for boosters, including messages sent in the server or by direct message. See [Web Dashboard](/features/dashboard).

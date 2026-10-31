@@ -12,6 +12,28 @@ icon: "gift"
 
 **الصلاحية:** إدارة الخادم أو المسؤول أو رتبة مدير السحوبات
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gcreate` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    لا يحتوي هذا الأمر على خيارات إلزامية.
+  </Step>
+  <Step title="أرسل الأمر">
+    يظهر نموذج: أدخل الجائزة والمدة وعدد الفائزين، وأرفق صورة اختياريًا، ثم اختر **النشر الآن** أو **التخصيص في الاستوديو**.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gcreate
+```
+</CodeGroup>
+
+
 <Info>
 يفتح نموذجًا (نافذة منبثقة) يتضمن الجائزة (مطلوبة، حتى 256 حرفًا)، والمدة (مطلوبة)، وعدد الفائزين (مطلوب، افتراضيًا 1)، وصورة جائزة اختيارية (PNG أو JPG أو GIF أو WEBP، حتى 8 ميغابايت)، وخيارًا مطلوبًا لما يحدث بعد الإرسال: **النشر الآن** باستخدام مظهر الخادم وقواعده الافتراضية، أو **التخصيص في الاستوديو** لفتح لوحة `/gstart` معبأة بالقيم. تُفحص المدخلات قبل المتابعة؛ وعند الخطأ تظهر استجابة خاصة مع زر **تعديل وإعادة المحاولة** يعيد فتح النموذج مع الاحتفاظ بالإجابات. المدة المقبولة من 10 ثوانٍ إلى 90 يومًا، وتخضع حدود الفائزين والمدة لخطة Premium. يفحص الأمر القناة الحالية وصلاحيات البوت قبل فتح النموذج، وتنتهي صلاحية النموذج بعد 15 دقيقة. راجع [إنشاء السحوبات](/ar/giveaways/creating#gcreate-the-quick-form).
 </Info>
@@ -21,6 +43,34 @@ icon: "gift"
 بدء سحب بخيارات قابلة للتخصيص
 
 **الصلاحية:** إدارة الخادم
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gstart` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    لا يحتوي هذا الأمر على خيارات إلزامية. الخيارات الاختيارية: `duration`, `winners`, `prize`, `template`, `channel`, `image`, `thumbnail`, `required_roles`….
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gstart
+```
+```text مثال أوسع
+/gstart duration:1d winners:1 prize:Discord Nitro template:weekly-nitro
+```
+```text بالبادئة
+g!gstart --duration=1d --winners=1 --prize=Discord Nitro
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
@@ -59,6 +109,31 @@ icon: "gift"
 
 **الصلاحية:** إدارة الخادم
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gdrop` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `prize`. الخيارات الاختيارية: `winners`, `duration`, `channel`, `image`, `thumbnail`, `countdown`, `blacklist_role`, `required_role`….
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gdrop prize:Discord Nitro
+```
+```text مثال أوسع
+/gdrop prize:Discord Nitro winners:1 duration:1d channel:#giveaways image:(attach a file)
+```
+</CodeGroup>
+
+
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
 | `prize` | نص | نعم | الجائزة المقدمة في السحب |  |
@@ -80,6 +155,28 @@ icon: "gift"
 
 **الصلاحية:** إدارة الخادم
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/glast` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `channel`, `duration`, `prize`, `mode`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/glast channel:#giveaways duration:1d prize:Discord Nitro mode:first
+```
+</CodeGroup>
+
+
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
 | `channel` | قناة | نعم | القناة النصية للسحب |  |
@@ -98,6 +195,31 @@ icon: "gift"
 ### `/gschedule create`
 
 إنشاء سحب مجدول
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gschedule create` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    لا يحتوي هذا الأمر على خيارات إلزامية. الخيارات الاختيارية: `start_time`, `prize`, `duration`, `winners`, `channel`, `template`, `image`, `thumbnail`….
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gschedule create
+```
+```text مثال أوسع
+/gschedule create start_time:1d prize:Discord Nitro duration:1d winners:1
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
@@ -130,9 +252,53 @@ icon: "gift"
 
 عرض قائمة السحوبات المجدولة في هذا الخادم
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gschedule list` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    لا يحتوي هذا الأمر على خيارات إلزامية.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gschedule list
+```
+</CodeGroup>
+
+
 ### `/gschedule edit`
 
 تعديل سحب مجدول
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gschedule edit` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `giveaway_id`. تعرض بعض الخيارات اقتراحات أثناء الكتابة؛ اختر منها.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gschedule edit giveaway_id:123456789012345678
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
@@ -141,6 +307,28 @@ icon: "gift"
 ### `/gschedule delete`
 
 حذف سحب مجدول
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gschedule delete` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `giveaway_id`. تعرض بعض الخيارات اقتراحات أثناء الكتابة؛ اختر منها.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gschedule delete giveaway_id:123456789012345678
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
@@ -157,6 +345,31 @@ icon: "gift"
 ### `/gtemplate create`
 
 إنشاء قالب سحب جديد
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate create` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`. الخيارات الاختيارية: `prize`, `duration`, `winners`, `channel`, `description`, `entry_type`, `reaction_emoji`, `required_roles`….
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate create name:weekly-nitro
+```
+```text مثال أوسع
+/gtemplate create name:weekly-nitro prize:Discord Nitro duration:1d winners:1 channel:#giveaways
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
@@ -190,6 +403,31 @@ icon: "gift"
 
 تعديل الاسم والجائزة والمدة والفائزين والقناة والوصف وخيارات Premium
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate edit basic` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`. الخيارات الاختيارية: `new_name`, `prize`, `duration`, `winners`, `channel`, `description`, `entry_type`, `reaction_emoji`….
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate edit basic name:weekly-nitro
+```
+```text مثال أوسع
+/gtemplate edit basic name:weekly-nitro new_name:weekly-nitro-2 prize:Discord Nitro duration:1d winners:1
+```
+</CodeGroup>
+
+
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
 | `name` | نص | نعم | القالب المراد تعديله |  |
@@ -209,6 +447,31 @@ icon: "gift"
 
 تعديل متطلبات الرتب والعمر والدعوات والرسائل والمستوى
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate edit requirements` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`. الخيارات الاختيارية: `required_roles`, `requirement_bypass_roles`, `winners_roles`, `blacklist_roles`, `joined_age`, `account_age`, `required_messages`, `required_invites`….
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate edit requirements name:weekly-nitro
+```
+```text مثال أوسع
+/gtemplate edit requirements name:weekly-nitro required_roles:@Member requirement_bypass_roles:@Staff winners_roles:@Winner blacklist_roles:@Muted
+```
+</CodeGroup>
+
+
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
 | `name` | نص | نعم | القالب المراد تعديله |  |
@@ -227,6 +490,31 @@ icon: "gift"
 
 تعديل فرص المشاركة الإضافية وفرص التصويت
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate edit entries` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`. الخيارات الاختيارية: `extra_entries`, `max_entries`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate edit entries name:weekly-nitro
+```
+```text مثال أوسع
+/gtemplate edit entries name:weekly-nitro extra_entries:@Booster 3 max_entries:3
+```
+</CodeGroup>
+
+
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
 | `name` | نص | نعم | القالب المراد تعديله |  |
@@ -236,6 +524,31 @@ icon: "gift"
 ### `/gtemplate edit media`
 
 تعديل الصورة / الصورة المصغرة
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate edit media` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`. الخيارات الاختيارية: `image`, `thumbnail`, `clear_media`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate edit media name:weekly-nitro
+```
+```text مثال أوسع
+/gtemplate edit media name:weekly-nitro image:(attach a file) thumbnail:(attach a file) clear_media:true
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
@@ -248,6 +561,28 @@ icon: "gift"
 
 حذف قالب (يطلب تأكيدًا)
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate delete` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate delete name:weekly-nitro
+```
+</CodeGroup>
+
+
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
 | `name` | نص | نعم | القالب المراد حذفه |  |
@@ -256,9 +591,53 @@ icon: "gift"
 
 عرض جميع القوالب في هذا الخادم
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate list` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    لا يحتوي هذا الأمر على خيارات إلزامية.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate list
+```
+</CodeGroup>
+
+
 ### `/gtemplate view`
 
 عرض التفاصيل الكاملة لقالب
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate view` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate view name:weekly-nitro
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
@@ -268,6 +647,28 @@ icon: "gift"
 
 عرض معاينة مرئية مباشرة لرسالة السحب المضمّنة الخاصة بالقالب
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate preview` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate preview name:weekly-nitro
+```
+</CodeGroup>
+
+
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
 | `name` | نص | نعم | اسم القالب |  |
@@ -275,6 +676,28 @@ icon: "gift"
 ### `/gtemplate duplicate`
 
 نسخ قالب باسم جديد
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate duplicate` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`, `new_name`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate duplicate name:weekly-nitro new_name:weekly-nitro-2
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
@@ -285,6 +708,28 @@ icon: "gift"
 
 تصدير قالب كملف .json قابل للمشاركة
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate export` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate export name:weekly-nitro
+```
+</CodeGroup>
+
+
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
 | `name` | نص | نعم | القالب المراد تصديره |  |
@@ -292,6 +737,31 @@ icon: "gift"
 ### `/gtemplate import`
 
 استيراد قالب من ملف .json مُصدَّر باستخدام /gtemplate export
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate import` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `file`. الخيارات الاختيارية: `name`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate import file:(attach a file)
+```
+```text مثال أوسع
+/gtemplate import file:(attach a file) name:weekly-nitro
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
@@ -305,6 +775,34 @@ icon: "gift"
 تعديل سحب نشط أو مجدول
 
 **الصلاحية:** إدارة الخادم
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gedit` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `giveaway_id`. الخيارات الاختيارية: `prize`, `duration`, `winners`, `image`, `thumbnail`, `required_role`, `requirement_bypass_role`, `blacklist_role`…. تعرض بعض الخيارات اقتراحات أثناء الكتابة؛ اختر منها.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gedit giveaway_id:123456789012345678
+```
+```text مثال أوسع
+/gedit giveaway_id:123456789012345678 prize:Discord Nitro duration:1d winners:1 image:(attach a file)
+```
+```text بالبادئة
+g!gedit 123456789012345678
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
@@ -336,6 +834,31 @@ icon: "gift"
 
 **الصلاحية:** إدارة الخادم
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gend` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `giveaway_id`. تعرض بعض الخيارات اقتراحات أثناء الكتابة؛ اختر منها.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gend giveaway_id:123456789012345678
+```
+```text بالبادئة
+g!gend 123456789012345678
+```
+</CodeGroup>
+
+
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
 | `giveaway_id` | نص | نعم | اختيار السحب المراد إنهاؤه (أو لصق معرّف رسالة / رابط) | إكمال تلقائي |
@@ -347,6 +870,31 @@ icon: "gift"
 إيقاف سحب جارٍ مؤقتًا (تجميد العد التنازلي)
 
 **الصلاحية:** إدارة الخادم
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gpause` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `giveaway_id`. تعرض بعض الخيارات اقتراحات أثناء الكتابة؛ اختر منها.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gpause giveaway_id:123456789012345678
+```
+```text بالبادئة
+g!gpause 123456789012345678
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
@@ -360,6 +908,31 @@ icon: "gift"
 
 **الصلاحية:** إدارة الخادم
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gresume` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `giveaway_id`. تعرض بعض الخيارات اقتراحات أثناء الكتابة؛ اختر منها.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gresume giveaway_id:123456789012345678
+```
+```text بالبادئة
+g!gresume 123456789012345678
+```
+</CodeGroup>
+
+
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
 | `giveaway_id` | نص | نعم | اختيار السحب المراد استئنافه (أو لصق معرّف رسالة / رابط) | إكمال تلقائي |
@@ -371,6 +944,34 @@ icon: "gift"
 إعادة السحب لاختيار فائز جديد أو أكثر من سحب منتهٍ
 
 **الصلاحية:** إدارة الخادم
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/greroll` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `giveaway_id`. الخيارات الاختيارية: `replace`, `count`, `exclude_previous_winners`. تعرض بعض الخيارات اقتراحات أثناء الكتابة؛ اختر منها.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/greroll giveaway_id:123456789012345678
+```
+```text مثال أوسع
+/greroll giveaway_id:123456789012345678 replace:@Winner count:2 exclude_previous_winners:true
+```
+```text بالبادئة
+g!greroll 123456789012345678
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
@@ -387,6 +988,31 @@ icon: "gift"
 
 **الصلاحية:** إدارة الخادم · داخل الخادم فقط
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gdelete` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `giveaway_id`. تعرض بعض الخيارات اقتراحات أثناء الكتابة؛ اختر منها.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gdelete giveaway_id:123456789012345678
+```
+```text بالبادئة
+g!gdelete 123456789012345678
+```
+</CodeGroup>
+
+
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
 | `giveaway_id` | نص | نعم | اختيار السحب المراد حذفه (أو لصق معرّف رسالة / رابط) | إكمال تلقائي |
@@ -398,6 +1024,34 @@ icon: "gift"
 عرض السحوبات النشطة أو المنتهية في الخادم
 
 **الصلاحية:** لا شيء (عرض القناة)
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/glist` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    لا يحتوي هذا الأمر على خيارات إلزامية. الخيارات الاختيارية: `status`, `host`, `channel`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/glist
+```
+```text مثال أوسع
+/glist status:active host:@Host channel:#giveaways
+```
+```text بالبادئة
+g!glist --status=active --host=@Host --channel=#giveaways
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
@@ -413,6 +1067,34 @@ icon: "gift"
 
 **الصلاحية:** إدارة الخادم
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gfix` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `giveaway_id`. الخيارات الاختيارية: `dry_run`. تعرض بعض الخيارات اقتراحات أثناء الكتابة؛ اختر منها.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gfix giveaway_id:123456789012345678
+```
+```text مثال أوسع
+/gfix giveaway_id:123456789012345678 dry_run:true
+```
+```text بالبادئة
+g!gfix 123456789012345678
+```
+</CodeGroup>
+
+
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
 | `giveaway_id` | نص | نعم | معرّف رسالة السحب (أو رابط الرسالة) | إكمال تلقائي |
@@ -425,6 +1107,28 @@ icon: "gift"
 🎨 ضبط بوت السحوبات لهذا الخادم
 
 **الصلاحية:** إدارة الخادم
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/settings` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    لا يحتوي هذا الأمر على خيارات إلزامية.
+  </Step>
+  <Step title="أرسل الأمر">
+    يفتح البوت لوحة تفاعلية بأزرار وقوائم؛ أجرِ تعديلاتك منها.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/settings
+```
+</CodeGroup>
+
 
 يفتح لوحة تفاعلية خاصة مؤجلة الرد، ويتيح التنقل بقائمة بين الأقسام الآتية؛ تحفظ التغييرات وتنعكس اللوحة بعد التعديل. يتطلب الأمر صلاحية إدارة الخادم أو المسؤول أو رتبة مدير السحوبات.
 
@@ -447,6 +1151,28 @@ icon: "gift"
 
 **الصلاحية:** إدارة الخادم
 
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/setcolor` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `color`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/setcolor color:#ff0000
+```
+</CodeGroup>
+
+
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |
 | `color` | نص | نعم | رمز اللون السداسي العشري (مثل #ff0000، #00ff00، #0000ff) |  |
@@ -458,6 +1184,28 @@ icon: "gift"
 تعيين رمز تعبيري مخصص لزر المشاركة في السحب (Premium فقط)
 
 **الصلاحية:** إدارة الخادم
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/setemoji` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `emoji`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/setemoji emoji:🎁
+```
+</CodeGroup>
+
 
 | الخيار | النوع | مطلوب | الوصف | ملاحظات |
 | --- | --- | --- | --- | --- |

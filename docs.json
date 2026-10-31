@@ -63,6 +63,7 @@
                 "pages": [
                   "giveaways/managing",
                   "giveaways/settings",
+                  "giveaways/auto-ping",
                   "giveaways/recipes"
                 ]
               }
@@ -76,9 +77,11 @@
                 "pages": [
                   "features/leveling",
                   "features/counting",
+                  "features/temp-voice",
                   "features/starboard",
                   "features/sticky",
-                  "features/welcomer"
+                  "features/welcomer",
+                  "features/boosts"
                 ]
               },
               {
@@ -94,7 +97,8 @@
                 "group": "Control",
                 "pages": [
                   "features/logging",
-                  "features/command-customization"
+                  "features/command-customization",
+                  "features/embed-messages"
                 ]
               },
               {
@@ -206,6 +210,7 @@
                 "pages": [
                   "ar/giveaways/managing",
                   "ar/giveaways/settings",
+                  "ar/giveaways/auto-ping",
                   "ar/giveaways/recipes"
                 ]
               }
@@ -219,9 +224,11 @@
                 "pages": [
                   "ar/features/leveling",
                   "ar/features/counting",
+                  "ar/features/temp-voice",
                   "ar/features/starboard",
                   "ar/features/sticky",
-                  "ar/features/welcomer"
+                  "ar/features/welcomer",
+                  "ar/features/boosts"
                 ]
               },
               {
@@ -237,7 +244,8 @@
                 "group": "التحكم",
                 "pages": [
                   "ar/features/logging",
-                  "ar/features/command-customization"
+                  "ar/features/command-customization",
+                  "ar/features/embed-messages"
                 ]
               },
               {
