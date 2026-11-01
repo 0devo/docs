@@ -1,18 +1,18 @@
 ---
 title: "Auto Ping"
-description: "Remind members about a running giveaway by repeating the role or @here ping at an interval you choose."
+description: "Remind members about a running giveaway by repeating role, @everyone, or @here mentions at an interval you choose."
 icon: "bell"
 ---
 
 <Badge color="purple">Tier 2</Badge>
 
-**Auto Ping** re-sends the same **role or `@here` ping** your giveaway used, again and again while it is running. It keeps a long giveaway visible without a host having to post reminders by hand.
+**Auto Ping** re-sends the same **role, `@everyone`, or `@here` ping** your giveaway used, again and again while it is running. It keeps a long giveaway visible without a host having to post reminders by hand.
 
 ## How it works
 
 <Steps>
   <Step title="The giveaway starts normally">
-    It is posted with the ping roles or `@here` you chose.
+    It is posted with the ping roles, `@everyone`, or `@here` you chose.
   </Step>
   <Step title="The bot repeats the ping">
     Every time the interval passes, the bot posts a new reminder in the giveaway's channel.
@@ -42,7 +42,7 @@ For a 7-day giveaway, an interval of **12 hours** (720 minutes) works well: abou
 
 <AccordionGroup>
   <Accordion title="Which roles get pinged?" icon="at">
-    The same roles or `@here` configured on the giveaway. Auto Ping does not add new ones.
+    The selected roles, `@everyone`, or `@here` configured on the giveaway. The bot needs the appropriate mention permissions. Auto Ping does not add new ones.
   </Accordion>
   <Accordion title="Does it work for every giveaway?" icon="gift">
     It applies to giveaways that have it enabled. It is a Premium **Tier 2** feature, so a server without Tier 2 will not be able to turn it on. See [Premium](/concepts/premium).
