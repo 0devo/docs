@@ -133,8 +133,41 @@
                 "group": "Support",
                 "pages": [
                   "help/faq",
-                  "help/troubleshooting",
+                  "help/troubleshooting"
+                ]
+              },
+              {
+                "group": "Release updates",
+                "pages": [
                   "help/changelog"
+                ]
+              },
+              {
+                "group": "2026 releases",
+                "pages": [
+                  "releases/v3-11",
+                  "releases/v3-10",
+                  "releases/v3-9",
+                  "releases/v3-7",
+                  "releases/v3-6",
+                  "releases/v3-4"
+                ]
+              },
+              {
+                "group": "2025 releases",
+                "pages": [
+                  "releases/v3-2",
+                  "releases/v2-6",
+                  "releases/v2-5",
+                  "releases/v2-1",
+                  "releases/v1-0-2"
+                ]
+              },
+              {
+                "group": "Earlier & other updates",
+                "pages": [
+                  "releases/undated",
+                  "releases/docs-launch"
                 ]
               }
             ]
@@ -280,8 +313,41 @@
                 "group": "الدعم",
                 "pages": [
                   "ar/help/faq",
-                  "ar/help/troubleshooting",
+                  "ar/help/troubleshooting"
+                ]
+              },
+              {
+                "group": "فهرس التحديثات",
+                "pages": [
                   "ar/help/changelog"
+                ]
+              },
+              {
+                "group": "إصدارات 2026",
+                "pages": [
+                  "ar/releases/v3-11",
+                  "ar/releases/v3-10",
+                  "ar/releases/v3-9",
+                  "ar/releases/v3-7",
+                  "ar/releases/v3-6",
+                  "ar/releases/v3-4"
+                ]
+              },
+              {
+                "group": "إصدارات 2025",
+                "pages": [
+                  "ar/releases/v3-2",
+                  "ar/releases/v2-6",
+                  "ar/releases/v2-5",
+                  "ar/releases/v2-1",
+                  "ar/releases/v1-0-2"
+                ]
+              },
+              {
+                "group": "تحديثات أقدم وأخرى",
+                "pages": [
+                  "ar/releases/undated",
+                  "ar/releases/docs-launch"
                 ]
               }
             ]
