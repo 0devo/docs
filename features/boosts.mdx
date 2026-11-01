@@ -15,7 +15,7 @@ Whenever someone boosts the server, Discord posts a boost message in the server.
 - The date of their **latest boost** is remembered.
 
 <Warning>
-The bot can only count boosts it **sees**. Boosts made before GiveawayX joined the server, or while it could not read the boost messages, are not counted automatically.
+The bot reads Discord boost system messages and may try to backfill available history (up to 100 pages of messages). Older boosts can still be missing if the messages are no longer available. The current tracker also does not reliably subtract a partial reduction in boost count while the member remains a booster; a full boost cancellation resets the count.
 </Warning>
 
 ## Use boosts in giveaways

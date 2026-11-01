@@ -15,11 +15,11 @@ GiveawayX works in servers. Type `/` to see the commands, or use the [prefix](/c
 
 ## All commands
 
-**Permissions note:** This column shows the permission registered for each command. Some commands with a nominal permission such as “Administrator” also check during execution that the user is the bot owner/developer; the nominal permission alone does not grant permission to use them.
+**Permissions note:** This column shows the usual Discord permission. Giveaway-management commands also accept a configured Giveaway Manager role (and bot-owner/Admin exceptions where implemented). Some commands with a nominal permission such as “Administrator” additionally check bot-owner/developer identity; a displayed permission alone may not be sufficient.
 
 | Category | Command | Description | Who can use it |
 | --- | --- | --- | --- |
-| Giveaway | `/gcreate` | Create a giveaway with a quick form | Everyone |
+| Giveaway | `/gcreate` | Create a giveaway with a quick form (requires giveaway-management access) | Administrator / Manage Server / Giveaway Manager |
 | Giveaway | `/gdelete` | Delete a giveaway | Manage Server |
 | Giveaway | `/gdrop` | Start an instant giveaway—first to claim the prize wins! | Manage Server |
 | Giveaway | `/gedit` | Edit an active or scheduled giveaway | Manage Server |
@@ -38,15 +38,15 @@ GiveawayX works in servers. Type `/` to see the commands, or use the [prefix](/c
 | Giveaway | `/settings` | 🎨 Configure the giveaway bot for this server | Manage Server |
 | General | `/afk` | Set your AFK status with an optional reason | Everyone |
 | General | `/avatar` | Get a user's or server's avatar and banner | Everyone |
-| General | `/counting` | 🔢 Counting game control panel | Manage Server |
+| General | `/counting` | Open the Counting page in the web dashboard | Manage Server |
 | General | `/levelsetup` | ⚙️ Set up the leveling system using an interactive panel | Manage Server |
-| General | `/rank` | Check your level and XP rank in this server | Everyone |
+| General | `/rank` | Temporarily disabled in the current bot implementation | Everyone |
 | General | `/server` | Get server information | Everyone |
 | General | `/setlang` | Change the bot's language for this server | Manage Server |
 | General | `/setlevel` | Set a user's level in the server | Manage Server |
 | General | `/setxp` | Set a user's XP in the server | Manage Server |
-| General | `/starboard` | ⭐ Starboard control panel | Manage Server |
-| General | `/sticky` | 📌 Manage sticky messages — full control panel | Manage Messages |
+| General | `/starboard` | Open Starboard settings in the web dashboard | Manage Server |
+| General | `/sticky` | Open Sticky settings in the web dashboard | Manage Messages |
 | General | `/top` | Show the server's XP leaderboard (text and voice are separate) | Everyone |
 | General | `/translate` | Translate text, messages, images (OCR), PDFs and files—including very large ones | Everyone |
 | General | `/user` | Get user information | Everyone |

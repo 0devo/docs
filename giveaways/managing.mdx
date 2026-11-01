@@ -104,4 +104,16 @@ After repairs, the giveaway message is refreshed **once**, and only if something
 
 ## Participants panel
 
-The redesigned participant list shows each member's position and name, entry and bonus-entry counts, account information, server tenure, and Discord ID. You can search by username or ID, move between pages, remove a participant, and inspect or edit their extra entries directly from the list. See [Version 3.7](/releases/v3-7) and [Version 3.11](/releases/v3-11).
+Open **View Participants** on the giveaway message. The list shows each member's position and name, entry and bonus-entry counts, account information, server tenure, and Discord ID.
+
+<Steps>
+  <Step title="Find a member">Use the search control for a username, display name, mention or ID, or navigate with First / Previous / Next / Last.</Step>
+  <Step title="Review or manage">Open a participant to review their details, remove them while the giveaway is active, or edit their extra-entry amount.</Step>
+  <Step title="Save the change">For a manual extra-entry edit, enter a whole number; use `0` to remove that manual bonus. The panel is not an entry-edit tool after the giveaway ends.</Step>
+</Steps>
+
+The panel is private. It shows 5 participants per page to authorized staff and 10 to other viewers; the server can restrict who may view it with the participant-view role setting. See [Version 3.7](/releases/v3-7) and [Version 3.11](/releases/v3-11).
+
+## Using `/gedit`
+
+Run `/gedit` or choose **Apps → Edit Giveaway** on its message, then select the active or scheduled giveaway. Edit values in the same Studio panel used to create it and check the preview. Press **Save Changes** to apply them; use **Cancel/Discard** to leave without saving. An ended giveaway cannot be edited—use `/greroll` to change its winners instead.

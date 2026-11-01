@@ -25,12 +25,12 @@ icon: "calendar"
     `duration` is how long the giveaway lasts **after it starts**.
   </Step>
   <Step title="Set the rules">
-    It accepts the same options as `/gstart`: prize, winners, channel, template, images, roles, ages, message and level requirements, bonus entries, repeat, sticky and more. Everything is optional because you can finish in the panel.
+    It accepts the same options as `/gstart`: prize, winners, channel, template, images, roles, ages, message and level requirements, bonus entries, repeat, sticky and more. You can complete the draft in the panel, but it is **not scheduled until you choose a valid future start time and confirm**. Follow the panel prompts for any remaining required values.
   </Step>
 </Steps>
 
 <Note>
-Requires **Manage Server**.
+Requires **Administrator**, **Manage Server**, or a configured **Giveaway Manager** role.
 </Note>
 
 ## Reminders and recurrence
@@ -45,5 +45,15 @@ Requires **Manage Server**.
 </Columns>
 
 <Tip>
-If a scheduled giveaway cannot start (for example the bot lost access to the channel), it retries a limited number of times instead of looping forever. Check the channel permissions if it does not appear.
+A scheduled giveaway must still have a valid start time and a channel the bot can access when it is due. If it does not appear, check the selected channel and the bot’s permissions, then use `/gschedule list` to see whether it is still scheduled.
 </Tip>
+
+## Confirm and manage the schedule
+
+The preview panel does not create a schedule by itself. Set a start time in the future, review the preview, then press **Confirm Schedule**. The scheduler can be set to **Off**, Daily, Weekly or Monthly; recurrence is plan-gated in the current implementation. A reminder can be set for a number of minutes before start, with an optional role mention.
+
+`/gschedule list` displays up to 25 pending schedules. Choose one for `/gschedule edit` before it starts. `/gschedule delete` removes the selected scheduled giveaway directly; the current source does not show a separate confirmation step for deletion. Once a scheduled giveaway has started, it is no longer editable as a scheduled item.
+
+<Warning>
+A Unix timestamp may be entered in seconds (10 digits) or milliseconds (13 digits). Make sure it represents a future time; a past timestamp cannot be confirmed as a new schedule.
+</Warning>

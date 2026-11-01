@@ -8,6 +8,10 @@ icon: "microphone"
 Temporary voice channels are **rolling out**. The dashboard page for them is currently marked **Soon**, so setup options may not be available to your server yet. This page explains how the feature behaves.
 </Info>
 
+## What this source snapshot can confirm
+
+The attached ZIP includes the automatic temporary-voice handler, but not a `/tempvoice` command registration or the owner-control panel implementation. It confirms the automatic create/move/cleanup flow described above, but does not let us verify the current setup wizard, owner buttons, or every control listed in release announcements. Check the live server dashboard or support for the exact controls available to your server.
+
 With temporary voice channels, members don't need a moderator to get a voice room. They join a special **hub channel**, and the bot instantly creates a new voice channel just for them and moves them into it.
 
 ## How it works

@@ -1,6 +1,6 @@
 ---
 title: "Templates"
-description: "Save giveaway settings once and reuse them as often as you like."
+description: "Save giveaway settings once and reuse them across giveaways."
 icon: "copy"
 ---
 
@@ -55,3 +55,11 @@ Use **export** and **import** to move a template between your servers, or to kee
 </CodeGroup>
 
 The second example keeps everything from the template but changes the winners and duration. If the template has no prize or duration, the bot tells you which one is missing.
+
+## Template limits and safe use
+
+The current source limits stored templates **per server**: 5 on Free, 15 on Tier 1 and 50 on Tier 2. The template name must be unique within that server. **Preview** is only a visual preview; it does not start or schedule a giveaway. To change a template's image or thumbnail, use its **edit media** action.
+
+<Warning>
+An exported template can contain image URLs hosted by a CDN. Such links can expire, so recheck the images after importing a file. Import and export do not guarantee that an external image will remain available.
+</Warning>

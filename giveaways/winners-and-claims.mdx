@@ -51,12 +51,12 @@ Basic winner roles are free. Advanced options need <Badge color="purple">Tier 2<
 
 ## Auto-claim
 
-Turn on `auto_claim` and winners claim their prize with **one button**. If a winner does not claim in time, the bot automatically **rerolls** their place.
+Turn on `auto_claim` and winners claim their prize with **one button**. If a winner does not claim before the deadline, the bot attempts to **reroll that prize**. A replacement is only possible if an eligible entrant remains and the reroll limit has not been reached.
 
 | Setting | Default | Allowed range |
 | --- | --- | --- |
 | Claim window | 24 hours | 60 seconds to 30 days |
-| Maximum rerolls | Unlimited | 0 or more |
+| Maximum rerolls | Unlimited | 0 to 1000, or Unlimited |
 
 ## Rerolling with /greroll
 
@@ -76,3 +76,13 @@ The bot remembers how many times a giveaway was rerolled and who did it, which a
 ## Winner cooldown
 
 Your server can set a **winner cooldown** in minutes (off by default) so recent winners cannot win again too soon. Each giveaway can follow the server, turn it off, or use its own number of minutes.
+
+## What a winner sees
+
+When Auto-claim is enabled, the winner uses the **Claim Prize** button on the giveaway's claim message before the displayed deadline. A non-winner cannot claim; a winner who already claimed is told that the prize was claimed, and an expired claim is rejected. Each unclaimed prize is handled separately. Automatic rerolls do not send a separate DM or public reroll announcement in the current code.
+
+A maximum of **0** means no automatic rerolls. The configured maximum is capped at **1000** (or choose **Unlimited** where offered). If the limit is exhausted or no eligible participant remains, the prize may have no replacement winner.
+
+## Confirmation and permissions
+
+Manual `/greroll` applies only to an **ended** regular giveaway. The bot shows a private preview; confirm within **60 seconds** to apply it, or let the confirmation expire. The person confirming must still have giveaway-management access. A drop, active, paused or scheduled giveaway cannot be rerolled.

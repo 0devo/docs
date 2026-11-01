@@ -98,3 +98,25 @@ Duration, winner count and repeat count depend on your [Premium tier](/concepts/
   <Card title="Save a template" icon="copy" href="/giveaways/templates" />
   <Card title="Manage it" icon="sliders" href="/giveaways/managing" />
 </CardGroup>
+
+## Using the Giveaway Studio
+
+When `/gstart` opens Studio, the giveaway is a **private draft**—it has not been posted yet.
+
+<Steps>
+  <Step title="Review the preview">
+    Check the prize, duration, winner count, channel, requirements and appearance shown in the live preview.
+  </Step>
+  <Step title="Edit the sections you need">
+    Use the panel's section menu and forms to update values. Values from a template are prefilled; command options can override them.
+  </Step>
+  <Step title="Choose what happens next">
+    Press **Start** to publish, or choose a scheduling/template option if offered. Until you press Start, the giveaway is not live. Use **Discard** to abandon the draft.
+  </Step>
+</Steps>
+
+Only the person who opened a Studio draft can use its controls. An inactive draft expires after 30 minutes. This is separate from `/gcreate`'s quick-form retry window (15 minutes). With `/gcreate`, **Publish now** posts using server defaults; **Customize in Studio** transfers the form values into the private draft above.
+
+<Note>
+Creating, editing and scheduling are permission-checked. The source accepts **Administrator**, **Manage Server**, or a configured **Giveaway Manager** role; the bot must also be able to access and send messages in the chosen channel.
+</Note>
