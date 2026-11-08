@@ -47,7 +47,9 @@
                   "giveaways/creating",
                   "giveaways/drops",
                   "giveaways/scheduling",
-                  "giveaways/templates"
+                  "giveaways/templates",
+                  "giveaways/studio",
+                  "giveaways/participating"
                 ]
               },
               {
@@ -64,7 +66,8 @@
                   "giveaways/managing",
                   "giveaways/settings",
                   "giveaways/auto-ping",
-                  "giveaways/recipes"
+                  "giveaways/recipes",
+                  "giveaways/participants-panel"
                 ]
               }
             ]
@@ -90,7 +93,8 @@
                   "features/afk",
                   "features/translate",
                   "features/voting",
-                  "features/language"
+                  "features/language",
+                  "features/social-notifications"
                 ]
               },
               {
@@ -133,7 +137,8 @@
                 "group": "Support",
                 "pages": [
                   "help/faq",
-                  "help/troubleshooting"
+                  "help/troubleshooting",
+                  "help/changelog"
                 ]
               },
               {
@@ -227,7 +232,9 @@
                   "ar/giveaways/creating",
                   "ar/giveaways/drops",
                   "ar/giveaways/scheduling",
-                  "ar/giveaways/templates"
+                  "ar/giveaways/templates",
+                  "ar/giveaways/studio",
+                  "ar/giveaways/participating"
                 ]
               },
               {
@@ -244,7 +251,8 @@
                   "ar/giveaways/managing",
                   "ar/giveaways/settings",
                   "ar/giveaways/auto-ping",
-                  "ar/giveaways/recipes"
+                  "ar/giveaways/recipes",
+                  "ar/giveaways/participants-panel"
                 ]
               }
             ]
@@ -270,7 +278,8 @@
                   "ar/features/afk",
                   "ar/features/translate",
                   "ar/features/voting",
-                  "ar/features/language"
+                  "ar/features/language",
+                  "ar/features/social-notifications"
                 ]
               },
               {
@@ -313,7 +322,8 @@
                 "group": "الدعم",
                 "pages": [
                   "ar/help/faq",
-                  "ar/help/troubleshooting"
+                  "ar/help/troubleshooting",
+                  "ar/help/changelog"
                 ]
               },
               {

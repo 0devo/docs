@@ -42,3 +42,35 @@ icon: "bolt"
     لعبة انتظار. يفوز آخر من يكتب قبل انتهاء الوقت، لذا يواصل المشاركون الكتابة للبقاء في المنافسة. وسرعان ما تعمّ الفوضى.
   </Tab>
 </Tabs>
+
+## طريقة الاستخدام
+
+<Tabs>
+  <Tab title="ابدأ Drop" icon="bolt">
+    <Steps>
+      <Step title="شغّل /gdrop">اكتب `/gdrop` وأدخل **الجائزة** (الخيار الإلزامي الوحيد).</Step>
+      <Step title="حدّد عدد الفائزين">اضبط `winners` (من 1 إلى 50). وأضف `countdown` من 1 إلى 30 ثانية ليستعد الأعضاء.</Step>
+      <Step title="أرسله">يظهر الـ Drop في القناة. أول الأعضاء الذين يضغطون **claim** يفوزون فورًا.</Step>
+    </Steps>
+
+    <CodeGroup>
+    ```text أبسط صيغة
+    /gdrop prize:$10 Gift Card
+    ```
+    ```text مثال أوسع
+    /gdrop prize:$10 Gift Card winners:3 countdown:10 duration:30m channel:#drops required_role:@Member
+    ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="ابدأ لعبة الأول أو الأخير في الكتابة" icon="keyboard">
+    <Steps>
+      <Step title="شغّل /glast">املأ الخيارات الأربعة: `channel` و`duration` و`prize` و`mode`.</Step>
+      <Step title="اختر النمط">اختر **First to type wins** أو **Last to type wins**.</Step>
+      <Step title="أرسله">يكتب الأعضاء في القناة حتى ينتهي الوقت. ثم يعلن البوت الفائز.</Step>
+    </Steps>
+
+    ```text
+    /glast channel:#general duration:5m prize:Discord Nitro mode:First to type wins
+    ```
+  </Tab>
+</Tabs>

@@ -102,18 +102,37 @@ Each finding has a severity (**critical**, **warning** or **info**) and a repair
 
 After repairs, the giveaway message is refreshed **once**, and only if something visible changed and the giveaway is still running. An ended giveaway never gets its buttons back.
 
-## Participants panel
 
-Open **View Participants** on the giveaway message. The list shows each member's position and name, entry and bonus-entry counts, account information, server tenure, and Discord ID.
+## How to use
+
+Replace `123456789012345678` with the giveaway's **message ID** (right-click the message, then **Copy Message ID**) or paste a **message link**.
+
+<CodeGroup>
+```text Edit
+/gedit giveaway_id:123456789012345678 prize:Nitro Classic duration:2d winners:2
+```
+```text Pause and resume
+/gpause giveaway_id:123456789012345678
+/gresume giveaway_id:123456789012345678
+```
+```text End now
+/gend giveaway_id:123456789012345678
+```
+```text Delete
+/gdelete giveaway_id:123456789012345678
+```
+```text List
+/glist status:active channel:#giveaways
+```
+```text Diagnose and repair
+/gfix giveaway_id:123456789012345678 dry_run:true
+```
+</CodeGroup>
+
+### Without typing IDs
 
 <Steps>
-  <Step title="Find a member">Use the search control for a username, display name, mention or ID, or navigate with First / Previous / Next / Last.</Step>
-  <Step title="Review or manage">Open a participant to review their details, remove them while the giveaway is active, or edit their extra-entry amount.</Step>
-  <Step title="Save the change">For a manual extra-entry edit, enter a whole number; use `0` to remove that manual bonus. The panel is not an entry-edit tool after the giveaway ends.</Step>
+  <Step title="Right-click the giveaway message">On mobile, long-press it.</Step>
+  <Step title="Choose Apps">A list of giveaway actions appears.</Step>
+  <Step title="Pick the action">Edit, Pause, Resume, End, Delete, Reroll or Fix. The bot uses that message automatically.</Step>
 </Steps>
-
-The panel is private. It shows 5 participants per page to authorized staff and 10 to other viewers; the server can restrict who may view it with the participant-view role setting. See [Version 3.7](/releases/v3-7) and [Version 3.11](/releases/v3-11).
-
-## Using `/gedit`
-
-Run `/gedit` or choose **Apps → Edit Giveaway** on its message, then select the active or scheduled giveaway. Edit values in the same Studio panel used to create it and check the preview. Press **Save Changes** to apply them; use **Cancel/Discard** to leave without saving. An ended giveaway cannot be edited—use `/greroll` to change its winners instead.

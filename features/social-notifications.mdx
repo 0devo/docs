@@ -1,0 +1,54 @@
+---
+title: "Social notifications"
+description: "Announce new YouTube videos and Twitch or Kick live streams in your server."
+icon: "bullhorn"
+---
+
+Social notifications post an announcement in a channel when a creator you follow goes live or uploads. You can track several accounts, each with its own channel, message and role ping.
+
+## Supported platforms
+
+<Columns cols={3}>
+  <Card title="YouTube" icon="youtube">
+    New **videos**, **Shorts** and **live streams**. Choose which of the three to announce.
+  </Card>
+  <Card title="Twitch" icon="twitch">
+    A message when the streamer goes **live**.
+  </Card>
+  <Card title="Kick" icon="video">
+    A message when the streamer goes **live**.
+  </Card>
+</Columns>
+
+## What you can set for each account
+
+| Setting | What it does |
+| --- | --- |
+| **Channel** | Where the announcement is posted. |
+| **Account** | The YouTube channel, or the Twitch or Kick username. |
+| **Message** | Your own text. Use `{channel_name}` for YouTube and `{streamer}` for Twitch and Kick. |
+| **Role to ping** | Optionally mention a role with every announcement. |
+| **Content types** (YouTube) | Announce videos, Shorts and live streams independently. |
+| **Enabled** | Pause an account without deleting it. |
+
+## Default messages
+
+<CodeGroup>
+```text YouTube
+🎥 New video from **{channel_name}**!
+```
+```text Twitch
+🔴 **{streamer}** is now live on Twitch!
+```
+```text Kick
+🟩 **{streamer}** is now live on Kick!
+```
+</CodeGroup>
+
+<Tip>
+Give each creator their own role, such as `@Streams`, so members can opt in to pings for only the creators they care about.
+</Tip>
+
+<Note>
+The bot remembers the last stream or video it announced, so you are not notified twice for the same one.
+</Note>

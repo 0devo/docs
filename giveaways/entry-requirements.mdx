@@ -75,7 +75,7 @@ The message requirement can be limited to specific **channels** and **roles**. A
 
 <CardGroup cols={2}>
   <Card title="Entry captcha" icon="robot">
-    Members solve a captcha before their entry counts. Difficulty: **easy**, **medium** (default) or **hard**.
+    Members type a random code shown in a form before their entry counts. Difficulty: **easy** (4 digits), **medium** (5 characters, default) or **hard** (7 characters). The code expires after 5 minutes.
   </Card>
   <Card title="Suspicious usernames" icon="magnifying-glass">
     Flags names with no vowels, long strings of digits, or the same pattern repeated by many new accounts. Strength: off (default), low, medium or high.
@@ -93,7 +93,7 @@ Running a "follow us" giveaway? Members can be asked to upload a **screenshot** 
 | Name to look for | The channel or account that must appear in the screenshot |
 | Example screenshot | Optional reference image |
 
-Members who pass are remembered, so they are not asked again for that giveaway.
+Members who pass are remembered, so they are not asked again for that giveaway. Each member gets **3 attempts** per giveaway, with a short wait between tries.
 
 <Tip>
 Not every setup has this enabled. If you do not see it, ask in the [support server](https://discord.gg/86jArY28hj).
@@ -116,22 +116,20 @@ Not every setup has this enabled. If you do not see it, ask in the [support serv
   </Tab>
 </Tabs>
 
-## What members do to enter
 
-<Steps>
-  <Step title="Press Enter Giveaway">
-    The member enters from the giveaway message using its button or reaction mode. If already entered, the bot offers **Leave Giveaway** while the giveaway is active.
-  </Step>
-  <Step title="Complete any check shown">
-    If enabled, solve the entry captcha. If the giveaway requires social proof, press **Verify Now** and upload the requested screenshot.
-  </Step>
-  <Step title="Wait for the result">
-    The bot checks the requirements and privately explains a failed check. A successful screenshot verification is remembered for this giveaway; if the entry was not completed automatically, press **Enter Giveaway** again.
-  </Step>
-</Steps>
+## How to use
 
-Screenshot verification allows up to **3 attempts per giveaway**, with a **30-second wait** between attempts. An uncertain/failed result is not approval. If the verification service or configuration errors, contact the server staff/support rather than assuming you were entered.
-
-<Note>
-Requirements are checked again when winners are drawn. A member who no longer meets them may be skipped, even if they entered successfully earlier. Entry counts affect selection odds; they do not guarantee a win.
-</Note>
+<Tabs>
+  <Tab title="With command options" icon="terminal">
+    ```text
+    /gstart duration:3d winners:1 prize:Steam Gift Card required_roles:@Member blacklist_roles:@Muted joined_age:7 account_age:30 required_messages:50 required_level:5
+    ```
+  </Tab>
+  <Tab title="In the Studio" icon="wand-magic-sparkles">
+    <Steps>
+      <Step title="Open the Studio">Run `/gcreate` and choose **Customize in Studio**.</Step>
+      <Step title="Choose a category">**Giveaway Settings**, then **Entry Requirements** for roles, messages, level, ages, tag and boosts. **Access Control** for blacklist and bypass roles. **Appearance** for the captcha and anti-raid checks.</Step>
+      <Step title="Publish">Choose **Review and Publish**.</Step>
+    </Steps>
+  </Tab>
+</Tabs>

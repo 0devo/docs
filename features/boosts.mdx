@@ -15,7 +15,7 @@ Whenever someone boosts the server, Discord posts a boost message in the server.
 - The date of their **latest boost** is remembered.
 
 <Warning>
-The bot reads Discord boost system messages and may try to backfill available history (up to 100 pages of messages). Older boosts can still be missing if the messages are no longer available. The current tracker also does not reliably subtract a partial reduction in boost count while the member remains a booster; a full boost cancellation resets the count.
+The bot can only count boosts it **sees**. Boosts made before GiveawayX joined the server, or while it could not read the boost messages, are not counted automatically.
 </Warning>
 
 ## Use boosts in giveaways
@@ -36,3 +36,23 @@ Pair a booster-only giveaway with a **bonus entry** giveaway for everyone else. 
 ## Thank-you messages
 
 On the dashboard, the **Boosts** page lets you set up thank-you messages for boosters, including messages sent in the server or by direct message. See [Web Dashboard](/features/dashboard).
+
+
+## How to use
+
+<Tabs>
+  <Tab title="Require boosters" icon="lock">
+    <Steps>
+      <Step title="Start the giveaway in the Studio">Run `/gcreate` and choose **Customize in Studio**, or run `/gstart`.</Step>
+      <Step title="Open Entry Requirements">Go to **Giveaway Settings**, then **Entry Requirements**.</Step>
+      <Step title="Set the boost rules">Use **Boost Count** (minimum boosts given) and **Boost Duration** (days of continuous boosting). 0 turns each one off.</Step>
+      <Step title="Publish">Choose **Review and Publish**.</Step>
+    </Steps>
+  </Tab>
+  <Tab title="Reward boosters" icon="ticket">
+    ```text
+    /gstart duration:7d winners:1 prize:VIP Role extra_entries:@Booster 3
+    ```
+    Members with the `@Booster` role get 3 extra entries.
+  </Tab>
+</Tabs>

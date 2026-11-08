@@ -1,36 +1,75 @@
 ---
 title: "Welcomer"
-description: "Greet new members and say goodbye, with embeds and generated image cards."
+description: "Greet new members and say goodbye with text, embeds and generated image cards, plus auto roles and raid protection."
 icon: "hand-wave"
 ---
 
-Welcome and goodbye messages are set up on the **dashboard** (the Welcome and Goodbye page). The bot sends them when someone joins or leaves.
+The Welcomer sends a message when someone **joins** or **leaves** your server. You design everything on the **dashboard** (Welcome and Goodbye page) with a live preview. Joining and leaving are configured separately, so you can have a warm welcome and a short goodbye.
 
-## What you can set
+## What happens on a join or leave
 
-Joining and leaving each have their own settings.
+<Steps>
+  <Step title="Someone joins or leaves">
+    The bot reacts straight away.
+  </Step>
+  <Step title="Placeholders are filled in">
+    Your message is personalized with the member's details (see the table below).
+  </Step>
+  <Step title="The message is sent">
+    To your chosen channel, to the member by **DM**, or both. If a DM cannot be delivered, the bot can fall back to the channel.
+  </Step>
+  <Step title="Cleanup and roles">
+    The message can **delete itself** after a set time, and auto roles are given to new members.
+  </Step>
+</Steps>
 
-| Setting | Description |
+## Message options
+
+| Setting | What it does |
 | --- | --- |
-| Channel | Where the message goes. |
-| Format | A plain **text** message or an **embed**. |
-| Message | Your text, with placeholders such as `{user}`, `{server}`, `{username}`, `{memberCount}` and `{avatar}`. |
-| DM the member | Send it privately, with an optional fallback to the channel. |
-| Mention | Ping the member. |
-| Delete after | Remove the message after 0 to 3600 seconds. |
-| Ignore bots | On by default. |
+| **Enabled and channel** | Turn the welcome (or goodbye) on and pick where it goes. |
+| **Format** | A plain **text** message or an **embed**. |
+| **DM the member** | Send privately. Optionally **fall back to the channel** when DMs are closed. |
+| **Mention the member** | Ping them in the channel message. |
+| **Delete after** | Remove the message after 0 to 3600 seconds (0 keeps it). |
+| **Ignore bots** | Skip the message when the new member is a bot. On by default. |
 
-<Tip>
-Placeholders are replaced with real values. `Welcome {user} to {server}!` becomes a personal greeting.
-</Tip>
+## Placeholders
+
+Type these in any text field. They are replaced for every member.
+
+| Placeholder | Becomes |
+| --- | --- |
+| `{user}` | A mention of the member |
+| `{username}` | Their username |
+| `{server}` | Your server's name |
+| `{memberCount}` | The current member count |
+| `{avatar}` | The member's avatar picture |
+| `{serverIcon}` | Your server's icon |
+| `{accountAge}` | How old their Discord account is, like "2 years" or "5 days" |
+| `{userCreatedDate}` | The date the account was created |
+| `{timeInServer}` | How long they have been in the server (useful in goodbye messages) |
+
+<CodeGroup>
+```text Welcome
+Welcome {user} to {server}! You are member #{memberCount}.
+```
+```text Goodbye
+{username} has left after {timeInServer}. We'll miss you!
+```
+</CodeGroup>
+
+<Note>
+`{avatar}` and `{serverIcon}` also work inside image and thumbnail fields of an embed.
+</Note>
 
 ## Embeds
 
-Customize the color, author, title, description, thumbnail, image, footer, up to 10 fields and a timestamp.
+An embed welcome supports a **color**, author, title, description, thumbnail, image, footer, up to **10 fields** and a timestamp. If you do not pick a color, joins use **green** and leaves use **red**.
 
 ## Image cards
 
-The bot can generate a welcome **image card** with the member's avatar.
+The bot can generate a personalized **image card** with the member's avatar and attach it to the message.
 
 <Columns cols={4}>
   <Card title="Classic" icon="image" />
@@ -39,15 +78,24 @@ The bot can generate a welcome **image card** with the member's avatar.
   <Card title="Frame" icon="border-all" />
 </Columns>
 
-You choose the background (a color or an image), overlay opacity, accent color, title and subtitle text, and the avatar's shape (circle, square or hexagon), size and border.
+You can choose a background color or image, the overlay opacity, an accent color, the title and subtitle text, and the avatar's **shape** (circle, square or hexagon), size and border.
 
-## Auto roles and raid protection
+## Auto roles
 
-<CardGroup cols={2}>
-  <Card title="Auto roles" icon="user-tag">
-    Give new members one set of roles, and bots another.
-  </Card>
-  <Card title="New-account gate" icon="user-shield">
-    Treat accounts younger than a number of days (0 to 365) as suspicious, and optionally **skip the welcome message** for them.
-  </Card>
-</CardGroup>
+Give new members roles the moment they join, with **separate lists for humans and for bots**.
+
+<Warning>
+For safety the bot **never assigns a role that has Administrator permission** through auto roles, even if you add one. Choose ordinary roles.
+</Warning>
+
+## Raid protection
+
+Set a **minimum account age** (0 to 365 days). Accounts younger than that are treated as suspicious. Turn on **skip on gate** to send **no welcome message at all** for those accounts, so raiders do not get a greeting.
+
+<Info>
+With **Ignore bots** on, bot accounts get no message, but they **still receive the bot auto roles** you set.
+</Info>
+
+<Tip>
+Use the **test message** button on the dashboard to preview a welcome or goodbye in your channel before going live.
+</Tip>

@@ -1,10 +1,28 @@
 ---
 title: "Language"
-description: "Change the language the bot uses in your server."
+description: "Change the language the bot speaks in your server, and learn what is and is not translated."
 icon: "globe"
 ---
 
-Run `/setlang` to change the bot's language for your whole server. Everything the bot says, from giveaway messages to command replies, switches to that language.
+Run `/setlang` to choose the bot's language for your **whole server**. Everything the bot says, including giveaway messages, command replies, errors and panels, switches to that language.
+
+## How to change it
+
+<Steps>
+  <Step title="Run the command">
+    Type `/setlang` and pick a language from the list. You need **Manage Server** or **Administrator**.
+  </Step>
+  <Step title="Confirm">
+    The bot answers in the **new** language, so you know it worked straight away.
+  </Step>
+  <Step title="Done for everyone">
+    Every member now sees the bot in that language. The change is recorded in your [giveaway log](/features/logging) if logging is on.
+  </Step>
+</Steps>
+
+```text
+/setlang language:Arabic
+```
 
 ## Supported languages
 
@@ -29,13 +47,26 @@ Run `/setlang` to change the bot's language for your whole server. Everything th
 </Columns>
 
 <Note>
-Dutch and Italian are not fully translated yet, so a few messages may appear in English.
+Dutch and Italian are not fully translated yet, so a few messages may still appear in English.
 </Note>
+
+## Good to know
+
+<AccordionGroup>
+  <Accordion title="Is the language per server or per member?" icon="server">
+    Per **server**. Everyone in the server sees the same language.
+  </Accordion>
+  <Accordion title="Does it change my giveaway text?" icon="gift">
+    No. Prizes, descriptions and custom messages you write stay exactly as you typed them. Only the bot's own text changes.
+  </Accordion>
+  <Accordion title="Where is the first choice made?" icon="door-open">
+    When the bot joins, the **Getting Started** message lets admins confirm the language and prefix.
+  </Accordion>
+  <Accordion title="Can I translate other people's messages?" icon="language">
+    Yes, with [Translate](/features/translate), which supports far more languages than the bot interface.
+  </Accordion>
+</AccordionGroup>
 
 ## Time zone
 
-Your server's time zone starts as **UTC** and is used for features such as leaderboard resets. Leveling has its own time zone setting.
-
-<Tip>
-You can also confirm the language the first time the bot joins, from the **Getting Started** message.
-</Tip>
+The server time zone starts as **UTC** and is used by features such as leaderboard resets. Leveling has its own time zone setting.

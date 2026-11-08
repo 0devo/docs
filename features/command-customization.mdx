@@ -1,39 +1,91 @@
 ---
 title: "Command customization"
-description: "Give commands aliases, restrict where they work, and replace them with custom replies."
+description: "Control who can use each command and where, add aliases, set cooldowns and replace commands with custom replies."
 icon: "wand-magic-sparkles"
 ---
 
-Every server can shape how commands behave without touching code. Configure it on the **dashboard**.
+Every command can be tuned per server from the **dashboard**. Settings are stored for each command separately, so you can lock down one command without touching the rest.
 
-## What you can customize per command
+## What you can set for each command
 
 <AccordionGroup>
   <Accordion title="Aliases" icon="tag" defaultOpen>
-    Add extra names. An alias can even be typed **without a prefix**, as long as it is the **first word** of the message.
+    Give a command extra names, for example `win` for `gstart`. An alias works with the prefix **or without it**, as long as it is the **first word** of the message.
   </Accordion>
-  <Accordion title="Channel rules" icon="hashtag">
-    Allow a command only in chosen channels, or block it in some.
+  <Accordion title="Disable" icon="ban">
+    Switches the command off for the whole server. A disabled command is blocked for **everyone, even admins**, with the message "This command is currently disabled in this server."
+  </Accordion>
+  <Accordion title="Hide" icon="eye-slash">
+    Makes the command unavailable to regular members while **admins can still use it**. Members see "This command is unavailable in this server."
   </Accordion>
   <Accordion title="Role rules" icon="user-tag">
-    Allow or block a command for chosen roles.
+    Choose **allowed roles** (the member needs at least one) or **blocked roles** (members with any of them are refused). Members get a clear message explaining which rule stopped them.
+  </Accordion>
+  <Accordion title="Channel rules" icon="hashtag">
+    Choose **allowed channels** or **blocked channels**. Picking a **category** covers every channel inside it.
+  </Accordion>
+  <Accordion title="Cooldown" icon="hourglass">
+    A waiting time per member for that command. Admins are not affected.
   </Accordion>
   <Accordion title="Custom response" icon="message">
-    Replace the command's normal output with your own text.
-  </Accordion>
-  <Accordion title="Hide or disable" icon="eye-slash">
-    Hide a command from the list or switch it off for your server.
+    Replace the command's normal output with your own text. See the variables below.
   </Accordion>
   <Accordion title="Tidy up" icon="broom">
-    Delete the member's command message after it runs, and delete the bot's reply if the command message is deleted.
+    Delete the member's command message after it runs, and delete the bot's reply when the original message is deleted.
   </Accordion>
 </AccordionGroup>
+
+## Who is affected
+
+| Rule | Members | Admins | Server owner |
+| --- | --- | --- | --- |
+| Disabled | Blocked | Blocked | Blocked |
+| Hidden | Blocked | Allowed | Allowed |
+| Role and channel rules | Applied | Applied | Applied |
+| Cooldown | Applied | Skipped | Skipped |
+
+<Info>
+"Disabled" is the strictest option. Use **Hide** if you want the command to keep working for staff.
+</Info>
+
+## Custom response variables
+
+In a custom response, these variables are replaced automatically:
+
+| Variable | Becomes |
+| --- | --- |
+| `{user}` | The member's username |
+| `{user.mention}` | A mention of the member |
+| `{user.tag}` | Their tag |
+| `{user.id}` | Their ID |
+| `{server}` | Your server's name |
+| `{server.id}` | Your server's ID |
+| `{channel}` | The channel name, like `#general` |
+| `{channel.mention}` | A link to the channel |
+| `{args}` | Whatever the member typed after the command |
+| `{prefix}` | The server's prefix |
+
+```text Example
+Hi {user.mention}! Giveaways are hosted in {channel.mention}. Use {prefix}help for more.
+```
 
 ## Server-wide controls
 
 - Set **several prefixes** (the default is `g!`).
-- Disable specific channels, roles or commands for the whole server.
+- Disable specific **channels**, **roles** or **commands** for the whole server at once.
 
 <Tip>
-Want `!win` to start a giveaway? Add it as an alias of `gstart`. See [Prefix commands](/commands/prefix) for how aliases are matched.
+Want members to start a giveaway with `!win`? Add `win` as an alias of `gstart`. See [Prefix commands](/commands/prefix) for how prefixes and aliases are read.
 </Tip>
+
+
+## How to use
+
+<Steps>
+  <Step title="Open the dashboard">Sign in at [giveawayx.lol](https://giveawayx.lol) and choose your server.</Step>
+  <Step title="Open Commands">Find the command you want. Use search or the categories.</Step>
+  <Step title="Change its settings">Set availability, allowed or blocked channels and roles, hide or disable it, add aliases, a cooldown, a custom response and message-deletion options.</Step>
+  <Step title="Save">Save your changes. They apply immediately.</Step>
+</Steps>
+
+Prefixes and the server language live in **General Settings**.

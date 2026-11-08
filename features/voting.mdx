@@ -1,37 +1,77 @@
 ---
 title: "Voting and rewards"
-description: "Vote for the bot to earn a role, bonus giveaway entries and reminders."
+description: "Vote for the bot on bot lists to earn a temporary role, bonus giveaway entries and vote reminders."
 icon: "thumbs-up"
 ---
 
-Voting for GiveawayX on bot lists supports the bot and **rewards you**. You can vote every **12 hours**.
+Voting for GiveawayX on bot lists helps the bot grow, and **it rewards you**. You can vote again every **12 hours**.
+
+## Where to vote
+
+<Columns cols={2}>
+  <Card title="Top.gg" icon="thumbs-up">
+    The vote is detected automatically within moments.
+  </Card>
+  <Card title="Discord Bot List" icon="list">
+    Also detected automatically, and it adds a bonus **claim** button (see below).
+  </Card>
+</Columns>
 
 ## What you get
 
 <CardGroup cols={3}>
   <Card title="Vote role" icon="user-tag">
-    A temporary role in the support server, removed automatically after 12 hours.
+    A temporary role in the support server. It is removed automatically **12 hours** after your vote.
   </Card>
-  <Card title="Bonus entries" icon="ticket">
-    **+1 extra entry** in every active giveaway you have joined.
+  <Card title="Bonus giveaway entries" icon="ticket">
+    **+1 extra entry** in every active giveaway you have already joined.
   </Card>
-  <Card title="Reminders" icon="bell">
-    A DM when you can vote again.
+  <Card title="Vote reminder" icon="bell">
+    A DM telling you when you can vote again.
   </Card>
 </CardGroup>
 
-<Info>
-Vote entries count while your vote is current (12 hours). The host can cap how many vote entries one member can earn with the giveaway's `max_entries` option.
-</Info>
+### How the bonus entries work
 
-## Where to vote
+- The extra entry applies to giveaways that are **active when you vote and that you have joined**.
+- Hosts can cap the bonus with the giveaway's `max_entries` option (1 to 10). 0 means unlimited.
+- Vote entries only count while your vote is **current (12 hours)**. After that they are cleaned up automatically.
+- The same vote never counts twice, even if the list sends it again.
 
-The bot supports **Top.gg** and **Discord Bot List**. Discord Bot List votes also give a **claim** button: pressing it **doubles** your vote entries in your active giveaways for a limited time.
+<Tip>
+Vote just before a giveaway you care about ends, since the extra entry is added to giveaways you are already in.
+</Tip>
 
-## Reminders
+## Discord Bot List claim bonus
 
-Reminders arrive by DM when you are able to vote again. You can **opt out permanently** with a button on the reminder.
+Votes from Discord Bot List send you a message with a **claim** button. Pressing it **doubles** your current vote entries in the active giveaways you joined, for a limited time. If you do not press it in time, the button expires.
+
+## Vote reminders
+
+When your 12 hours are up, the bot DMs you a reminder with a link to vote again.
+
+<AccordionGroup>
+  <Accordion title="I do not want reminders" icon="bell-slash">
+    Press the **opt-out** button on a reminder. The opt-out is permanent.
+  </Accordion>
+  <Accordion title="My reminder was late or never came" icon="clock">
+    The bot checks for due reminders every minute. A reminder that is **more than a day late is skipped** instead of arriving at a strange time. Closed DMs also block reminders.
+  </Accordion>
+  <Accordion title="Do I need to be in the support server?" icon="server">
+    The **vote role** is given in the support server, so join it to receive that reward. Bonus giveaway entries work in every server.
+  </Accordion>
+</AccordionGroup>
 
 <Note>
-If a reminder is more than a day late, it is skipped instead of being sent late.
+Hosts can see and use vote entries as a [bonus entry source](/giveaways/bonus-entries).
 </Note>
+
+
+## How to use
+
+<Steps>
+  <Step title="Open the bot's page">Go to GiveawayX on **Top.gg** or **Discord Bot List**.</Step>
+  <Step title="Press Vote">Sign in with Discord and vote. Do it again every 12 hours.</Step>
+  <Step title="Get your rewards">The bot detects the vote within moments. Your vote role is given in the support server, and your active giveaways get +1 entry.</Step>
+  <Step title="Claim the bonus (Discord Bot List)">Press the **claim** button in the message the bot sends you before it expires.</Step>
+</Steps>

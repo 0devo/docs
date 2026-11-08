@@ -1,0 +1,61 @@
+---
+title: "Participants panel"
+description: "See who entered a giveaway, search the list and, as a host, remove participants."
+icon: "users"
+---
+
+The **participants** button on a giveaway message opens a private list of everyone who entered.
+
+## What members see
+
+- The list is **private**, so only you see it.
+- **10 participants per page**, with page navigation.
+- For each person: their **position**, name, **bonus entries** (or "1 entry" if none), when their **account** was created, when they **joined the server**, and their ID.
+- A **Search** option to jump to a page number or find a specific member. The match is marked with 🔎.
+
+<Info>
+The list shows a participant's **bonus** entries. A member with a role worth 5 bonus entries shows as 5 bonus entries, not 6.
+</Info>
+
+## What hosts see
+
+Members with **Manage Server**, **Administrator** or a **Giveaway Manager role** get extra tools:
+
+<Columns cols={2}>
+  <Card title="Smaller pages" icon="list">
+    5 participants per page so each row has room for its buttons.
+  </Card>
+  <Card title="Remove participant" icon="user-minus">
+    A **Remove** button on each row for active giveaways. You can also remove someone by entering their user ID.
+  </Card>
+  <Card title="Manual bonus entries" icon="ticket">
+    An **Entries** button on each row opens a form where you set a fixed number of extra entries for that person.
+  </Card>
+  <Card title="Always allowed" icon="eye">
+    Hosts can always open the list, even when viewing is restricted to a role.
+  </Card>
+</Columns>
+
+<Warning>
+Removing a participant takes effect immediately and updates the giveaway's entry count. They can enter again unless a requirement blocks them.
+</Warning>
+
+## Control who can see the list
+
+In `/settings` you can:
+
+- **Hide the participants button** completely.
+- **Restrict viewing to a role.** Members without that role are told access is restricted. Hosts are never locked out.
+- Change the button's **label**, **emoji** and **color**. See [Server settings](/giveaways/settings).
+
+
+## How to use
+
+<Steps>
+  <Step title="Open the list">Press the **participants** button on the giveaway message.</Step>
+  <Step title="Move through pages">Use the page buttons. Use **Search** to jump to a page number or find a member.</Step>
+  <Step title="Remove someone (hosts only)">Press **Remove** next to their name, or enter their user ID. The giveaway is updated immediately.</Step>
+  <Step title="Give a manual bonus (hosts only)">Press **Entries** next to their name and enter the number of extra entries.</Step>
+</Steps>
+
+To hide the button, restrict it to a role or restyle it, run `/settings` and open **Enter button**.

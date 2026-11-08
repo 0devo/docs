@@ -1,34 +1,85 @@
 ---
 title: "Translate"
-description: "Translate text, messages, images, PDFs and files, even very long ones."
+description: "Translate text, messages, images, PDFs and files into your language, even very long ones, with limits explained."
 icon: "language"
 ---
 
-`/translate` turns almost anything into the language you choose.
+`/translate` turns almost anything into the language you choose: a sentence you type, a message someone sent, text inside a picture, a PDF, or a whole file.
 
-<ParamField body="to" type="language">The language to translate into. Start typing to search all supported languages.</ParamField>
+## Options
+
+<ParamField body="to" type="language" required>The language to translate **into**. Start typing to search the full list of supported languages.</ParamField>
 <ParamField body="text" type="text">Text to translate.</ParamField>
-<ParamField body="from" type="language">The original language. Leave empty to detect it automatically.</ParamField>
-<ParamField body="message" type="message link">Translate a message and any images attached to it.</ParamField>
-<ParamField body="attachment" type="file">A file, image or PDF. You can add more files in the extra attachment options.</ParamField>
+<ParamField body="from" type="language">The original language. Leave it empty and the bot **detects it automatically**.</ParamField>
+<ParamField body="message" type="message link">Paste a link to a message. The bot translates its text and any images attached to it.</ParamField>
+<ParamField body="attachment" type="file">A file, image or PDF. Use `attachment2` and `attachment3` to add more files in the same request.</ParamField>
 
-## What it can handle
+<CodeGroup>
+```text Text
+/translate to:Arabic text:Good morning everyone
+```
+```text A message
+/translate to:English message:https://discord.com/channels/…/…/…
+```
+```text A PDF
+/translate to:French attachment:(attach your PDF)
+```
+</CodeGroup>
 
-<Columns cols={2}>
-  <Card title="Long text" icon="file-lines">
-    Long text is split into pieces and translated piece by piece, so it never gets cut off.
-  </Card>
-  <Card title="Images" icon="image">
-    Text inside images is read automatically before it is translated.
-  </Card>
-  <Card title="PDFs and files" icon="file-pdf">
-    Upload PDFs and text files directly.
-  </Card>
-  <Card title="Several files at once" icon="copy">
-    Add up to three attachments in one request.
-  </Card>
-</Columns>
+## Without typing a command
 
-## Translate without typing
+Right-click any message, choose **Apps**, then **Translate Message**. The bot asks which language you want and translates it. It works the same way on messages that only contain an image.
 
-Right-click any message, choose **Apps**, then **Translate Message**.
+## What it can translate
+
+<Tabs>
+  <Tab title="Text and code files" icon="file-lines">
+    `.txt` `.md` `.json` `.csv` `.tsv` `.xml` `.html` `.css` `.yml` `.yaml` `.ini` `.log` `.rtf` `.sql` `.srt` `.vtt` and common code files such as `.js` `.ts` `.py` `.java` `.c` `.cpp` `.cs` `.go` `.rb` `.php`.
+  </Tab>
+  <Tab title="PDFs" icon="file-pdf">
+    The text inside the PDF is extracted and translated. Scanned PDFs without real text may not work.
+  </Tab>
+  <Tab title="Images" icon="image">
+    `.png` `.jpg` `.jpeg` `.gif` `.bmp` `.webp` `.tif` `.tiff`. The bot reads the text in the picture (OCR) and translates it.
+  </Tab>
+</Tabs>
+
+## Limits
+
+| | Free | Premium |
+| --- | --- | --- |
+| Text and code files | 8 MB | 50 MB |
+| PDFs | 20 MB | 60 MB |
+| Images | 10 MB | 25 MB |
+| Files per request | 3 | 3 |
+
+<Warning>
+A single request translates at most **300,000 characters**. Anything beyond that is cut off, and the bot tells you when this happens.
+</Warning>
+
+<Info>
+If a file is too large, the bot tells you its size and the limit. **Premium** raises every size limit. See [Premium](/concepts/premium).
+</Info>
+
+## How long texts are handled
+
+<Steps>
+  <Step title="Split into pieces">
+    Long text is cut into pieces of about 1,800 characters.
+  </Step>
+  <Step title="Translated in batches">
+    Pieces are translated a few at a time. On big jobs the bot **updates a progress message** as it goes.
+  </Step>
+  <Step title="Joined back together">
+    You get the complete translation, so nothing is cut off in the middle.
+  </Step>
+  <Step title="Delivered as a file when long">
+    A short preview (about 500 characters) is shown in chat. When the result is longer than about 1,500 characters, the **full translation is attached as a `.txt` file**.
+  </Step>
+</Steps>
+
+<Tip>
+For the best results on an image, use a clear screenshot with readable text and tell the bot the original language with `from`.
+</Tip>
+
+See [Language](/features/language) for the list of languages the bot itself speaks.

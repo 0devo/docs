@@ -1,22 +1,85 @@
 ---
 title: "AFK status"
-description: "Let people know you are away, and catch up on what you missed."
+description: "Tell everyone you are away, and get a tidy summary of who mentioned you when you return."
 icon: "moon"
 ---
 
-Going away? Run `/afk`. When someone mentions you, the bot tells them you are AFK and why.
+AFK ("away from keyboard") lets you tell the server you are away. While you are AFK, anyone who mentions you is told **why** and **for how long**. When you come back, the bot gives you a **summary of every mention you missed** with links to jump straight to each message.
 
-<ParamField body="reason" type="text">An optional reason, up to 200 characters.</ParamField>
-<ParamField body="global" type="true / false">Make your AFK status work in **every server** you share with the bot. Default: false.</ParamField>
+## Set your status
 
-## How it behaves
+<ParamField body="reason" type="text">Why you are away, up to **200 characters**. If you leave it empty the reason is simply "AFK".</ParamField>
+<ParamField body="global" type="true / false">Make your AFK status work in **every server** you share with the bot, not only this one. Default: false.</ParamField>
 
-<Check>Mentions are grouped into a **single tidy message** instead of one reply per mention.</Check>
-<Check>A short cooldown stops the bot from repeating itself if you are mentioned over and over.</Check>
-<Check>Mentioning **yourself** does not trigger your own AFK notice.</Check>
+<CodeGroup>
+```text Simple
+/afk
+```
+```text With a reason
+/afk reason:Having dinner, back at 8 PM
+```
+```text Everywhere
+/afk reason:Travelling global:true
+```
+</CodeGroup>
 
-With a **global** AFK, the bot also keeps a record of who mentioned you (server, channel, a link to the message and a short snippet), so you can catch up when you return.
+The bot confirms with a **private message** that only you can see.
+
+<Warning>
+Your reason **cannot contain links, Discord invites or mentions** (including `@everyone` and `@here`). This stops AFK from being used to spam or ping people. If it does, the bot asks you to remove them and try again.
+</Warning>
+
+## Local and global AFK
+
+<Columns cols={2}>
+  <Card title="Local (default)" icon="server">
+    Active only in the server where you ran the command.
+  </Card>
+  <Card title="Global" icon="globe">
+    Active in **every shared server** at the moment you turn it on. The confirmation tells you how many servers it covers. Messages marked global show a 🌍.
+  </Card>
+</Columns>
+
+<Note>
+A server only ever sees **its own** AFK entry. Your reason and mentions in one server are never revealed in another.
+</Note>
+
+## What happens when someone mentions you
+
+<Steps>
+  <Step title="The bot replies">
+    It shows that you are AFK, the **reason**, and **how long ago** you went AFK.
+  </Step>
+  <Step title="Several AFK members in one message">
+    If someone mentions more than one AFK member, all of them are shown in **one single reply**, separated by dividers, instead of one reply each.
+  </Step>
+  <Step title="The mention is saved for you">
+    The bot remembers who mentioned you, in which channel, a link to the message, and the first part of what they wrote.
+  </Step>
+</Steps>
+
+**The bot stays quiet when:**
+
+- the mentioned user is a **bot**;
+- you **mention yourself**;
+- the same person mentioned the same AFK member **less than a minute ago** (so repeated pings do not trigger repeated replies);
+- the AFK member has just returned.
+
+## What happens when you come back
+
+Send **any message** in a server where you are AFK. Your status is removed automatically, and the bot replies with:
+
+- a **Welcome back** message that shows **how long you were AFK**;
+- the **number of mentions** you received;
+- the **latest 10 mentions**, each with the sender, how long ago it happened, and a **Jump to Message** button;
+- a line such as "and 3 more" if there were more than 10.
+
+For a **global** AFK, speaking in any server removes your status **everywhere**, and the summary includes the server name for each mention.
 
 <Tip>
-Use a clear reason like `afk: back in 2 hours` so people know when to expect a reply.
+Pair a clear reason with a time, like `Back at 8 PM`, so people know when to expect a reply.
 </Tip>
+
+## For admins
+
+AFK can be switched off for your server from the dashboard's command settings, and its use can be limited to certain channels or roles. See [Command customization](/features/command-customization).

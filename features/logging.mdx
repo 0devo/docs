@@ -1,34 +1,66 @@
 ---
 title: "Logging"
-description: "Keep a record of every giveaway action and setting change."
+description: "A record of every giveaway action and setting change, with per-event channels and Premium styling."
 icon: "scroll"
 ---
 
-GiveawayX can post a **log message** whenever something happens, so your team always knows who did what.
+Giveaway logs are messages the bot posts in a channel each time something happens, so your team can always see **who did what and when**. Logging is **off by default** and you choose exactly which events to record.
 
-## What can be logged
+## Turn it on
+
+<Steps>
+  <Step title="Enable giveaway logs">
+    Switch giveaway logging on in the log settings.
+  </Step>
+  <Step title="Choose where logs go">
+    Pick one channel, several channels, or a different channel for each event or group of events.
+  </Step>
+  <Step title="Choose what to log">
+    Every event type below is on by default once logging is enabled. Switch off the ones you do not need.
+  </Step>
+</Steps>
+
+## Events you can log
 
 <Tabs>
   <Tab title="Giveaway actions" icon="gift">
-    Start, end, edit, delete, reroll, pause, resume, drop, last-to-type, fix and schedule.
+    | Event | Logged when |
+    | --- | --- |
+    | Start | A giveaway is created |
+    | End | A giveaway ends |
+    | Edit | A giveaway is changed |
+    | Delete | A giveaway is deleted |
+    | Reroll | Winners are redrawn |
+    | Pause and Resume | A giveaway is paused or resumed |
+    | Drop | A drop is created |
+    | Last | A first or last to type game is created |
+    | Fix | `/gfix` repairs a giveaway |
+    | Schedule | A giveaway is scheduled |
   </Tab>
   <Tab title="Settings changes" icon="gear">
-    Color, emoji, role, DM, winner thread, language and log settings changes, and command picks.
+    | Event | Logged when |
+    | --- | --- |
+    | Color | The embed color is changed |
+    | Emoji | The entry emoji is changed |
+    | Role | A role-related setting changes |
+    | DM | Winner or host DM settings change |
+    | Thread | Winner thread settings change |
+    | Language | The bot language is changed |
+    | Logs | The log settings themselves change |
+    | Command pick | A command choice is recorded |
   </Tab>
 </Tabs>
 
-Each event type can be switched on or off. Logs can go to one or more channels, or to **different channels per event or group**.
-
-## Style your logs
+## Premium styling
 
 <Badge color="blue">Premium</Badge>
 
 | Option | What it does |
 | --- | --- |
-| Log color | A server-wide accent color. |
-| Colors per event | A different color for each type of event. |
-| Show who did it | Include the member who performed the action. |
-| Branded sender | Send logs with the bot's custom name and avatar for your server. |
+| **Log color** | A server-wide accent color for all logs. |
+| **Colors per event** | A different color for each event type. An event's own color wins over the server-wide one. |
+| **Show who did it** | Shows the name and avatar of the member who performed the action. On by default. |
+| **Branded sender** | Sends logs through a webhook that uses the bot's custom name and avatar for your server. Off by default. |
 
 <Color variant="compact">
   <Color.Row title="Default log color">
@@ -36,6 +68,11 @@ Each event type can be switched on or off. Logs can go to one or more channels, 
   </Color.Row>
 </Color>
 
-<Check>
-Logs are queued and retried, so rate limits do not make you lose entries. A separate history of actions is also kept even after a giveaway is deleted.
-</Check>
+## Reliable delivery
+
+<Check>Logs are queued and retried, so a busy channel or a rate limit does not make you lose entries.</Check>
+<Check>A separate audit history of giveaway actions is kept even after the giveaway itself has been deleted.</Check>
+
+<Tip>
+Send high-volume events (like starts and ends) to a quiet staff channel, and keep settings changes in a separate private channel for admins.
+</Tip>

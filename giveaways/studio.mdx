@@ -1,0 +1,138 @@
+---
+title: "Giveaway Studio"
+description: "A complete tour of the Studio panel: every section, every setting, and how to publish."
+icon: "wand-magic-sparkles"
+---
+
+The **Studio** is the interactive panel that opens when you choose **Customize in Studio** in `/gcreate`, or when you run `/gstart`. It also powers `/gedit` and `/gschedule`. You build the giveaway step by step, see a **live preview**, and publish only when you are happy.
+
+<Tip>
+You never have to fill everything in. The Studio tracks how many **essentials** are complete (for example "2/3") and tells you when the giveaway is **ready to publish**.
+</Tip>
+
+## The Studio home screen
+
+<CardGroup cols={2}>
+  <Card title="Quick Setup" icon="bolt">
+    A fast form for the essentials. Start here for a normal giveaway.
+  </Card>
+  <Card title="Giveaway Settings" icon="gear">
+    Opens every category: basics, requirements, rewards, access, advanced and appearance.
+  </Card>
+  <Card title="Review and Publish" icon="paper-plane">
+    Shows the finished giveaway as members will see it, then publishes. When editing, this button is **Review Changes**.
+  </Card>
+  <Card title="Templates" icon="copy">
+    **Save Template** stores your setup. **Load Template** fills the Studio from a saved one. See [Templates](/giveaways/templates).
+  </Card>
+</CardGroup>
+
+<Note>
+The **Cancel** button discards the draft. The Studio also shows an **AI Giveaway** button that is marked **Coming Soon**.
+</Note>
+
+## Giveaway Settings
+
+Open **Giveaway Settings** to reach the categories. Each category has a menu where you pick the setting to change, and a status line that shows how complete it is. You can open them in any order.
+
+<Tabs>
+  <Tab title="Basic Setup" icon="gift">
+    Prize, duration, winners, host, channel, description and media.
+
+    | Setting | What it does |
+    | --- | --- |
+    | **Prize** | What you are giving away. |
+    | **Duration** | How long it runs. Format: `1d`, `2h`, `30m`. |
+    | **Winners** | How many winners to pick. |
+    | **Host** | Who hosts, whether the host is **mentioned**, and whether the host is **shown or hidden**. |
+    | **Channel** | Where it is posted. Leave blank to use the current channel. |
+    | **Description** | Text shown inside the giveaway. |
+    | **Image** and **Thumbnail** | Pictures for the giveaway. Leave empty to keep the current one. |
+  </Tab>
+  <Tab title="Entry Requirements" icon="shield-check">
+    Required roles, activity, account age, server age, official tag, boost count and boost duration.
+
+    | Setting | What it does |
+    | --- | --- |
+    | **Required Roles** | Roles members must have. Choose **any**, **all** or a **minimum** number, add or edit the role list, and set an optional **hold duration** in minutes. |
+    | **Required Messages** | Messages a member must have sent (0 turns it off). You can narrow it by **time window**, by **which channels** count (all, or a list) and by **whose messages** count (everyone, or certain roles). |
+    | **Required Level** | A minimum server level (0 turns it off). |
+    | **Min Server Age** | Days in the server (0 turns it off). |
+    | **Min Account Age** | Days since the account was created (0 turns it off). |
+    | **Official Tag Required** | Only members showing the server's tag can enter. |
+    | **Boost Count** | Minimum number of boosts the member has given (0 turns it off). |
+    | **Boost Duration** | Days the member has been boosting continuously (0 turns it off). |
+  </Tab>
+  <Tab title="Rewards and Bonus Entries" icon="ticket">
+    Extra entries, entry limits and automatic winner roles.
+
+    | Setting | What it does |
+    | --- | --- |
+    | **Extra Entries** | Bonus entries by role, level, XP, streak or server tag. Add rules with a multiplier or a random range, and choose whether bonuses **stack**. |
+    | **Max Vote Entries** | The most extra entries a member can earn by voting. 0 means unlimited. |
+    | **Winner Roles** | Roles given to winners, with optional XP or level rewards, delays, temporary duration, and removal from previous winners. |
+  </Tab>
+  <Tab title="Access Control" icon="lock">
+    Who is blocked, and who is let through.
+
+    | Setting | What it does |
+    | --- | --- |
+    | **Blacklist Roles** | Roles blocked from entering. Choose any, all, a minimum or a maximum number. |
+    | **Bypass Roles** | Roles that skip requirements. Each rule can **bypass everything** or **only the requirements you pick**, and can combine all matching roles or use only the **highest** role. |
+    | **Winner Cooldown Override** | Blocks recent winners of **any** giveaway. Leave blank to follow the server, or 0 to turn it off for this giveaway. |
+  </Tab>
+  <Tab title="Advanced" icon="sliders">
+    Entry method, repeats, sticky mode and custom messages.
+
+    | Setting | What it does |
+    | --- | --- |
+    | **Entry Type** | **Button** or **Reaction**. Reaction entry cannot be combined with the entry captcha. |
+    | **Reaction Emoji** | Used only for reaction entry. A custom emoji needs Premium. |
+    | **Repeat Giveaway** | How many times to repeat, and the wait before it restarts. Premium. |
+    | **Sticky** | Re-sends the giveaway when people chat. Premium Tier 2. |
+    | **Auto Claim and Reroll** | One shared **Claim** button. Set the claim deadline and the maximum rerolls per prize. |
+    | **Create Message** | A separate message sent when the giveaway goes live. |
+    | **Mentions** | Roles to ping when it is posted, plus an optional `@here`. |
+    | **Auto Ping message** | Optional text sent with the repeated pings. See [Auto Ping](/giveaways/auto-ping). |
+  </Tab>
+</Tabs>
+
+## Appearance (for this giveaway only)
+
+**Appearance** changes how this one giveaway looks and behaves, without touching your server defaults. The home screen shows how many areas you have overridden, or "Using server defaults".
+
+<AccordionGroup>
+  <Accordion title="Enter Button" icon="hand-pointer">
+    The **join button label**, its **color**, the **participants button label**, and whether the participants button is **visible or hidden**.
+  </Accordion>
+  <Accordion title="Entry Verification" icon="robot">
+    **Require captcha**: follow the server default, always on, or always off. **Difficulty**: easy (4 digits), medium (5 characters, default) or hard (7 characters).
+  </Accordion>
+  <Accordion title="Anti-Raid Protection" icon="shield-halved">
+    **Minimum profile completeness**: off, partial (custom avatar **or** banner or color) or full (both). **Suspicious username detection**: off, low (blocks a pattern repeated by 3 or more recent accounts), medium (also blocks a mix of no vowels and a long string of digits) or high (blocks on any single suspicious sign, with more false alarms).
+  </Accordion>
+  <Accordion title="Winner Thread" icon="comments">
+    Follow the server default, or force the thread **on or off** for this giveaway, and choose its type (public or private). See [Winners and claims](/giveaways/winners-and-claims).
+  </Accordion>
+  <Accordion title="More" icon="ellipsis">
+    The embed color and template, the host mention and the winner and host DMs can also be overridden for a single giveaway. Each has a **Reset** option to go back to server defaults.
+  </Accordion>
+</AccordionGroup>
+
+## Publish
+
+<Steps>
+  <Step title="Press Review and Publish">
+    You see a **preview** of the giveaway exactly as members will see it.
+  </Step>
+  <Step title="Check the details">
+    Fix anything with the **Back** buttons. Every sub-screen has a way to return to the Studio.
+  </Step>
+  <Step title="Publish">
+    Confirm, and the giveaway goes live. To start later instead, use **Schedule**. See [Scheduling](/giveaways/scheduling).
+  </Step>
+</Steps>
+
+<Warning>
+Changes in the Studio only apply when you publish or save. If you press **Cancel**, the draft is discarded.
+</Warning>

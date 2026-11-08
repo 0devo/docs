@@ -42,3 +42,36 @@ Requires **Manage Server** or **Administrator**.
     A waiting game. The winner is whoever types last before time runs out, so people keep typing to stay in. It gets chaotic fast.
   </Tab>
 </Tabs>
+
+
+## How to use
+
+<Tabs>
+  <Tab title="Start a drop" icon="bolt">
+    <Steps>
+      <Step title="Run /gdrop">Type `/gdrop` and enter the **prize** (the only required option).</Step>
+      <Step title="Choose how many can win">Set `winners` (1 to 50). Add a `countdown` of 1 to 30 seconds so members can get ready.</Step>
+      <Step title="Send it">The drop appears in the channel. The first members to press **claim** win straight away.</Step>
+    </Steps>
+
+    <CodeGroup>
+    ```text Simplest
+    /gdrop prize:$10 Gift Card
+    ```
+    ```text Fuller
+    /gdrop prize:$10 Gift Card winners:3 countdown:10 duration:30m channel:#drops required_role:@Member
+    ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Start a first or last to type game" icon="keyboard">
+    <Steps>
+      <Step title="Run /glast">Fill in all four options: `channel`, `duration`, `prize` and `mode`.</Step>
+      <Step title="Pick the mode">Choose **First to type wins** or **Last to type wins**.</Step>
+      <Step title="Send it">Members type in the channel until the time is up. The bot announces the winner.</Step>
+    </Steps>
+
+    ```text
+    /glast channel:#general duration:5m prize:Discord Nitro mode:First to type wins
+    ```
+  </Tab>
+</Tabs>

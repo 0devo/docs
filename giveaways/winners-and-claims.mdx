@@ -33,6 +33,15 @@ When enabled, the bot creates a thread for the winners after the giveaway.
 | Claim deadline | How long winners have to claim. |
 | Name, message and color | Customize the thread. <Badge color="blue">Tier 1</Badge> |
 
+More thread options:
+
+| Option | What it does |
+| --- | --- |
+| Auto-archive | Archives an idle thread after 1 hour, 1 day, 3 days or 7 days (1 day by default). |
+| Invite winners | In private threads, lets members who are not moderators add people. On by default. |
+| Staff roles | Roles automatically added to every winner thread, up to 50 members per thread (25 by default). |
+| Close when complete | Closes the thread once every winner has claimed. Off by default. |
+
 A single giveaway can override the thread settings.
 
 ## Winner roles
@@ -51,12 +60,12 @@ Basic winner roles are free. Advanced options need <Badge color="purple">Tier 2<
 
 ## Auto-claim
 
-Turn on `auto_claim` and winners claim their prize with **one button**. If a winner does not claim before the deadline, the bot attempts to **reroll that prize**. A replacement is only possible if an eligible entrant remains and the reroll limit has not been reached.
+Turn on `auto_claim` and winners claim their prize with **one button**. If a winner does not claim in time, the bot automatically **rerolls** their place.
 
 | Setting | Default | Allowed range |
 | --- | --- | --- |
 | Claim window | 24 hours | 60 seconds to 30 days |
-| Maximum rerolls | Unlimited | 0 to 1000, or Unlimited |
+| Maximum rerolls | Unlimited | 0 or more |
 
 ## Rerolling with /greroll
 
@@ -77,12 +86,33 @@ The bot remembers how many times a giveaway was rerolled and who did it, which a
 
 Your server can set a **winner cooldown** in minutes (off by default) so recent winners cannot win again too soon. Each giveaway can follow the server, turn it off, or use its own number of minutes.
 
-## What a winner sees
 
-When Auto-claim is enabled, the winner uses the **Claim Prize** button on the giveaway's claim message before the displayed deadline. A non-winner cannot claim; a winner who already claimed is told that the prize was claimed, and an expired claim is rejected. Each unclaimed prize is handled separately. Automatic rerolls do not send a separate DM or public reroll announcement in the current code.
+## How to use
 
-A maximum of **0** means no automatic rerolls. The configured maximum is capped at **1000** (or choose **Unlimited** where offered). If the limit is exhausted or no eligible participant remains, the prize may have no replacement winner.
+<Tabs>
+  <Tab title="Turn on auto-claim" icon="hand-pointer">
+    ```text
+    /gstart duration:3d winners:2 prize:Nitro auto_claim:true
+    ```
+    Or open the **Studio**, go to **Giveaway Settings**, then **Advanced**, then **Auto Claim and Reroll** to set the claim deadline and the maximum rerolls.
+  </Tab>
+  <Tab title="Reroll a giveaway" icon="rotate">
+    <Steps>
+      <Step title="Run /greroll">Give the giveaway's ID or link. A **preview** of the change appears.</Step>
+      <Step title="Choose the kind of reroll">Use `replace` for one person, or `count` for a whole new list.</Step>
+      <Step title="Confirm">The new winners are announced and notified.</Step>
+    </Steps>
 
-## Confirmation and permissions
-
-Manual `/greroll` applies only to an **ended** regular giveaway. The bot shows a private preview; confirm within **60 seconds** to apply it, or let the confirmation expire. The person confirming must still have giveaway-management access. A drop, active, paused or scheduled giveaway cannot be rerolled.
+    <CodeGroup>
+    ```text Replace one winner
+    /greroll giveaway_id:123456789012345678 replace:@Winner
+    ```
+    ```text Draw 2 new winners
+    /greroll giveaway_id:123456789012345678 count:2 exclude_previous_winners:true
+    ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Set DMs and threads" icon="gear">
+    Run `/settings` and open **DMs and templates** or **Winner thread**. See [Server settings](/giveaways/settings).
+  </Tab>
+</Tabs>
