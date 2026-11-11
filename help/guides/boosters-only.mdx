@@ -1,0 +1,27 @@
+---
+title: "How to run a giveaway for boosters only"
+description: "Let only members who boost your server enter, or reward them with extra entries."
+icon: "rocket"
+---
+
+<Tabs>
+  <Tab title="Boosters only" icon="lock">
+    <Steps>
+      <Step title="Open the Studio">Run `/gcreate` and choose **Customize in Studio**.</Step>
+      <Step title="Set the boost rules">Go to **Giveaway Settings**, then **Entry Requirements**. Set **Boost Count** to 1 or more. Optionally set **Boost Duration** in days.</Step>
+      <Step title="Publish">Choose **Review and Publish**.</Step>
+    </Steps>
+  </Tab>
+  <Tab title="Extra entries for boosters" icon="ticket">
+    ```text
+    /gstart duration:7d winners:1 prize:VIP Role extra_entries:@Booster 3
+    ```
+    Everyone can enter, and boosters get 3 extra entries.
+  </Tab>
+</Tabs>
+
+<Warning>
+If a member stops boosting while a boosters-only giveaway is running, they are removed from it automatically.
+</Warning>
+
+See [Server boosts](/features/boosts).

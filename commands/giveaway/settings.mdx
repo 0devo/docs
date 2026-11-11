@@ -1,0 +1,46 @@
+---
+title: "/settings"
+description: "🎨 Configure the giveaway bot for this server"
+icon: "gift"
+---
+
+🎨 Configure the giveaway bot for this server
+
+**Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/settings` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot opens an interactive panel with buttons and menus; make your changes there.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/settings
+```
+</CodeGroup>
+
+
+Opens an ephemeral interactive panel with a dropdown for navigating the sections below. Changes are saved and the panel refreshes after each edit. Requires Manage Server, Administrator, or the Giveaway Manager role.
+
+| Section | What it lets you do |
+| --- | --- |
+| Overview | View Premium status and a summary of DMs, winner streaks, appearance, and entry method. |
+| DMs & templates | Toggle winner, host, and global messages; edit or reset message templates. A global message forces DMs for all giveaways and overrides the send option at creation. Template variables: `{prize}`, `{server}`, `{winners_count}`, `{winners_list}`, `{timestamp}`. |
+| Winner streak | Enable automatic streak creation; choose public/private visibility, auto-close duration, claim tracker, claim timeout, and winner notifications; edit or reset the name, message, and color. |
+| Entry button | Change the button color among Primary, Secondary, Success, and Danger; set/reset a custom Premium label (otherwise the participant count is shown), hide/show the participants button, restrict participant visibility by role, and customize or reset the participants button. |
+| Appearance | Set/reset embed color, end/host/winner/participant labels, bullet, and embed template; customize or reset win-announcement, entry-confirmation, and leave messages. The template supports `{prize}`, `{host}`, `{end_time}`, `{winners_count}`, `{info_rows}`, `{extra}`, `{bullet}`, `{lbl_ends}`, `{lbl_host}`, `{lbl_winners}`, `{description}`, and `{enter_button}`; announcement messages support `{prize}`, `{winners_list}`, `{winners_count}`, `{host}`, `{server}`, and `{date}`. |
+| Entry method | Switch between button and emoji reaction; reaction mode requires Premium. Applies only to new giveaways and does not change existing ones. |
+| Bot customization | Set a server-specific nickname. Avatar, banner, and bio changes apply to the bot account and affect all servers. Nickname requires Premium; avatar, banner, and bio require Ultra Premium. |
+| Premium panel | View subscription status, tier, expiration date, and plan features. |
+
+Color, reaction mode, button labels, and streak/appearance customization are marked with their Premium requirements in the panel. See [Server settings](/giveaways/settings).

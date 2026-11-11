@@ -1,0 +1,36 @@
+---
+title: "/premium-settings"
+description: "Opens a user-specific Premium settings panel for the current server."
+icon: "star"
+---
+
+Opens a user-specific Premium settings panel for the current server. You must have **Administrator** or **Manage Server** permission, or one of the server’s registered giveaway manager roles; the bot owner is also allowed. An active Premium subscription is required; otherwise, the panel displays a message saying Premium is required.
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/premium-settings` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot opens an interactive panel with buttons and menus; make your changes there.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/premium-settings
+```
+</CodeGroup>
+
+
+The panel includes sections for navigating between:
+
+- **Overview:** Plan status, expiration date, and add-on slot usage.
+- **Multi-Server Add-on:** Link additional servers to or unlink them from the main subscription, and view the servers and slots in use. Slots must be available. A linked server cannot manage the add-on itself; it is managed from the main server.
+- **Bot Customization:** Set the bot’s nickname in this server or restore its default in Tier 1 and above; customize or reset the avatar, banner, and bio in Tier 2 and above. These customizations are specific to this server.
+- **Name Style:** In Tier 2 and above, choose a font, effect, and colors for the bot’s displayed name in this server, or restore the default style. Available effects are Solid, Gradient, Neon, Toon, Pop, and Glow; Gradient requires two colors. This feature is server-specific and depends on Discord support.

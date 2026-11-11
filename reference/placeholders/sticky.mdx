@@ -1,0 +1,52 @@
+---
+title: "Sticky message placeholders"
+description: "Every variable available in sticky message text, titles and footers."
+icon: "thumbtack"
+---
+
+Placeholders in sticky messages need **Placeholders** switched on in the sticky's appearance settings, which requires <Badge color="blue">Tier 1</Badge>. See [Sticky messages](/features/sticky).
+
+## User
+
+| Placeholder | Becomes | Example |
+| --- | --- | --- |
+| `{user}` | Username | Alex |
+| `{user.mention}` | A mention | @Alex |
+| `{user.tag}` | Username with tag | Alex#0000 |
+| `{user.id}` | User ID | 123456789 |
+| `{user.displayname}` | Nickname or display name | AlexCool |
+
+## Server and channel
+
+| Placeholder | Becomes | Example |
+| --- | --- | --- |
+| `{server}` | Server name | My Server |
+| `{membercount}` | Member count (also `{server.membercount}`) | 1,234 |
+| `{channel}` | Channel name | general |
+| `{channel.mention}` | Channel mention | #general |
+| `{channel.topic}` | Channel topic | Chat about anything |
+
+Also available: `{server.id}`, `{server.icon}` and `{channel.id}`.
+
+## Time
+
+| Placeholder | Becomes | Example |
+| --- | --- | --- |
+| `{date}` | Date | Mar 11, 2026 |
+| `{time}` | Time | 3:42 PM |
+| `{timestamp}` | Discord full timestamp | Wednesday, March 11, 2026 3:42 PM |
+| `{timestamp.relative}` | Relative time | 2 minutes ago |
+
+Also available: `{timestamp.short}`, `{timestamp.date}`, `{timestamp.time}` and `{now}`.
+
+## Random
+
+| Placeholder | Becomes |
+| --- | --- |
+| `{random}` | A random number from 0 to 99 |
+| `{random.1-10}` | A random number from 1 to 10 |
+| `{random.1-100}` | A random number from 1 to 100 |
+
+```text Example
+Welcome to **{server}**, {user.mention}! There are now {membercount} of us.
+```

@@ -1,0 +1,18 @@
+---
+title: "A giveaway is stuck or did not end"
+description: "Diagnose and repair it with /gfix."
+icon: "wrench"
+---
+
+<Steps>
+  <Step title="Look first">Run `/gfix giveaway_id:<id> dry_run:true` to see a report without changing anything.</Step>
+  <Step title="Read the findings">Each one is marked critical, warning or info, with a repair type: automatic, needs confirmation or manual.</Step>
+  <Step title="Repair">Run `/gfix giveaway_id:<id>` and confirm the repairs it suggests.</Step>
+  <Step title="If the message was deleted">`/gfix` reports it. Use `/gdelete` to remove the giveaway.</Step>
+</Steps>
+
+<Note>
+The bot checks for due giveaways every 15 seconds, so a giveaway that is more than a minute late is worth repairing.
+</Note>
+
+See [Managing giveaways](/giveaways/managing#gfix-diagnose-and-repair).

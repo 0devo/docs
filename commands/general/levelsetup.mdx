@@ -1,0 +1,52 @@
+---
+title: "/levelsetup"
+description: "Open the interactive leveling setup panel."
+icon: "toolbox"
+---
+
+Open the interactive leveling setup panel. The panel shows the current status, subscription tier and limits, notification channel, XP values, activity tracking, rewards, multipliers, XP-exclusion lists, boost events, leaderboard reset settings, level-up messages, and appearance. Changes are saved when applied. A panel session is tied to a user and server and expires after 20 minutes; run the command again to start a new session. Interactions are ephemeral.
+
+**Permission:** Manage Server (`ManageGuild`), Administrator, or bot owner; server only.
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/levelsetup` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot opens an interactive panel with buttons and menus; make your changes there.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/levelsetup
+```
+</CodeGroup>
+
+
+## Panel sections and buttons
+
+- **Enable / Disable:** Turn the system on or off.
+- **Channel:** Set the general level-up notification channel and separate text and voice notification channels.
+- **XP Config:** Configure XP earning, such as message XP and variation, voice XP per minute, and cooldown. If not configured, the displayed defaults are 15 XP per message, variation of 10, and 10 XP per voice minute with a 60-second cooldown.
+- **LvlUp Msg:** Configure text and voice level-up messages, and use an Embed or direct message where supported by the settings.
+- **Color:** Set the accent color.
+- **Role Rewards:** Add a role reward requiring a text level, voice level, or both. Match mode `all` requires every specified level; `any` requires just one. Rewards and their private/direct message can be edited, and rewards can be deleted individually or all at once. Each entry requires a role and at least one text or voice level, with the level between 1 and 999; the maximum number of rewards depends on the plan.
+- **Multipliers:** Assign a role an XP multiplier between 0.1 and 10. Adding a multiplier replaces the previous multiplier setting for that same role.
+- **No-XP Setup:** Manage roles, channels, and categories excluded from XP.
+- **XP Boost Event:** Start an XP multiplier event with a multiplier, duration, and optional reason. Multiplier and duration limits depend on the plan; duration must be at least one hour.
+- **Top Settings:** Configure a fixed or rolling leaderboard, weekly and monthly reset days, and the time zone/rolling-window days according to the available fields.
+- **Profile Card:** Configure the profile card background; the background URL must start with `http://` or `https://`.
+- **Advanced Settings:** Toggle text and voice activity tracking, ignore muted/deafened members, set the policy for removing reward roles on level-up or reset, award only the highest reward, and hide management roles. Voice tracking, custom backgrounds, and some other messages/features require Premium; unavailable buttons are disabled.
+- **Streaks:** Enable streaks and set the percentage reward per day. Validation accepts 0–100% per day and up to 0–1000% overall.
+- **Reset Data:** Delete XP data for a specific user or reset XP data for the entire server; resetting the server requires typing `CONFIRM` exactly. Reward roles can also be cleared separately and require the same confirmation.
+- **Reaction & Channels:** Configure reaction XP and rewards, channel multipliers, and level-up notifications. The panel displays a default of 5 ± 2 XP per reaction and a 30-second cooldown; channel multipliers and role rewards can also be managed.
+- **Premium Status:** Show subscription status and a **Refresh** button, with **Back** to return.
+
+The panel does not grant Premium features unavailable on the plan; related features are shown as locked or their buttons are disabled. See [Leveling](/features/leveling).

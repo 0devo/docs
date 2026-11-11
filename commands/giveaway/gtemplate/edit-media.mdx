@@ -1,0 +1,39 @@
+---
+title: "/gtemplate edit media"
+description: "Edit image / thumbnail"
+icon: "gift"
+---
+
+Edit image / thumbnail
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate edit media` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`. Optional: `image`, `thumbnail`, `clear_media`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate edit media name:weekly-nitro
+```
+```text Fuller example
+/gtemplate edit media name:weekly-nitro image:(attach a file) thumbnail:(attach a file) clear_media:true
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template to edit |  |
+| `image` | attachment | No | New prize image |  |
+| `thumbnail` | attachment | No | New thumbnail image |  |
+| `clear_media` | boolean | No | Remove both image & thumbnail |  |

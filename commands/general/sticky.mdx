@@ -1,0 +1,40 @@
+---
+title: "/sticky"
+description: "The current command does not open a manager in Discord; it sends an ephemeral notice and an Open Dashboard button linking to the Sticky page in the web dashboard."
+icon: "toolbox"
+---
+
+The current command does not open a manager in Discord; it sends an ephemeral notice and an **Open Dashboard** button linking to the Sticky page in the web dashboard. The implementation notes a data-compatibility issue with older settings, recommends creating the sticky message again through the dashboard, and says it will be removed within a month. It requires **Manage Messages** (`ManageMessages`). The legacy management interface below remains defined in the code, but it is not what currently opens when the command is run.
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/sticky` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot opens an interactive panel with buttons and menus; make your changes there.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/sticky
+```
+</CodeGroup>
+
+
+## Sticky interface sections defined in the code
+
+The legacy control panel shows the number of sticky messages against the plan limit and their active/paused/disabled statuses. It displays up to six sticky messages, each with an **Open** button; the rest of the list is available through **Manage All**. Its main buttons are **New Sticky**, **Manage All**, **Statistics**, **Templates**, **Variables**, and **Import** only when the plan allows it. Selecting a new channel opens a form with required content (up to 1900 characters), an optional title (up to 200), and an optional color.
+
+- **Manage All / channel selection:** Select a channel to configure a message. The channel picker supports text, announcement, public and private thread, announcement thread, and forum channels. This path supports one sticky message per channel; selecting a channel that already has one opens its settings instead of creating another.
+- **Message panel and edit menus:** Manage the message's status, pause/resume state, content, appearance, timing, triggers, roles, schedule, and channel. Editors cover content, title, color, image, and thumbnail; when using the component builder, text blocks, separators, sections, images, and buttons can be added. Each block has **Edit**, **Move Up**, **Move Down**, **Move to #**, and **Delete** buttons. Position is limited to 1 through the number of blocks, and there can be at most 12 blocks.
+- **Templates and variables:** Built-in templates are available for announcement, rules, welcome, information, event, and support. The variable guide covers user, server, and channel fields; date/time and timestamp fields; and random values. Variables are enabled only if the placeholders setting is available on the plan.
+- **Plan limits shown in the implementation:** Free supports up to 3 sticky messages, a per-message interval, plain content, and one button. Tier 1 supports up to 10 messages, additional intervals, variables, 3 automatic reactions, scheduling, statistics, copy/auto-delete, and some role settings. Tier 2 supports up to 25 messages, keyword triggers, images/thumbnails, per-user cooldown, pinning, priority, templates, and up to 3 buttons. Some detailed feature limits, such as triggers, copying, and importing, follow the plan table in the code; related items may appear locked or unavailable.
+
+Command access is restricted to `ManageMessages`. These are limits and interfaces of the legacy Discord panel as implemented; they do not guarantee that every option is available on every plan or that the panel currently opens from the command. See [Sticky messages](/features/sticky).

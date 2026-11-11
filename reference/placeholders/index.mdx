@@ -1,0 +1,50 @@
+---
+title: "Placeholders"
+description: "Variables such as {user} and {prize} that the bot replaces with real values in your messages."
+icon: "brackets-curly"
+---
+
+A **placeholder** is a word in curly braces, like `{user}`. When the bot sends your message it swaps each placeholder for a real value, so one message can greet every member by name or announce the right prize.
+
+```text
+Congratulations {winners_list}! You won {prize} in {server}.
+```
+
+becomes
+
+```text
+Congratulations @Alex! You won Discord Nitro in My Server.
+```
+
+## Which placeholders can I use where?
+
+Each feature understands its **own** set of placeholders. A placeholder from one feature will not work in another.
+
+<CardGroup cols={2}>
+  <Card title="Giveaway messages" icon="gift" href="/reference/placeholders/giveaway-messages">
+    Winner and host DMs, winner announcements, winner threads and the giveaway embed.
+  </Card>
+  <Card title="Sticky messages" icon="thumbtack" href="/reference/placeholders/sticky">
+    User, server, channel, time and random values.
+  </Card>
+  <Card title="Level-up messages" icon="chart-line" href="/reference/placeholders/level-up">
+    `{user}`, `{level}` and more for leveling announcements.
+  </Card>
+  <Card title="Welcome and goodbye" icon="hand-wave" href="/reference/placeholders/welcomer">
+    Member name, server, member count and account age.
+  </Card>
+  <Card title="Command responses" icon="wand-magic-sparkles" href="/reference/placeholders/command-responses">
+    Custom replies for commands, with user, server and channel values.
+  </Card>
+</CardGroup>
+
+## Rules that apply everywhere
+
+<Check>Type them exactly as shown, including the curly braces, and keep the spelling the same.</Check>
+<Check>You can use the same placeholder several times in one message.</Check>
+<Warning>
+A placeholder the feature does not know is left **as plain text**, so `{typo}` will appear literally in the message. Always preview before you publish.
+</Warning>
+<Note>
+Some features need a setting or Premium tier before placeholders work. For example, sticky messages need **Placeholders** turned on, which requires Tier 1.
+</Note>

@@ -1,0 +1,40 @@
+---
+title: "/glast"
+description: "Starts a 'first or last one to type wins' giveaway"
+icon: "gift"
+---
+
+Starts a 'first or last one to type wins' giveaway
+
+**Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/glast` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `channel`, `duration`, `prize`, `mode`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/glast channel:#giveaways duration:1d prize:Discord Nitro mode:first
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `channel` | channel | Yes | The text channel for the giveaway |  |
+| `duration` | string | Yes | Duration of the giveaway (1-10 minutes, e.g., 5m, 300s) |  |
+| `prize` | string | Yes | The prize being given away |  |
+| `mode` | string | Yes | Choose who wins: first or last person to type | Choices: `first`, `last` |
+
+See [Drops and last-to-type](/giveaways/drops).

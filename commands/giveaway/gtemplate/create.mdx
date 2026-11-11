@@ -1,0 +1,60 @@
+---
+title: "/gtemplate create"
+description: "Create a new giveaway template"
+icon: "gift"
+---
+
+Create a new giveaway template
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate create` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`. Optional: `prize`, `duration`, `winners`, `channel`, `description`, `entry_type`, `reaction_emoji`, `required_roles`….
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate create name:weekly-nitro
+```
+```text Fuller example
+/gtemplate create name:weekly-nitro prize:Discord Nitro duration:1d winners:1 channel:#giveaways
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template name (unique) |  |
+| `prize` | string | No | Default prize |  |
+| `duration` | string | No | Default duration (e.g. 1d, 2h, 30m) |  |
+| `winners` | integer | No | Default winners count | Range: 1 to no max |
+| `channel` | channel | No | Default channel |  |
+| `description` | string | No | Default description |  |
+| `entry_type` | string | No | Entry mode | Choices: `button`, `reaction` |
+| `reaction_emoji` | string | No | Emoji for reaction mode |  |
+| `required_roles` | string | No | Required roles to participate |  |
+| `requirement_bypass_roles` | string | No | Roles that bypass requirements |  |
+| `winners_roles` | string | No | Roles given to winners |  |
+| `blacklist_roles` | string | No | Roles blacklisted from entering |  |
+| `joined_age` | integer | No | Minimum days in server | Range: 1 to no max |
+| `account_age` | integer | No | Minimum Discord account age (days) | Range: 1 to no max |
+| `required_messages` | integer | No | Min messages required | Range: 1 to no max |
+| `required_invites` | integer | No | Min invites required | Range: 1 to no max |
+| `required_level` | integer | No | Min level required | Range: 1 to no max |
+| `required_official_tag` | boolean | No | Require the server's official tag |  |
+| `extra_entries` | string | No | Bonus role entries (e.g. @role 5) |  |
+| `max_entries` | integer | No | Max vote bonus entries | Range: 1 to 10 |
+| `giveaway_create_message` | string | No | Custom message sent on start |  |
+| `image` | attachment | No | Prize image |  |
+| `thumbnail` | attachment | No | Thumbnail image |  |
+| `repeat` | integer | No | Repeat count (Premium) | Range: 1 to no max |
+| `sticky` | boolean | No | Sticky giveaway (Premium Tier 2+) |  |

@@ -1,0 +1,49 @@
+---
+title: "/gdrop"
+description: "Starts a drop giveaway — first to claim wins!"
+icon: "gift"
+---
+
+Starts a drop giveaway — first to claim wins!
+
+**Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gdrop` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `prize`. Optional: `winners`, `duration`, `channel`, `image`, `thumbnail`, `countdown`, `blacklist_role`, `required_role`….
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gdrop prize:Discord Nitro
+```
+```text Fuller example
+/gdrop prize:Discord Nitro winners:1 duration:1d channel:#giveaways image:(attach a file)
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `prize` | string | Yes | The prize being given away |  |
+| `winners` | integer | No | Number of winners (default: 1) | Range: 1 to 50 |
+| `duration` | string | No | Duration (e.g. 1h, 30m, 1d) |  |
+| `channel` | channel | No | Channel to host the drop in |  |
+| `image` | attachment | No | Main image (images only) |  |
+| `thumbnail` | attachment | No | Small thumbnail (images only) |  |
+| `countdown` | integer | No | Countdown before drop (1–30 s) | Range: 1 to 30 |
+| `blacklist_role` | role | No | Role that cannot participate |  |
+| `required_role` | role | No | Role required to claim this drop |  |
+| `message` | string | No | Additional message before the drop |  |
+
+If `duration` is not specified, it defaults to one hour; if `channel` is not specified, the current channel is used. The winner limit is 10 on the free plan and 50 for Premium servers. The optional `countdown` is 1 to 30 seconds and displays a countdown in the channel before the drop is posted. Images may be JPEG/JPG, PNG, GIF, WEBP, BMP, or TIFF. `required_role` allows only members with the specified role to claim; members with `blacklist_role` are blocked, and `message` is shown before the drop. When the duration ends, claim buttons are disabled; claimants are announced as winners. If nobody enters, the giveaway ends with a no-participants status. See [Drops and last-to-type](/giveaways/drops).

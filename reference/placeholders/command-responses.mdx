@@ -1,0 +1,24 @@
+---
+title: "Custom command response placeholders"
+description: "Variables for replacing a command's output with your own text."
+icon: "wand-magic-sparkles"
+---
+
+When you set a **custom response** for a command on the dashboard, these placeholders are replaced automatically. See [Command customization](/features/command-customization).
+
+| Placeholder | Becomes |
+| --- | --- |
+| `{user}` | The member's username |
+| `{user.mention}` | A mention of the member |
+| `{user.tag}` | Their tag |
+| `{user.id}` | Their ID |
+| `{server}` | Your server's name |
+| `{server.id}` | Your server's ID |
+| `{channel}` | The channel name |
+| `{channel.mention}` | A link to the channel |
+| `{args}` | Whatever the member typed after the command |
+| `{prefix}` | The server's prefix |
+
+```text Example
+Hi {user.mention}! Giveaways are hosted in {channel.mention}. Use {prefix}help for more.
+```

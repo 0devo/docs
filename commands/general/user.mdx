@@ -1,0 +1,38 @@
+---
+title: "/user"
+description: "Show a user information card with their name and ID, display names, account badges available to the bot, account creation date, membership and role information"
+icon: "toolbox"
+---
+
+Show a user information card with their name and ID, display names, account badges available to the bot, account creation date, membership and role information if they are a member of the server, received reputation, and saved bio if present. The card shows up to five roles and gives the count of any additional roles. The button to set or edit a bio is visible only to the profile owner; it does not appear when viewing another user. Discord's bot interface does not expose all newer profile badges, so badges are limited to data available through the API.
+
+**Permission:** Everyone
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/user` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `user`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/user
+```
+```text Fuller example
+/user user:@Member
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `user` | user | No | User whose information to show | Defaults to the command user |

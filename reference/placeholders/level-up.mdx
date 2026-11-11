@@ -1,0 +1,33 @@
+---
+title: "Level-up message placeholders"
+description: "Variables for text, voice, reaction and DM level-up messages."
+icon: "chart-line"
+---
+
+Level-up messages are written in `/levelsetup` (see [Leveling](/features/leveling)). You can write a separate message for **text**, **voice**, **reaction** and **DM** level-ups, up to 500 characters each.
+
+| Placeholder | Becomes |
+| --- | --- |
+| `{user}` | A mention of the member |
+| `{userName}` | The member's name without a mention |
+| `{level}` | The level they just reached |
+| `{server}` | Your server's name |
+
+<CodeGroup>
+```text Text
+GG {user}! Level {level}!
+```
+```text Voice
+Congrats {user}! Voice Level {level}!
+```
+```text Reaction
+Congrats {user}, reaction level {level}!
+```
+```text DM
+Hey {user}, you leveled up in {server}!
+```
+</CodeGroup>
+
+<Tip>
+Use `{userName}` in places where a mention would ping the member, such as an embed title.
+</Tip>

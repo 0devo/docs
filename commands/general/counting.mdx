@@ -1,0 +1,33 @@
+---
+title: "/counting"
+description: "The counting-game management command has been redirected to the web dashboard."
+icon: "toolbox"
+---
+
+The counting-game management command has been **redirected to the web dashboard**. It does not open a settings panel in Discord: it sends an ephemeral notice and an **Open Dashboard** link button to the counting page in the server dashboard. The notice mentions a data-compatibility issue in older settings and recommends setting up the game again through the dashboard; the implementation also states that the command will be removed within a month. This is a server-only command and requires Manage Server (`ManageGuild`).
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/counting` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot opens an interactive panel with buttons and menus; make your changes there.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/counting
+```
+</CodeGroup>
+
+
+## Counting game behavior in the implementation
+
+The message handler ignores bot messages and processes the game only when it is active, not paused, and in a text channel. Members must pass any configured allowed/blocked role restrictions. It accepts non-negative integers; settings may allow text after the number or a mathematical expression, but mathematical expressions are unavailable on the free plan. Under the effective restrictions up through Tier 2, the same user cannot count twice in a row, and a cooldown may be imposed depending on the plan. On an error, the message may be deleted, the sequence may reset to the beginning, or the game may stop, according to the available game settings; some options are limited by Premium. These are game and engine settings, not interactive controls currently provided by the Discord command.

@@ -1,0 +1,46 @@
+---
+title: "/translate"
+description: "Translate text, a linked message, or attachments."
+icon: "toolbox"
+---
+
+Translate text, a linked message, or attachments. When more than one input type is provided, processing order is attachments first, then the message, then text. Languages can be searched through autocomplete by name or language code; the source-language list accepts `auto` for automatic detection. The implementation supports common text/code files, PDFs, and images via OCR.
+
+**Permission:** Everyone
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/translate` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `to`. Optional: `text`, `from`, `message`, `attachment`, `attachment2`, `attachment3`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/translate to:Arabic
+```
+```text Fuller example
+/translate to:Arabic text:Good morning everyone from:English message:https://discord.com/channels/…/… attachment:(attach a file)
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `to` | string | Yes | Target language | Autocomplete; must be a supported language |
+| `text` | string | No | Text to translate |  |
+| `from` | string | No | Source language | Autocomplete; defaults to `auto` for automatic detection |
+| `message` | string | No | Link to the message to translate | The message must be in a server with a channel the bot can access; text and/or attached images may be used |
+| `attachment` | attachment | No | First file, image, or PDF |  |
+| `attachment2` | attachment | No | Second attachment |  |
+| `attachment3` | attachment | No | Third attachment | Maximum of three attachments per request |
+
+Supported text formats include extensions such as `.txt`, `.md`, `.json`, code files, `.csv`, `.srt`, and `.vtt`; supported PDFs and image formats include `.png`, `.jpg`, `.jpeg`, `.gif`, `.bmp`, `.webp`, and `.tiff`. Free file-size limits: text 8 MiB, PDF 20 MiB, image 10 MiB. Premium limits: 50, 60, and 25 MiB, respectively. Text submitted for translation is limited to 300,000 characters; text longer than 1,500 characters is also attached in full as a text file, and processing is split into chunks. See [Translate](/features/translate).

@@ -1,0 +1,32 @@
+---
+title: "متغيرات الترحيب والوداع"
+description: "متغيرات رسائل الانضمام والمغادرة والإيمبد وبطاقات الصور."
+icon: "hand-wave"
+---
+
+تُعدَّل رسائل الترحيب والوداع من لوحة الويب. راجع [الترحيب والوداع](/ar/features/welcomer).
+
+| المتغير | يصبح |
+| --- | --- |
+| `{user}` | إشارة إلى العضو |
+| `{username}` | اسم المستخدم |
+| `{server}` | اسم خادمك |
+| `{memberCount}` | عدد الأعضاء الحالي |
+| `{avatar}` | صورة العضو |
+| `{serverIcon}` | أيقونة خادمك |
+| `{accountAge}` | عمر حساب Discord، مثل «2 years» |
+| `{userCreatedDate}` | تاريخ إنشاء الحساب |
+| `{timeInServer}` | مدة بقائه في الخادم. الأنسب لرسائل الوداع |
+
+<CodeGroup>
+```text ترحيب
+Welcome {user} to {server}! You are member #{memberCount}.
+```
+```text وداع
+{username} left after {timeInServer}. We'll miss you!
+```
+</CodeGroup>
+
+<Note>
+يعمل `{avatar}` و`{serverIcon}` أيضًا في حقلي **الصورة** و**الصورة المصغرة** في الإيمبد.
+</Note>

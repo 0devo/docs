@@ -1,0 +1,37 @@
+---
+title: "/setlang"
+description: "Change the bot language used for this server."
+icon: "toolbox"
+---
+
+Change the bot language used for this server. The change is saved and the cache is updated; the success confirmation is displayed in the new language.
+
+**Permission:** Manage Server (`ManageGuild`), Administrator, or bot owner
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/setlang` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `language`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/setlang language:ar
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `language` | string | Yes | Language code to use | Choices: `ar` Arabic, `zh` Chinese, `da` Danish, `nl` Dutch, `en` English, `fi` Finnish, `fr` French, `de` German, `it` Italian, `ja` Japanese, `ku` Kurdish, `pl` Polish, `pt` Portuguese, `ru` Russian, `es` Spanish, `sv` Swedish, `tr` Turkish |
+
+See [Language](/features/language).

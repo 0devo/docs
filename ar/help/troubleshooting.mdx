@@ -1,40 +1,20 @@
 ---
-title: "استكشاف الأخطاء وإصلاحها"
-description: "حل المشكلات الأكثر شيوعًا بنفسك."
+title: "استكشاف الأخطاء"
+description: "أصلح المشكلات الشائعة بنفسك خطوة بخطوة."
 icon: "life-ring"
 ---
 
-<AccordionGroup>
-  <Accordion title="لم ينشر البوت سحبي" icon="ban">
-    <Steps>
-      <Step title="تحقق من أذونات القناة">يحتاج البوت إلى أذونات **عرض القناة** و**إرسال الرسائل** و**تضمين الروابط** في تلك القناة (بالإضافة إلى **إضافة تفاعلات** للسحوبات التي تعتمد على التفاعلات).</Step>
-      <Step title="تحقق من أذوناتك">تحتاج إلى إذن إدارة الخادم أو مسؤول، أو إلى رتبة مدير سحوبات.</Step>
-      <Step title="تحقق من القيم">تُرفض المدة التي لا تتضمن وحدة (مثل `30`). استخدم `30m`.</Step>
-    </Steps>
-  </Accordion>
-  <Accordion title="السحب عالق أو لم ينتهِ" icon="wrench">
-    نفّذ `/gfix giveaway_id:<id>`. استخدم `dry_run:true` أولًا إذا كنت تريد الاطلاع على التقرير فقط.
-  </Accordion>
-  <Accordion title="لم يحصل الفائزون على رتبة" icon="user-tag">
-    يجب أن تكون رتبة البوت **أعلى** من الرتبة التي يمنحها، ويحتاج إلى إذن **إدارة الرتب**.
-  </Accordion>
-  <Accordion title="لم يتلقَّ الفائزون رسالة خاصة" icon="envelope">
-    يجب تفعيل الرسائل الخاصة للفائزين في `/settings`، ويجب أن يسمح العضو بالرسائل الخاصة من أعضاء الخادم.
-  </Accordion>
-  <Accordion title="أوامر الشرطة المائلة غير ظاهرة" icon="slash">
-    تأكد من إضافة البوت مع صلاحية الوصول إلى الأوامر، ومن أن خادمك لم يُخفِ الأمر. إذا ظل الأمر غير ظاهر، فاطلب المساعدة في خادم الدعم.
-  </Accordion>
-  <Accordion title="لا يستطيع أحد الأعضاء المشاركة" icon="user-slash">
-    سيتلقى رسالة خاصة توضّح الشرط الذي لا يستوفيه: رتبة، أو عمر الحساب، أو المدة منذ الانضمام، أو المستوى، أو تعزيز الخادم، أو اختبار التحقق، وما إلى ذلك. راجع [شروط المشاركة](/ar/giveaways/entry-requirements).
-  </Accordion>
-  <Accordion title="نظام المستويات لا يمنح نقاط خبرة" icon="chart-line">
-    يتطلب تتبّع نقاط الخبرة اشتراك Premium نشطًا. راجع [نظام المستويات](/ar/features/leveling).
-  </Accordion>
-  <Accordion title="ارتكبت خطأً في سحب" icon="rotate-left">
-    يصلح `/gedit` معظم الأخطاء. إذا كان السحب قد انتهى بالفعل، فيمكن استخدام `/greroll` لاستبدال الفائزين.
-  </Accordion>
-</AccordionGroup>
+اختر المشكلة التي تطابق ما تراه.
+
+<CardGroup cols={2}>
+  <Card title="لم ينشر البوت السحب" icon="ban" href="/ar/help/troubleshooting/giveaway-not-posting">تحقق من الصلاحيات ورتبتك والقيم التي أدخلتها.</Card>
+  <Card title="السحب عالق أو لم ينتهِ" icon="wrench" href="/ar/help/troubleshooting/giveaway-not-ending">شخّصه وأصلحه بـ /gfix.</Card>
+  <Card title="الفائزون لم يحصلوا على رتبة أو رسالة خاصة" icon="user-slash" href="/ar/help/troubleshooting/winner-not-notified">أصلح ترتيب الرتب والصلاحيات وإعدادات الرسائل الخاصة.</Card>
+  <Card title="عضو لا يستطيع الدخول إلى السحب" icon="user-xmark" href="/ar/help/troubleshooting/cannot-enter">اعرف أي شرط يمنعه.</Card>
+  <Card title="أوامر الشرطة المائلة غير ظاهرة" icon="slash" href="/ar/help/troubleshooting/commands-missing">اجعل أوامر البوت تظهر.</Card>
+  <Card title="المستويات لا تمنح خبرة" icon="chart-line" href="/ar/help/troubleshooting/leveling-no-xp">لماذا لا يرتفع مستوى الأعضاء.</Card>
+</CardGroup>
 
 <Info>
-أرفق رابط السحب ووضّح ما كنت تتوقع حدوثه عند طلب المساعدة في [خادم الدعم](https://discord.gg/86jArY28hj). فهذا يسرّع حل المشكلات كثيرًا.
+عند طلب المساعدة في [خادم الدعم](https://discord.gg/86jArY28hj) أرفق رابط السحب وما كنت تتوقع حدوثه. هذا يسرّع الإصلاح كثيرًا.
 </Info>

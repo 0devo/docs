@@ -1,0 +1,39 @@
+---
+title: "/gtemplate import"
+description: "استيراد قالب من ملف .json مُصدَّر باستخدام /gtemplate export"
+icon: "gift"
+---
+
+استيراد قالب من ملف .json مُصدَّر باستخدام /gtemplate export
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate import` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `file`. الخيارات الاختيارية: `name`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate import file:(attach a file)
+```
+```text مثال أوسع
+/gtemplate import file:(attach a file) name:weekly-nitro
+```
+</CodeGroup>
+
+
+| الخيار | النوع | مطلوب | الوصف | ملاحظات |
+| --- | --- | --- | --- | --- |
+| `file` | مرفق | نعم | ملف .json المراد استيراده |  |
+| `name` | نص | لا | استبدال الاسم المستورد |  |
+
+راجع [القوالب](/ar/giveaways/templates).

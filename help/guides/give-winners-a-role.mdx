@@ -1,0 +1,21 @@
+---
+title: "How to give winners a role automatically"
+description: "Hand out a role, bonus XP or levels to every winner."
+icon: "user-tag"
+---
+
+<Steps>
+  <Step title="Pick the role on the command">
+    ```text
+    /gstart duration:3d winners:3 prize:Nitro winners_roles:@Winner
+    ```
+  </Step>
+  <Step title="Or use the Studio for more control">
+    Open **Giveaway Settings**, then **Rewards and Bonus Entries**, then **Winner Roles**. Add a delay, a temporary duration, XP or level rewards, or remove the role from previous winners.
+  </Step>
+  <Step title="Check the bot's role position">
+    The bot's role must be **above** the role it gives, and it needs **Manage Roles**.
+  </Step>
+</Steps>
+
+Advanced winner role options need <Badge color="purple">Tier 2</Badge>. See [Winners and claims](/giveaways/winners-and-claims).

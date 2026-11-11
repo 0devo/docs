@@ -1,0 +1,39 @@
+---
+title: "/gtemplate edit media"
+description: "تعديل الصورة / الصورة المصغرة"
+icon: "gift"
+---
+
+تعديل الصورة / الصورة المصغرة
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate edit media` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`. الخيارات الاختيارية: `image`, `thumbnail`, `clear_media`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate edit media name:weekly-nitro
+```
+```text مثال أوسع
+/gtemplate edit media name:weekly-nitro image:(attach a file) thumbnail:(attach a file) clear_media:true
+```
+</CodeGroup>
+
+
+| الخيار | النوع | مطلوب | الوصف | ملاحظات |
+| --- | --- | --- | --- | --- |
+| `name` | نص | نعم | القالب المراد تعديله |  |
+| `image` | مرفق | لا | صورة الجائزة الجديدة |  |
+| `thumbnail` | مرفق | لا | الصورة المصغرة الجديدة |  |
+| `clear_media` | قيمة منطقية | لا | إزالة الصورة والصورة المصغرة معًا |  |

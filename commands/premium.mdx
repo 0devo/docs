@@ -4,165 +4,29 @@ description: "Purchase Premium, verify it, and manage your subscription and sett
 icon: "star"
 ---
 
-## Purchasing Premium Now
+## Commands
 
+<CardGroup cols={2}>
+  <Card title="/premium-info" icon="terminal" href="/commands/premium/premium-info">Type /premium-info in a channel where the bot can see messages and pick it from the list.</Card>
+  <Card title="/premium-settings" icon="terminal" href="/commands/premium/premium-settings">Opens a user-specific Premium settings panel for the current server.</Card>
+  <Card title="/premium-transfer" icon="terminal" href="/commands/premium/premium-transfer">Type /premium-transfer in a channel where the bot can see messages and pick it from the list.</Card>
+  <Card title="/premium-link" icon="terminal" href="/commands/premium/premium-link">Creates a short code to link the current server to Patreon data; the code is valid for 30 minutes.</Card>
+  <Card title="/premium-activate" icon="terminal" href="/commands/premium/premium-activate">Requires Manage Server, then looks for a Patreon membership linked to the Discord account of the user who ran the command, checks that its status is activepatro</Card>
+</CardGroup>
+
+## Purchasing Premium Now
 Current purchases are made through the [plans page](https://giveawayx.lol/plans), not Patreon. Sign in to the website, choose **Silver** or **Diamond** and a monthly or annual billing cycle, then specify the number of servers and the servers where the bot is installed. After you review your order, the website redirects you to the payment processor’s secure checkout page. According to the website FAQ, Premium is automatically activated for the selected servers after payment is confirmed, with no activation code or manual step. Enter payment details only on the secure checkout page.
 
 If you have a manual or legacy subscription, the FAQ says your current access continues until the end of its original term; use the website checkout when renewing or upgrading. Do not assume that the legacy Patreon commands below activate or sync with a website purchase: this integration is not verified by the source for these commands, and the bot’s status may differ from what the website displays.
 
 ## Available Commands
 
-### `/premium-info`
-
-**Defined permission:** Manage Server (`ManageGuild`).
-
-{/* usage */}
-**How to use**
-
-<Steps>
-  <Step title="Open the command">
-    Type `/premium-info` in a channel where the bot can see messages and pick it from the list.
-  </Step>
-  <Step title="Fill in the options">
-    This command has no required options.
-  </Step>
-  <Step title="Send it">
-    The bot replies with the result.
-  </Step>
-</Steps>
-
-<CodeGroup>
-```text Simplest form
-/premium-info
-```
-</CodeGroup>
-
-
-Displays an ephemeral panel with the Premium status of the current server. It includes the plan and status, owner, activation and expiration dates, included features, and usage of linked server slots, if applicable. The panel provides a refresh option, a management button that points to `/premium-settings`, and a support/renewal link. If the server has no recorded subscription, it displays the features and support link.
-
-### `/premium-settings`
-
-Opens a user-specific Premium settings panel for the current server. You must have **Administrator** or **Manage Server** permission, or one of the server’s registered giveaway manager roles; the bot owner is also allowed. An active Premium subscription is required; otherwise, the panel displays a message saying Premium is required.
-
-{/* usage */}
-**How to use**
-
-<Steps>
-  <Step title="Open the command">
-    Type `/premium-settings` in a channel where the bot can see messages and pick it from the list.
-  </Step>
-  <Step title="Fill in the options">
-    This command has no required options.
-  </Step>
-  <Step title="Send it">
-    The bot opens an interactive panel with buttons and menus; make your changes there.
-  </Step>
-</Steps>
-
-<CodeGroup>
-```text Simplest form
-/premium-settings
-```
-</CodeGroup>
-
-
-The panel includes sections for navigating between:
-
-- **Overview:** Plan status, expiration date, and add-on slot usage.
-- **Multi-Server Add-on:** Link additional servers to or unlink them from the main subscription, and view the servers and slots in use. Slots must be available. A linked server cannot manage the add-on itself; it is managed from the main server.
-- **Bot Customization:** Set the bot’s nickname in this server or restore its default in Tier 1 and above; customize or reset the avatar, banner, and bio in Tier 2 and above. These customizations are specific to this server.
-- **Name Style:** In Tier 2 and above, choose a font, effect, and colors for the bot’s displayed name in this server, or restore the default style. Available effects are Solid, Gradient, Neon, Toon, Pop, and Glow; Gradient requires two colors. This feature is server-specific and depends on Discord support.
-
-### `/premium-transfer new_guild_id:<server ID>`
-
-**Option:**
-
-{/* usage */}
-**How to use**
-
-<Steps>
-  <Step title="Open the command">
-    Type `/premium-transfer` in a channel where the bot can see messages and pick it from the list.
-  </Step>
-  <Step title="Fill in the options">
-    Required: `new_guild_id`.
-  </Step>
-  <Step title="Send it">
-    The bot replies with the result.
-  </Step>
-</Steps>
-
-<CodeGroup>
-```text Simplest form
-/premium-transfer new_guild_id:123456789012345678
-```
-</CodeGroup>
-
-
-| Option | Type | Required | Description |
-| --- | --- | --- | --- |
-| `new_guild_id` | string | Yes | ID of the server to transfer the subscription to. The bot must be a member of it, and it must not already have a recorded Premium subscription. |
-
-Transfers a **Tier 2 (Diamond)** subscription from the current server to another server. You must be the recorded subscription owner (`ownerId`), the bot must be present in the target server, and that server must not already have a recorded subscription; you cannot transfer to the same server. The expiration date remains unchanged. The command is defined with public registration permissions, but the runtime check restricts transfers to the subscription owner. The plans page mentions an eligible transfer option for the Diamond plan; this does not mean every website subscription is automatically eligible for this command or that purchase data is synchronized with it.
-
-### `/premium-link` — Legacy Patreon linking
-
-Creates a short code to link the current server to Patreon data; the code is valid for 30 minutes. It displays legacy instructions for matching the Discord account connected to Patreon or placing the code in the membership note. The command requires **Manage Server** according to its definition. This is a Patreon-specific legacy path, not a current purchase method, and the source does not establish that it links or activates a website purchase.
-
-{/* usage */}
-**How to use**
-
-<Steps>
-  <Step title="Open the command">
-    Type `/premium-link` in a channel where the bot can see messages and pick it from the list.
-  </Step>
-  <Step title="Fill in the options">
-    This command has no required options.
-  </Step>
-  <Step title="Send it">
-    The bot replies with the result.
-  </Step>
-</Steps>
-
-<CodeGroup>
-```text Simplest form
-/premium-link
-```
-</CodeGroup>
-
-
-### `/premium-activate` — Legacy Patreon activation
-
-Requires **Manage Server**, then looks for a Patreon membership linked to the Discord account of the user who ran the command, checks that its status is `active_patron` and that its tier matches one of the bot’s tiers, and then attempts to activate the plan for the current server for one month. This implementation is Patreon-specific and does not mention website purchases; do not use it as if it activates or confirms payment for an order from `giveawayx.lol/plans`.
-
-{/* usage */}
-**How to use**
-
-<Steps>
-  <Step title="Open the command">
-    Type `/premium-activate` in a channel where the bot can see messages and pick it from the list.
-  </Step>
-  <Step title="Fill in the options">
-    This command has no required options.
-  </Step>
-  <Step title="Send it">
-    The bot replies with the result.
-  </Step>
-</Steps>
-
-<CodeGroup>
-```text Simplest form
-/premium-activate
-```
-</CodeGroup>
-
 
 ## Admin and Developer Commands
-
 The following two commands exist in the bot source, but are restricted to bot owners/developers by a `client.owners` check in their implementation. The `permission: Administrator` value in their definitions is not the actual developer restriction; non-owners cannot successfully use them.
 
-### `/premium-add`
 
+### `/premium-add`
 A developer command to manually add or renew Premium for a server. It requires the following options:
 
 | Option | Required | Description |
@@ -177,9 +41,7 @@ A developer command to manually add or renew Premium for a server. It requires t
 Manually activates Premium, applies add-on slots if requested, creates a PDF invoice, and attempts to send it to the recorded user. This is an internal command, not the website checkout, and it is not proof that payment was received.
 
 ### `/premium-removal guild_id:<server ID>`
-
 A developer command to remove Premium from the specified server and restore its custom settings to their defaults. It requires only the `guild_id` option and removes the subscription by calling `deactivatePremium`. Although the Discord permission is defined as Administrator, the implementation allows only an ID present in `client.owners`.
 
 ## Compatibility Notes
-
 The Patreon commands (`/premium-link` and `/premium-activate`) and manual admin tools (`/premium-add` and `/premium-removal`) operate on the bot’s current records according to their source, but the source does not establish integration with the website checkout or the website processor’s payment confirmations. Therefore, use the plans page for current purchases and check `/premium-info` after payment is confirmed; if the status does not match, contact support instead of trying to activate the order with a legacy Patreon command.

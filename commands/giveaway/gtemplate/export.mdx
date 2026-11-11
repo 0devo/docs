@@ -1,0 +1,33 @@
+---
+title: "/gtemplate export"
+description: "Export a template as a shareable .json file"
+icon: "gift"
+---
+
+Export a template as a shareable .json file
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate export` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate export name:weekly-nitro
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template to export |  |

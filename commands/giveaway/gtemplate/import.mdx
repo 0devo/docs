@@ -1,0 +1,39 @@
+---
+title: "/gtemplate import"
+description: "Import a template from a .json file exported by /gtemplate export"
+icon: "gift"
+---
+
+Import a template from a .json file exported by /gtemplate export
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate import` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `file`. Optional: `name`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate import file:(attach a file)
+```
+```text Fuller example
+/gtemplate import file:(attach a file) name:weekly-nitro
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `file` | attachment | Yes | The .json file to import |  |
+| `name` | string | No | Override the imported name |  |
+
+See [Templates](/giveaways/templates).

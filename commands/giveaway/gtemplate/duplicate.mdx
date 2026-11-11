@@ -1,0 +1,34 @@
+---
+title: "/gtemplate duplicate"
+description: "Clone a template under a new name"
+icon: "gift"
+---
+
+Clone a template under a new name
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate duplicate` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`, `new_name`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate duplicate name:weekly-nitro new_name:weekly-nitro-2
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template to duplicate |  |
+| `new_name` | string | Yes | Name for the duplicate |  |

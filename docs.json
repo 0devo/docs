@@ -45,11 +45,11 @@
                 "pages": [
                   "giveaways/overview",
                   "giveaways/creating",
+                  "giveaways/studio",
+                  "giveaways/participating",
                   "giveaways/drops",
                   "giveaways/scheduling",
-                  "giveaways/templates",
-                  "giveaways/studio",
-                  "giveaways/participating"
+                  "giveaways/templates"
                 ]
               },
               {
@@ -64,10 +64,10 @@
                 "group": "Manage and customize",
                 "pages": [
                   "giveaways/managing",
+                  "giveaways/participants-panel",
                   "giveaways/settings",
                   "giveaways/auto-ping",
-                  "giveaways/recipes",
-                  "giveaways/participants-panel"
+                  "giveaways/recipes"
                 ]
               }
             ]
@@ -117,15 +117,116 @@
             "tab": "Commands",
             "groups": [
               {
-                "group": "Command reference",
+                "group": "Overview",
                 "pages": [
                   "commands/overview",
-                  "commands/giveaway",
-                  "commands/general",
-                  "commands/information",
-                  "commands/premium",
                   "commands/context-menus",
                   "commands/prefix"
+                ]
+              },
+              {
+                "group": "Giveaway commands",
+                "pages": [
+                  "commands/giveaway",
+                  "commands/giveaway/gcreate",
+                  "commands/giveaway/gstart",
+                  "commands/giveaway/gdrop",
+                  "commands/giveaway/glast",
+                  {
+                    "group": "/gschedule",
+                    "pages": [
+                      "commands/giveaway/gschedule",
+                      "commands/giveaway/gschedule/create",
+                      "commands/giveaway/gschedule/list",
+                      "commands/giveaway/gschedule/edit",
+                      "commands/giveaway/gschedule/delete"
+                    ]
+                  },
+                  {
+                    "group": "/gtemplate",
+                    "pages": [
+                      "commands/giveaway/gtemplate",
+                      "commands/giveaway/gtemplate/create",
+                      "commands/giveaway/gtemplate/edit-basic",
+                      "commands/giveaway/gtemplate/edit-requirements",
+                      "commands/giveaway/gtemplate/edit-entries",
+                      "commands/giveaway/gtemplate/edit-media",
+                      "commands/giveaway/gtemplate/delete",
+                      "commands/giveaway/gtemplate/list",
+                      "commands/giveaway/gtemplate/view",
+                      "commands/giveaway/gtemplate/preview",
+                      "commands/giveaway/gtemplate/duplicate",
+                      "commands/giveaway/gtemplate/export",
+                      "commands/giveaway/gtemplate/import"
+                    ]
+                  },
+                  "commands/giveaway/gedit",
+                  "commands/giveaway/gend",
+                  "commands/giveaway/gpause",
+                  "commands/giveaway/gresume",
+                  "commands/giveaway/greroll",
+                  "commands/giveaway/gdelete",
+                  "commands/giveaway/glist",
+                  "commands/giveaway/gfix",
+                  "commands/giveaway/settings",
+                  "commands/giveaway/setcolor",
+                  "commands/giveaway/setemoji"
+                ]
+              },
+              {
+                "group": "General commands",
+                "pages": [
+                  "commands/general",
+                  "commands/general/afk",
+                  "commands/general/avatar",
+                  "commands/general/user",
+                  "commands/general/server",
+                  "commands/general/rank",
+                  "commands/general/top",
+                  "commands/general/setxp",
+                  "commands/general/setlevel",
+                  "commands/general/levelsetup",
+                  "commands/general/counting",
+                  "commands/general/starboard",
+                  "commands/general/sticky",
+                  "commands/general/translate",
+                  "commands/general/setlang"
+                ]
+              },
+              {
+                "group": "Information commands",
+                "pages": [
+                  "commands/information",
+                  "commands/information/help",
+                  "commands/information/ping",
+                  "commands/information/invite"
+                ]
+              },
+              {
+                "group": "Premium commands",
+                "pages": [
+                  "commands/premium",
+                  "commands/premium/premium-info",
+                  "commands/premium/premium-settings",
+                  "commands/premium/premium-transfer",
+                  "commands/premium/premium-link",
+                  "commands/premium/premium-activate"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Reference",
+            "groups": [
+              {
+                "group": "Placeholders",
+                "pages": [
+                  "reference/placeholders/index",
+                  "reference/placeholders/giveaway-messages",
+                  "reference/placeholders/sticky",
+                  "reference/placeholders/level-up",
+                  "reference/placeholders/welcomer",
+                  "reference/placeholders/command-responses"
                 ]
               }
             ]
@@ -137,14 +238,31 @@
                 "group": "Support",
                 "pages": [
                   "help/faq",
-                  "help/troubleshooting",
                   "help/changelog"
                 ]
               },
               {
-                "group": "Release updates",
+                "group": "How-to guides",
                 "pages": [
-                  "help/changelog"
+                  "help/guides",
+                  "help/guides/stop-alt-accounts",
+                  "help/guides/boosters-only",
+                  "help/guides/repeat-weekly",
+                  "help/guides/social-task-giveaway",
+                  "help/guides/change-prefix",
+                  "help/guides/give-winners-a-role"
+                ]
+              },
+              {
+                "group": "Troubleshooting",
+                "pages": [
+                  "help/troubleshooting",
+                  "help/troubleshooting/giveaway-not-posting",
+                  "help/troubleshooting/giveaway-not-ending",
+                  "help/troubleshooting/winner-not-notified",
+                  "help/troubleshooting/cannot-enter",
+                  "help/troubleshooting/commands-missing",
+                  "help/troubleshooting/leveling-no-xp"
                 ]
               },
               {
@@ -230,11 +348,11 @@
                 "pages": [
                   "ar/giveaways/overview",
                   "ar/giveaways/creating",
+                  "ar/giveaways/studio",
+                  "ar/giveaways/participating",
                   "ar/giveaways/drops",
                   "ar/giveaways/scheduling",
-                  "ar/giveaways/templates",
-                  "ar/giveaways/studio",
-                  "ar/giveaways/participating"
+                  "ar/giveaways/templates"
                 ]
               },
               {
@@ -249,10 +367,10 @@
                 "group": "الإدارة والتخصيص",
                 "pages": [
                   "ar/giveaways/managing",
+                  "ar/giveaways/participants-panel",
                   "ar/giveaways/settings",
                   "ar/giveaways/auto-ping",
-                  "ar/giveaways/recipes",
-                  "ar/giveaways/participants-panel"
+                  "ar/giveaways/recipes"
                 ]
               }
             ]
@@ -302,15 +420,116 @@
             "tab": "الأوامر",
             "groups": [
               {
-                "group": "مرجع الأوامر",
+                "group": "نظرة عامة",
                 "pages": [
                   "ar/commands/overview",
-                  "ar/commands/giveaway",
-                  "ar/commands/general",
-                  "ar/commands/information",
-                  "ar/commands/premium",
                   "ar/commands/context-menus",
                   "ar/commands/prefix"
+                ]
+              },
+              {
+                "group": "أوامر السحوبات",
+                "pages": [
+                  "ar/commands/giveaway",
+                  "ar/commands/giveaway/gcreate",
+                  "ar/commands/giveaway/gstart",
+                  "ar/commands/giveaway/gdrop",
+                  "ar/commands/giveaway/glast",
+                  {
+                    "group": "/gschedule",
+                    "pages": [
+                      "ar/commands/giveaway/gschedule",
+                      "ar/commands/giveaway/gschedule/create",
+                      "ar/commands/giveaway/gschedule/list",
+                      "ar/commands/giveaway/gschedule/edit",
+                      "ar/commands/giveaway/gschedule/delete"
+                    ]
+                  },
+                  {
+                    "group": "/gtemplate",
+                    "pages": [
+                      "ar/commands/giveaway/gtemplate",
+                      "ar/commands/giveaway/gtemplate/create",
+                      "ar/commands/giveaway/gtemplate/edit-basic",
+                      "ar/commands/giveaway/gtemplate/edit-requirements",
+                      "ar/commands/giveaway/gtemplate/edit-entries",
+                      "ar/commands/giveaway/gtemplate/edit-media",
+                      "ar/commands/giveaway/gtemplate/delete",
+                      "ar/commands/giveaway/gtemplate/list",
+                      "ar/commands/giveaway/gtemplate/view",
+                      "ar/commands/giveaway/gtemplate/preview",
+                      "ar/commands/giveaway/gtemplate/duplicate",
+                      "ar/commands/giveaway/gtemplate/export",
+                      "ar/commands/giveaway/gtemplate/import"
+                    ]
+                  },
+                  "ar/commands/giveaway/gedit",
+                  "ar/commands/giveaway/gend",
+                  "ar/commands/giveaway/gpause",
+                  "ar/commands/giveaway/gresume",
+                  "ar/commands/giveaway/greroll",
+                  "ar/commands/giveaway/gdelete",
+                  "ar/commands/giveaway/glist",
+                  "ar/commands/giveaway/gfix",
+                  "ar/commands/giveaway/settings",
+                  "ar/commands/giveaway/setcolor",
+                  "ar/commands/giveaway/setemoji"
+                ]
+              },
+              {
+                "group": "الأوامر العامة",
+                "pages": [
+                  "ar/commands/general",
+                  "ar/commands/general/afk",
+                  "ar/commands/general/avatar",
+                  "ar/commands/general/user",
+                  "ar/commands/general/server",
+                  "ar/commands/general/rank",
+                  "ar/commands/general/top",
+                  "ar/commands/general/setxp",
+                  "ar/commands/general/setlevel",
+                  "ar/commands/general/levelsetup",
+                  "ar/commands/general/counting",
+                  "ar/commands/general/starboard",
+                  "ar/commands/general/sticky",
+                  "ar/commands/general/translate",
+                  "ar/commands/general/setlang"
+                ]
+              },
+              {
+                "group": "أوامر المعلومات",
+                "pages": [
+                  "ar/commands/information",
+                  "ar/commands/information/help",
+                  "ar/commands/information/ping",
+                  "ar/commands/information/invite"
+                ]
+              },
+              {
+                "group": "أوامر Premium",
+                "pages": [
+                  "ar/commands/premium",
+                  "ar/commands/premium/premium-info",
+                  "ar/commands/premium/premium-settings",
+                  "ar/commands/premium/premium-transfer",
+                  "ar/commands/premium/premium-link",
+                  "ar/commands/premium/premium-activate"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "المراجع",
+            "groups": [
+              {
+                "group": "المتغيرات",
+                "pages": [
+                  "ar/reference/placeholders/index",
+                  "ar/reference/placeholders/giveaway-messages",
+                  "ar/reference/placeholders/sticky",
+                  "ar/reference/placeholders/level-up",
+                  "ar/reference/placeholders/welcomer",
+                  "ar/reference/placeholders/command-responses"
                 ]
               }
             ]
@@ -322,14 +541,31 @@
                 "group": "الدعم",
                 "pages": [
                   "ar/help/faq",
-                  "ar/help/troubleshooting",
                   "ar/help/changelog"
                 ]
               },
               {
-                "group": "فهرس التحديثات",
+                "group": "أدلة خطوة بخطوة",
                 "pages": [
-                  "ar/help/changelog"
+                  "ar/help/guides",
+                  "ar/help/guides/stop-alt-accounts",
+                  "ar/help/guides/boosters-only",
+                  "ar/help/guides/repeat-weekly",
+                  "ar/help/guides/social-task-giveaway",
+                  "ar/help/guides/change-prefix",
+                  "ar/help/guides/give-winners-a-role"
+                ]
+              },
+              {
+                "group": "استكشاف الأخطاء",
+                "pages": [
+                  "ar/help/troubleshooting",
+                  "ar/help/troubleshooting/giveaway-not-posting",
+                  "ar/help/troubleshooting/giveaway-not-ending",
+                  "ar/help/troubleshooting/winner-not-notified",
+                  "ar/help/troubleshooting/cannot-enter",
+                  "ar/help/troubleshooting/commands-missing",
+                  "ar/help/troubleshooting/leveling-no-xp"
                 ]
               },
               {

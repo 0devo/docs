@@ -1,0 +1,28 @@
+---
+title: "/premium-activate"
+description: "Requires Manage Server, then looks for a Patreon membership linked to the Discord account of the user who ran the command, checks that its status is activepatro"
+icon: "star"
+---
+
+Requires **Manage Server**, then looks for a Patreon membership linked to the Discord account of the user who ran the command, checks that its status is `active_patron` and that its tier matches one of the bot’s tiers, and then attempts to activate the plan for the current server for one month. This implementation is Patreon-specific and does not mention website purchases; do not use it as if it activates or confirms payment for an order from `giveawayx.lol/plans`.
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/premium-activate` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/premium-activate
+```
+</CodeGroup>

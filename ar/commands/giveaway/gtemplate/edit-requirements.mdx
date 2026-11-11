@@ -1,0 +1,46 @@
+---
+title: "/gtemplate edit requirements"
+description: "تعديل متطلبات الرتب والعمر والدعوات والرسائل والمستوى"
+icon: "gift"
+---
+
+تعديل متطلبات الرتب والعمر والدعوات والرسائل والمستوى
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate edit requirements` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`. الخيارات الاختيارية: `required_roles`, `requirement_bypass_roles`, `winners_roles`, `blacklist_roles`, `joined_age`, `account_age`, `required_messages`, `required_invites`….
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate edit requirements name:weekly-nitro
+```
+```text مثال أوسع
+/gtemplate edit requirements name:weekly-nitro required_roles:@Member requirement_bypass_roles:@Staff winners_roles:@Winner blacklist_roles:@Muted
+```
+</CodeGroup>
+
+
+| الخيار | النوع | مطلوب | الوصف | ملاحظات |
+| --- | --- | --- | --- | --- |
+| `name` | نص | نعم | القالب المراد تعديله |  |
+| `required_roles` | نص | لا | الرتب المطلوبة (تستبدل الحالية) |  |
+| `requirement_bypass_roles` | نص | لا | رتب تجاوز المتطلبات (تستبدل الحالية) |  |
+| `winners_roles` | نص | لا | رتب الفائزين (تستبدل الحالية) |  |
+| `blacklist_roles` | نص | لا | الرتب المحظورة (تستبدل الحالية) |  |
+| `joined_age` | عدد صحيح | لا | الحد الأدنى للأيام في الخادم (0 = تعطيل) | النطاق: من 0 دون حد أقصى |
+| `account_age` | عدد صحيح | لا | الحد الأدنى لعمر الحساب (0 = تعطيل) | النطاق: من 0 دون حد أقصى |
+| `required_messages` | عدد صحيح | لا | الرسائل المطلوبة (0 = تعطيل) | النطاق: من 0 دون حد أقصى |
+| `required_invites` | عدد صحيح | لا | الدعوات المطلوبة (0 = تعطيل) | النطاق: من 0 دون حد أقصى |
+| `required_level` | عدد صحيح | لا | المستوى المطلوب (0 = تعطيل) | النطاق: من 0 دون حد أقصى |
+| `required_official_tag` | قيمة منطقية | لا | اشتراط وسم الخادم الرسمي |  |

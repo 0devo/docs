@@ -1,0 +1,45 @@
+---
+title: "/help"
+description: "Displays the help center or usage information for a specific command."
+icon: "circle-info"
+---
+
+Displays the help center or usage information for a specific command. No special permission is required.
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/help` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `command`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/help
+```
+```text Fuller example
+/help command:gstart
+```
+</CodeGroup>
+
+
+**Usage:** `/help [command]`
+
+| Option | Type | Required | Description |
+| --- | --- | --- | --- |
+| `command` | string | No | The name of the command you want details about; supports autocomplete. |
+
+- Without `command`, displays a help panel with a link to the commands page, the dashboard, the support server, and the bot invite link.
+- With `command`, displays the command's description, usage, options, and examples, if it is listed in the help data.
+- For slash commands, the help panel appears in the usual response. When using the prefix command, the panel is sent in a direct message and a ✅ confirmation reaction is added to the command message. If direct messages cannot be sent, the bot replies in the channel that it was unable to send the message.
+- Autocomplete lists matching commands, with a maximum of 25 suggestions. This does not guarantee that every suggestion has a detailed entry in the help data.
+
+**Example:** `/help command:ping`

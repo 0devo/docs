@@ -1,0 +1,59 @@
+---
+title: "/gschedule create"
+description: "Create a scheduled giveaway"
+icon: "gift"
+---
+
+Create a scheduled giveaway
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gschedule create` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `start_time`, `prize`, `duration`, `winners`, `channel`, `template`, `image`, `thumbnail`….
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gschedule create
+```
+```text Fuller example
+/gschedule create start_time:1d prize:Discord Nitro duration:1d winners:1
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `start_time` | string | No | When to start (e.g. 1d, 2h30m, or a unix timestamp) |  |
+| `prize` | string | No | The prize |  |
+| `duration` | string | No | Duration once it starts (e.g. 1d, 2h) |  |
+| `winners` | integer | No | Number of winners |  |
+| `channel` | channel | No | Channel |  |
+| `template` | string | No | Use a saved template |  |
+| `image` | attachment | No | Image |  |
+| `thumbnail` | attachment | No | Thumbnail |  |
+| `required_roles` | string | No | Required roles |  |
+| `requirement_bypass_roles` | string | No | Bypass roles |  |
+| `blacklist_roles` | string | No | Blacklist roles |  |
+| `winners_roles` | string | No | Roles given to winners |  |
+| `description` | string | No | Description |  |
+| `host` | user | No | Host user |  |
+| `giveaway_create_message` | string | No | Custom start message |  |
+| `joined_age` | integer | No | Min days in server |  |
+| `account_age` | integer | No | Min account age (days) |  |
+| `required_messages` | integer | No | Min messages required |  |
+| `extra_entries` | string | No | Bonus entries (e.g. @role 5) |  |
+| `max_entries` | integer | No | Max vote bonus entries | Range: 1 to 10 |
+| `repeat` | integer | No | Repeat count once live (Premium) | Range: 1 to no max |
+| `sticky` | boolean | No | Sticky (Premium Tier 2+) |  |
+| `required_official_tag` | boolean | No | Require official tag |  |
+| `required_level` | integer | No | Min level required | Range: 1 to no max |

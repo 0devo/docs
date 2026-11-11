@@ -1,0 +1,40 @@
+---
+title: "/setxp"
+description: "Set a member's XP in the server."
+icon: "toolbox"
+---
+
+Set a member's XP in the server. Bot accounts are not supported. When text or voice XP is set, the implementation adjusts the total by the difference for the selected type, then recalculates the level from the total. This means total XP remains the source of the level and ranking.
+
+**Permission:** Manage Server (`ManageGuild`), Administrator, or bot owner
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/setxp` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `user`, `amount`. Optional: `type`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/setxp user:@Member amount:1000
+```
+```text Fuller example
+/setxp user:@Member amount:1000 type:total
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `user` | user | Yes | User whose XP to change | Bots are not accepted |
+| `amount` | integer | Yes | New XP amount | Minimum 0; the option defines no maximum |
+| `type` | string | No | XP type to set | `total`, `text`, or `voice`; defaults to `total` |

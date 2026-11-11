@@ -1,0 +1,46 @@
+---
+title: "/greroll"
+description: "Rerolls one or more new winners from an ended giveaway"
+icon: "gift"
+---
+
+Rerolls one or more new winners from an ended giveaway
+
+**Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/greroll` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Optional: `replace`, `count`, `exclude_previous_winners`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/greroll giveaway_id:123456789012345678
+```
+```text Fuller example
+/greroll giveaway_id:123456789012345678 replace:@Winner count:2 exclude_previous_winners:true
+```
+```text Prefix
+g!greroll 123456789012345678
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Select the giveaway to reroll (or paste a message ID / link) | Autocomplete |
+| `replace` | user | No | Replace only this winner (e.g. they never claimed) — everyone else keeps their win |  |
+| `count` | integer | No | How many new winners to draw (replaces the whole winner list) | Range: 1 to no max |
+| `exclude_previous_winners` | boolean | No | Never pick someone who already won (default: yes) |  |
+
+Also available as the **Reroll Giveaway** message action. See [Winners, claims and rerolls](/giveaways/winners-and-claims#rerolling-manually-with-greroll).

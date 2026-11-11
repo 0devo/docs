@@ -1,0 +1,27 @@
+---
+title: "كيف تنظّم سحبًا للداعمين بالبوست فقط"
+description: "اقصر الدخول على من يدعمون خادمك بالبوست، أو كافئهم بمشاركات إضافية."
+icon: "rocket"
+---
+
+<Tabs>
+  <Tab title="للداعمين فقط" icon="lock">
+    <Steps>
+      <Step title="افتح الاستوديو">شغّل `/gcreate` واختر **التخصيص في الاستوديو**.</Step>
+      <Step title="اضبط قواعد البوست">اذهب إلى **Giveaway Settings** ثم **Entry Requirements**. اجعل **Boost Count** 1 أو أكثر. واضبط **Boost Duration** بالأيام إن شئت.</Step>
+      <Step title="انشر">اختر **Review and Publish**.</Step>
+    </Steps>
+  </Tab>
+  <Tab title="مشاركات إضافية للداعمين" icon="ticket">
+    ```text
+    /gstart duration:7d winners:1 prize:VIP Role extra_entries:@Booster 3
+    ```
+    يستطيع الجميع الدخول، ويحصل الداعمون على 3 مشاركات إضافية.
+  </Tab>
+</Tabs>
+
+<Warning>
+إذا توقف عضو عن الدعم أثناء جريان سحب للداعمين فقط، يُزال منه تلقائيًا.
+</Warning>
+
+راجع [بوستات الخادم](/ar/features/boosts).

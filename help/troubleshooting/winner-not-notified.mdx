@@ -1,0 +1,17 @@
+---
+title: "Winners did not get a role or a DM"
+description: "Fix role order, permissions and DM settings."
+icon: "user-slash"
+---
+
+<AccordionGroup>
+  <Accordion title="No role was given" icon="user-tag" defaultOpen>
+    The bot's role must be **above** the role it gives, and it needs **Manage Roles**. Roles with Administrator permission are never given by automatic features.
+  </Accordion>
+  <Accordion title="No DM arrived" icon="envelope">
+    Check that **Winner DM** is on in `/settings`, and that the member allows DMs from server members.
+  </Accordion>
+  <Accordion title="No winner thread" icon="comments">
+    Check that **Auto thread** is on, and that the bot has permission to create threads in the channel.
+  </Accordion>
+</AccordionGroup>

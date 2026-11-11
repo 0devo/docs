@@ -1,0 +1,50 @@
+---
+title: "المتغيرات (Placeholders)"
+description: "متغيرات مثل {user} و{prize} يستبدلها البوت بقيم حقيقية في رسائلك."
+icon: "brackets-curly"
+---
+
+**المتغير (Placeholder)** كلمة بين قوسين معقوفين مثل `{user}`. عند إرسال البوت لرسالتك يستبدل كل متغير بقيمة حقيقية، فتستطيع رسالة واحدة أن تخاطب كل عضو باسمه أو تعلن الجائزة الصحيحة.
+
+```text
+Congratulations {winners_list}! You won {prize} in {server}.
+```
+
+تصبح
+
+```text
+Congratulations @Alex! You won Discord Nitro in My Server.
+```
+
+## أي المتغيرات أستخدم وأين؟
+
+لكل ميزة مجموعتها **الخاصة** من المتغيرات. ولن يعمل متغير ميزة ما في ميزة أخرى.
+
+<CardGroup cols={2}>
+  <Card title="رسائل السحوبات" icon="gift" href="/ar/reference/placeholders/giveaway-messages">
+    رسائل الفائز والمضيف الخاصة، وإعلان الفائزين، وسلاسل الفائزين، وإيمبد السحب.
+  </Card>
+  <Card title="الرسائل اللاصقة" icon="thumbtack" href="/ar/reference/placeholders/sticky">
+    قيم المستخدم والخادم والقناة والوقت والعشوائية.
+  </Card>
+  <Card title="رسائل رفع المستوى" icon="chart-line" href="/ar/reference/placeholders/level-up">
+    `{user}` و`{level}` وغيرهما لإعلانات المستويات.
+  </Card>
+  <Card title="الترحيب والوداع" icon="hand-wave" href="/ar/reference/placeholders/welcomer">
+    اسم العضو والخادم وعدد الأعضاء وعمر الحساب.
+  </Card>
+  <Card title="ردود الأوامر" icon="wand-magic-sparkles" href="/ar/reference/placeholders/command-responses">
+    ردود مخصصة للأوامر بقيم المستخدم والخادم والقناة.
+  </Card>
+</CardGroup>
+
+## قواعد تسري في كل مكان
+
+<Check>اكتبها كما هي تمامًا بما فيها الأقواس المعقوفة، وحافظ على الإملاء نفسه.</Check>
+<Check>يمكنك استخدام المتغير نفسه عدة مرات في الرسالة الواحدة.</Check>
+<Warning>
+المتغير الذي لا تعرفه الميزة يُترك **كنص عادي**، فيظهر `{typo}` حرفيًا في الرسالة. عاين الرسالة دائمًا قبل النشر.
+</Warning>
+<Note>
+بعض الميزات تتطلب إعدادًا أو مستوى Premium ليعمل المتغير. فمثلًا تحتاج الرسائل اللاصقة إلى تفعيل **Placeholders**، وهذا يتطلب المستوى 1.
+</Note>

@@ -1,0 +1,44 @@
+---
+title: "/gfix"
+description: "Diagnose and safely repair a stuck or inconsistent giveaway"
+icon: "gift"
+---
+
+Diagnose and safely repair a stuck or inconsistent giveaway
+
+**Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gfix` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Optional: `dry_run`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gfix giveaway_id:123456789012345678
+```
+```text Fuller example
+/gfix giveaway_id:123456789012345678 dry_run:true
+```
+```text Prefix
+g!gfix 123456789012345678
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Giveaway message ID (or message link) | Autocomplete |
+| `dry_run` | boolean | No | Only diagnose — change nothing |  |
+
+The command performs safe automatic repairs and then checks again. Actions that change a giveaway’s lifecycle require confirmation using buttons in the report, and the status is checked again on confirmation. With `dry_run:true`, it only diagnoses: no changes are made and no confirmation buttons appear. Accepts a message ID or link, and is also available as the **Fix Giveaway** message action. See [Diagnostic codes](/giveaways/managing#gfix-diagnose-and-repair).

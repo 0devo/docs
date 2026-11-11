@@ -1,0 +1,33 @@
+---
+title: "/server"
+description: "Show a server information card, including its owner and creation date; members, approximate online presence, and bots; channels, roles, emojis, stickers, and so"
+icon: "toolbox"
+---
+
+Show a server information card, including its owner and creation date; members, approximate online presence, and bots; channels, roles, emojis, stickers, and soundboard sounds; safety settings; boosts, links, system channels, description, and available media. Server image buttons are direct links and appear when the asset is available.
+
+**Permission:** Everyone
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/server` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/server
+```
+</CodeGroup>
+
+
+The card includes **View Roles** and **View Emojis** buttons. Each opens a user-specific list with **Previous / Next** navigation when there are multiple pages. Each page shows up to 20 items, and navigation buttons are omitted when there is only one page. Roles are ordered by descending position; the list shows each role's name, position, and ID. The emoji list shows each emoji's name and ID and whether it is animated. List results are private to the user who opened them, and interactions must take place in the same server where the button was created.

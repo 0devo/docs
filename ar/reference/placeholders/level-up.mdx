@@ -1,0 +1,33 @@
+---
+title: "متغيرات رسائل رفع المستوى"
+description: "متغيرات رسائل رفع المستوى النصية والصوتية والتفاعلية والخاصة."
+icon: "chart-line"
+---
+
+تُكتب رسائل رفع المستوى في `/levelsetup` (راجع [المستويات](/ar/features/leveling)). يمكنك كتابة رسالة منفصلة لرفع المستوى **النصي** و**الصوتي** و**بالتفاعل** و**في الخاص**، حتى 500 حرف لكل منها.
+
+| المتغير | يصبح |
+| --- | --- |
+| `{user}` | إشارة إلى العضو |
+| `{userName}` | اسم العضو دون إشارة |
+| `{level}` | المستوى الذي وصل إليه للتو |
+| `{server}` | اسم خادمك |
+
+<CodeGroup>
+```text نصي
+GG {user}! Level {level}!
+```
+```text صوتي
+Congrats {user}! Voice Level {level}!
+```
+```text تفاعلي
+Congrats {user}, reaction level {level}!
+```
+```text خاص
+Hey {user}, you leveled up in {server}!
+```
+</CodeGroup>
+
+<Tip>
+استخدم `{userName}` في الأماكن التي قد تنبّه فيها الإشارة العضو، مثل عنوان الإيمبد.
+</Tip>

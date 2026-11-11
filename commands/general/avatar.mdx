@@ -1,0 +1,39 @@
+---
+title: "/avatar"
+description: "Show a user's avatar and banner, if available, or the server icon and banner when server: true is selected."
+icon: "toolbox"
+---
+
+Show a user's avatar and banner, if available, or the server icon and banner when `server: true` is selected. Animated account media is shown as GIF and static media as PNG; a button provides a direct link to each available asset. If the server has neither an icon nor a banner, the command displays a notice saying they are unavailable. A context-menu command named **Avatar** is also available by right-clicking a user.
+
+**Permission:** Everyone
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/avatar` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `user`, `server`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/avatar
+```
+```text Fuller example
+/avatar user:@Member server:true
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `user` | user | No | User whose images to show | Defaults to the command user |
+| `server` | boolean | No | Show the server icon and banner instead of user assets | Optional; when `true`, server assets take precedence |

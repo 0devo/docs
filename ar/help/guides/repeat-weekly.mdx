@@ -1,0 +1,27 @@
+---
+title: "كيف تجعل السحب يتكرر تلقائيًا"
+description: "شغّل السحب نفسه كل أسبوع دون إعادة إنشائه."
+icon: "rotate"
+---
+
+<Tabs>
+  <Tab title="كرر فورًا" icon="rotate">
+    استخدم خيار `repeat`، المتاح من <Badge color="blue">المستوى 1</Badge>.
+
+    ```text
+    /gstart duration:7d winners:1 prize:Weekly Nitro repeat:4
+    ```
+  </Tab>
+  <Tab title="جدول سلسلة" icon="calendar">
+    جدوِل سحبًا واختر تكرارًا **يوميًا** أو **أسبوعيًا** أو **شهريًا**. وعند انطلاق أحدها يُجهَّز التالي تلقائيًا.
+
+    ```text
+    /gschedule create start_time:1d duration:7d winners:1 prize:Weekly Nitro
+    ```
+  </Tab>
+  <Tab title="احفظ قالبًا" icon="copy">
+    احفظ الإعداد بـ `/gtemplate create`، ثم ابدأه متى شئت بـ `/gstart template:weekly-nitro`.
+  </Tab>
+</Tabs>
+
+راجع [الجدولة](/ar/giveaways/scheduling) و[القوالب](/ar/giveaways/templates).

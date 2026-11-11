@@ -1,0 +1,52 @@
+---
+title: "متغيرات الرسائل اللاصقة"
+description: "كل المتغيرات المتاحة في نص الرسالة اللاصقة وعنوانها وتذييلها."
+icon: "thumbtack"
+---
+
+تتطلب المتغيرات في الرسائل اللاصقة تفعيل **Placeholders** في إعدادات مظهر الرسالة، وهذا يحتاج <Badge color="blue">المستوى 1</Badge>. راجع [الرسائل اللاصقة](/ar/features/sticky).
+
+## المستخدم
+
+| المتغير | يصبح | مثال |
+| --- | --- | --- |
+| `{user}` | اسم المستخدم | Alex |
+| `{user.mention}` | إشارة | @Alex |
+| `{user.tag}` | اسم المستخدم مع الوسم | Alex#0000 |
+| `{user.id}` | معرّف المستخدم | 123456789 |
+| `{user.displayname}` | الاسم المعروض أو اللقب | AlexCool |
+
+## الخادم والقناة
+
+| المتغير | يصبح | مثال |
+| --- | --- | --- |
+| `{server}` | اسم الخادم | My Server |
+| `{membercount}` | عدد الأعضاء (ويصلح أيضًا `{server.membercount}`) | 1,234 |
+| `{channel}` | اسم القناة | general |
+| `{channel.mention}` | إشارة إلى القناة | #general |
+| `{channel.topic}` | موضوع القناة | Chat about anything |
+
+متاحة أيضًا: `{server.id}` و`{server.icon}` و`{channel.id}`.
+
+## الوقت
+
+| المتغير | يصبح | مثال |
+| --- | --- | --- |
+| `{date}` | التاريخ | Mar 11, 2026 |
+| `{time}` | الوقت | 3:42 PM |
+| `{timestamp}` | طابع وقت Discord الكامل | Wednesday, March 11, 2026 3:42 PM |
+| `{timestamp.relative}` | وقت نسبي | منذ دقيقتين |
+
+متاحة أيضًا: `{timestamp.short}` و`{timestamp.date}` و`{timestamp.time}` و`{now}`.
+
+## عشوائي
+
+| المتغير | يصبح |
+| --- | --- |
+| `{random}` | رقم عشوائي من 0 إلى 99 |
+| `{random.1-10}` | رقم عشوائي من 1 إلى 10 |
+| `{random.1-100}` | رقم عشوائي من 1 إلى 100 |
+
+```text مثال
+Welcome to **{server}**, {user.mention}! There are now {membercount} of us.
+```

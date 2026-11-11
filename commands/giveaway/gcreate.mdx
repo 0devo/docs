@@ -1,0 +1,35 @@
+---
+title: "/gcreate"
+description: "Create a giveaway with a quick form"
+icon: "gift"
+---
+
+Create a giveaway with a quick form
+
+**Permission:** Manage Server, Administrator, or Giveaway Manager role
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gcreate` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    A form opens: fill in the prize, duration and winners, optionally upload an image, then choose **Publish now** or **Customize in Studio**.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gcreate
+```
+</CodeGroup>
+
+
+<Info>
+Opens a modal with a prize (required, up to 256 characters), duration (required), winner count (required, default: 1), and an optional prize image (PNG, JPG, GIF, or WEBP, up to 8 MB). You must choose what happens after submission: **Publish now**, using the server's appearance and default rules, or **Customize in Studio**, which opens the `/gstart` panel prefilled with these values. Inputs are validated before continuing. If there is an error, an ephemeral response appears with an **Edit and Retry** button that reopens the modal with your answers preserved. The accepted duration is 10 seconds to 90 days; winner-count and duration limits depend on the Premium plan. The command checks the current channel and the bot's permissions before opening the modal. The modal expires after 15 minutes. See [Creating giveaways](/giveaways/creating#gcreate-the-quick-form).
+</Info>

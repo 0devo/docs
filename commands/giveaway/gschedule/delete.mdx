@@ -1,0 +1,35 @@
+---
+title: "/gschedule delete"
+description: "Delete a scheduled giveaway"
+icon: "gift"
+---
+
+Delete a scheduled giveaway
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gschedule delete` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gschedule delete giveaway_id:123456789012345678
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Select the giveaway to delete | Autocomplete |
+
+See [Scheduling giveaways](/giveaways/scheduling).

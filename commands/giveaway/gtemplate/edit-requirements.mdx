@@ -1,0 +1,46 @@
+---
+title: "/gtemplate edit requirements"
+description: "Edit role/age/invite/message/level requirements"
+icon: "gift"
+---
+
+Edit role/age/invite/message/level requirements
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate edit requirements` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`. Optional: `required_roles`, `requirement_bypass_roles`, `winners_roles`, `blacklist_roles`, `joined_age`, `account_age`, `required_messages`, `required_invites`….
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate edit requirements name:weekly-nitro
+```
+```text Fuller example
+/gtemplate edit requirements name:weekly-nitro required_roles:@Member requirement_bypass_roles:@Staff winners_roles:@Winner blacklist_roles:@Muted
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template to edit |  |
+| `required_roles` | string | No | Required roles (replaces existing) |  |
+| `requirement_bypass_roles` | string | No | Bypass roles (replaces existing) |  |
+| `winners_roles` | string | No | Winners roles (replaces existing) |  |
+| `blacklist_roles` | string | No | Blacklist roles (replaces existing) |  |
+| `joined_age` | integer | No | Min days in server (0 = disable) | Range: 0 to no max |
+| `account_age` | integer | No | Min account age (0 = disable) | Range: 0 to no max |
+| `required_messages` | integer | No | Required messages (0 = disable) | Range: 0 to no max |
+| `required_invites` | integer | No | Required invites (0 = disable) | Range: 0 to no max |
+| `required_level` | integer | No | Required level (0 = disable) | Range: 0 to no max |
+| `required_official_tag` | boolean | No | Require the server's official tag |  |

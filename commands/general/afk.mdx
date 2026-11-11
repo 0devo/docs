@@ -1,0 +1,41 @@
+---
+title: "/afk"
+description: "Enable AFK status in the current server, or in shared servers where your account is present when you choose the global scope."
+icon: "toolbox"
+---
+
+Enable AFK status in the current server, or in shared servers where your account is present when you choose the global scope. You cannot enable it again in the same server while the current status exists; send a message in that server first to clear it. The reason cannot contain links, invites, member mentions, `@everyone`, or `@here`, and is truncated to 200 characters. If no reason is entered, or it is blank after trimming whitespace, `AFK` is used.
+
+**Permission:** Everyone (server only)
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/afk` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `reason`, `global`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/afk
+```
+```text Fuller example
+/afk reason:Back at 8 PM global:true
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `reason` | string | No | Reason shown when members mention you | Maximum 200 characters; links, mentions, and invites are rejected; defaults to `AFK` |
+| `global` | boolean | No | Apply the status across shared servers | Defaults to `false`; saves it in the servers the user belongs to, in addition to the current server |
+
+See [AFK status](/features/afk).

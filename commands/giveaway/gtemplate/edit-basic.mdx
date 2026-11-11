@@ -1,0 +1,47 @@
+---
+title: "/gtemplate edit basic"
+description: "Edit name, prize, duration, winners, channel, description & premium flags"
+icon: "gift"
+---
+
+Edit name, prize, duration, winners, channel, description & premium flags
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate edit basic` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`. Optional: `new_name`, `prize`, `duration`, `winners`, `channel`, `description`, `entry_type`, `reaction_emoji`….
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate edit basic name:weekly-nitro
+```
+```text Fuller example
+/gtemplate edit basic name:weekly-nitro new_name:weekly-nitro-2 prize:Discord Nitro duration:1d winners:1
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template to edit |  |
+| `new_name` | string | No | Rename the template |  |
+| `prize` | string | No | New prize |  |
+| `duration` | string | No | New duration |  |
+| `winners` | integer | No | New winners count | Range: 1 to no max |
+| `channel` | channel | No | New channel |  |
+| `description` | string | No | New description |  |
+| `entry_type` | string | No | Entry mode | Choices: `button`, `reaction` |
+| `reaction_emoji` | string | No | Emoji for reaction mode |  |
+| `giveaway_create_message` | string | No | Custom create message |  |
+| `repeat` | integer | No | Repeat count | Range: 1 to no max |
+| `sticky` | boolean | No | Sticky giveaway |  |

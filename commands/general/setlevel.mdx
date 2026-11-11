@@ -1,0 +1,41 @@
+---
+title: "/setlevel"
+description: "Set a member's level in the server."
+icon: "toolbox"
+---
+
+Set a member's level in the server. The implementation converts the requested level to total XP using the leveling formula. The `preserve_xp` option attempts to preserve the remaining progress within the previous level when moving to the new level. Bot levels cannot be set.
+
+**Permission:** Manage Server (`ManageGuild`), Administrator, or bot owner
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/setlevel` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `user`, `level`. Optional: `type`, `preserve_xp`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/setlevel user:@Member level:10
+```
+```text Fuller example
+/setlevel user:@Member level:10 type:total preserve_xp:true
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `user` | user | Yes | User whose level to change | Bots are not accepted |
+| `level` | integer | Yes | New level | From 0 to 999 inclusive |
+| `type` | string | No | XP category to change | `total`, `text`, or `voice`; defaults to `total` |
+| `preserve_xp` | boolean | No | Preserve current XP progress within the new level | Defaults to `true` |

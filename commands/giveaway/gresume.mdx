@@ -1,0 +1,40 @@
+---
+title: "/gresume"
+description: "Resumes a paused giveaway (restores its remaining time)"
+icon: "gift"
+---
+
+Resumes a paused giveaway (restores its remaining time)
+
+**Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gresume` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gresume giveaway_id:123456789012345678
+```
+```text Prefix
+g!gresume 123456789012345678
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Select the giveaway to resume (or paste a message ID / link) | Autocomplete |
+
+Also available as the **Resume Giveaway** message action.

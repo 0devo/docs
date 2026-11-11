@@ -1,0 +1,35 @@
+---
+title: "/premium-transfer"
+description: "Type /premium-transfer in a channel where the bot can see messages and pick it from the list."
+icon: "star"
+---
+
+**Option:**
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/premium-transfer` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `new_guild_id`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/premium-transfer new_guild_id:123456789012345678
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description |
+| --- | --- | --- | --- |
+| `new_guild_id` | string | Yes | ID of the server to transfer the subscription to. The bot must be a member of it, and it must not already have a recorded Premium subscription. |
+
+Transfers a **Tier 2 (Diamond)** subscription from the current server to another server. You must be the recorded subscription owner (`ownerId`), the bot must be present in the target server, and that server must not already have a recorded subscription; you cannot transfer to the same server. The expiration date remains unchanged. The command is defined with public registration permissions, but the runtime check restricts transfers to the subscription owner. The plans page mentions an eligible transfer option for the Diamond plan; this does not mean every website subscription is automatically eligible for this command or that purchase data is synchronized with it.

@@ -1,0 +1,38 @@
+---
+title: "/gtemplate edit entries"
+description: "Edit bonus/vote entries"
+icon: "gift"
+---
+
+Edit bonus/vote entries
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gtemplate edit entries` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `name`. Optional: `extra_entries`, `max_entries`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gtemplate edit entries name:weekly-nitro
+```
+```text Fuller example
+/gtemplate edit entries name:weekly-nitro extra_entries:@Booster 3 max_entries:3
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | Yes | Template to edit |  |
+| `extra_entries` | string | No | Bonus entries (replaces existing) |  |
+| `max_entries` | integer | No | Max vote entries (0 = unlimited) | Range: 0 to 10 |

@@ -1,0 +1,40 @@
+---
+title: "/gend"
+description: "Ends an active giveaway"
+icon: "gift"
+---
+
+Ends an active giveaway
+
+**Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gend` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gend giveaway_id:123456789012345678
+```
+```text Prefix
+g!gend 123456789012345678
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Select the giveaway to end (or paste a message ID / link) | Autocomplete |
+
+Shows a confirmation that expires after 60 seconds. Also available as the **End Giveaway** message action.

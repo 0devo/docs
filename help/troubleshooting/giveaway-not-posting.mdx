@@ -1,0 +1,12 @@
+---
+title: "The bot did not post my giveaway"
+description: "Check permissions, your role and the values you entered."
+icon: "ban"
+---
+
+<Steps>
+  <Step title="Check the bot's channel permissions">It needs **View Channel**, **Send Messages** and **Embed Links** in that channel, plus **Add Reactions** for reaction giveaways.</Step>
+  <Step title="Check your own permissions">You need Manage Server, Administrator or a Giveaway Manager role.</Step>
+  <Step title="Check the values">A duration without a unit, like `30`, is rejected. Use `30m`. See [Durations](/concepts/durations).</Step>
+  <Step title="Check Premium limits">A duration, winner count or repeat over your tier's limit is refused with a message naming the limit.</Step>
+</Steps>

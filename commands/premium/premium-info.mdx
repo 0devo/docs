@@ -1,0 +1,31 @@
+---
+title: "/premium-info"
+description: "Type /premium-info in a channel where the bot can see messages and pick it from the list."
+icon: "star"
+---
+
+**Defined permission:** Manage Server (`ManageGuild`).
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/premium-info` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/premium-info
+```
+</CodeGroup>
+
+
+Displays an ephemeral panel with the Premium status of the current server. It includes the plan and status, owner, activation and expiration dates, included features, and usage of linked server slots, if applicable. The panel provides a refresh option, a management button that points to `/premium-settings`, and a support/renewal link. If the server has no recorded subscription, it displays the features and support link.

@@ -1,0 +1,38 @@
+---
+title: "/gtemplate edit entries"
+description: "تعديل فرص المشاركة الإضافية وفرص التصويت"
+icon: "gift"
+---
+
+تعديل فرص المشاركة الإضافية وفرص التصويت
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate edit entries` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`. الخيارات الاختيارية: `extra_entries`, `max_entries`.
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate edit entries name:weekly-nitro
+```
+```text مثال أوسع
+/gtemplate edit entries name:weekly-nitro extra_entries:@Booster 3 max_entries:3
+```
+</CodeGroup>
+
+
+| الخيار | النوع | مطلوب | الوصف | ملاحظات |
+| --- | --- | --- | --- | --- |
+| `name` | نص | نعم | القالب المراد تعديله |  |
+| `extra_entries` | نص | لا | فرص المشاركة الإضافية (تستبدل الحالية) |  |
+| `max_entries` | عدد صحيح | لا | الحد الأقصى لفرص المشاركة من التصويت (0 = غير محدود) | النطاق: من 0 إلى 10 |

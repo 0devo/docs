@@ -1,0 +1,43 @@
+---
+title: "/starboard"
+description: "The current command does not open an in-Discord control panel; it sends an ephemeral notice and an Open Dashboard button linking to the Starboard page in the we"
+icon: "toolbox"
+---
+
+The current command does not open an in-Discord control panel; it sends an ephemeral notice and an **Open Dashboard** button linking to the Starboard page in the web dashboard. The notice points out a data-compatibility issue with older settings, recommends creating the starboard again through the dashboard, and says the command will be removed within a month. The command is exposed to users with Manage Server (`ManageGuild`). The legacy management interface below remains defined in the code and its interaction handlers, but it is not what currently opens when the command is run.
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/starboard` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot opens an interactive panel with buttons and menus; make your changes there.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/starboard
+```
+</CodeGroup>
+
+
+## Starboard interface sections defined in the code
+
+The legacy interface starts with a main panel showing status (active/disabled/paused), format, channel, log channel, star emoji, minimum threshold, saved stars, rewards, and triggers. Changes to its settings are saved immediately.
+
+- **General:** Enable/Disable and Pause/Resume buttons; toggle self-starring; edit the emoji/threshold/color; select text channels for the starboard and log channels; clear the log channel; and select the exclusive group role whose members can award stars.
+- **Filters:** Filter by channels and roles, set minimum Discord account age and server join age (non-negative numbers of days, with zero meaning no requirement), ignore NSFW channels, and require an attachment.
+- **Restrictions:** Toggle role and channel restrictions, select their lists, and choose their mode (`allow` or `deny`).
+- **Behavior:** Set repost prevention from 0 to 3600 seconds, minimum message age, and maximum age (0 means no limit). Advanced options include rules for handling messages, reactions, and members.
+- **Builder / Content / Texts:** Configure the starboard post's layout and text. Defined formats are `embed`, `plain`, and `v2`, but acceptance of `v2` depends on whether the database schema allows it; if the schema rejects it, the implementation keeps the previous format. Builder settings include showing author, description, source, image, and timestamp elements; thumbnail settings; a jump button; and two additional links. The thumbnail and additional-link URLs must use an HTTP(S) prefix.
+- **Rewards:** Configure star rewards; **Leaderboard** and **Stats** display leaderboard and statistics sections; **Export / Import** opens the data section.
+- **Preview:** Preview only the latest starred message. If there are no starred messages or the source cannot be fetched, an ephemeral notice/error is shown.
+
+The legacy panel's permission check also runs in its handlers: bot owner, Administrator, Manage Server (`ManageGuild`), or a member with one of the contest-manager roles registered in the server. See [Starboard](/features/starboard).

@@ -1,0 +1,37 @@
+---
+title: "/setcolor"
+description: "Set a custom color for giveaway embeds (Premium Only)"
+icon: "gift"
+---
+
+Set a custom color for giveaway embeds (Premium Only)
+
+**Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/setcolor` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `color`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/setcolor color:#ff0000
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `color` | string | Yes | The hex color code (e.g., #ff0000, #00ff00, #0000ff) |  |
+
+**Premium Tier 1 or higher.** Accepts a 3- or 6-digit hexadecimal color, with or without `#`; 3-digit values are expanded to 6 digits. Black (`#000000`) is rejected with a warning because it has poor visibility. The color applies only to new embed messages. Example: `/setcolor color:#ff0000`.

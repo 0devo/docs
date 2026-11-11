@@ -1,0 +1,71 @@
+---
+title: "Giveaway message placeholders"
+description: "Variables for giveaway DMs, winner announcements, winner threads and the giveaway embed."
+icon: "gift"
+---
+
+Giveaway text is edited in `/settings` (see [Server settings](/giveaways/settings)). The placeholders you can use depend on **which message** you are editing.
+
+<Tabs>
+  <Tab title="Winner and host DMs" icon="envelope">
+    | Placeholder | Becomes |
+    | --- | --- |
+    | `{prize}` | The giveaway prize |
+    | `{server}` | Your server's name |
+    | `{winners_count}` | How many winners were picked |
+    | `{winners_list}` | The winners, as mentions |
+    | `{timestamp}` | The end time as a number. Write it inside Discord's time tag, like `<t:{timestamp}:F>`, to show a formatted date |
+
+    ```text Example host DM
+    🎁 Prize: {prize}
+    🏆 Winners ({winners_count}): {winners_list}
+    📅 Ended: <t:{timestamp}:F>
+    ```
+  </Tab>
+  <Tab title="Winner announcement" icon="trophy">
+    | Placeholder | Becomes |
+    | --- | --- |
+    | `{prize}` | The giveaway prize |
+    | `{winners_list}` | The winners, as mentions |
+    | `{winners_count}` | Number of winners |
+    | `{host}` | The host |
+    | `{server}` | Your server's name |
+    | `{date}` | The date |
+
+    ```text Example
+    Congratulations {winners_list}! You won **{prize}**!
+    ```
+  </Tab>
+  <Tab title="Winner thread" icon="comments">
+    Used in both the **thread name** and the **thread message**.
+
+    | Placeholder | Becomes |
+    | --- | --- |
+    | `{prize}` | The giveaway prize |
+    | `{prize_short}` | A shortened prize, so long names fit in a thread title |
+    | `{host}` | The host |
+    | `{channel}` | The giveaway channel |
+    | `{date}` | The date |
+    | `{winners_list}` | The winners |
+
+    The default thread name uses `{gift}` (a gift emoji), `{prize_short}`, `{channel}` and `{date}` separated by dots.
+  </Tab>
+  <Tab title="Giveaway embed template" icon="rectangle-list">
+    Used when you customize the giveaway message layout.
+
+    | Placeholder | Becomes |
+    | --- | --- |
+    | `{prize}` | The prize |
+    | `{host}` | The host |
+    | `{end_time}` | When the giveaway ends |
+    | `{winners_count}` | Number of winners |
+    | `{description}` | The giveaway description |
+    | `{enter_button}` | The enter button |
+    | `{info_rows}`, `{extra}`, `{bullet}` | Building blocks the default layout uses for the details list, extra requirements and bullet symbol |
+    | `{lbl_ends}`, `{lbl_host}`, `{lbl_winners}` | The translated labels for "Ends", "Host" and "Winners" |
+  </Tab>
+</Tabs>
+
+<Tip>
+Open the message in `/settings` and use its **preview** button to check how your placeholders turn out before saving.
+</Tip>

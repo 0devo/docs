@@ -1,0 +1,27 @@
+---
+title: "How to make a giveaway repeat automatically"
+description: "Run the same giveaway every week without recreating it."
+icon: "rotate"
+---
+
+<Tabs>
+  <Tab title="Repeat right away" icon="rotate">
+    Use the `repeat` option, available from <Badge color="blue">Tier 1</Badge>.
+
+    ```text
+    /gstart duration:7d winners:1 prize:Weekly Nitro repeat:4
+    ```
+  </Tab>
+  <Tab title="Schedule a series" icon="calendar">
+    Schedule a giveaway and choose a **daily**, **weekly** or **monthly** recurrence. When one goes live, the next is prepared automatically.
+
+    ```text
+    /gschedule create start_time:1d duration:7d winners:1 prize:Weekly Nitro
+    ```
+  </Tab>
+  <Tab title="Save a template" icon="copy">
+    Save the setup with `/gtemplate create`, then start it again any time with `/gstart template:weekly-nitro`.
+  </Tab>
+</Tabs>
+
+See [Scheduling](/giveaways/scheduling) and [Templates](/giveaways/templates).

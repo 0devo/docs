@@ -1,0 +1,45 @@
+---
+title: "/glist"
+description: "Lists active or ended giveaways in the server"
+icon: "gift"
+---
+
+Lists active or ended giveaways in the server
+
+**Permission:** None (View Channel)
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/glist` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `status`, `host`, `channel`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/glist
+```
+```text Fuller example
+/glist status:active host:@Host channel:#giveaways
+```
+```text Prefix
+g!glist --status=active --host=@Host --channel=#giveaways
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `status` | string | No | Filter giveaways by status (active, ended, or scheduled) | Choices: `active`, `ended`, `scheduled` |
+| `host` | user | No | Filter giveaways by host |  |
+| `channel` | channel | No | Filter giveaways by channel |  |
+
+Results are shown ephemerally in pages of four entries, with links to giveaway messages and buttons to delete, pause or resume, or repost, depending on status. Session buttons expire after five minutes. The `ended` filter includes inactive entries; `scheduled` shows scheduled giveaways. The command requires View Channel permission.

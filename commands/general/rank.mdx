@@ -1,0 +1,39 @@
+---
+title: "/rank"
+description: "Show a user's level and progress in text and voice XP, text rank, message count, and voice time."
+icon: "toolbox"
+---
+
+Show a user's level and progress in text and voice XP, text rank, message count, and voice time. A **Rank** context-menu command is also available by right-clicking a user. **The command is temporarily disabled in the current implementation** while the leveling system is being updated, so the options below do not currently produce a card. If re-enabled, the graphical card requires the `canvas` library; when it is unavailable, the implementation displays a text summary instead of an image. Bots do not have level data.
+
+**Permission:** Everyone
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/rank` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `user`, `theme`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/rank
+```
+```text Fuller example
+/rank user:@Member theme:dark
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `user` | user | No | User to look up | Defaults to the command user |
+| `theme` | string | No | Card appearance | `dark` or `light`; defaults to `dark`; currently has no effect because of maintenance mode |

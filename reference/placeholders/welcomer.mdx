@@ -1,0 +1,32 @@
+---
+title: "Welcome and goodbye placeholders"
+description: "Variables for join and leave messages, embeds and image cards."
+icon: "hand-wave"
+---
+
+Edit welcome and goodbye messages on the dashboard. See [Welcomer](/features/welcomer).
+
+| Placeholder | Becomes |
+| --- | --- |
+| `{user}` | A mention of the member |
+| `{username}` | Their username |
+| `{server}` | Your server's name |
+| `{memberCount}` | The current member count |
+| `{avatar}` | The member's avatar picture |
+| `{serverIcon}` | Your server's icon |
+| `{accountAge}` | How old their Discord account is, like "2 years" |
+| `{userCreatedDate}` | The date the account was created |
+| `{timeInServer}` | How long they were in the server. Best for goodbye messages |
+
+<CodeGroup>
+```text Welcome
+Welcome {user} to {server}! You are member #{memberCount}.
+```
+```text Goodbye
+{username} left after {timeInServer}. We'll miss you!
+```
+</CodeGroup>
+
+<Note>
+`{avatar}` and `{serverIcon}` also work in the **image** and **thumbnail** fields of an embed.
+</Note>

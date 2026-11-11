@@ -1,0 +1,61 @@
+---
+title: "/gedit"
+description: "Edit an active or scheduled giveaway"
+icon: "gift"
+---
+
+Edit an active or scheduled giveaway
+
+**Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gedit` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    Required: `giveaway_id`. Optional: `prize`, `duration`, `winners`, `image`, `thumbnail`, `required_role`, `requirement_bypass_role`, `blacklist_role`…. Some options offer suggestions while you type; pick one from the list.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gedit giveaway_id:123456789012345678
+```
+```text Fuller example
+/gedit giveaway_id:123456789012345678 prize:Discord Nitro duration:1d winners:1 image:(attach a file)
+```
+```text Prefix
+g!gedit 123456789012345678
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `giveaway_id` | string | Yes | Select the giveaway to edit | Autocomplete |
+| `prize` | string | No | The prize being given away |  |
+| `duration` | string | No | New duration from now (e.g. 1d, 2h, 30m) |  |
+| `winners` | integer | No | Number of winners |  |
+| `image` | attachment | No | Image for the giveaway |  |
+| `thumbnail` | attachment | No | Thumbnail for the giveaway |  |
+| `required_role` | role | No | Role required to participate |  |
+| `requirement_bypass_role` | role | No | Role that bypasses requirements |  |
+| `blacklist_role` | role | No | Role that is blacklisted from participating |  |
+| `winners_role` | role | No | Role given to winners |  |
+| `description` | string | No | Description for the giveaway |  |
+| `host` | user | No | User who is hosting the giveaway |  |
+| `giveaway_create_message` | string | No | Custom message shown when the giveaway is created |  |
+| `joined_age` | integer | No | Minimum days the user must have been in the server |  |
+| `account_age` | integer | No | Minimum age of the user's Discord account (days) |  |
+| `extra_entries` | string | No | Bonus entries for roles (e.g., @role 5 @role2 7) |  |
+| `max_entries` | integer | No | Max extra entries a user can earn from voting (0 = unlimited) | Range: 0 to 10 |
+| `repeat` | integer | No | Number of times to repeat (Premium) | Range: 1 to no max |
+| `sticky` | boolean | No | Auto-resend giveaway (Premium Tier 2+) |  |
+
+See [Managing giveaways](/giveaways/managing#gedit-edit-a-giveaway). Ended giveaways cannot be edited.

@@ -1,0 +1,40 @@
+---
+title: "/ping"
+description: "Checks the bot's responsiveness and connections, and displays runtime and system information."
+icon: "circle-info"
+---
+
+Checks the bot's responsiveness and connections, and displays runtime and system information. It requires no options or special permissions, and the implementation does not set a cooldown.
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/ping` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/ping
+```
+</CodeGroup>
+
+
+**Usage:** `/ping`
+
+A measurement indicator appears first, then the bot replaces it with a panel containing:
+
+- WebSocket latency, the round-trip time for the command response, and the latency of a REST request to the Discord API; each is rated Excellent, Good, Average, or Poor. If REST latency cannot be measured, the value is `N/A`.
+- Discord's status, obtained from the public status API; if it cannot be fetched, the status is `Unknown`.
+- WebSocket connection status, bot uptime and connection time, shard ID and shard count, cluster ID, and REST API version.
+- Memory usage (Heap and RSS) and Node.js version, along with the bot, shard, and cluster identities and the time.
+
+If command execution fails, the bot attempts to display an error message containing the error details. The response does not show cache statistics, although they are collected during execution.

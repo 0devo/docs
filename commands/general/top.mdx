@@ -1,0 +1,42 @@
+---
+title: "/top"
+description: "Show separate chat and voice activity leaderboards for the server, ranked by XP for the selected period."
+icon: "toolbox"
+---
+
+Show separate chat and voice activity leaderboards for the server, ranked by XP for the selected period. Five members are shown per page, with Previous and Next buttons and a page number (disabled). The command shows the invoking user's current rank in the list when the data/filtering requirements are met.
+
+**Permission:** Everyone
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/top` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `duration`, `role`, `page`.
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/top
+```
+```text Fuller example
+/top duration:day role:@Member page:1
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `duration` | string | No | Time period | `day`, `week`, `month`, or `all`; defaults to `all` |
+| `role` | role | No | Limit results to members with this role |  |
+| `page` | integer | No | Results page number | Starts at 1; defaults to 1; the implementation does not define a published upper limit |
+
+The command does not work if leveling is disabled in the server. Recurring periods use reset days defined in server settings; calculations use the daily/weekly/monthly XP fields. See [Leveling](/features/leveling).

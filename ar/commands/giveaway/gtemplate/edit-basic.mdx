@@ -1,0 +1,47 @@
+---
+title: "/gtemplate edit basic"
+description: "تعديل الاسم والجائزة والمدة والفائزين والقناة والوصف وخيارات Premium"
+icon: "gift"
+---
+
+تعديل الاسم والجائزة والمدة والفائزين والقناة والوصف وخيارات Premium
+
+{/* usage */}
+**طريقة الاستخدام**
+
+<Steps>
+  <Step title="افتح الأمر">
+    اكتب `/gtemplate edit basic` في قناة يستطيع البوت رؤيتها، ثم اخترْه من القائمة.
+  </Step>
+  <Step title="املأ الخيارات">
+    الخيارات الإلزامية: `name`. الخيارات الاختيارية: `new_name`, `prize`, `duration`, `winners`, `channel`, `description`, `entry_type`, `reaction_emoji`….
+  </Step>
+  <Step title="أرسل الأمر">
+    يعرض البوت النتيجة.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text أبسط صيغة
+/gtemplate edit basic name:weekly-nitro
+```
+```text مثال أوسع
+/gtemplate edit basic name:weekly-nitro new_name:weekly-nitro-2 prize:Discord Nitro duration:1d winners:1
+```
+</CodeGroup>
+
+
+| الخيار | النوع | مطلوب | الوصف | ملاحظات |
+| --- | --- | --- | --- | --- |
+| `name` | نص | نعم | القالب المراد تعديله |  |
+| `new_name` | نص | لا | إعادة تسمية القالب |  |
+| `prize` | نص | لا | الجائزة الجديدة |  |
+| `duration` | نص | لا | المدة الجديدة |  |
+| `winners` | عدد صحيح | لا | العدد الجديد للفائزين | النطاق: من 1 دون حد أقصى |
+| `channel` | قناة | لا | القناة الجديدة |  |
+| `description` | نص | لا | الوصف الجديد |  |
+| `entry_type` | نص | لا | طريقة المشاركة | الخيارات: `button`، `reaction` |
+| `reaction_emoji` | نص | لا | الرمز التعبيري لوضع المشاركة بالتفاعل |  |
+| `giveaway_create_message` | نص | لا | رسالة إنشاء مخصصة |  |
+| `repeat` | عدد صحيح | لا | عدد مرات التكرار | النطاق: من 1 دون حد أقصى |
+| `sticky` | قيمة منطقية | لا | سحب يُعاد إرساله تلقائيًا |  |

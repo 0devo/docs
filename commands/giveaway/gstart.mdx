@@ -1,0 +1,68 @@
+---
+title: "/gstart"
+description: "Starts a giveaway with customizable options"
+icon: "gift"
+---
+
+Starts a giveaway with customizable options
+
+**Permission:** Manage Server
+
+{/* usage */}
+**How to use**
+
+<Steps>
+  <Step title="Open the command">
+    Type `/gstart` in a channel where the bot can see messages and pick it from the list.
+  </Step>
+  <Step title="Fill in the options">
+    This command has no required options. Optional: `duration`, `winners`, `prize`, `template`, `channel`, `image`, `thumbnail`, `required_roles`….
+  </Step>
+  <Step title="Send it">
+    The bot replies with the result.
+  </Step>
+</Steps>
+
+<CodeGroup>
+```text Simplest form
+/gstart
+```
+```text Fuller example
+/gstart duration:1d winners:1 prize:Discord Nitro template:weekly-nitro
+```
+```text Prefix
+g!gstart --duration=1d --winners=1 --prize=Discord Nitro
+```
+</CodeGroup>
+
+
+| Option | Type | Required | Description | Notes |
+| --- | --- | --- | --- | --- |
+| `duration` | string | No | Duration of the giveaway (e.g. 1d, 2h, 30m) |  |
+| `winners` | integer | No | Number of winners |  |
+| `prize` | string | No | The prize being given away |  |
+| `template` | string | No | Use a saved template |  |
+| `channel` | channel | No | Channel where the giveaway will be hosted |  |
+| `image` | attachment | No | Image for the giveaway |  |
+| `thumbnail` | attachment | No | Thumbnail for the giveaway |  |
+| `required_roles` | string | No | Roles required to participate |  |
+| `requirement_bypass_roles` | string | No | Roles that bypass requirements |  |
+| `blacklist_roles` | string | No | Roles blacklisted from participating |  |
+| `winners_roles` | string | No | Roles given to winners |  |
+| `description` | string | No | Description for the giveaway |  |
+| `host` | user | No | User who is hosting the giveaway |  |
+| `giveaway_create_message` | string | No | Custom message when giveaway is created |  |
+| `joined_age` | integer | No | Minimum days the user must have been in the server |  |
+| `account_age` | integer | No | Minimum age of the user's Discord account (days) |  |
+| `required_messages` | integer | No | Number of messages required |  |
+| `extra_entries` | string | No | Bonus entries for roles (e.g., @role 5) |  |
+| `max_entries` | integer | No | Max extra entries a user can earn from voting | Range: 1 to 10 |
+| `repeat` | integer | No | Number of times to repeat (Premium) | Range: 1 to no max |
+| `sticky` | boolean | No | Auto-resend giveaway (Premium Tier 2+) |  |
+| `required_official_tag` | boolean | No | Whether the user must have the official server tag |  |
+| `required_level` | integer | No | Minimum level required to enter (leveling system) | Range: 1 to no max |
+| `auto_claim` | boolean | No | Auto Claim & Reroll: winners claim with one button; unclaimed prizes auto-reroll |  |
+
+<Info>
+See [Creating giveaways](/giveaways/creating) for how each group of options works. Role list options accept role mentions or IDs. Values not provided fall back to the selected `template`, then to the server defaults.
+</Info>

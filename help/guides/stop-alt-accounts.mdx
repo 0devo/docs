@@ -1,0 +1,30 @@
+---
+title: "How to stop alt accounts from winning"
+description: "Block brand-new accounts, require the captcha and keep giveaways fair."
+icon: "shield-check"
+---
+
+<Steps>
+  <Step title="Set minimum ages">
+    Require a minimum **account age** and **server join age**. Brand-new accounts and just-joined alts are blocked.
+
+    ```text
+    /gstart duration:3d winners:1 prize:Gift Card account_age:30 joined_age:7
+    ```
+  </Step>
+  <Step title="Turn on the captcha">
+    In the **Studio** open **Giveaway Settings**, then **Appearance**, then **Entry Verification**, and set **Require captcha** to always on. Pick the difficulty you want.
+  </Step>
+  <Step title="Add anti-raid checks">
+    In **Appearance**, open **Anti-Raid Protection**. Set a **minimum profile completeness** and **suspicious username detection** to low, medium or high.
+  </Step>
+  <Step title="Require a role earned over time">
+    Add a required role together with a **role hold duration**, so a role grabbed just to enter does not count.
+  </Step>
+</Steps>
+
+<Tip>
+No single check is perfect. Combining account age, the captcha and a hold duration works much better than any one of them.
+</Tip>
+
+See [Entry requirements](/giveaways/entry-requirements) for every option.

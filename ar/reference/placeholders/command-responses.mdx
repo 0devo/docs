@@ -1,0 +1,24 @@
+---
+title: "متغيرات ردود الأوامر المخصصة"
+description: "متغيرات لاستبدال ناتج الأمر بنصك الخاص."
+icon: "wand-magic-sparkles"
+---
+
+عند ضبط **رد مخصص** لأمر من لوحة الويب تُستبدل هذه المتغيرات تلقائيًا. راجع [تخصيص الأوامر](/ar/features/command-customization).
+
+| المتغير | يصبح |
+| --- | --- |
+| `{user}` | اسم مستخدم العضو |
+| `{user.mention}` | إشارة إلى العضو |
+| `{user.tag}` | وسمه |
+| `{user.id}` | معرّفه |
+| `{server}` | اسم خادمك |
+| `{server.id}` | معرّف خادمك |
+| `{channel}` | اسم القناة |
+| `{channel.mention}` | رابط القناة |
+| `{args}` | ما كتبه العضو بعد الأمر |
+| `{prefix}` | بادئة الخادم |
+
+```text مثال
+Hi {user.mention}! Giveaways are hosted in {channel.mention}. Use {prefix}help for more.
+```
